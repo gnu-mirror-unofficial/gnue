@@ -1,19 +1,13 @@
-<h3>GNUe Designer 0.4.3 for wxPython 2.4 users</h3>
+<h3>Web site changes</h3>
 
-<p>03 February 2003</p>
-<p>Please note that all versions of GNUe Designer up to <b>and including</b> 
-0.4.2 and the 0.5.0 pre-releases are incompatible with the new 2.4 
-release of wxPython. In particular, Debian users should note that this is 
-now the default version in the unstable ("sid") distribution.</p>
+<p>05 February 2003</p>
+<p>The few visible recent changes to the website (plus 
+the occasional glitch) mask a lot more changes underneath. 
+The most significant change is that the site is now
+available, in the same format, at both
+<a href="http://www.gnu.org/software/gnue/project/what.html">
+www.gnu.org/software/gnue/</a> and
+<a href="http://www.gnuenterprise.org/project/what.html">
+www.gnuenterprise.org</a>.</p>
 
-<p>The fixes have already applied to the CVS 
-version of GNUe - and hence it will also be included in 0.5.0 when it's 
-officially released. However, for the moment, we have done a bug-fix
-release in the stable ("0.4.x") branch, and released a 0.4.3 version 
-of GNUe Designer which includes the fixes.</p>
-
-<p>Unless you need to use GNUe Designer with wxPython 2.4, there is no 
-need to upgrade at the moment - you can safely wait for the 0.5.0 
-releases. Also, note that the problems with wxPython do not affect 
-GNUe Forms, so this remains at version 0.4.3.</p>
-
+<p><a href="../news/news129.html">More ...</a></p>

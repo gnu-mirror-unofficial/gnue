@@ -7,43 +7,13 @@
 <BODY>
 <H1>GNUe-SuSE-mini-HOWTO</H1>
 
-<H2>Arjen Runsink </H2>v0.02, 17 October 2002
+<H2>Arjen Runsink </H2>v0.06, 6-2-2003
 <HR>
 <EM>This mini HOWTO describes how to get the GNUenterprise packages
  release 0.4.0 to work with the SuSE distribution version 8.0 and
- PostgreSQL or MySQL. </EM>
+ 8.1 inc combination with for example PostgreSQL or MySQL. </EM>
 <HR>
-<P>
-<H2><A NAME="toc1">1.</A> <A HREF="GNUe-SuSE-HOWTO.html#s1">Introduction</A></H2>
-
-<UL>
-<LI><A NAME="toc1.1">1.1</A> <A HREF="GNUe-SuSE-HOWTO.html#ss1.1">Status of this document</A>
-</UL>
-<P>
-<H2><A NAME="toc2">2.</A> <A HREF="GNUe-SuSE-HOWTO.html#s2">Getting the raw materials</A></H2>
-
-<UL>
-<LI><A NAME="toc2.1">2.1</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.1">The GNUe Packages</A>
-<LI><A NAME="toc2.2">2.2</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.2">egenix-mx-base (mxDateTime)</A>
-<LI><A NAME="toc2.3">2.3</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.3">wxPythonSrc</A>
-<LI><A NAME="toc2.4">2.4</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.4">PySablot</A>
-<LI><A NAME="toc2.5">2.5</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.5">SuSE packages</A>
-</UL>
-<P>
-<H2><A NAME="toc3">3.</A> <A HREF="GNUe-SuSE-HOWTO.html#s3">Compiling and installing</A></H2>
-
-<UL>
-<LI><A NAME="toc3.1">3.1</A> <A HREF="GNUe-SuSE-HOWTO.html#ss3.1">egenix-mx-base</A>
-<LI><A NAME="toc3.2">3.2</A> <A HREF="GNUe-SuSE-HOWTO.html#ss3.2">wxPythonSrc</A>
-<LI><A NAME="toc3.3">3.3</A> <A HREF="GNUe-SuSE-HOWTO.html#ss3.3">PySablot</A>
-<LI><A NAME="toc3.4">3.4</A> <A HREF="GNUe-SuSE-HOWTO.html#ss3.4">The GNUe packages</A>
-</UL>
-<P>
-<H2><A NAME="toc4">4.</A> <A HREF="GNUe-SuSE-HOWTO.html#s4">Configuring GNUe</A></H2>
-
-
-<HR>
-<H2><A NAME="s1">1.</A> <A HREF="#toc1">Introduction</A></H2>
+<H2><A NAME="s1">1. Introduction</A></H2>
 
 <P>While working with different projects and managing a few I found
 I had much need to dig deeper into databases and all the possibilities
@@ -58,23 +28,21 @@ SuSE 8.0 and the current release of GNUe (0.4.0) I thought to give
 it another try and document what I did in this HOWTO.</P>
 <P>This HOWTO does not describe how to setup either MySQL or PostgreSQL.
 They come with excellent documentation.</P>
-<H2><A NAME="ss1.1">1.1</A> <A HREF="#toc1.1">Status of this document</A>
+<H2><A NAME="ss1.1">1.1 Status of this document</A>
 </H2>
 
 <P>This is the first version. I don't know if I am ready with it.
 Maybe things don't work in the end. If you have something I might
 add, or a correction send me an email: arjen(*a*t*)zeilers.net</P>
-<P>$Id: GNUe-SuSE-HOWTO.lyx,v 1.2 2002/10/17 17:07:25 arjen
-Exp arjen $</P>
-<H2><A NAME="s2">2.</A> <A HREF="#toc2">Getting the raw materials</A></H2>
+<H2><A NAME="s2">2. Getting the raw materials</A></H2>
 
 <P>To start of let's get all that is needed.</P>
-<H2><A NAME="ss2.1">2.1</A> <A HREF="#toc2.1">The GNUe Packages</A>
+<H2><A NAME="ss2.1">2.1 The GNUe Packages</A>
 </H2>
 
-<P>The GNUe packages are quite they can be downloaded from 
-<A HREF="http://www.gnue.org">www.gnue.org</A>. See
-the download section. </P>
+<P>The GNUe packages can be downloaded from 
+<A HREF="http://www.gnue.org">www.gnue.org</A>. See the download section.</P>
+
 <P>GNUe-Common-0.4.0.tar.gz</P>
 <P>GNUe-Designer-0.4.0.tar.gz</P>
 <P>GNUe-Forms-0.4.0.tar.gz</P>
@@ -83,17 +51,18 @@ the download section. </P>
 <P>and maybe also the samples and GEAS</P>
 <P>Samples-0.4.0.tar.gz</P>
 <P>GNUe-AppServer-0.0.2.tar.gz</P>
-<H2><A NAME="ss2.2">2.2</A> <A HREF="#toc2.2">egenix-mx-base (mxDateTime)</A>
+<H2><A NAME="ss2.2">2.2 egenix-mx-base (mxDateTime)</A>
 </H2>
 
 <P>Egenix-mx-base provides, amongst some other stuff, the mxDateTime
 which could not be found anymore, the INSTALL that comes with GNUe
 mentions it, and that it possibly could be provided with python 2.1+.
-Well SuSE 8.0 comes with python 2.2 but no mxDateTime.</P>
+Well SuSE 8.0 comes with python 2.2 but no mxDateTime. For SuSE 8.1
+it is more easy. The package is included with the distribution.</P>
 <P>You can get the package at 
 <A HREF="http://www.lemburg.com/python/mxExtensions.html">http://www.lemburg.com/python/mxExtensions.html</A></P>
 <P>The file I used was egenix-mx-base-2.0.4.tar.gz</P>
-<H2><A NAME="ss2.3">2.3</A> <A HREF="#toc2.3">wxPythonSrc</A>
+<H2><A NAME="ss2.3">2.3 wxPythonSrc</A>
 </H2>
 
 <P>I used the wxPythonSrc that can be found on 
@@ -101,15 +70,18 @@ Well SuSE 8.0 comes with python 2.2 but no mxDateTime.</P>
 <P>There is a link to sourceforge there and make sure you get a
 file named like wxPythonSrc-x.x.x.tar.gz because this one contains
 it's own version of wxGTK which it will build nicely with. I used
-wxPythonSrc-2.3.3.1.tar.gz</P>
-<H2><A NAME="ss2.4">2.4</A> <A HREF="#toc2.4">PySablot</A>
+wxPythonSrc-2.4.x.tar.gz. It appears that wxPython 2.4.x does not
+use the string module, which may give you trouble with Designer.
+See 
+<A HREF="http://www.kerneltraffic.org/GNUe/gnue20030201_66.html#6">here</A> for a description and possible solution.</P>
+<H2><A NAME="ss2.4">2.4 PySablot</A>
 </H2>
 
 <P>PySablot is necessary for GNUe-Reports. You can get it at 
 <A HREF="http://sourceforge.net/projects/pysablot/">http://sourceforge.net/projects/pysablot/</A></P>
 <P>By the time I got there the most recent package was just one:
 PySablot-0.1.tar.gz</P>
-<H2><A NAME="ss2.5">2.5</A> <A HREF="#toc2.5">SuSE packages</A>
+<H2><A NAME="ss2.5">2.5 SuSE packages</A>
 </H2>
 
 <P>This is the easy part. You can use Yast to get and install some
@@ -122,7 +94,9 @@ packages that do not come with SuSE.</P>
 yast -i flex yacc make gcc gpp cpp checkinstall \ 
         m4 binutils autoconf automake glib-devel \
         glibc-devel gtk-devel python python-devel \ 
-        postgresql-python sablot sablot-devel pyxml
+        postgresql-python sablot sablot-devel pyxml \
+        xdevel gcc-c++
+#for SuSE 8.1 add  python-egenix-mx-base
 </PRE>
 </P>
 <P>This list may not be complete. Perhaps not all dependencies for
@@ -151,7 +125,7 @@ yast online_update
 </P>
 <P>You may think that some packages are not necessary, maybe so,
 let me know, this saves disk clutter.</P>
-<H2><A NAME="s3">3.</A> <A HREF="#toc3">Compiling and installing</A></H2>
+<H2><A NAME="s3">3. Compiling and installing</A></H2>
 
 <P>Everything should be done as a normal user, except where mentioned
 otherwise.</P>
@@ -162,7 +136,7 @@ mkdir -p ~/BUILD/GNUe
 cd ~/BUILD/GNUe 
 </PRE>
 </P>
-<H2><A NAME="ss3.1">3.1</A> <A HREF="#toc3.1">egenix-mx-base</A>
+<H2><A NAME="ss3.1">3.1 egenix-mx-base</A>
 </H2>
 
 <P>In ~/BUILD/GNUe do:</P>
@@ -171,12 +145,22 @@ cd ~/BUILD/GNUe
 tar -xvzf ~/DOWNLOADS/GNUe/egenix-mx-base-2.0.4.tar.gz
 cd egenix-mx-base-2.0.4
 python setup.py build
-su -c &quot;python setup.py install&quot;
+su -c &quot;checkinstall python setup.py install&quot;
 </PRE>
 </P>
-<P>su asks for the <EM>root</EM> password, type it in and the lot is installed
-as root</P>
-<H2><A NAME="ss3.2">3.2</A> <A HREF="#toc3.2">wxPythonSrc</A>
+<P>Now su asks for the <EM>root</EM> password, type it in. Normally instead
+of su -c checkinstall one would use make install or in this case
+python setup.py install. Checkinstall does a make install and generates
+an rpm. It asks a few details and then creates and installs the rpm
+and also saves it in /usr/src/packages/RPMS/i386. I use checkinstall
+because it is easy to make an unofficial rpm so the installed files
+can be easily removed without needing the source tree to do a make
+uninstall or installed on another host. And very few packages provide
+a make uninstall. This reduces clutter immensely. Checkinstall has
+lot's of nice options and the packages can be tailored even more
+than described in this document. Do a checkinstall --help for more
+info.</P>
+<H2><A NAME="ss3.2">3.2 wxPythonSrc</A>
 </H2>
 
 <P>I chose to install wxPython with it's own wxGTK version that
@@ -217,16 +201,7 @@ cd ../build
 su -c checkinstall
 </PRE>
 </P>
-<P>Again su asks for the <EM>root</EM> password. Normally instead of su -c
-checkinstall one would use make install. Checkinstall does a make
-install and generates an rpm. It asks a few details and then creates
-and installs the rpm and also saves it in /usr/src/packages/RPMS/i386.</P>
-<P>I use checkinstall because it is easy to make an unofficial rpm
-so the installed files can be easily removed or installed on another
-host without needing the source tree to do a make uninstall. And
-very few packages provide a make uninstall. This reduces clutter
-immensely.s and GNUe-Navigator</P>
-<P>Configuring GNUe</P>
+<P>Again su asks for the <EM>root</EM> password. </P>
 <P>Checkinstall asks a few questions. First if it should generate
 some default documentation. Just say yes. As a description I gave
 <EM>wxGTK for wxPython.</EM></P>
@@ -256,11 +231,15 @@ su -c &quot;python setup.py install IN_CVS_TREE=1\
        BUILD_GLCANVAS=0 BUILD_XRC=1&quot;
 </PRE>
 </P>
-<P>Afaik you can not use checkinstall (yet) to install wxPython.
-The installation is done using distutils which comes with the current
-Python versions. There should be a way to de-install it using those
-tools, but at the moment I have no idea. Read the manuals.</P>
-<H2><A NAME="ss3.3">3.3</A> <A HREF="#toc3.3">PySablot</A>
+<P>You can use checkinstall to install wxPython, but it creates
+an rpm that is dependend on 2 libs that are provided by the previous
+rpm we made, but not listes as such (they where specially build for
+our wxPython version). The rpm will be installed by checkinstall,
+but yast will nag you forever to deinstall it. The installation is
+done using distutils which comes with the current Python versions.
+There should be a way to de-install it using those tools, but at
+the moment I have no idea. Read the manuals.</P>
+<H2><A NAME="ss3.3">3.3 PySablot</A>
 </H2>
 
 <P>I had a hard time figuring this one out. Seems that it includes
@@ -281,11 +260,11 @@ ln -s /usr/lib/libc.a /usr/lib/libiconv.a
 tar -xvzf ~/DOWNLOADS/GNUe/PySablot-0.1.tar.gz
 cd PySablot-0.1
 python setup.py build
-su -c 'python setup.py install'
+su -c 'checkinstall python setup.py install'
 </PRE>
 </P>
 <P>And that's it.</P>
-<H2><A NAME="ss3.4">3.4</A> <A HREF="#toc3.4">The GNUe packages</A>
+<H2><A NAME="ss3.4">3.4 The GNUe packages</A>
 </H2>
 
 <P>All the packages depend on Common so install that one first.</P>
@@ -317,14 +296,14 @@ overwritten by the first during the build phase.</P>
 <P>
 <PRE>
 python setup.py build
-su -c &quot;python setup.py install&quot;
+su -c &quot;checkinstall python setup.py install&quot;
 </PRE>
 </P>
 <P>And ignore the warning about the fact that the modules were not
 installed in a path that is in Python's module search path.</P>
 <P>Repeat these steps for the modules GNUe-Designer, GNUe-Forms,
 GNUe-AppServer and GNUe-Navigator</P>
-<H2><A NAME="s4">4.</A> <A HREF="#toc4">Configuring GNUe</A></H2>
+<H2><A NAME="s4">4. Configuring GNUe</A></H2>
 
 <P>GNUe provides a few sample config files which can be used to
 set it up for your system. These are located in etc in your gnue
