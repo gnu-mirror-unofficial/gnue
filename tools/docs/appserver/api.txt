@@ -3,7 +3,7 @@ The GNU Enterprise Application Server
 
 Application Programmer's Interface
 
-   Edition 0.0.10, 2003-10-21
+Edition 0.0.10, 2003-10-21
 
    Copyright (C) 2002 Free Software Foundation
 
@@ -19,7 +19,7 @@ Documentation License".
 Data Types
 **********
 
-   In the API definition, we will make use of the following data type
+In the API definition, we will make use of the following data type
 placeholders, which will have to be translated into appropriate data
 types for the various implemented RPC mechanisms:
 
@@ -60,7 +60,7 @@ types for the various implemented RPC mechanisms:
 API Functions
 *************
 
-   All API functions can raise exceptions on failure.  All functions are
+All API functions can raise exceptions on failure.  All functions are
 atomic, in the sense that in case of an exception the function has no
 effect at all.  No error in a function call can cause a function to be
 "half-done".
@@ -73,7 +73,7 @@ placeholders we defined above.
 Session Management
 ==================
 
- - Function: session_id open (AUTH_PARAMETERS)
+ - Funktion: session_id open (AUTH_PARAMETERS)
      Opens a connection to Appserver using the given parameters for
      authentication.  The number and type of the parameters still have
      to be decided.  The return value is a handle to the session that
@@ -82,7 +82,7 @@ Session Management
      An Exception is raised if the server cannot be contacted or
      authentication fails.
 
- - Function: void close (session_id SESSION, boolean COMMIT)
+ - Funktion: void close (session_id SESSION, boolean COMMIT)
      Closes the connection identified by SESSION.  If COMMIT is TRUE,
      an uncommitted transaction of this session is implicitly
      committed; if COMMIT is FALSE, it is implicitly rolled back.
@@ -92,14 +92,14 @@ Session Management
      An Exception is raised if SESSION is not a valid session
      identifier.
 
- - Function: void commit (session_id SESSION)
+ - Funktion: void commit (session_id SESSION)
      Commits the current transaction of SESSION, making all changes
      permanent.
 
      An Exception is raised if SESSION is not a valid session
      identifier.
 
- - Function: void rollback (session_id SESSION)
+ - Funktion: void rollback (session_id SESSION)
      Discards all changes done in SESSION since the last `commit' or
      `rollback'.
 
@@ -109,10 +109,10 @@ Session Management
 Handling Lists Of Objects
 =========================
 
-   These functions provide a means for getting data for a list of
-objects fulfilling certain conditions.
+These functions provide a means for getting data for a list of objects
+fulfilling certain conditions.
 
- - Function: list_id request (session_id SESSION, string CLASSNAME,
+ - Funktion: list_id request (session_id SESSION, string CLASSNAME,
           string CONDITIONS, stringlist SORTORDER, stringlist
           PROPERTIES)
      Requests a list of objects of class CLASSNAME matching the
@@ -133,14 +133,14 @@ objects fulfilling certain conditions.
      has not access to the requested class, or any of the given
      PROPERTIES does not exist.
 
- - Function: integer count (session_id SESSION, list_id LIST)
+ - Funktion: integer count (session_id SESSION, list_id LIST)
      Returns the number of objects contained in LIST, where LIST is the
      return value of a previous call to `request'.
 
      An Exception is raised if SESSION is not a valid session
      identifier or LIST is not a valid list identifier.
 
- - Function: stringtable fetch (session_id SESSION, list_id LIST,
+ - Funktion: stringtable fetch (session_id SESSION, list_id LIST,
           integer START, integer COUNT, boolean CLOSE)
      Returns a 2-dimensional array of data with COUNT rows, where
      column 0 always holds the object_id of the object, and the
@@ -160,13 +160,13 @@ objects fulfilling certain conditions.
 Handling Specific Objects
 =========================
 
-   These functions provide a means for reading, writing and deleting an
+These functions provide a means for reading, writing and deleting an
 object or a set of objects, as well as for calling a procedure for an
 object or a set of objects.  However, the object_ids for the objects to
 operate upon have to be determined before these functions can be used,
 for example by using the list handling functions described above.
 
- - Function: stringtable load (session_id SESSION, string CLASSNAME,
+ - Funktion: stringtable load (session_id SESSION, string CLASSNAME,
           stringlist OBJECT_IDS, stringlist PROPERTIES)
      Returns a 2-dimensional array of data with a row for every entry in
      the OBJECT_IDS list and a column for every entry in PROPERTIES.
@@ -183,7 +183,7 @@ for example by using the list handling functions described above.
      has not access to the requested class, any of the given OBJECT_IDS
      does not exist, or any of the given PROPERTIES does not exist.
 
- - Function: stringlist store (session_id SESSION, string CLASSNAME,
+ - Funktion: stringlist store (session_id SESSION, string CLASSNAME,
           stringlist OBJECT_IDS, stringlist PROPERTIES, stringtable
           VALUES)
      Stores the data in VALUES in the objects identified by OBJECT_IDS.
@@ -205,7 +205,7 @@ for example by using the list handling functions described above.
      does not exist, any of the given PROPERTIES does not exist, or any
      of the VALUES does not fit the corresponding property.
 
- - Function: void delete (session_id SESSION, string CLASSNAME,
+ - Funktion: void delete (session_id SESSION, string CLASSNAME,
           stringlist OBJECT_IDS)
      Deletes the objects of class CLASSNAME identified through
      OBJECT_IDS.
@@ -215,7 +215,7 @@ for example by using the list handling functions described above.
      has not access to the requested class, or any of the given
      OBJECT_IDS does not exist.
 
- - Function: stringlist call (session_id SESSION, string CLASSNAME,
+ - Funktion: stringlist call (session_id SESSION, string CLASSNAME,
           stringlist OBJECT_IDS, string PROCEDURENAME, stringlist
           PARAMETERS)
      Calls the procedure PROCEDURENAME for every object identified
@@ -233,75 +233,74 @@ for example by using the list handling functions described above.
 System Classes
 **************
 
-   The following classes are always defined and can be accessed to
-query and/or influence class definitions and (in future) other
-information about the state of the Application Server.
+The following classes are always defined and can be accessed to query
+and/or influence class definitions and (in future) other information
+about the state of the Application Server.
 
 `gnue_module'
 =============
 
- - Property of gnue_module: gnue_name string(35)
+ - Property aus gnue_module: gnue_name string(35)
      The name of the module.
 
- - Property of gnue_module: gnue_comment string(70)
+ - Property aus gnue_module: gnue_comment string(70)
      Arbitary text explaining the purpose of the module.
 
 `gnue_class'
 ============
 
- - Property of gnue_class: gnue_module gnue_module
+ - Property aus gnue_class: gnue_module gnue_module
      The module that originally defines the class.
 
- - Property of gnue_class: gnue_name string(35)
+ - Property aus gnue_class: gnue_name string(35)
      The name of the class without the module name. You can find out
      the module name by referencing the `gnue_module' property.
 
- - Property of gnue_class: gnue_comment string(70)
+ - Property aus gnue_class: gnue_comment string(70)
      Arbitary text explaining the purpose of the class.
 
 `gnue_property'
 ===============
 
- - Property of gnue_property: gnue_class gnue_class
+ - Property aus gnue_property: gnue_class gnue_class
      The class the property belongs to.
 
- - Property of gnue_property: gnue_module gnue_module
+ - Property aus gnue_property: gnue_module gnue_module
      The module that defines the property.
 
- - Property of gnue_property: gnue_name string(35)
+ - Property aus gnue_property: gnue_name string(35)
      The name of the property without the module name. You can find out
      the module name by referencing the `gnue_module' property.
 
- - Property of gnue_property: gnue_type string(35)
+ - Property aus gnue_property: gnue_type string(35)
      The type of the property. This can be one of the predefined types
      "string", "number", "boolean" or "datetime", or the name of a
      class, in which case the property is a reference property to that
      class.
 
- - Property of gnue_property: gnue_length number(6)
+ - Property aus gnue_property: gnue_length number(6)
      The length of the property. Only relevant if `gnue_type' is
      "string" or "number".
 
- - Property of gnue_property: gnue_scale number(4)
+ - Property aus gnue_property: gnue_scale number(4)
      Only relevant if `gnue_type' is "number", in which case it defines
      the number of fractional digits, while `gnue_length' defines the
      total number of digits.
 
- - Property of gnue_property: gnue_comment string(70)
+ - Property aus gnue_property: gnue_comment string(70)
      Arbitary text explaining the purpose of the property.
 
 `gnue_useraccess'
 =================
 
-   Note: This class is only preliminary and will most probably
-disappear in future and be replaced by a more flexible access control
-system.
+Note: This class is only preliminary and will most probably disappear in
+future and be replaced by a more flexible access control system.
 
- - Property of gnue_useraccess: gnue_username string(20)
+ - Property aus gnue_useraccess: gnue_username string(20)
 
- - Property of gnue_useraccess: gnue_password string(20)
+ - Property aus gnue_useraccess: gnue_password string(20)
 
- - Property of gnue_useraccess: gnue_classlist string(100)
+ - Property aus gnue_useraccess: gnue_classlist string(100)
      A list of the fully qualified names of all classes the user should
      have access to, seperated by blanks.
 
@@ -664,7 +663,7 @@ GNU Free Documentation License
 ADDENDUM: How to use this License for your documents
 ====================================================
 
-   To use this License in a document you have written, include a copy of
+To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and license
 notices just after the title page:
 

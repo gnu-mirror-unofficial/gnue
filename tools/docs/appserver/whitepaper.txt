@@ -3,7 +3,7 @@ The GNU Enterprise Application Server
 
 A Whitepaper
 
-   Edition 0.0.10, 2003-10-18
+Edition 0.0.10, 2003-10-18
 
    Copyright (C) 2002 Free Software Foundation
 
@@ -22,7 +22,7 @@ Introduction
 Purpose
 =======
 
-   In 2-tier systems, the application logic lies either in the front end
+In 2-tier systems, the application logic lies either in the front end
 or in the database (via triggers and stored procedures).  The main
 purpose of the Application Server is to pull the application logic out
 of both of them and serve as a middle layer that abstracts the logic
@@ -32,9 +32,9 @@ database backend.
 Additional goals
 ================
 
-   Apart from (of course) fulfilling the purpose, we have defined
-several additional, ethical as well as technical, goals.  The following
-list is sorted by priority:
+Apart from (of course) fulfilling the purpose, we have defined several
+additional, ethical as well as technical, goals.  The following list is
+sorted by priority:
 
 _Freedom_
      GNUe Appserver must be GPL and must be built with truly free tools.
@@ -82,15 +82,15 @@ _Language Independence_
 Features
 ********
 
-   (Note that not all features are yet implemented)
+(Note that not all features are yet implemented)
 
 Business Objects
 ================
 
-   GNUe Appserver allows definition of data entities (for example, name
-and address of a customer) and of program code to perform on such
-entities (for example, how to build the address line from country,
-zipcode, and city).
+GNUe Appserver allows definition of data entities (for example, name and
+address of a customer) and of program code to perform on such entities
+(for example, how to build the address line from country, zipcode, and
+city).
 
    The combination of a data entity with all code functions that can be
 performed on the entity is called a "business object".
@@ -107,7 +107,7 @@ called "bound procedures".
 Properties
 ==========
 
-   GNUe Appserver will provide the following property types:
+GNUe Appserver will provide the following property types:
 
 "Basic property"
      contain most of the actual information, in the basic property types
@@ -147,7 +147,7 @@ Properties
 Procedures
 ==========
 
-   A procedure is code performed on an object. Procedures can have
+A procedure is code performed on an object. Procedures can have
 parameters of any attribute type (string, number, reference, etc.).
 Every method is passed a parameter, "self", that identifies the object
 to operate on.
@@ -155,20 +155,20 @@ to operate on.
 Modules
 =======
 
-   Modules define namespaces for classes, properties, and procedures.
-When module A defines a class with various properties and procedures,
-module B can extend the class with new properties. Another module, C,
-can independently extend the same class, without fear of conflicting
-with module B.  All modules have their own namespace.
+Modules define namespaces for classes, properties, and procedures. When
+module A defines a class with various properties and procedures, module
+B can extend the class with new properties. Another module, C, can
+independently extend the same class, without fear of conflicting with
+module B.  All modules have their own namespace.
 
 Qualified class, property and procedure names
 =============================================
 
-   Class, property, and procedure names can be preceded by a module
-name to override the current module context. In this case, the module
-name is separated by an underscore (_). This results in the rule that
-neither a module name nor a class, property or procedure name may
-contain an underscore.
+Class, property, and procedure names can be preceded by a module name to
+override the current module context. In this case, the module name is
+separated by an underscore (_). This results in the rule that neither a
+module name nor a class, property or procedure name may contain an
+underscore.
 
    Property and procedure names are separated from the object
 references by a dot (.).
@@ -221,7 +221,7 @@ and "acct" are installed.
 Bound Procedures
 ================
 
-   "Bound procedures" are procedures that are automatically called upon
+"Bound procedures" are procedures that are automatically called upon
 occurance of defined "events"; for example, on every change of a
 specific property or before a commit of a changed object.
 
@@ -251,7 +251,7 @@ Architecture
 Overview
 ========
 
-                                          +--------------------+
+ [image src=AppserverArch.png text="                                          +--------------------+
                                           |                    |
                                           V                    |
                              +---------------------------+     |
@@ -285,6 +285,7 @@ Overview
    Database      Procedures                                    |
                      |                                         |
                      +-----------------------------------------+
+" ]
 
 "Data Interface:"
      abstracts database access from a specific database API and from
@@ -315,7 +316,7 @@ Overview
 Theory of Operation
 ===================
 
-   For easy understanding, here is the basic way the Application Server
+For easy understanding, here is the basic way the Application Server
 will provide data:
 
   1. The client requests an object from the app server through the
@@ -338,9 +339,9 @@ will provide data:
 Data Interface
 ==============
 
-   The Data Interface provides an API that allows creation and
-extension of tables, reading of data and updating, adding and deleting
-of records in a table, all without SQL.
+The Data Interface provides an API that allows creation and extension of
+tables, reading of data and updating, adding and deleting of records in
+a table, all without SQL.
 
    Eventually, the Data Interface will support creating and extending
 tables "on the fly", which means that reading a recordset with
@@ -356,8 +357,8 @@ doesn't know anything about objects, properties and procedures.
 Code Interface
 ==============
 
-   The Code Adapter will abstract the calls to business methods written
-in the different languages.
+The Code Adapter will abstract the calls to business methods written in
+the different languages.
 
    Python will be the only language supported for the near future.
 
@@ -367,7 +368,7 @@ Common.
 Class Repository
 ================
 
-   The Class Repository will hold all the business object definitions:
+The Class Repository will hold all the business object definitions:
 what properties the object consists of, what procedures exist, which
 bound procedures should be called on what event, and so on.
 
@@ -379,8 +380,8 @@ Interface.
 Authentication Interface
 ========================
 
-   The Authentication Interface will provide a means to authenticate a
-user on connection to the Appserver, and to check access rights for an
+The Authentication Interface will provide a means to authenticate a user
+on connection to the Appserver, and to check access rights for an
 already connected user.
 
    For the sake of flexibility and independence from operating system
@@ -390,7 +391,7 @@ the database and be accessible via system business objects.
 Object Server
 =============
 
-   This is the central part of the Application Server.
+This is the central part of the Application Server.
 
    The Object Server uses the Data Interface and the Code Interface to
 fulfill requests directed at business objects, after it has checked the
@@ -417,15 +418,15 @@ procedures, and call them via the Code Interface.
 Remote Protocol Interface
 =========================
 
-   The Remote Protocol Interface is used to export the functionality of
-the Application Server over the net, using a variety of RPC mechanisms.
+The Remote Protocol Interface is used to export the functionality of the
+Application Server over the net, using a variety of RPC mechanisms.
 
 Language Interface
 ==================
 
-   The Language Interface will make business objects easily accessible
-for code written in supported languages. Each language will have it's
-own Language Interface.
+The Language Interface will make business objects easily accessible for
+code written in supported languages. Each language will have it's own
+Language Interface.
 
    For example, the Python Language Interface (which will be the first
 one implemented) lets you access business objects as if they are normal
@@ -793,7 +794,7 @@ GNU Free Documentation License
 ADDENDUM: How to use this License for your documents
 ====================================================
 
-   To use this License in a document you have written, include a copy of
+To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and license
 notices just after the title page:
 

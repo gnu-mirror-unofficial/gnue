@@ -2,50 +2,61 @@
 <head>
 <title>The GNUe Appserver API</title>
 <meta http-equiv="Content-Type" content="text/html">
-<meta name=description content="The GNUe Appserver API">
-<meta name=generator content="makeinfo 4.1">
-<link href="http://texinfo.org/" rel=generator-home>
+<meta name="description" content="The GNUe Appserver API">
+<meta name="generator" content="makeinfo 4.6">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
 </head>
 <body>
-<h1>The GNUe Appserver API</h1>
-<h2><a name="TOC0"></a>The GNU Enterprise Application Server</h2>
+<h2 class="chapheading"><a name="TOC0"></a>The GNU Enterprise Application Server</h2>
 
 <p>Application Programmer's Interface
 
 <p>Edition 0.0.10, 2003-10-21
 
-<p>Copyright &copy; 2002 Free Software Foundation
+   <p>Copyright &copy; 2002 Free Software Foundation
 
-<p>Permission is granted to copy, distribute and/or modify this document
+   <p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.1
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.
 
-<p>A copy of the license is included in the section entitled "GNU
+   <p>A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 
+<div class="node">
 <p><hr>
-Node:<a name="Top">Top</a>,
-Next:<a rel=next href="#Data%20Types">Data Types</a>
+Knoten:&nbsp;<a name="Top">Top</a>,
+n&auml;chstes:&nbsp;<a rel="next" accesskey="n" href="#Data%20Types">Data Types</a>
 <br>
+</div>
 
-<ul>
-<li><a href="#Data%20Types">Data Types</a>: 
-<li><a href="#API%20Functions">API Functions</a>: 
-<li><a href="#System%20Classes">System Classes</a>: 
-<li><a href="#FDL">FDL</a>:  GNU Free Documentation License
-<li><a href="#Index">Index</a>: 
+<ul class="menu">
+<li><a accesskey="1" href="#Data%20Types">Data Types</a>: 
+<li><a accesskey="2" href="#API%20Functions">API Functions</a>: 
+<li><a accesskey="3" href="#System%20Classes">System Classes</a>: 
+<li><a accesskey="4" href="#FDL">FDL</a>:  GNU Free Documentation License
+<li><a accesskey="5" href="#Index">Index</a>: 
 </ul>
 
+<div class="node">
 <p><hr>
-Node:<a name="Data%20Types">Data Types</a>,
-Next:<a rel=next href="#API%20Functions">API Functions</a>,
-Previous:<a rel=previous href="#Top">Top</a>,
-Up:<a rel=up href="#Top">Top</a>
+Knoten:&nbsp;<a name="Data%20Types">Data Types</a>,
+n&auml;chstes:&nbsp;<a rel="next" accesskey="n" href="#API%20Functions">API Functions</a>,
+voriges:&nbsp;<a rel="previous" accesskey="p" href="#Top">Top</a>,
+aufw&auml;rts:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <br>
+</div>
 
-<h2>Data Types</h2>
+<h2 class="chapter">Data Types</h2>
 
 <p>In the API definition, we will make use of the following data type
 placeholders, which will have to be translated into appropriate data
@@ -55,7 +66,7 @@ types for the various implemented RPC mechanisms:
 <table width="100%">
 <tr>
 <td align="left"><b>void</b><i>
-</i></td>
+     </i></td>
 <td align="right">Data Type</td>
 </tr>
 </table>
@@ -70,7 +81,7 @@ a result.
 <table width="100%">
 <tr>
 <td align="left"><b>boolean</b><i>
-</i></td>
+     </i></td>
 <td align="right">Data Type</td>
 </tr>
 </table>
@@ -84,7 +95,7 @@ This is a boolean data type that can only hold TRUE or FALSE values.
 <table width="100%">
 <tr>
 <td align="left"><b>integer</b><i>
-</i></td>
+     </i></td>
 <td align="right">Data Type</td>
 </tr>
 </table>
@@ -100,7 +111,7 @@ values.  This restriction limits the maximum list size to more than
 <table width="100%">
 <tr>
 <td align="left"><b>string</b><i>
-</i></td>
+     </i></td>
 <td align="right">Data Type</td>
 </tr>
 </table>
@@ -115,7 +126,7 @@ without length limitations.
 <table width="100%">
 <tr>
 <td align="left"><b>stringlist</b><i>
-</i></td>
+     </i></td>
 <td align="right">Data Type</td>
 </tr>
 </table>
@@ -130,7 +141,7 @@ Implementation may restrict the number of elements to 32767.
 <table width="100%">
 <tr>
 <td align="left"><b>stringtable</b><i>
-</i></td>
+     </i></td>
 <td align="right">Data Type</td>
 </tr>
 </table>
@@ -146,7 +157,7 @@ of rows to 32767.
 <table width="100%">
 <tr>
 <td align="left"><b>session_id</b><i>
-</i></td>
+     </i></td>
 <td align="right">Data Type</td>
 </tr>
 </table>
@@ -161,7 +172,7 @@ special meaning one could read from the value.
 <table width="100%">
 <tr>
 <td align="left"><b>list_id</b><i>
-</i></td>
+     </i></td>
 <td align="right">Data Type</td>
 </tr>
 </table>
@@ -172,33 +183,35 @@ meaning one could read from the value.
 </td></tr>
 </table>
 
+<div class="node">
 <p><hr>
-Node:<a name="API%20Functions">API Functions</a>,
-Next:<a rel=next href="#System%20Classes">System Classes</a>,
-Previous:<a rel=previous href="#Data%20Types">Data Types</a>,
-Up:<a rel=up href="#Top">Top</a>
+Knoten:&nbsp;<a name="API%20Functions">API Functions</a>,
+n&auml;chstes:&nbsp;<a rel="next" accesskey="n" href="#System%20Classes">System Classes</a>,
+voriges:&nbsp;<a rel="previous" accesskey="p" href="#Data%20Types">Data Types</a>,
+aufw&auml;rts:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <br>
+</div>
 
-<h2>API Functions</h2>
+<h2 class="chapter">API Functions</h2>
 
 <p>All API functions can raise exceptions on failure.  All functions are
 atomic, in the sense that in case of an exception the function has no
 effect at all.  No error in a function call can cause a function to
 be "half-done".
 
-<p>The exact syntax of the API functions is dependant on the selected
+   <p>The exact syntax of the API functions is dependant on the selected
 RPC interface and the language sitting on top of it.  However, we
 are describing the functions in a C-like syntax here, using the data
 type placeholders we defined above.
 
-<h3>Session Management</h3>
+<h3 class="section">Session Management</h3>
 
 <p>
 <table width="100%">
 <tr>
-<td align="left">session_id <b>open</b><i> (<var>auth_parameters</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">session_id <b>open</b><i> </i>(<i></i><var>auth_parameters</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -208,7 +221,7 @@ authentication.  The number and type of the parameters still have to
 be decided.  The return value is a handle to the session that has to
 be passed to all subsequent function calls.
 
-<p>An Exception is raised if the server cannot be contacted or authentication
+     <p>An Exception is raised if the server cannot be contacted or authentication
 fails. 
 </td></tr>
 </table>
@@ -216,9 +229,9 @@ fails.
 <p>
 <table width="100%">
 <tr>
-<td align="left">void <b>close</b><i> (session_id <var>session</var>, boolean <var>commit</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">void <b>close</b><i> </i>(<i>session_id </i><var>session</var><i>, boolean </i><var>commit</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -229,16 +242,16 @@ committed; if <var>commit</var> is FALSE, it is implicitly rolled back.
 After this call, <var>session</var> will no longer be a valid session
 identifier.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier. 
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier. 
 </td></tr>
 </table>
 
 <p>
 <table width="100%">
 <tr>
-<td align="left">void <b>commit</b><i> (session_id <var>session</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">void <b>commit</b><i> </i>(<i>session_id </i><var>session</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -246,16 +259,16 @@ identifier.
 Commits the current transaction of <var>session</var>, making all changes
 permanent.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier. 
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier. 
 </td></tr>
 </table>
 
 <p>
 <table width="100%">
 <tr>
-<td align="left">void <b>rollback</b><i> (session_id <var>session</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">void <b>rollback</b><i> </i>(<i>session_id </i><var>session</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -263,11 +276,11 @@ permanent.
 Discards all changes done in <var>session</var> since the last <code>commit</code>
 or <code>rollback</code>.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier. 
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier. 
 </td></tr>
 </table>
 
-<h3>Handling Lists Of Objects</h3>
+<h3 class="section">Handling Lists Of Objects</h3>
 
 <p>These functions provide a means for getting data for a list of objects
 fulfilling certain conditions.
@@ -275,9 +288,9 @@ fulfilling certain conditions.
 <p>
 <table width="100%">
 <tr>
-<td align="left">list_id <b>request</b><i> (session_id <var>session</var>, string <var>classname</var>, string <var>conditions</var>, stringlist <var>sortorder</var>, stringlist <var>properties</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">list_id <b>request</b><i> </i>(<i>session_id </i><var>session</var><i>, string </i><var>classname</var><i>, string </i><var>conditions</var><i>, stringlist </i><var>sortorder</var><i>, stringlist </i><var>properties</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -293,10 +306,10 @@ If <var>classname</var>, <var>conditions</var>, <var>sort_order</var>, or <var>p
 contain not fully referenced identifiers for classes or properties, they
 are expanded using <var>context</var> as the current module context.
 
-<p>This function only returns a list identifier.  No actual data is passed
+     <p>This function only returns a list identifier.  No actual data is passed
 over the network when calling this function.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier, the
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier, the
 requested class does not exist, the current user has not access to the
 requested class, or any of the given <var>properties</var> does not exist. 
 </td></tr>
@@ -305,9 +318,9 @@ requested class, or any of the given <var>properties</var> does not exist.
 <p>
 <table width="100%">
 <tr>
-<td align="left">integer <b>count</b><i> (session_id <var>session</var>, list_id <var>list</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">integer <b>count</b><i> </i>(<i>session_id </i><var>session</var><i>, list_id </i><var>list</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -315,7 +328,7 @@ requested class, or any of the given <var>properties</var> does not exist.
 Returns the number of objects contained in <var>list</var>, where <var>list</var>
 is the return value of a previous call to <code>request</code>.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier or
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier or
 <var>list</var> is not a valid list identifier. 
 </td></tr>
 </table>
@@ -323,9 +336,9 @@ is the return value of a previous call to <code>request</code>.
 <p>
 <table width="100%">
 <tr>
-<td align="left">stringtable <b>fetch</b><i> (session_id <var>session</var>, list_id <var>list</var>, integer <var>start</var>, integer <var>count</var>, boolean <var>close</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">stringtable <b>fetch</b><i> </i>(<i>session_id </i><var>session</var><i>, list_id </i><var>list</var><i>, integer </i><var>start</var><i>, integer </i><var>count</var><i>, boolean </i><var>close</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -337,17 +350,17 @@ Negative values for <var>start</var> indicate position from the end of the list.
 Negative values for <var>count</var> are invalid.  Count may not be greater than
 32767.
 
-<p>If <var>close</var> is TRUE, then the list is "closed", all server-side memory
+     <p>If <var>close</var> is TRUE, then the list is "closed", all server-side memory
 allocated with the management of this list is freed and the id <var>list</var>
 may no longer be used in calls to <code>count</code> or <code>fetch</code>. However,
 object_ids and other data already received remains valid.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier or
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier or
 <var>list</var> is not a valid list identifier. 
 </td></tr>
 </table>
 
-<h3>Handling Specific Objects</h3>
+<h3 class="section">Handling Specific Objects</h3>
 
 <p>These functions provide a means for reading, writing and deleting an object
 or a set of objects, as well as for calling a procedure for an object or
@@ -358,9 +371,9 @@ using the list handling functions described above.
 <p>
 <table width="100%">
 <tr>
-<td align="left">stringtable <b>load</b><i> (session_id <var>session</var>, string <var>classname</var>, stringlist <var>object_ids</var>, stringlist <var>properties</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">stringtable <b>load</b><i> </i>(<i>session_id </i><var>session</var><i>, string </i><var>classname</var><i>, stringlist </i><var>object_ids</var><i>, stringlist </i><var>properties</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -370,12 +383,12 @@ the <var>object_ids</var> list and a column for every entry in <var>properties</
 Unlike <code>fetch</code>, this function does <em>not</em> automatically return
 the object_ids in column 0.
 
-<p>If this function is called with one of the <var>object_ids</var> being an empty
+     <p>If this function is called with one of the <var>object_ids</var> being an empty
 string, the corresponding row in the result contains a list of the data types
 of the <var>properties</var>.  This is a temporary hack and will be removed again in
 a future version!
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier, the
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier, the
 requested class does not exist, the current user has not access to the
 requested class, any of the given <var>object_ids</var> does not exist, or any of
 the given <var>properties</var> does not exist. 
@@ -385,9 +398,9 @@ the given <var>properties</var> does not exist.
 <p>
 <table width="100%">
 <tr>
-<td align="left">stringlist <b>store</b><i> (session_id <var>session</var>, string <var>classname</var>, stringlist <var>object_ids</var>, stringlist <var>properties</var>, stringtable <var>values</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">stringlist <b>store</b><i> </i>(<i>session_id </i><var>session</var><i>, string </i><var>classname</var><i>, stringlist </i><var>object_ids</var><i>, stringlist </i><var>properties</var><i>, stringtable </i><var>values</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -405,7 +418,7 @@ have been stored and can be accessed from now on.
 Note that after calling <code>store</code>, <code>commit</code> has to be called to make
 the changes persistent, while a call to <code>rollback</code> can undo the changes.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier, the
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier, the
 requested class does not exist, the current user has not access to the
 requested class, any of the given <var>object_ids</var> does not exist, any of
 the given <var>properties</var> does not exist, or any of the <var>values</var> does not
@@ -416,9 +429,9 @@ fit the corresponding property.
 <p>
 <table width="100%">
 <tr>
-<td align="left">void <b>delete</b><i> (session_id <var>session</var>, string <var>classname</var>, stringlist <var>object_ids</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">void <b>delete</b><i> </i>(<i>session_id </i><var>session</var><i>, string </i><var>classname</var><i>, stringlist </i><var>object_ids</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -426,7 +439,7 @@ fit the corresponding property.
 Deletes the objects of class <var>classname</var> identified through
 <var>object_ids</var>.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier, the
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier, the
 requested class does not exist, the current user has not access to the
 requested class, or any of the given <var>object_ids</var> does not exist. 
 </td></tr>
@@ -435,9 +448,9 @@ requested class, or any of the given <var>object_ids</var> does not exist.
 <p>
 <table width="100%">
 <tr>
-<td align="left">stringlist <b>call</b><i> (session_id <var>session</var>, string <var>classname</var>, stringlist <var>object_ids</var>, string <var>procedurename</var>, stringlist <var>parameters</var>)
-</i></td>
-<td align="right">Function</td>
+<td align="left">stringlist <b>call</b><i> </i>(<i>session_id </i><var>session</var><i>, string </i><var>classname</var><i>, stringlist </i><var>object_ids</var><i>, string </i><var>procedurename</var><i>, stringlist </i><var>parameters</var><i></i>)<i>
+     </i></td>
+<td align="right">Funktion</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -449,34 +462,36 @@ of the procedure.
 This function returns a list of strings that contains the results of the
 procedure calls for each object.
 
-<p>An Exception is raised if <var>session</var> is not a valid session identifier, the
+     <p>An Exception is raised if <var>session</var> is not a valid session identifier, the
 requested class does not exist, the current user has not access to the
 requested class, any of the given <var>object_ids</var> does not exist, or the given
 procedure is not defined. 
 </td></tr>
 </table>
 
+<div class="node">
 <p><hr>
-Node:<a name="System%20Classes">System Classes</a>,
-Next:<a rel=next href="#FDL">FDL</a>,
-Previous:<a rel=previous href="#API%20Functions">API Functions</a>,
-Up:<a rel=up href="#Top">Top</a>
+Knoten:&nbsp;<a name="System%20Classes">System Classes</a>,
+n&auml;chstes:&nbsp;<a rel="next" accesskey="n" href="#FDL">FDL</a>,
+voriges:&nbsp;<a rel="previous" accesskey="p" href="#API%20Functions">API Functions</a>,
+aufw&auml;rts:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <br>
+</div>
 
-<h2>System Classes</h2>
+<h2 class="chapter">System Classes</h2>
 
 <p>The following classes are always defined and can be accessed to query and/or
 influence class definitions and (in future) other information about the state
 of the Application Server.
 
-<h3><code>gnue_module</code></h3>
+<h3 class="section"><code>gnue_module</code></h3>
 
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_name</b><i> string(35)
-</td>
-<td align="right">Property of gnue_module</td>
+<td align="left"><b>gnue_name</b><i> string</i>(<i>35</i>)<i>
+     </td>
+<td align="right">Property aus gnue_module</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -488,9 +503,9 @@ The name of the module.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_comment</b><i> string(70)
-</td>
-<td align="right">Property of gnue_module</td>
+<td align="left"></i><b>gnue_comment</b><i> string</i>(<i>70</i>)<i>
+     </td>
+<td align="right">Property aus gnue_module</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -499,14 +514,14 @@ Arbitary text explaining the purpose of the module.
 </td></tr>
 </table>
 
-<h3><code>gnue_class</code></h3>
+<h3 class="section"></i><code>gnue_class</code><i></h3>
 
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_module</b><i> gnue_module
-</td>
-<td align="right">Property of gnue_class</td>
+<td align="left"></i><b>gnue_module</b><i> gnue_module
+     </td>
+<td align="right">Property aus gnue_class</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -518,24 +533,24 @@ The module that originally defines the class.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_name</b><i> string(35)
-</td>
-<td align="right">Property of gnue_class</td>
+<td align="left"></i><b>gnue_name</b><i> string</i>(<i>35</i>)<i>
+     </td>
+<td align="right">Property aus gnue_class</td>
 </tr>
 </table>
 <table width="95%" align="center">
 <tr><td>
 The name of the class without the module name. You can find out the module name
-by referencing the <code>gnue_module</code> property. 
+by referencing the </i><code>gnue_module</code><i> property. 
 </td></tr>
 </table>
 
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_comment</b><i> string(70)
-</td>
-<td align="right">Property of gnue_class</td>
+<td align="left"></i><b>gnue_comment</b><i> string</i>(<i>70</i>)<i>
+     </td>
+<td align="right">Property aus gnue_class</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -544,14 +559,14 @@ Arbitary text explaining the purpose of the class.
 </td></tr>
 </table>
 
-<h3><code>gnue_property</code></h3>
+<h3 class="section"></i><code>gnue_property</code><i></h3>
 
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_class</b><i> gnue_class
-</td>
-<td align="right">Property of gnue_property</td>
+<td align="left"></i><b>gnue_class</b><i> gnue_class
+     </td>
+<td align="right">Property aus gnue_property</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -563,9 +578,9 @@ The class the property belongs to.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_module</b><i> gnue_module
-</td>
-<td align="right">Property of gnue_property</td>
+<td align="left"></i><b>gnue_module</b><i> gnue_module
+     </td>
+<td align="right">Property aus gnue_property</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -577,24 +592,24 @@ The module that defines the property.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_name</b><i> string(35)
-</td>
-<td align="right">Property of gnue_property</td>
+<td align="left"></i><b>gnue_name</b><i> string</i>(<i>35</i>)<i>
+     </td>
+<td align="right">Property aus gnue_property</td>
 </tr>
 </table>
 <table width="95%" align="center">
 <tr><td>
 The name of the property without the module name. You can find out the module
-name by referencing the <code>gnue_module</code> property. 
+name by referencing the </i><code>gnue_module</code><i> property. 
 </td></tr>
 </table>
 
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_type</b><i> string(35)
-</td>
-<td align="right">Property of gnue_property</td>
+<td align="left"></i><b>gnue_type</b><i> string</i>(<i>35</i>)<i>
+     </td>
+<td align="right">Property aus gnue_property</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -608,14 +623,14 @@ property is a reference property to that class.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_length</b><i> number(6)
-</td>
-<td align="right">Property of gnue_property</td>
+<td align="left"></i><b>gnue_length</b><i> number</i>(<i>6</i>)<i>
+     </td>
+<td align="right">Property aus gnue_property</td>
 </tr>
 </table>
 <table width="95%" align="center">
 <tr><td>
-The length of the property. Only relevant if <code>gnue_type</code> is "string" or
+The length of the property. Only relevant if </i><code>gnue_type</code><i> is "string" or
 "number". 
 </td></tr>
 </table>
@@ -623,15 +638,15 @@ The length of the property. Only relevant if <code>gnue_type</code> is "string" 
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_scale</b><i> number(4)
-</td>
-<td align="right">Property of gnue_property</td>
+<td align="left"></i><b>gnue_scale</b><i> number</i>(<i>4</i>)<i>
+     </td>
+<td align="right">Property aus gnue_property</td>
 </tr>
 </table>
 <table width="95%" align="center">
 <tr><td>
-Only relevant if <code>gnue_type</code> is "number", in which case it defines the
-number of fractional digits, while <code>gnue_length</code> defines the total number
+Only relevant if </i><code>gnue_type</code><i> is "number", in which case it defines the
+number of fractional digits, while </i><code>gnue_length</code><i> defines the total number
 of digits. 
 </td></tr>
 </table>
@@ -639,9 +654,9 @@ of digits.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_comment</b><i> string(70)
-</td>
-<td align="right">Property of gnue_property</td>
+<td align="left"></i><b>gnue_comment</b><i> string</i>(<i>70</i>)<i>
+     </td>
+<td align="right">Property aus gnue_property</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -650,7 +665,7 @@ Arbitary text explaining the purpose of the property.
 </td></tr>
 </table>
 
-<h3><code>gnue_useraccess</code></h3>
+<h3 class="section"></i><code>gnue_useraccess</code><i></h3>
 
 <p>Note: This class is only preliminary and will most probably disappear in
 future and be replaced by a more flexible access control system.
@@ -658,9 +673,9 @@ future and be replaced by a more flexible access control system.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_username</b><i> string(20)
-</td>
-<td align="right">Property of gnue_useraccess</td>
+<td align="left"></i><b>gnue_username</b><i> string</i>(<i>20</i>)<i>
+     </td>
+<td align="right">Property aus gnue_useraccess</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -671,9 +686,9 @@ future and be replaced by a more flexible access control system.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_password</b><i> string(20)
-</td>
-<td align="right">Property of gnue_useraccess</td>
+<td align="left"></i><b>gnue_password</b><i> string</i>(<i>20</i>)<i>
+     </td>
+<td align="right">Property aus gnue_useraccess</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -684,9 +699,9 @@ future and be replaced by a more flexible access control system.
 <p>
 <table width="100%">
 <tr>
-<td align="left"><b>gnue_classlist</b><i> string(100)
-</td>
-<td align="right">Property of gnue_useraccess</td>
+<td align="left"></i><b>gnue_classlist</b><i> string</i>(<i>100</i>)<i>
+     </td>
+<td align="right">Property aus gnue_useraccess</td>
 </tr>
 </table>
 <table width="95%" align="center">
@@ -696,40 +711,42 @@ to, seperated by blanks.
 </td></tr>
 </table>
 
+<div class="node">
 <p><hr>
-Node:<a name="FDL">FDL</a>,
-Next:<a rel=next href="#Index">Index</a>,
-Previous:<a rel=previous href="#System%20Classes">System Classes</a>,
-Up:<a rel=up href="#Top">Top</a>
+Knoten:&nbsp;<a name="FDL">FDL</a>,
+n&auml;chstes:&nbsp;<a rel="next" accesskey="n" href="#Index">Index</a>,
+voriges:&nbsp;<a rel="previous" accesskey="p" href="#System%20Classes">System Classes</a>,
+aufw&auml;rts:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <br>
+</div>
 
-<h2>GNU Free Documentation License</h2>
+<h2 class="appendixsec">GNU Free Documentation License</h2>
 
 <div align="center">Version 1.1, March 2000</div>
-<br><pre>Copyright &copy; 2000 Free Software Foundation, Inc.
-59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+<pre class="display">     Copyright &copy; 2000 Free Software Foundation, Inc.
+     59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+     
+     Everyone is permitted to copy and distribute verbatim copies
+     of this license document, but changing it is not allowed.
+     </pre>
 
-Everyone is permitted to copy and distribute verbatim copies
-of this license document, but changing it is not allowed.
-</pre>
+     <ol type=1 start=0>
+<li>PREAMBLE
 
-<ol type=1 start=0>
-</p><li>PREAMBLE
-
-<p>The purpose of this License is to make a manual, textbook, or other
-written document <dfn>free</dfn> in the sense of freedom: to assure everyone
+     <p>The purpose of this License is to make a manual, textbook, or other
+written document </i><dfn>free</dfn><i> in the sense of freedom: to assure everyone
 the effective freedom to copy and redistribute it, with or without
 modifying it, either commercially or noncommercially.  Secondarily,
 this License preserves for the author and publisher a way to get
 credit for their work, while not being considered responsible for
 modifications made by others.
 
-<p>This License is a kind of "copyleft", which means that derivative
+     <p>This License is a kind of "copyleft", which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
 
-<p>We have designed this License in order to use it for manuals for free
+     <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
 software does.  But this License is not limited to software manuals;
@@ -737,19 +754,19 @@ it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
 
-</p><li>APPLICABILITY AND DEFINITIONS
+     </p><li>APPLICABILITY AND DEFINITIONS
 
-<p>This License applies to any manual or other work that contains a
+     <p>This License applies to any manual or other work that contains a
 notice placed by the copyright holder saying it can be distributed
 under the terms of this License.  The "Document", below, refers to any
 such manual or work.  Any member of the public is a licensee, and is
 addressed as "you".
 
-<p>A "Modified Version" of the Document means any work containing the
+     <p>A "Modified Version" of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
 
-<p>A "Secondary Section" is a named appendix or a front-matter section of
+     <p>A "Secondary Section" is a named appendix or a front-matter section of
 the Document that deals exclusively with the relationship of the
 publishers or authors of the Document to the Document's overall subject
 (or to related matters) and contains nothing that could fall directly
@@ -760,15 +777,15 @@ connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
 
-<p>The "Invariant Sections" are certain Secondary Sections whose titles
+     <p>The "Invariant Sections" are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.
 
-<p>The "Cover Texts" are certain short passages of text that are listed,
+     <p>The "Cover Texts" are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.
 
-<p>A "Transparent" copy of the Document means a machine-readable copy,
+     <p>A "Transparent" copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, whose contents can be viewed and edited directly and
 straightforwardly with generic text editors or (for images composed of
@@ -780,27 +797,27 @@ format whose markup has been designed to thwart or discourage
 subsequent modification by readers is not Transparent.  A copy that is
 not "Transparent" is called "Opaque".
 
-<p>Examples of suitable formats for Transparent copies include plain
-<small>ASCII</small> without markup, Texinfo input format, LaTeX input format,
-<small>SGML</small> or <small>XML</small> using a publicly available
-<small>DTD</small>, and standard-conforming simple <small>HTML</small> designed
+     <p>Examples of suitable formats for Transparent copies include plain
+</i><smALL>ASCII</small><i> without markup, Texinfo input format, LaTeX input format,
+</i><small>SGML</small><i> or </i><small>XML</small><i> using a publicly available
+</i><small>DTD</small><i>, and standard-conforming simple </i><small>HTML</small><i> designed
 for human modification.  Opaque formats include PostScript,
-<small>PDF</small>, proprietary formats that can be read and edited only by
-proprietary word processors, <small>SGML</small> or <small>XML</small> for which
-the <small>DTD</small> and/or processing tools are not generally available,
-and the machine-generated <small>HTML</small> produced by some word
+</i><small>PDF</small><i>, proprietary formats that can be read and edited only by
+proprietary word processors, </i><small>SGML</small><i> or </i><small>XML</small><i> for which
+the </i><small>DTD</small><i> and/or processing tools are not generally available,
+and the machine-generated </i><small>HTML</small><i> produced by some word
 processors for output purposes only.
 
-<p>The "Title Page" means, for a printed book, the title page itself,
+     <p>The "Title Page" means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, "Title Page" means
 the text near the most prominent appearance of the work's title,
 preceding the beginning of the body of the text.
 
-</p><li>VERBATIM COPYING
+     </p><li>VERBATIM COPYING
 
-<p>You may copy and distribute the Document in any medium, either
+     <p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -810,12 +827,12 @@ copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
 
-<p>You may also lend copies, under the same conditions stated above, and
+     <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
 
-</p><li>COPYING IN QUANTITY
+     </p><li>COPYING IN QUANTITY
 
-<p>If you publish printed copies of the Document numbering more than 100,
+     <p>If you publish printed copies of the Document numbering more than 100,
 and the Document's license notice requires Cover Texts, you must enclose
 the copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
@@ -827,12 +844,12 @@ Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
 
-<p>If the required texts for either cover are too voluminous to fit
+     <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
 
-<p>If you publish or distribute Opaque copies of the Document numbering
+     <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a publicly-accessible computer-network location containing a complete
@@ -846,49 +863,49 @@ until at least one year after the last time you distribute an Opaque
 copy (directly or through your agents or retailers) of that edition to
 the public.
 
-<p>It is requested, but not required, that you contact the authors of the
+     <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
 
-</p><li>MODIFICATIONS
+     </p><li>MODIFICATIONS
 
-<p>You may copy and distribute a Modified Version of the Document under
+     <p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 
-<ol type=A start=1>
-</p><li>Use in the Title Page (and on the covers, if any) a title distinct
+          <ol type=A start=1>
+<li>Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-<li>List on the Title Page, as authors, one or more persons or entities
+          <li>List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has less than five).
 
-<li>State on the Title page the name of the publisher of the
+          <li>State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-<li>Preserve all the copyright notices of the Document.
+          <li>Preserve all the copyright notices of the Document.
 
-<li>Add an appropriate copyright notice for your modifications
+          <li>Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-<li>Include, immediately after the copyright notices, a license notice
+          <li>Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-<li>Preserve in that license notice the full lists of Invariant Sections
+          <li>Preserve in that license notice the full lists of Invariant Sections
 and required Cover Texts given in the Document's license notice.
 
-<li>Include an unaltered copy of this License.
+          <li>Include an unaltered copy of this License.
 
-<li>Preserve the section entitled "History", and its title, and add to
+          <li>Preserve the section entitled "History", and its title, and add to
 it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section entitled "History" in the Document, create one
@@ -896,7 +913,7 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-<li>Preserve the network location, if any, given in the Document for
+          <li>Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
 it was based on.  These may be placed in the "History" section. 
@@ -904,36 +921,36 @@ You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-<li>In any section entitled "Acknowledgments" or "Dedications",
+          <li>In any section entitled "Acknowledgments" or "Dedications",
 preserve the section's title, and preserve in the section all the
 substance and tone of each of the contributor acknowledgments
 and/or dedications given therein.
 
-<li>Preserve all the Invariant Sections of the Document,
+          <li>Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-<li>Delete any section entitled "Endorsements".  Such a section
+          <li>Delete any section entitled "Endorsements".  Such a section
 may not be included in the Modified Version.
 
-<li>Do not retitle any existing section as "Endorsements"
+          <li>Do not retitle any existing section as "Endorsements"
 or to conflict in title with any Invariant Section.
-</ol>
+          </ol>
 
-<p>If the Modified Version includes new front-matter sections or
+     <p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
 list of Invariant Sections in the Modified Version's license notice. 
 These titles must be distinct from any other section titles.
 
-<p>You may add a section entitled "Endorsements", provided it contains
+     <p>You may add a section entitled "Endorsements", provided it contains
 nothing but endorsements of your Modified Version by various
 parties--for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
 
-<p>You may add a passage of up to five words as a Front-Cover Text, and a
+     <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
 Front-Cover Text and one of Back-Cover Text may be added by (or
@@ -943,20 +960,20 @@ by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
 
-<p>The author(s) and publisher(s) of the Document do not by this License
+     <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
 
-</p><li>COMBINING DOCUMENTS
+     </p><li>COMBINING DOCUMENTS
 
-<p>You may combine the Document with other documents released under this
+     <p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice.
 
-<p>The combined work need only contain one copy of this License, and
+     <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
@@ -965,28 +982,28 @@ author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
 
-<p>In the combination, you must combine any sections entitled "History"
+     <p>In the combination, you must combine any sections entitled "History"
 in the various original documents, forming one section entitled
 "History"; likewise combine any sections entitled "Acknowledgments",
 and any sections entitled "Dedications".  You must delete all sections
 entitled "Endorsements."
 
-</p><li>COLLECTIONS OF DOCUMENTS
+     </p><li>COLLECTIONS OF DOCUMENTS
 
-<p>You may make a collection consisting of the Document and other documents
+     <p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
 
-<p>You may extract a single document from such a collection, and distribute
+     <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
 
-</p><li>AGGREGATION WITH INDEPENDENT WORKS
+     </p><li>AGGREGATION WITH INDEPENDENT WORKS
 
-<p>A compilation of the Document or its derivatives with other separate
+     <p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, does not as a whole count as a Modified Version
 of the Document, provided no compilation copyright is claimed for the
@@ -995,15 +1012,15 @@ License does not apply to the other self-contained works thus compiled
 with the Document, on account of their being thus compiled, if they
 are not themselves derivative works of the Document.
 
-<p>If the Cover Text requirement of section 3 is applicable to these
+     <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one quarter
 of the entire aggregate, the Document's Cover Texts may be placed on
 covers that surround only the Document within the aggregate. 
 Otherwise they must appear on covers around the whole aggregate.
 
-</p><li>TRANSLATION
+     </p><li>TRANSLATION
 
-<p>Translation is considered a kind of modification, so you may
+     <p>Translation is considered a kind of modification, so you may
 distribute translations of the Document under the terms of section 4. 
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
@@ -1014,9 +1031,9 @@ original English version of this License.  In case of a disagreement
 between the translation and the original English version of this
 License, the original English version will prevail.
 
-</p><li>TERMINATION
+     </p><li>TERMINATION
 
-<p>You may not copy, modify, sublicense, or distribute the Document except
+     <p>You may not copy, modify, sublicense, or distribute the Document except
 as expressly provided for under this License.  Any other attempt to
 copy, modify, sublicense or distribute the Document is void, and will
 automatically terminate your rights under this License.  However,
@@ -1024,15 +1041,15 @@ parties who have received copies, or rights, from you under this
 License will not have their licenses terminated so long as such
 parties remain in full compliance.
 
-</p><li>FUTURE REVISIONS OF THIS LICENSE
+     </p><li>FUTURE REVISIONS OF THIS LICENSE
 
-<p>The Free Software Foundation may publish new, revised versions
+     <p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
 
-<p>Each version of the License is given a distinguishing version number. 
+     <p>Each version of the License is given a distinguishing version number. 
 If the Document specifies that a particular numbered version of this
 License "or any later version" applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -1040,65 +1057,67 @@ of any later version that has been published (not as a draft) by the
 Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.
-</ol>
+        </ol>
 
-<h3>ADDENDUM: How to use this License for your documents</h3>
+<h3 class="appendixsubsec">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
 
-<br><pre>  Copyright (C)  <var>year</var>  <var>your name</var>.
-  Permission is granted to copy, distribute and/or modify this document
-  under the terms of the GNU Free Documentation License, Version 1.1
-  or any later version published by the Free Software Foundation;
-  with the Invariant Sections being <var>list their titles</var>, with the
-  Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts being <var>list</var>.
-  A copy of the license is included in the section entitled ``GNU
-  Free Documentation License''.
-</pre>
+<pre class="smallexample">       Copyright (C)  </i><var>year</var><i>  </i><var>your name</var><i>.
+       Permission is granted to copy, distribute and/or modify this document
+       under the terms of the GNU Free Documentation License, Version 1.1
+       or any later version published by the Free Software Foundation;
+       with the Invariant Sections being </i><var>list their titles</var><i>, with the
+       Front-Cover Texts being </i><var>list</var><i>, and with the Back-Cover Texts being </i><var>list</var><i>.
+       A copy of the license is included in the section entitled ``GNU
+       Free Documentation License''.
+     </pre>
 
-<p>If you have no Invariant Sections, write "with no Invariant Sections"
+   <p>If you have no Invariant Sections, write "with no Invariant Sections"
 instead of saying which ones are invariant.  If you have no
 Front-Cover Texts, write "no Front-Cover Texts" instead of
-"Front-Cover Texts being <var>list</var>"; likewise for Back-Cover Texts.
+"Front-Cover Texts being </i><var>list</var><i>"; likewise for Back-Cover Texts.
 
-<p>If your document contains nontrivial examples of program code, we
+   <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
 
+<div class="node">
 <p><hr>
-Node:<a name="Index">Index</a>,
-Next:<a rel=next href="#(null)">(null)</a>,
-Previous:<a rel=previous href="#FDL">FDL</a>,
-Up:<a rel=up href="#Top">Top</a>
+Knoten:&nbsp;<a name="Index">Index</a>,
+n&auml;chstes:&nbsp;<a rel="next" accesskey="n" href="#(null)">(null)</a>,
+voriges:&nbsp;<a rel="previous" accesskey="p" href="#FDL">FDL</a>,
+aufw&auml;rts:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <br>
+</div>
 
-<h2>Data Type and Function Index</h2>
+<h2 class="appendixsec">Data Type and Function Index</h2>
 
-<ul compact>
-<li><code>boolean</code>: <a href="#Data%20Types">Data Types</a>
-<li><code>call</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>close</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>commit</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>count</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>delete</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>fetch</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>integer</code>: <a href="#Data%20Types">Data Types</a>
-<li><code>list_id</code>: <a href="#Data%20Types">Data Types</a>
-<li><code>load</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>open</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>request</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>rollback</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>session_id</code>: <a href="#Data%20Types">Data Types</a>
-<li><code>store</code>: <a href="#API%20Functions">API Functions</a>
-<li><code>string</code>: <a href="#Data%20Types">Data Types</a>
-<li><code>stringlist</code>: <a href="#Data%20Types">Data Types</a>
-<li><code>stringtable</code>: <a href="#Data%20Types">Data Types</a>
-<li><code>void</code>: <a href="#Data%20Types">Data Types</a>
+<ul class="index-fn" compact>
+<li></i><code>boolean</code><i>: <a href="#Data%20Types">Data Types</a>
+<li></i><code>call</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>close</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>commit</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>count</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>delete</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>fetch</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>integer</code><i>: <a href="#Data%20Types">Data Types</a>
+<li></i><code>list_id</code><i>: <a href="#Data%20Types">Data Types</a>
+<li></i><code>load</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>open</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>request</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>rollback</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>session_id</code><i>: <a href="#Data%20Types">Data Types</a>
+<li></i><code>store</code><i>: <a href="#API%20Functions">API Functions</a>
+<li></i><code>string</code><i>: <a href="#Data%20Types">Data Types</a>
+<li></i><code>stringlist</code><i>: <a href="#Data%20Types">Data Types</a>
+<li></i><code>stringtable</code><i>: <a href="#Data%20Types">Data Types</a>
+<li></i><code>void</code><i>: <a href="#Data%20Types">Data Types</a>
 </ul>
 
 
-</body></html>
+   </body></html>
 
