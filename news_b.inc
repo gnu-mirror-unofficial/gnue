@@ -1,11 +1,7 @@
-<h3>GNUe RPMs</h3>
+<h3>GNUe-SuSE HowTo updated</h3>
 
-<p>05 February 2003</p>
-<p>Available for download at 
-<a href ="http://home.attbi.com/~ejarvi/">home.attbi.com/~ejarvi/</a>
-are GNUe RPM packages of the last releases. They were built on 
-Redhat 8.0. Testing, results, feedback on other RPM based distros 
-appreciated.  (I'm unable to post to the mailing list due to spam 
-filtering, hence this message.)
-</p>
+<p>19 February 2003</p>
+<p>The <a href="../community/docs.html">GNUe-SuSE HowTo</a> has 
+now been updated for SuSE 8.0.
+Thanks to Arjen Runsink for compiling and submitting this.</p>
 
