@@ -81,24 +81,24 @@ def filelist ( directory ):
 def status ( tool ):
    "Prints status of specified tool"
    s = { 
-      'forms' : '''Release 0.5.2 (October 2003) available for download. 
+      'forms' : '''Release 0.5.3 (March 2004) available for download. 
           Development work continues in CVS.''', 
       'curses' : '''Initial "proof-of-concept" support included in Release 
           0.5.1 (August 2003). Official support likely in the 
           0.5.3 release of Forms.''', 
-      'gtkforms' : '''Release 0.5.1 (August 2003) available for download. 
+      'gtkforms' : '''Release 0.5.3 (March 2004) available for download. 
           Development work continues in CVS.''',
       'phpforms' : '''Available in CVS. Not currently under active 
           development.''',
       'bayonneforms' : '''Not yet started.''', 
-      'designer' : '''Release 0.5.2 (October 2003) available for download. 
+      'designer' : '''Release 0.5.3 (March 2004) available for download. 
           Development work continues in CVS.''', 
-      'reports' : '''Release 0.1.3 (October 2003) available for download. 
+      'reports' : '''Release 0.1.4 (March 2004) available for download. 
           Development work continues in CVS.''',
-      'appserver' : '''Release 0.0.5 (October 2003) available for download. 
+      'appserver' : '''Release 0.0.6 (March 2004) available for download. 
           This is a preview release, not ready for production use. 
           Development continues in CVS.''',
-      'common' : '''Release 0.5.2 (October 2003) available for download. 
+      'common' : '''Release 0.5.3 (March 2004) available for download. 
           Development work continues in CVS.''', 
       'integrator' : '''Work is now underway in CVS.''', 
       'navigator' : '''Release 0.0.6 (October 2003) available for download. 
