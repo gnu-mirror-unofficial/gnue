@@ -98,6 +98,7 @@ The tools have been tested and are known to run on:
 <li> MacOS X (via the available X interface)
 <li> Solaris 8/9
 <li> FreeBSD 4.x/5.x
+</ul>
 <p>
 The tools require <a href="http://www.python.org">Python 2.0</a> or better to run (Python 2.1+ recommended.)
 
