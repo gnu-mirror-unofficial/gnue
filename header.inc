@@ -51,9 +51,9 @@
     <td width="180" height="25">&nbsp;</td>
     <td height="25" align="center">
     <!-- strapline -->
-       <a href="../news/news133.html" class="blacklink">0.5.0
-pre-releases</a>
-       available for testing
+       <a href="../news/news134.html" class="blacklink">0.5.0
+releases</a>
+       now available for <a href="http://www.gnuenterprise.org/downloads/current.php">download</a>.
     </td>
   </tr>
 </table>

@@ -1,19 +1,18 @@
-<h3>0.5.0 pre-releases ready for testing</h3>
+<h3>New release of tools (0.5.0 series)</h3>
 
-<p>02 April 2003</p>
-<p>We are gearing up for a 0.5.0 release of Forms, 
-Common and Deigner in the next few days. As usual, we 
-have a series of (about daily)  pre-releases available for testing 
-<a
-href="http://www.gnuenterprise.org/downloads/prereleases.php">on 
-the website</a> as "0.4.99" releases, in an effort to squish 
-any last-minute bugs.</p>
-<p>If you are an existing GNUe user, it would be very helpful
-for us if you could download the pre-releases and check that 
-they work with any applications you have written using the GNUe
-tools. In particular, as previously advised, the 0.5.0 version 
-of the tools introduces a new, incompatible, *.gfd (GNUe 
-Forms Definition) format. There is a conversion tool that 
-automates much (but not all) of the conversion from old 
-to new fomat, and this also needs testing.</p>
+<p>30 April 2003</p>
+<p>
+The GNU Enterprise team is proud to announce a new release of
+it's enterprise application development suite.  This major
+release includes:
+<ul>
+    <li> GNUe Forms 0.5.0
+    <li> GNUe Reports 0.1.1
+    <li> GNUe Designer 0.5.0
+    <li> GNUe Navigator 0.0.4
+    <li> GNUe AppServer 0.0.3
+    <li> GNUe Common 0.5.0
+</ul>
+</p>
 
+<p><a href="../news/news134.html">More ...</a></p>
