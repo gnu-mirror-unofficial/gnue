@@ -17,7 +17,7 @@
 <td width="100%" align="center">
    <p><font size=1>
    News items are the property of their posters. 
-   All the rest &copy; 1999, 2001, 2002 by Free Software Foundation, Inc.,
+   All the rest &copy; 1999, 2001 - 2003 by Free Software Foundation, Inc.,
    59 Temple Place - Suite 330, Boston, MA 02111, USA <br>
 
    Verbatim copying and distribution of this entire article is permitted in any 
