@@ -164,6 +164,10 @@ handle.close()
 # 8. Report success/failure
 #
 
+os.chdir ( 'admin' )
+import makesite
+
+print ' ' 
 print 'News posted'
 print '-----------'
 print 'Article posted as news' + num + '.src'
@@ -172,5 +176,4 @@ print ' '
 print 'cvs add ../news/news' + num + '.*'
 print 'cvs commit'
 
-os.chdir ( 'admin' )
-import makesite
+
