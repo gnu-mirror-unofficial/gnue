@@ -70,13 +70,12 @@ The site consists of four main types of files;
 3) include files ( *.inc ). These are used by the 
    makesite.py script to provide standard headers 
    and footers and other includes.
-4) The site.py file. Any "pseudo-tag" in the 
+4) The makesite.py file. Any "pseudo-tag" in the 
    *.src file (an HTML tag starting with <$ and ending 
    with >) will be stripped from the html and 
    executed as a python function, including any 
    parameters. All/any required functions should be 
-   defined in the site.py script, which is 
-   imported by makesite.py
+   defined in the makesite.py script.
 
 In order to keep the site up to date, all changes to 
 pages which exist as both *.src and *.html versions 
@@ -163,7 +162,7 @@ information and things that don't fit anywhere else,
 these map on to the three paragraphs of the welcome 
 page, project/what.html
 
-The tab function in site.py works out which of the four 
+The tab function in makesite.py works out which of the four 
 tabs across the top of the page should be active, and 
 which ones should be greyed.
 
