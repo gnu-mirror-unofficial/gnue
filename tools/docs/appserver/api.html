@@ -12,7 +12,7 @@
 
 <p>Application Programmer's Interface
 
-<p>Edition 0.0.8, 2003-09-17
+<p>Edition 0.0.10, 2003-10-21
 
 <p>Copyright &copy; 2002 Free Software Foundation
 
@@ -369,6 +369,11 @@ Returns a 2-dimensional array of data with a row for every entry in
 the <var>object_ids</var> list and a column for every entry in <var>properties</var>. 
 Unlike <code>fetch</code>, this function does <em>not</em> automatically return
 the object_ids in column 0.
+
+<p>If this function is called with one of the <var>object_ids</var> being an empty
+string, the corresponding row in the result contains a list of the data types
+of the <var>properties</var>.  This is a temporary hack and will be removed again in
+a future version!
 
 <p>An Exception is raised if <var>session</var> is not a valid session identifier, the
 requested class does not exist, the current user has not access to the

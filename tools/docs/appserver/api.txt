@@ -3,7 +3,7 @@ The GNU Enterprise Application Server
 
 Application Programmer's Interface
 
-   Edition 0.0.8, 2003-09-17
+   Edition 0.0.10, 2003-10-21
 
    Copyright (C) 2002 Free Software Foundation
 
@@ -172,6 +172,11 @@ for example by using the list handling functions described above.
      the OBJECT_IDS list and a column for every entry in PROPERTIES.
      Unlike `fetch', this function does _not_ automatically return the
      object_ids in column 0.
+
+     If this function is called with one of the OBJECT_IDS being an
+     empty string, the corresponding row in the result contains a list
+     of the data types of the PROPERTIES.  This is a temporary hack and
+     will be removed again in a future version!
 
      An Exception is raised if SESSION is not a valid session
      identifier, the requested class does not exist, the current user
