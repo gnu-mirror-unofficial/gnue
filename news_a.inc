@@ -1,6 +1,6 @@
-<h3>New Releases of GNUe Tools (0.5.2)</h3>
+<h3>New Releases of GNUe Tools (0.5.3)</h3>
 
-<p>12 March 2004</p>
+<p>5 March 2004</p>
 <p>
 The GNU Enterprise team is proud to announce a new release of
 it's enterprise application development suite.  This release
