@@ -5,7 +5,7 @@ Application Programmer's Interface
 
    Edition 0.0.11, 2004-02-24
 
-   Copyright (C) 2002 Free Software Foundation
+   Copyright (C) 2002-2004 Free Software Foundation
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.1 or
