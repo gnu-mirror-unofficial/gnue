@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Install GNUe CVS Snapshot on Windows mini-HOWTO</title>
+</head>
+<body>
+<h1>Install GNUe CVS Snapshot on Windows mini-HOWTO</h1>
+<p> Jan Ischebeck &lt;mail@jan-ischebeck.de&gt; </p>
+<p> v0.03, 2003-11-22 </p>
+<p> This mini HOWTO describes how to get the GNUenterprise packages
+release 0.5.x to work on Windows 98 in combination with for example
+PostgreSQL or MySQL)</h3>
+<p> </p>
+<p> </p>
+<ul>
+  <li> get and install the file from <a
+ href="http://www.egenix.com/files/python/egenix-mx-base-2.0.4.win32-py2.2.exe">http://www.egenix.com/files/python/egenix-mx-base-2.0.4.win32-py2.2.exe</a> </li>
+  <li> which can be found at: <a
+ href="http://www.egenix.com/files/python/eGenix-mx-Extensions.html#Download-mxBASE">http://www.egenix.com/files/python/eGenix-mx-Extensions.html#Download-mxBASE</a> </li>
+</ul>
+<p> </p>
+<h2>3. The uidriver packages (you need at least one)</h2>
+<p> </p>
+<h3>3.1 wxPython (required for wxwindows uidriver)</h3>
+<p> </p>
+<ul>
+  <li> get wxPython Binaries from <a
+ href="http://www.wxpython.org/download.php#binaries">http://www.wxpython.org/download.php#binaries</a> </li>
+  <li> I would recommend to use the normal version, but possibly the
+unicode builds work too. </li>
+  <li> Use the version for python2.2 </li>
+</ul>
+<p> </p>
+<h3>3.2 gtk2 (required for gtk2 uidriver)</h3>
+<p> </p>
+<p> </p>
+<ul>
+  <li> get the installer from <a
+ href="http://www.pcpm.ucl.ac.be/%7Egustin/win32_ports/">http://www.pcpm.ucl.ac.be/~gustin/win32_ports/</a>
+or the source from <a href="ftp://ftp.gtk.org/pub/gtk/python/v2.0/">ftp://ftp.gtk.org/pub/gtk/python/v2.0/</a> </li>
+  <li> don't forget to install the gtk2 runtime, which is required too.
+(get it from <a href="http://www.dropline.net/gtk/download.php">http://www.dropline.net/gtk/download.php</a>)</li>
+  <li> now you have to add the gtk2 library path for python, so: </li>
+  <li> without REGEDIT (you can add the python path too): </li>
+</ul>
+<p> </p>
+<pre>   on win98/ME:<br>   - append C:\Program Files\Common Files\GTK\2.0\lib;c:\python22\python<br>   - to your set path line in c:\autoexec.bat<br></pre>
+<p> </p>
+<pre>   on w2k/XP:<br>   - Start menu -&gt;Control Panel-&gt;System-&gt;Special<br>   - in Environment Variables<br>   - append C:\Program Files\Common Files\GTK\2.0\lib;c:\python22\python to your path <br></pre>
+<p> </p>
+<ul>
+  <li> the same with regedit (didn't worked with gnue forms, but worked
+with normal python execution.) </li>
+</ul>
+<pre>    1. open regedit<br>    2. add new key called "Path" with content "C:\Program Files\Common Files\GTK\2.0\lib"<br>       to both "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths\Python.exe"
+and<br>       "....PythonWin.exe"<br></pre>
+<p> </p>
+<ul>
+  <li> now you can test for working gtk2 by clicking on python.exe in
+C:\python and writing </li>
+</ul>
+<pre>     import gtk [ENTER]<br></pre>
+<p> </p>
+<pre>     it should not raise any error<br></pre>
+<p> </p>
+<h3>3.3 win32all (required for win32 uidriver)</h3>
+<p> </p>
+<ul>
+  <li> load win32all package from <a
+ href="http://starship.python.net/crew/mhammond/win32/Downloads.html">http://starship.python.net/crew/mhammond/win32/Downloads.html</a> </li>
+  <li> should be build 152 or so. </li>
+</ul>
+<p> </p>
+<h2>4. Database driver for python</h2>
+<p> </p>
+<h3>4.1 Mysql driver</h3>
+<p> </p>
+<ul>
+  <li> fetch from <a href="http://sourceforge.net/projects/mysql-python">http://sourceforge.net/projects/mysql-python</a> </li>
+</ul>
+<p> </p>
+<h3>4.2 Postgresql driver</h3>
+<p> </p>
+<ul>
+  <li> there are different ones: I recommend the one from <a
+ href="http://pypgsql.sourceforge.net/">http://pypgsql.sourceforge.net/</a> </li>
+</ul>
+<p> </p>
+<h3>4.3 Firebird/Interbase driver</h3>
+<p> </p>
+<ul>
+  <li> get it from <a
+ href="http://sourceforge.net/projects/kinterbasdb/">http://sourceforge.net/projects/kinterbasdb/</a> </li>
+</ul>
+<p> </p>
+<h2>5 The GNUe Tools</h2>
+<p> </p>
+<h3>5.1 Preparations</h3>
+<ul>
+  <li> fetch it from <a
+ href="http://www.gnuenterprise.org/downloads/hourly.php">http://www.gnuenterprise.org/downloads/hourly.php</a> </li>
+  <li> store it and unzip the archive </li>
+</ul>
+<p> Then: </p>
+<p> </p>
+<ul>
+  <li> create the following script (you can do it with notepad and store
+the file as install.bat) </li>
+</ul>
+<pre>     C:\python22\python.exe setup.py install<br></pre>
+<p> </p>
+<ul>
+  <li> you should replace C:\python2.2 with the path where you installed
+python </li>
+  <li> store that file in the subdirectory gnue-common of the unzipped
+cvs snapshot </li>
+  <li> copy and paste the file to the rest of the snapshot subdirs
+(gnue-forms, gnue-designer ....) </li>
+</ul>
+<p> </p>
+<h3>5.2 Install</h3>
+<p> </p>
+<ul>
+  <li> switch into gnue-common and double click on that 'install.bat'
+file you created. Now gnue-common should be installed. </li>
+</ul>
+<p> Repeat these steps for the modules GNUe-Designer, GNUe-Forms,
+GNUe-AppServer and GNUe-Navigator </p>
+<p> </p>
+<h3>5.3 Convinence</h3>
+<p> </p>
+<ul>
+  <li> create a batch file "gnue-forms"  with the following content in
+the scripts subdirectory of your python installation: </li>
+</ul>
+<pre>         C:\python22\python C:\python22\Scripts\gnue-forms %1 %2 %3 %4 %5 %6 %7 %8 %9<br></pre>
+<ul>
+  <li> do the same step for: GNUe-Designer, GNUe-Forms, GNUe-AppServer and
+GNUe-Navigator </li>
+  <li> you can then create links to these files on your desktop or in
+the programm menu </li>
+  <li> you should double click on a forms file f.e. intro.gfd in
+gnue-forms/samples/intro and assosiate it with the gnue-forms.bat script </li>
+</ul>
+<p> </p>
+<h2>6. Configuring GNUe</h2>
+<p> GNUe provides a few sample config files which can be used to set it
+up for your system. These are located in etc in your Python directory. </p>
+<p> </p>
+<ul>
+  <li> Open C:\Python22\etc </li>
+  <li> rename sample.connections.conf to connections.conf </li>
+  <li> rename sample.gnue.conf to gnue.conf </li>
+  <li> rename sample.report-filters.conf to report-filters.conf </li>
+</ul>
+<p> </p>
+<h3>6.1 Connections.conf</h3>
+<p> Next connections.conf needs to be setup so it can connect to your
+database. There are some examples in that file, alter one to suit your
+needs and comment out the rest. Mine looks like this: </p>
+<p> </p>
+<pre>   [test]<br>   comment = Test Database<br>   provider = postgresql<br>   host = localhost<br>   dbname = test<br></pre>
+<p> After this its possible to run the designer and connect to the
+database and create your first form using the wizard. </p>
+<p> </p>
+<h3>6.2 gnue.conf</h3>
+<p> </p>
+<ul>
+  <li> You can switch between different UI driver by passing the -u
+option on the command line or by setting DefaultUI in gnue.conf. </li>
+</ul>
+<p> </p>
+<h2>7. Update</h2>
+<ul>
+  <li> If you want to update GNUE, than just load and unzip the newest
+"hourly" or "nightly" snapshot. And exectute the installation scripts
+again. </li>
+</ul>
+<p> </p>
+<ul>
+  <li> In case of big changes in CVS, you possibly have to delete the
+directory C:\python22\lib\site-packages\gnue before upgrading. </li>
+</ul>
+</body>
+</html>

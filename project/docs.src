@@ -7,6 +7,7 @@
     (<a href="../project/docs/DevelopersIntroduction.pdf">PDF</a>)
     <br />
     An overview of the GNU Enterprise project from a developers view.
+    <font size="-1"><b>[Last revised: 2002-03-06]</b></font> 
     </p>
 
     <p><b>What is Quality?</b> 
@@ -15,6 +16,7 @@
     (<A HREF="../project/docs/quality.pdf">PDF</a>)
     <br />
     An introduction into what quality management should be.
+    <font size="-1"><b>[Last revised: 2001-03-04]</b></font> 
     </p>
 
     <p><b>GNUe Security Framework</b> 
@@ -25,5 +27,6 @@
     (<A HREF="../project/docs/security.rtf">RTF</a>)
     <br />
     A draft proposal for a security framework for GNU Enterprise
+    <font size="-1"><b>[Last revised: 2002-12-05]</b></font> 
     </p>
 

@@ -11,6 +11,7 @@
     <br />
     Whitepaper discussing the Purpose, Features and Implementation 
     of the GNUe AppServer
+    <font size="-1"><b>[Last revised: 2003-10-18]</b></font> 
     </p>
 
     <p><b>GNUE Application Server: Application Programmer's Interface</b>
@@ -21,6 +22,7 @@
     (<a href="../tools/docs/appserver/api.txt">Text</a>)
     <br />
     Technical details of the GNUe AppServer APIs
+    <font size="-1"><b>[Last revised: 2003-10-21]</b></font> 
     </p>
    
 <h3>GNUe Forms</h3>
@@ -34,6 +36,7 @@
     Design documentation for the GNUE Forms user interface system.
     This is the most current document and one that application 
     designers want.
+    <font size="-1"><b>[Last revised: 2003-08-05]</b></font> 
     </p> 
 
 <h3>GNUe Reports</h3>
@@ -45,6 +48,7 @@
     (<a href="../tools/docs/reporter.pdf">PDF</a>)
     <br />
     Reporting server specification proposal.
+    <font size="-1"><b>[Last revised: 2001-01-01]</b></font> 
     <p> 
 
 <h3>GNUe Common</h3>
@@ -59,6 +63,7 @@
     Useful for those interested in using the Common library 
     with your own application tools to provide features such 
     as database abstraction and RPC abstraction.
+    <font size="-1"><b>[Last revised: 2003-10-17]</b></font> 
     </p> 
 
 <h3>GNUe Integrator</h3>
@@ -67,16 +72,19 @@
     (<A HREF="../tools/docs/Integrator/index.html">HTML</a>) 
     <br />
     Proposal for Data Integration.
+    <font size="-1"><b>[Last revised < 2002-05-01]</b></font> 
     </p>
 
     <p><b>GNUe Integrator: DB 2 XML DTD</b> 
     (<A HREF="../tools/docs/Integrator/db2xml.dtd">DTD</a>) 
     <br />
     Proposal for DB 2 XML DTD.
+    <font size="-1"><b>[Last revised < 2002-05-01]</b></font> 
     </p>
 
     <p><b>GNUe Integrator: Scripting Engine Rules</b> 
     (<A HREF="../tools/docs/Integrator/ruleEngineCommands.html">HTML</a>) 
     <br />
     Proposal for rules scripting engine commands.
+    <font size="-1"><b>[Last revised < 2002-05-01]</b></font> 
     </p>
