@@ -40,10 +40,8 @@ volunteered.
 
 The www.gnu.org version of the site is updated every 
 time there is a CVS commit. The www.gnuenterprise.org 
-version of the site is updated daily via a cron job, or
-can be manually checked-out as required.
-($TODO: cron job needs setting up - but only once site 
-is safely in CVS)
+version of the site is updated every 8 hours via a cron 
+job, or can be manually checked-out as required.
 
 Note that the www.gnuenterprise.org version of the site
 also contains some other things not in CVS and hence 
