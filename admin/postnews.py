@@ -103,7 +103,7 @@ split = old_src.find ( '<img src=' )
 handle.write ( old_src [:split] ) 
 handle.write ( '<img src="../e_ball.png"><a href="news' + 
                num + 
-               '.src">' + 
+               '.html">' + 
                title + 
                '</a> - ' + 
                date + 
