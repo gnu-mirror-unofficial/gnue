@@ -35,7 +35,7 @@
 # 9. Run makesite to update for all changed *.src files
 #
 
-import sys, glob, os
+import sys, glob, os, time
 
 def xml_slice ( haystack, tag ): 
    'Finds the first instance of tag within haystack, and returns it contents'
@@ -57,7 +57,7 @@ title  = xml_slice ( news_text, 'title'  )
 header = xml_slice ( news_text, 'header' )
 body   = xml_slice ( news_text, 'body'   )
 mail   = xml_slice ( news_text, 'mail'   )
-date   = $TODO$
+date   = time.strftime ( "%d %B %Y", time.gmtime() ) 
 
 #
 # 2. Get next article number
@@ -92,6 +92,10 @@ handle.close()
 #
 # 4. Edit old.src file to include new link
 #
+
+handle = open ( 'old.src', 'r' )
+old_src = handle.read()
+handle.close()
 
 handle = open ( 'old.src', 'w' ) 
 

@@ -1,7 +1,6 @@
-<h3>GNUe Designer 0.4.3 for wxPython 2.4 users</h3>
+<h1>GNUe Designer 0.4.3 for wxPython 2.4 users</h1>
 
-<p>03 February 2003</p>
-<p>Please note that all versions of GNUe Designer up to <b>and including</b> 
+<p>03 February 2003</p><p>Please note that all versions of GNUe Designer up to <b>and including</b> 
 0.4.2 and the 0.5.0 pre-releases are incompatible with the new 2.4 
 release of wxPython. In particular, Debian users should note that this is 
 now the default version in the unstable ("sid") distribution.</p>
@@ -16,4 +15,5 @@ of GNUe Designer which includes the fixes.</p>
 need to upgrade at the moment - you can safely wait for the 0.5.0 
 releases. Also, note that the problems with wxPython do not affect 
 GNUe Forms, so this remains at version 0.4.3.</p>
-
+<hr>
+<p><a href="old.html">Return</a> to news archive</p>
