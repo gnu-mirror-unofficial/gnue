@@ -51,7 +51,7 @@
     <td width="180" height="25">&nbsp;</td>
     <td height="25" align="center">
     <!-- strapline -->
-       <a href="../news/news135.html" class="blacklink">0.5.1 releases</a>
+       <a href="../news/news136.html" class="blacklink">0.5.2 releases</a>
 available for download. 
     </td>
   </tr>
