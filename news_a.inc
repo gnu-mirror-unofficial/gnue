@@ -1,6 +1,6 @@
 <h3>New Releases of GNUe Tools (0.5.2)</h3>
 
-<p>24 October 2003</p>
+<p>22 October 2003</p>
 <p>
 The GNU Enterprise team is proud to announce a new release of
 it's enterprise application development suite.  This release
