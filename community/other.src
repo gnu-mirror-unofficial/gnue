@@ -30,7 +30,7 @@ Reports talking directly to the database server) and is therefore
 more suited to smaller enterprises.</p>
 
 <p>gnue-sb includes some code and schemas from acclite, 
-forked from <a href="http://nola.nogaskau.com">NOLA</a>, a GPL 
+forked from NOLA, a GPL 
 accounting package originally written in php by Nogasaku. 
 It will also include built-in integration with 
 shipping (e.g. Federal Express and UPS).</p>

@@ -199,7 +199,7 @@ will require some familiarity with</P>
 	</P>
 	<P CLASS="example-code-western" ALIGN=LEFT><FONT SIZE=1 STYLE="font-size: 8pt">#<BR>#
 	Setup the environment to know where gnue is installed<BR>#<BR>import
-	sys,os<BR></FONT><A CLASS="western" HREF="http://sys.path.append/"><FONT SIZE=1 STYLE="font-size: 8pt">sys.path.append</FONT></A><FONT SIZE=1 STYLE="font-size: 8pt">('/usr/local/gnue/lib/python')<BR>os.environ['INSTALL_LIB']='/usr/local/gnue/lib/python'<BR>os.environ['INSTALL_PREFIX']='/usr/local/gnue'<BR><BR>#<BR>#Import
+	sys,os<BR></FONT><FONT SIZE=1 STYLE="font-size: 8pt">sys.path.append</FONT><FONT SIZE=1 STYLE="font-size: 8pt">('/usr/local/gnue/lib/python')<BR>os.environ['INSTALL_LIB']='/usr/local/gnue/lib/python'<BR>os.environ['INSTALL_PREFIX']='/usr/local/gnue'<BR><BR>#<BR>#Import
 	the base application support<BR>#<BR>from gnue.common.GClientApp
 	import *<BR><BR>#<BR># Define our application<BR>#<BR>class
 	Hello(GClientApp):<BR>  VERSION = &quot;0.0.1&quot;<BR>  COMMAND =
