@@ -1,0 +1,41 @@
+<h1>Mailing Lists</h1>
+
+<p>There are four current mailing lists for the GNUe project. 
+In decreasing order of probable interest/importance to the 
+newcomer to GNUe, they are:</p>
+
+<h3>gnue-announce@gnu.org</h3>
+<p>An announcements only mailing list for the project.<br>
+Subscribe to this list at 
+<a href="http://mail.gnu.org/mailman/listinfo/gnue-announce">
+http://mail.gnu.org/mailman/listinfo/gnue-announce</a>.</p>
+
+<h3>gnue@gnu.org</h3>
+<p>The main mailing list for the project.<br>
+Subscribe to this list at 
+<a href="http://mail.gnu.org/mailman/listinfo/gnue">
+http://mail.gnu.org/mailman/listinfo/gnue</a>.</p>
+
+<h3>gnue-dev@gnu.org</h3>
+<p>The developers mailing list for the project. 
+Unlikely to be of interest except to active GNUe Developers. <Br>
+Subscribe to this list at 
+<a href="http://mail.gnu.org/mailman/listinfo/gnue-dev">
+http://mail.gnu.org/mailman/listinfo/gnue-dev</a>.</p>
+
+<h3>commit-gnue@gnu.org</h3>
+<p>A mailing list with CVS commit messages for the project. 
+Unlikely to be of interest except to active GNUe Developers 
+who regularly access the codebase via CVS.<br>
+Subscribe to this list at 
+<a href="http://mail.gnu.org/mailman/listinfo/commit-gnue">
+http://mail.gnu.org/mailman/listinfo/commit-gnue</a>.
+
+<h3>Archived lists</h3>
+
+<p>In addition, from January 2000 to November 2001, there 
+were a large number (16) of specific lists for particular 
+parts of the GNUe project. These have now all been merged into 
+the main gnue@gnu.org list above, but the 
+<a href="http://lists.gnue.org/mailman/listinfo">
+archives</a> for these old lists are still available.</p>

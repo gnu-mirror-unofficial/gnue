@@ -1,0 +1,85 @@
+<h1>Copyright Assignment</h1>
+
+<h3>Why?</h3>
+
+<p>All of the GNUe code is released under the GNU General 
+Public License 
+(<a href="http://www.gnu.org/licenses/gpl.html">GPL</a>), a 
+<a href="http://www.gnu.org/licenses/licenses.html#WhatIsCopyleft">strong 
+copyleft</a> license. Unlike the licenses for many 
+proprietary software, this license does not seek to limit 
+thr freedom of the typical end-user to use the software. 
+It does, however, seek to prevent other developers 
+(ab-)using the code in a non-free way.</p>
+
+<p>To protect the code, as a matter of policy, GNU Enterprise 
+asks all people who contribute to the GNUe code to sign a 
+copyright assignment, assigning copyright to the 
+Free Software Foundation (FSF). This applies to both 
+code and documentation. Note that this is a 
+non-exclusive assignment - you can still use the code 
+you have contributed for any other purpose.</p>
+
+<p>We know that some other free software projects are 
+not as formal in requiring formal copyright assignment, 
+especially for minor patches. Their rationale is that, 
+by submitting a patch, the patch author is implicitly 
+assigning copyright on that patch to the authors of the 
+original code. Whilst we understand this position, we 
+prefer the legal certainty of a formal copyright 
+assignment.</p>
+
+<p>In effect, you can look at copyright assignment as 
+being a way of sub-contracting your right to enforce 
+the GPL on your code to FSF. If the GPL on the GNUe 
+code ever needed to be upheld in court, it allows the 
+FSF to proceed against an alleged breach directly, 
+without the defendant being able to insist that each 
+and every person who ever contributed to the code be 
+involved in the case.</p>
+
+<h3>How?</h3>
+
+<p>If you are contributing code to GNUe for the first 
+time, you will need to e-mail us at 
+<a href="mailto:info@gnue.org">info@gnue.org</a>, 
+giving your name and postal address. We will then 
+arrange for the FSF copyright custodian to send you 
+two copies of the standard copyright assignment form
+by post. You'll need to sign both copies and send them 
+back. Once they have been signed by the FSF, one copy 
+will be sent back to you for your records. Depending on 
+postal delays to and from the FSF's home in Boston, USA 
+and your part of the world, the whole process can take 
+from a few days to a few weeks.</p>
+
+<p>Your employer might have rights over your work
+(for example, if you work on GNUe code as part of your 
+employment, but sometimes in other cases as well). 
+If so, we will need a copyright assignment 
+from them as well, using the same process. If you are 
+in any doubt on this, please ask. This will once again 
+be a non-exclusive assignment, so it would not prevent 
+your employer using the code you contributed for 
+anything else.</p>
+
+<p>Because the copyright assignment is a legal document, 
+it therefore has to be signed 'conventionally' by both 
+parties to be valid. (This is the position in the United 
+States - where FSF is based). Therefore, we are unable 
+to do copyright assignments using e-mail and some form 
+of electronic signature such as 
+<a href="http://www.gnupg.org/">GPG</a> - at the 
+moment, anyway.</p>
+
+<h3>Finally</h3>
+
+<p>We do appreciate that the need for copyright assignment 
+may seem like a bureaucratic obstacle, especially for 
+keen new developers eager to have their patches applied. 
+We hope that this helps to explains why we feel the need 
+to be so cautious. Rest assured that both the GNUe core 
+developers and the FSF will do everything they can to 
+make the process as smooth and quick as possible. If you 
+have any queries about the process, please contact us at 
+<a href="mailto:info@gnue.org">info@gnue.org</a>.</p>

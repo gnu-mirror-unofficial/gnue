@@ -1,0 +1,19 @@
+Title:   GNUe Common Tech Note Specification
+Status:  Current 
+Created: 2002-07-17
+Revised: 2002-07-17
+
+This technote describes the format of technotes.  A technote should be in 
+plain text (ASCII) format. They should be numbered sequentialGly. 
+
+The file consists of two sections, the header section and the text section.
+The header consists of line-delimited "field: value" pairs. Valid headers:
+
+  Title:  <The title of this technote>  (Required) 
+  Status: <Current|Deprecated|Obsolete> (Required)
+  Created: <Creation date in YYYY-MM-DD format>
+  Revised: <Last revision date in YYYY-MM-DD format>
+
+The header section is terminated with the first non-blank line. 
+
+

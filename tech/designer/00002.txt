@@ -1,0 +1,21 @@
+Title: Form's "Pre-Positioning" Wizards and Templates
+Status: Current
+Created: 22 July 2002
+
+Displayable/positionable widgets need a location on screen. To facilitate
+the writing of Wizards/Templates for such elements without having to resort
+to asking the user for x/y coordinates, form's TemplateSupport introduces
+the FormPrePositioningTemplate.  The primary difference is that, instead of
+the Wizard implementing a Start() method, the wizard should implement:
+
+  def StartWithPositioning(self, root, current, x, y, width, height):
+
+The wizard should not define a Start() method as the FormPrePositioningTemplate
+uses the Start() method for it's own code.
+
+width and height can be None if the user did not use a drag box to define
+the widget's size.  In that case, the wizard should, if appropriate, use
+sane defaults for these two.
+
+If either width or height are irrelevant to your element, these attributes
+can simply be ignored.

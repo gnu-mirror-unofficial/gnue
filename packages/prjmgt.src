@@ -1,0 +1,14 @@
+<h1>Project Management</h1>
+
+<p>Project Management gives you the control you need to make money from your 
+estimates and bids. With GNU Enterprise Project, you can create estimates, 
+define projects, set up budgets, monitor progress and send invoices to your 
+customers.</p>
+
+<p>This package may or may not merge with <a href="dcl.html">Double 
+Chocco Latte</a>.</p>
+
+<h3>Status</h3>
+
+<$ status ( "prjmgt" ) >
+

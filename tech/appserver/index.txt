@@ -1,0 +1,18 @@
+
+GNUe Application Server Tech Notes Index
+
+
+==============================================================================
+Current Tech Notes
+==============================================================================
+
+File        Title
+----------  ------------------------------------------------------------------
+00000.txt   GNUe Appserver Tech Note Specification
+----------  ------------------------------------------------------------------
+
+
+
+--------
+This file automatically created by
+common/utils/create-technote-index.py

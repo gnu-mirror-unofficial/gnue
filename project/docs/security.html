@@ -1,0 +1,2375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20021124;11200000">
+	<META NAME="CHANGEDBY" CONTENT="Stanley Klein">
+	<META NAME="CHANGED" CONTENT="20021205;17530311">
+	<META NAME="SDFOOTNOTE" CONTENT=";;;;C">
+	<META NAME="SDENDNOTE" CONTENT="ARABIC">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in; margin-left: 1in; margin-right: 1in; margin-top: 0.5in; margin-bottom: 0.5in }
+		P { margin-bottom: 0.08in; font-size: 12pt; line-height: 0.17in }
+		TD P { margin-bottom: 0.08in; font-size: 12pt; line-height: 0.17in }
+		TH P { margin-bottom: 0.08in; font-size: 12pt; font-style: italic; line-height: 0.17in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US">
+<DIV TYPE=HEADER>
+	<P STYLE="margin-bottom: 0in"><BR>
+	</P>
+</DIV>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=4><B>Draft
+Proposed GNU Enterprise Security Framework</B></FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3>Stanley
+A. Klein</FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 0.17in"></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3>Version
+0.3.1</FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3>December
+5, 2002</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><B>1.
+ 	Introduction and Overview</B></FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in; page-break-inside: avoid; page-break-after: avoid">
+<FONT SIZE=3>This document is intended as a framework for GNU
+Enterprise security. The document is based on the following
+principles:</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in; page-break-inside: avoid">
+<BR>
+</P>
+<P STYLE="margin-bottom: 0in">A.	There are three major purposes of
+GNUe security:</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-left: 1in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>(1)	To ensure that GNUe provides the requisite security
+functionality to enable its users to satisfy their the legal
+obligations regarding issues such as trustworthiness of data,
+auditability of financial records, and protection of personal
+privacy,</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-left: 1.01in; text-indent: -0.51in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>(2)	To enable GNUe users to implement such policies as
+they may reasonably adopt for protecting the confidentiality,
+integrity, and availability of their valuable data and business
+processes, and</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-left: 1in; text-indent: -0.51in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>(3)	To permit GNUe users to obtain the security
+functionality they require at a level of security assurance
+appropriate to their needs.</FONT></P>
+<P STYLE="margin-left: 1in; text-indent: -1in; margin-bottom: 0in; line-height: 0.17in">
+<BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>B.	GNUe is intended to work with a variety of supporting
+environments. These environments include security features and
+functions provided by</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>	(1)	The operating system and associated
+security&nbsp;related tools </FONT>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>	(2)	The database management system (DBMS) or other data
+management function</FONT></P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>	(3)	The middleware, or other support for
+interoperability and distributed processing </FONT>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>	(4)	The functions provided by GNUe itself, and </FONT>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>	(5)	Physical protections and manual/paperwork
+procedures. </FONT>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>C.	GNUe is intended to operate in a variety of
+architectures, ranging from two&nbsp;tier (client&nbsp;server)
+architectures implemented on a single&nbsp;user machine to multi&nbsp;tier
+architectures implemented on distributed processing networks,
+possibly including Internet connectivity.</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.49in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>D.	GNUe provides support for enforcement of business
+rules.  There is often a fine line between enforcement of business
+rules and enforcement of security policies.  GNUe will not itself
+provide advanced levels of assurance in enforcement of security
+policies.  If such advanced levels of assurance are needed &ndash;
+for example, if they are required as a result of  external
+obligations -- GNUe will facilitate use of the advanced assurance
+security services and security policy implementation capabilities
+provided by the operating system and DBMS.  Implementing advanced
+assurance security functions will require that the user select an
+operating system and DBMS that provides such functions at the level
+of assurance appropriate to the user's needs.  It is also recognized
+that some security policies may need to be implemented using
+paperwork and manual procedures.</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.49in; margin-bottom: 0in; line-height: 0.17in">
+<BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>E.	The security functionality of GNUe will be focused on
+support for Role Based Access Control (RBAC), which essentially
+implements the traditional methods used in business for protecting
+the confidentiality, integrity, and availability of valuable data and
+business processes, and is compatible with the leading trends in
+information security. </FONT>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>F.	The approach used for GNUe security will be to
+provide the appropriate infrastructure, together with user
+guidelines, necessary to enable users to meet legal obligations and
+to implement reasonable security policies under a range of
+anticipated environments. The detailed security requirements will be
+determined by the enterprises that use GNUe. The guidelines will be
+organized into a set of security levels, appropriate to the
+anticipated needs of various categories of users.</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>1.1	An
+overview of security</B></I></FONT></P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<BR>
+</P>
+<P STYLE="margin-bottom: 0in">The underlying concept of GNUe security
+is that the user has the basic responsibility for security and that
+GNUe can only provide appropriate tools within its scope to support
+the user in implementing security. 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The basic goals of information security
+are to protect information from disclosure to unauthorized recipients
+(confidentiality), to ensure that only authorized sources make
+changes to information (integrity), to ensure that the legitimate
+users of a system can receive its services when required
+(availability), to ensure that actions of an individual can be
+uniquely traced to that individual (accountability) and to ensure
+that agreements made electronically can be proven to have been made
+(non&nbsp;repudiation).</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Information security is always a
+tradeoff. Perfect security does not exist in the real world. Any real
+world system can be successfully attacked if the attacker is willing
+to spend enough time and money. The defender's objective is to make
+the time and cost of a successful attack much greater than either the
+useful life or value of the information in the system. There is also
+a tradeoff among the potential losses to the owner if information is
+successfully attacked, the costs of protection, and the inconvenience
+to legitimate users caused by the protective measures. 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Within the scope of security the tasks
+include providing protection, detecting intrusions, and recovering
+from intrusions. In some cases, there is a tradeoff between
+preventing an access and allowing the access but logging its
+activity. In such cases improper activity is detected by evaluating
+the logs.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">In general, an enterprise should
+identify and inventory the data it expects to manage using GNUe,
+perform the relevant tradeoffs, and establish security policies and
+associated protections for each category of data it identifies. It
+should then configure its implementation of GNUe to satisfy the
+policies it adopts.  
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Establishment of security policies is a
+function that must be performed at the highest levels of enterprise
+governance, such as the Board of Directors, Chief Executive Officer,
+Owner, Managing Partner, or other high level governing entity.  The
+security policies must be aligned with other policies regarding
+business practices, authority to perform business functions,
+applicable laws snd contractual obligations of the enterprise, and
+authority to originate, modify, and disseminate business documents. 
+The scope of issues addressed in these policies must at least cover
+the issues that would be addressed in policies governing records and
+business processes intended to be implemented in paper documents.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Recovery from an intrusion involves
+treating the computer system as a crime scene. Just as with a
+physical crime scene, the system must be secured against disturbance
+and evidence must be collected in a manner that is appropriate under
+applicable law.  The System recovery can be started only after the
+evidence has been collected and secured.  An example of a requirement
+for evidence collection is the &ldquo;chain of custody&rdquo;
+requirement  For example, in the US (and probably in many other
+places) evidence is subject to a  in which an audit trail must be
+established to document the custody and handling of the evidence.  If
+the chain of custody can not be proven in court, the evidence can be
+suppressed and disallowed 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>1.2
+	Outline of the document </B></I></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The remainder of this document presents
+the details in the areas of assumed environments, RBAC, and the range
+of security policies that will be supported.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><B>2.	
+Discussion of Security Policy Drivers</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>2.1
+	Separation&nbsp;of&nbsp;duty business policies</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Separation&nbsp;of&nbsp;duty is the
+standard method used by organizations &nbsp;&nbsp; both business and
+government &nbsp;&nbsp; for ensuring the integrity of their business
+proceses. In general, separation&nbsp;of&nbsp;duty policies are an
+ordinary part of the policies adopted under organizational
+governance. These policies are commonly published in a policy manual
+distributed to relevant managers and employees within the
+organization. Examples of separation&nbsp;of&nbsp;duty policies
+include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	The
+common requirement for two signatures on checks</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Requirements
+for approval or counter&nbsp;signature of expense vouchers, even if
+the submitter is a member of senior management</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Requirements
+for multiple signatures (customer, originator, supervisor) on refund
+vouchers in retail businesses</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Requirements
+for certain small disbursements to be made by check rather than cash
+(where the check is prepared by a different part of the organization
+than the one requesting the disbursement)</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	The use of
+multiple keys or combinations (intended to be entered by separate
+people) for opening safes or vaults</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Requirements
+that purchases be made by a purchasing department based on purchase
+requests initiated outside the purchasing department</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Separation&nbsp;of&nbsp;duty policies
+may depend on the size and scope of transactions or on other factors
+as determined by the governing body of the organization. For example,
+certain people may be authorized to commit the organization at
+certain monetary values and risk levels, but increasing monetary
+value or risk may require higher level approval.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>2.2	Need-to-Know/Need-to-Perform</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Need-to-know and need-to-perform are
+components of most security policies.  Users should be given access
+only to data for which they have a business reason to access. 
+Need-to-know applies to the confidentiality goal and need-to-perform
+applies to the other goals.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Examples of need-to-know and
+need-to-perform include the requirements that a patient's medical
+records be accessible only by providers to that patients and others
+whose duties require them to access the records.  Similar
+requirements can apply to customer records, student records, and
+other information.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>2.3 	Legal trustworthiness requirements</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">A legal trustworthiness requirement
+generally arises out of the need for trustworthy recordkeeping for
+official processes such as stockholder reporting, fiduciary
+reporting, tax determination and auditing, and use as legal evidence
+in trials. In all these cases there is a need for assurance that the
+records in question are the complete and actual records they purport
+to be and have not been altered since they were finalized. 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">As a general rule in computer systems,
+if it is desired for data to be unalterable, the data must be
+recorded on unalterable media. Regardless of how secure the operating
+system may be, an appropriate group of people having sufficient
+privileges on the system can do anything they want to do with any of
+the data on the system. This is an important reason why, in the case
+of an information security breach, it is usually required that all
+relevant data (such as the contents of the hard drive) be immediately
+written to CD&nbsp;Recordable media, sealed and labeled as
+appropriate for evidence, and placed in a legally&nbsp;compliant
+chain&nbsp;of&nbsp;custody.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">While criteria for the trustworthiness
+of legal evidence (and even for some analog&nbsp;stored electronic
+evidence) have been long established, the equivalent criteria for
+digitally&nbsp;stored and computer&nbsp;based evidence are in their
+infancy. The issues are being addressed in evolving policies,
+legislation, and court cases related to e&nbsp;commerce, management
+of digitally&nbsp;stored government records, and other areas.  Often,
+the legal system is found to be seriously out&nbsp;of&nbsp;touch with
+the world of technology and requires extensive education (and
+sometimes the development of new institutional approaches) for
+dealing with underlying technical issues.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">One example of a legal trustworthiness
+requirement is the Province of Quebec accounting auditability
+statute. This statute was adopted after a situation in which it was
+reported that some Quebec restauranteurs were using a &quot;zapper&quot;
+program to delete sales records in point&nbsp;of&nbsp;sale terminals,
+thereby reducing their reported tax liabilities by significant
+percentages. After investigation, Quebec adopted a statute making it
+illegal for any accounting&nbsp;related computer program to be
+capable of deleting posted data, and providing severe penalties for
+the use of such programs.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>2.4 	Critical Infrastructure Protection
+requirements</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Critical infrastructure is a term for
+facilities, including their information technology and communications
+capabilities, that are deemed essential for public health, safety, or
+critical economic reasons. Examples of critical infrastructure
+facilities are banking, electric/gas/water utilities, transportation,
+health care, and emergency services.  The assumed threat comes from
+highly sophisticated potential attackers, such as organized crime,
+international terrorists, or other international adversaries. These
+potential attackers are assumed to have goals that may transcend the
+specific nature of the facilities threatened, and may be willing to
+spend large sums of money to achieve their goals.  Accordingly, the
+protections that may be required are likely to go well beyond the
+kinds of protections needed to defend against lesser threats.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>2.5
+	Other legal requirements</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">There are numerous other legal
+requirements that may affect the security policies of an
+organization.  Examples include: 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Legally&nbsp;mandated
+privacy policies.  Examples of these include policies mandated in the
+US for medical providers (including hospitals, physicians, and
+others) under the Health Insurance Portability and Accountability Act
+(HIPAA) and for educational institutions under the Family Education
+Rights and Privacy Act (FERPA)</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Insider
+trading rules &nbsp; that govern the scope and timing of financial
+and other disclosures of  information that could affect publicly
+traded stocks, bonds, or other financial securities.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Standards&nbsp;of&nbsp;conduct,
+such as those that were mandated as part of electric power
+restructuring in the US. The restructuring separated the functions of
+an electric utility into regulated and unregulated parts. Under the
+Standards of Conduct, information in the regulated parts of an
+electric utility can not be disclosed to personnel working in the
+unregulated parts of the same utility.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>2.6	Consequences
+to the enterprise from security breach</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Many organizations began in the late
+1980's to adapt the hierarchical concept, traditionally used by
+governments for military and diplomatic purposes, of categorizing the
+needed intensity of protection for information based on the
+consequences to the organization of a security breach.  The
+consequence definitions generally apply to the security objectives of
+confidentiality (consequences if the information is disclosed to
+unauthorized recipients), integrity (consequences if the information
+is maliciously modified or destroyed), and availability (consequences
+if the information is made unavailable to legitimate users).  The
+consequence definitions generally   include three levels, with a
+possible fourth:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Minimal
+consequences - minimal but identifiable damage to the enterprise&rsquo;s
+operations, image, reputation, customer relations, supplier
+relations, regulatory relations, investor relations, or employee
+relations.  This is typically damage in the category of nuisance,
+identifiable expense, waste of time, and minor embarrassment.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Significant
+consequences - Significant damage to the enterprise&rsquo;s
+operations, image, reputation, customer relations, supplier
+relations, regulatory relations, investor relations, or employee
+relations.  This is typically damage that is costly and
+time&nbsp;consuming,  involves major embarrassment and major loss,
+and may involve significant violation of the legal obligations of the
+enterprise or its leadership.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Severe
+consequences - Severe, and often irreparable, damage to the
+enterprise&rsquo;s operations, image, reputation, customer relations,
+supplier relations, regulatory relations, investor relations, or
+employee relations.  This is damage that seriously affects the
+health, viability, competitive capability, or sustained existence of
+the enterprise, and may involve very serious violation of the legal
+obligations of the enterprise or its leadership.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The fourth category that is sometimes
+added is &ldquo;public information&rdquo; that is publicly disclosed
+and generally available, but might involve minimal consequences if it
+were vandalized.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>2.7	Formal
+security capability definition, evaluation, and certification</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">For at least the last decade,
+government agencies and international standards bodies have been
+engaged in a process of developing criteria for defining, evaluating,
+and certifying security protection of computer systems and associated
+networks.  The first of these criteria was developed in the 1970's to
+address US Defense Department issues and is known as the &quot;Orange
+Book&quot; (because of the color of its cover).  The Orange Book was
+principally focused on confidentiality.  Expanded criteria, including
+criteria for integrity, important to non-defense and commercial
+users, have been developed by an international consortium of
+information security agencies and have been adopted as an
+international standard..  The criteria specify levels of trust,
+including security features, development practices, documentation,
+and test procedures.  The choice of which level of trust is
+appropriate has been left to the user.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The Orange Book criteria illustrate the
+approach.  Orange Book Class D is security that is present but too
+weak to evaluate.  Class C provides access control based on
+data-owner&nbsp;determined permissions.  Subclass C1 provides basic
+features, including passwords, access control, formal quality
+assurance, and basic documentation.  Subclass C2 adds requirements
+such as audit capability.  Class B adds requirements for security
+sensitivity labels attached to files and security clearance levels
+attached to user accounts.  A user can access a file only if the
+file&rsquo;s owner has provided access permission <I>and</I> the
+file&rsquo;s sensitivity label is at or below the user&rsquo;s
+security clearance level.  Class B has three subclasses with
+increasing requirements for features and quality assurance, such as
+having a team of experts take several months full time to attack the
+system.  Class A1 is similar to Class B3, except arcane mathematical
+methods must be used to prove that the system meets its
+specifications.  
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The expanded criteria developed by the
+international consortium of information security agencies is known as
+the Common Criteria and Methodology for Information Technology
+Security Evaluation.  The equivalent international standard is
+International Standards Organization IS&nbsp;15408, which has
+formatting changes but is aligned with the Common Criteria. 
+Information on the Common Criteria can be found on the US National
+Institute of Standards and Technology (NIST) web site.  
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The Common Criteria provides a
+collection of terms and specification components for preparing
+Protection Profiles, which are user/acquirer expressions of their
+security requirements, and Security Targets, which are provider
+expressions of the security capabilities of their products. 
+Protection Profiles and Security Targets have similar formats.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The international consortium has
+established an arrangement for standardizing Protection Profiles and
+for evaluating products against the profiles.  Work done in one
+country under the Common Criteria arrangement is generally accepted
+in all countries in the consortium.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The Common Criteria provides a set of
+Evaluation Assurance Levels (EAL) that address the levels of trust
+that can be placed in the security evaluations and products.  EAL-1
+is similar to Orange Book Class D, i.e., security that is present but
+too weak to evaluate.  EAL-2 is sometimes described as &ldquo;common,
+commercial grade security.&rdquo;  EAL-4 is the highest level that
+can be evaluated in the US on a commercial basis, i.e., outside
+government auspices.  EAL-7 is comparable to Orange Book A-1,
+requiring arcane and extrordinarily complex methods to demonstrate
+that the security protection is provided.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The development methods required under
+the Common Criteria are difficult to interpret and apply to software
+developed under free/open-source software projects, that involve the
+efforts of volunteer developers and reuse components resident in what
+Lawrence Lessig (in his book The Future of Ideas) has called the
+&ldquo;Innovation Commons.&rdquo;  The George Washington University
+has a project to evaluate Security Enhanced Linux (discussed in
+further detail in Section 6) under the Common Criteria as a pilot
+study of how to apply the Common Criteria to free/open-source
+software projects.  Their intent is to evaluate at EAL-2 in the next
+year or so, and at EAL-4 within a few years.  They are working with
+NIST to develop appropriate interpretations of the Common Criteria
+that can be applied to similar projects.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><B>3.
+ 	Security categories</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The following sections describe a
+categorization of potential GNUe users, the threats they may regard
+as relevant, and the security assurance levels that may be
+appropriate for their needs.  In describing the assurance levels, a
+simplified set will be used.  These include low assurance security
+(roughly corresponding to EAL-1), medium assurance security (roughly
+corresponding to EAL-2), and high assurance security (roughly
+corresponding to EAL-4).</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=3><I><B>3.1 	Category A:
+Very small company, all users fully trusted for all functions, no
+legal or contractual constraints </B></I></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This could be a single&nbsp;user, home
+based business running GNUe in two&nbsp;tier mode on a single
+processor system or a 5&nbsp;person office where all users are
+highly&nbsp;trusted partners in the business.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The principal threat of concern to such
+an enterprise is: 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Inadvertent
+error</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The system can be expected to be used
+for connecting to the Internet, although not for GNUe functionality.
+The user must be expected to provide appropriate protection to
+prevent intruders from attacking the system by the various common
+means of Internet&nbsp;based attack, such as by exploiting
+vulnerabilities of actively&nbsp;connected systems or by inducing the
+user to accept malicious software such as viruses or Trojan Horses.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">A company in this category could easily
+use a system having a low security assurance level.  
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>2.2 	Category B: Very small company, all users
+fully trusted for all functions; legal or contractual constraints </B></I></FONT>
+</P>
+<P STYLE="text-indent: -1in; margin-bottom: 0in; line-height: 0.17in">
+<BR>
+</P>
+<P STYLE="margin-bottom: 0in">This is the same kind of enterprise as
+in (A), but there are legal and/or contractual constraints that apply
+to the accounting or other recordkeeping systems.  One example of
+such a constraint is a legal trustworthiness requirement such as the
+Province of Quebec statute prohibiting accounting systems from being
+capable of deleting or modifying transactions after they have been
+posted. Another example is the requirement for protection of personal
+privacy in medical facility records under the US Health Insurance
+Protection Availability and Accountability Act (HIPAA).</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The principal threats of concern to
+such an enterprise are: 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Inadvertent
+error</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.51in; text-indent: -0.51in; margin-bottom: 0in">
+<FONT FACE="WP TypographicSymbols">!</FONT>	Violation of
+legal/contractual/business&nbsp;policy requirements for
+non&nbsp;disclosure or  integrity&nbsp;protection of certain data
+(such as employee records, proprietary data, health records, or
+accounting audit trails).</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The security assurance level required
+for a user in this category will depend on the particular provisions
+associated with the legal or contractual obligations.  It may be
+possible to satisfy some obligations using a system having low
+security assurance.  However, if the obligations require the system
+to be subject to outside audit, an assurance level of at least medium
+may be advisable.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>2.3 	Category C: Small/medium company, legal and
+contractual requirements, any external network connection tightly
+controlled</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This could be a company of
+small&nbsp;to&nbsp;medium size that does its accounting and other
+corporate administration in a headquarters with air&nbsp;gap security
+or otherwise tightly controlled protection from external intrusion,
+i.e., no Internet connection and no dialups to the GNUe system. 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The principal threats of concern to
+such an enterprise are: 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Inadvertent
+error </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Embezzlement
+and employee fraud </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Disgruntled
+employees </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in">
+<FONT FACE="WP TypographicSymbols">!</FONT>	Violation of
+legal/contractual/businesss&nbsp;policy requirements for
+non&nbsp;disclosure or  integrity&nbsp;protection of certain data
+(such as employee records, proprietary data, and accounting audit
+trails).</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The security assurance level
+appropriate for a user in this category will depend on the nature of
+the external contractual/legal obligations and the relative technical
+sophistication of the threat from insiders.   If the external
+obligations are relatively simple, the insider technical threat
+relatively unsophisticated, and the consequences from both threats
+relatively minimal, a system having low security assurance may be
+sufficient.  As the external obligations become more stringent, the
+insider threat more sophisticated, and the consequences from both
+threats more serious, the need for higher levels of security
+assurance increases.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>2.4 	Category D: Small/medium company, legal and
+contractual requirements, external network connection</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This is the same kind of company as in
+(D) with Internet or other external network connection to the GNUe
+system.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The principal threats to such an
+enterprise include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Inadvertent
+error </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Embezzlement
+and employee fraud </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Disgruntled
+employees </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Violation of
+legal/contractual/businesss&nbsp;policy requirements for
+non&nbsp;disclosure or  integrity&nbsp;protection of certain data
+(such as employee records, proprietary data, and accounting audit
+trails). </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Common
+business threats from external intruders</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The threat of external intrusion has
+the effect of raising the level of sophistication of potential
+attacks.  A user in this category will most likely require at least a
+medium level of assurance, unless the most critically affected
+systems can be effectively isolated.  The user must choose between
+the security benefit and the enterprise integration disbenefit of
+isolation or &ldquo;stovepiping.&rdquo; 
+</P>
+<P STYLE="text-indent: -0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>2.5 	Category E: Medium to Large company with
+special concerns</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This could be a company of any size,
+but most likely a multi&nbsp;divisional corporation having additional
+special concerns affecting security. The kinds of concerns than may
+arise include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Critical
+infrastructure protection concerns (such as US policies affecting
+financial entities, utilities, health care, transportation, emergency
+services, and other selected industries)</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Trans&nbsp;border
+data flow and personal privacy regulations of the European Community</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT SIZE=3>Enterprises faced with special security concerns will
+most likely require high assurance systems.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><B>4.
+	Types of Access Control and Other Security Functions</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>4.1 	Role-Based Access Control (RBAC)</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Role Based Access Control essentially
+implements the separation&nbsp;of&nbsp;duty approach that has long
+been taken by businesses in protecting the integrity of their
+business processes and critical data. Interest in RBAC arose as a
+result of an evaluation of information security technology, which at
+one time was focused on the confidentiality needs associated with
+military and diplomatic matters. Recognition that business (and some
+government) applications are more focused on the need for integrity
+resulted both in the development of the Common Criteria for
+Information Security Evaluation (ISO&nbsp;15408) and research
+attention to RBAC. Indeed, one of the first examples of a Protection
+Profile prepared and published using the Common Criteria was a
+specification for evaluating RBAC.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The description of RBAC presented here
+is based on a proposed standard for RBAC prepared by NIST. Under the
+proposed standard, RBAC deals with the elements of Users, Roles,
+Objects, Operations, and Permissions. A user is a person, but can be
+extended to a process. A role is a job function within the context of
+an organization. A user may be assigned multiple roles and a role may
+be occupied by multiple users, although the relationship between
+users and roles may be limited by constraints. Objects and operations
+depend on the system context. For example, in a DBMS an object may be
+a table and an operation may be a select or update. A permission is
+the approval to perform the operation on the object.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Core RBAC requires the capabilities to
+manage assignment of users to roles and manage assignment of
+permissions to roles. It requires that a user be able to assume
+multiple simultaneous roles. The proposed standard describes this as
+capturing the functionality of group permissions in current operating
+systems.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Hierarchical RBAC introduces role
+hierarchies, with senior roles in the hierarchy inheriting the
+permissions of their juniors and users assigned to senior roles being
+assigned as well to the associated junior roles. Constrained RBAC
+introduces separation&nbsp;of&nbsp;duty relationships, which are
+static or dynamic constraints on the roles to which a user can be
+simultaneously assigned. An example of a static constraint is that a
+billing clerk is never allowed to also be an accounts receivable
+clerk. An example of a dynamic relationship is that the originator of
+a document is never also allowed to be the approver of the same
+document, but may approve other documents.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><B><I>4.2	Discretionary
+Access Control (DAC)</I></B> </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Discretionary Access Control is the
+traditional &ldquo;user-group-other/read-write-execute&rdquo; type of
+control traditionally found in operating systems and DBMS&rsquo;s. 
+It is also the kind of control provided by access control lists. 
+Under DAC, the owner of the data or file essentially has discretion
+to provide access to whoever the owner determines should have access.
+ The system enforces the owner&rsquo;s access decision, but does not
+otherwise enforce constraints on access to the data.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>4.3	Mandatory
+Access Control (MAC)</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">In Mandatory Access Control, objects
+(e.g., data) and subjects (e.g., users, devices) are given
+sensitivity labels according to a hierarchy.  The label is part of
+the access control associated with the subject or object.  Security
+policies govern the access and movement of objects by subjects.  An
+example of a security policy is the &ldquo;Bell&nbsp;LaPadula
+Security Model&rdquo; that prohibits a subject having a lower level
+sensitivity label from reading an object having a higher sensitivity
+label and also prohibits a subject having a higher level sensitivity
+label from writing an object to a subject (e.g., a user directory or
+a printer) having a lower sensitivity label.  The policy is often
+summarized as &ldquo;No read up, no write down&rdquo; and is enforced
+by the operating system.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>4.4	Authentication</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Authentication is the process of
+determining that the user is authentic, i.e., that the user is who
+the user claims to be.  This is done by receiving information about
+the user and comparing the received information to a stored version
+of the information for the authentic user.  Up to three factors may
+be used:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Something
+the user knows, such as a password</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Something
+the user has, such as a device or smartcard, usually identified by
+some kind of encrypted information.  Some devices automatically
+change the information periodically in synchronism with other
+software or devices in the authentication system.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Something
+the user is, essentially data regarding a biometric characteristic of
+the user, such as a fingerprint or eyeball pattern, generally stored
+in some encryption&nbsp;protected format.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">There are numerous ways in which an
+authentication system can be attacked and compromised.  These include
+various means of tricking a user into revealing a password, various
+strategies for guessing passwords and validating the accuracy of the
+guesses, and various methods of capturing passwords (or other
+authentication information) as it moves in the system.  There are
+also ways in which an authentication system can be bypassed,
+essentially involving attacks on the security of the overall system. 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>4.5
+	Captured User Approaches</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">A captured user approach involves
+&ldquo;capturing&rdquo; or &ldquo;jailing&rdquo; the user to prevent
+any access to capabilities that a malicious user could exploit to
+engage in unauthorized activities on the system.  For example, this
+would generally involve sending the user from system login directly
+into a menu system from which the user can't escape.  Sending the
+user into the menu system generally involves a function that is
+automatically executed upon startup of a computer or upon user login.
+ However, there are a wide variety of system functions that must be
+blocked to ensure that the user remains captured.  
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">In general, the capturing fails if a
+user is able to access a system prompt, or also in the case of GNUe a
+Python traceback and prompt, that enables access to commands that can
+be used for performing functions that support disallowed activity. 
+Among other things, this may mean that the user must be prevented
+from starting the system or logging in without going throught the
+auto-execute function that starts the menu system.  It means that
+functions that can stop a process and return to the system prompt
+(such as Control-C or Control-Z on some systems) must be disabled. 
+It means that any exception that could result in a crash leading to a
+Python traceback or system prompt must be handled and returned
+instead to the menu system.  It is best if functionality not needed
+by a legitimate user is not present on the system.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Captured user approaches are good for
+purposes such as point-of-sale terminals and specialized kiosk
+terminals.  Also, any user accessing a web page is essentially a
+captured user of the system containing the web server.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="text-indent: -0.02in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><B>5.	Examples of actual security requirements</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This section will provide some examples
+of actual security requirements drawn from a variety of sources.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>5.1	Corporate Mandatory Access Control Security
+Labels</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Appendix A provides an extract from
+Internet Request for Comments (RFC) 3114 describing the sensitivity
+labels used by three major corporations.  The lowest level is usually
+some variant of &quot;public information&quot; and the top level some
+variant of &quot;highly sensitive&quot; information that could result
+in severe damage to the enterprise if disclosed or subjected to
+tampering.  For example, Amoco Corporation has HIGHLY CONFIDENTIAL,
+CONFIDENTIAL, and GENERAL for confidentiality and MAXIMUM, MEDIUM,
+and MINIMUM for integrity, with an additional category, CRITICAL, for
+availability of time-critical information.  Caterpillar, Inc. uses
+Caterpillar Confidential Red, Caterpillar Confidential Yellow,
+Caterpillar Confidential Green, and  <FONT SIZE=3>Caterpillar Public
+for confidentiality.  Whirlpool Corporation uses confidentiality
+categories of WHIRLPOOL CONFIDENTIAL, WHIRLPOOL INTERNAL, and
+WHIRLPOOL PUBLIC, with WHIRLPOOL CONFIDENTIAL possibly having
+additional markings such as MAKE NO COPIES, THIRD PARTY CONFIDENTIAL,
+ATTORNEY-CLIENT PRIVILEGED DOCUMENT, DISTRIBUTION LIMITED TO ____,
+and COVERED BY A NON-ANALYSIS AGREEMENT.  The definitions of these
+categories are provided in the appendix.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>5.2	RBAC
+Example From Banking</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">An RBAC example from banking can be
+found in a document entitled &ldquo;Application of XML Tools for
+Enterprise-Wide RBAC Implementation Tasks&rdquo; by Ramaswamy
+Chandramouli of the US</P>
+<P STYLE="margin-bottom: 0in">National Institute of Standards and
+Technology (NIST).  The document is posted on the NIST RBAC web site.
+ The roles described in the document include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">&ldquo;(a) Teller &ndash; Input and
+Modify transactions against Customer Deposit Accounts.</P>
+<P STYLE="margin-bottom: 0in"> (b) Customer_Service_Rep &ndash; In
+addition to the functionality for the Teller Role, create and delete
+Customer Deposit Accounts.</P>
+<P STYLE="margin-bottom: 0in">(c) Loan_Officer &ndash; Create and
+Modify status of Loan Accounts</P>
+<P STYLE="margin-bottom: 0in">(d) Accountant &ndash; Input all bank
+business transactions and generate General Ledger Reports.</P>
+<P STYLE="margin-bottom: 0in">(e) Accounting_Manager &ndash; In
+addition to the Accountant functions, the ability to modify Ledger
+Posting Rules 
+</P>
+<P STYLE="margin-bottom: 0in">(f) Internal_Auditor &ndash; Verify all
+Transactions and Ledger Posting Rules.</P>
+<P STYLE="margin-bottom: 0in">(g) Branch_Manager &ndash; Ability to
+perform any of the functions of other roles in times of emergency and
+to View all transactions, Account Statuses and Validation Flags.&rdquo;</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Some of the constraints imposed on
+roles include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">(a) 	The maximum number of users that
+can be assigned to Bank_Manager and Internal_Auditor roles is ONE.</P>
+<P STYLE="margin-bottom: 0in">(b) 	The following pair of roles cannot
+be assigned to the same user (Static Separation of Duty (SSD) or
+&ldquo;Membership Mutual Exclusivity&rdquo;):</P>
+<P STYLE="margin-bottom: 0in">	(1) Customer_Service_Rep and
+Accounting_Manger</P>
+<P STYLE="margin-bottom: 0in">	(2) Customer_Service_Rep and
+Internal_Auditor</P>
+<P STYLE="margin-bottom: 0in">	(3) Loan_Officer and
+Accounting_Manager</P>
+<P STYLE="margin-bottom: 0in">	(4) Loan_Officer and Internal_Auditor</P>
+<P STYLE="margin-bottom: 0in">	(5) Accounting_Manager and
+Internal_Auditor</P>
+<P STYLE="margin-bottom: 0in">	(6) Teller and Accountant</P>
+<P STYLE="margin-bottom: 0in">	(7) Teller and Loan_Officer</P>
+<P STYLE="margin-bottom: 0in">	(8) Teller and Internal_Auditor</P>
+<P STYLE="margin-bottom: 0in">	(9) Accountant and Loan_Officer</P>
+<P STYLE="margin-bottom: 0in">	(10) Accountant and Internal_Auditor</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">(c) The following pair of roles cannot
+be activated or enabled at the same user session (Dynamic Separation
+of Duty (DSD) or &ldquo;Activation Mutual Exclusivity&rdquo;):</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">	Customer_Service_Rep and Loan_Officer&rdquo;</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="text-indent: 0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I><B>5.2	RBAC Example From Health Care</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">An RBAC example from health care can be
+found in a document entitled &ldquo;Application of XML Tools for
+Enterprise-Wide RBAC Implementation Tasks&rdquo; by Ramaswamy
+Chandramouli of the US National Institute of Standards and Technology
+(NIST).  The document is posted on the NIST RBAC web site.  
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The document provides an example of a
+portion of a system applying to a health care facility.  Users are
+assigned to roles, including Admissions_clerk, Ward_scheduler,
+Registered_nurse, and 
+</P>
+<P STYLE="margin-bottom: 0in">Facilities_specialist.  The tables
+below provide some of the flavor of the requirements.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">There is a role-domain mapping as shown
+in the following table:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE WIDTH=100% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR VALIGN=TOP>
+		<TH WIDTH=50%>
+			<P>Role</P>
+		</TH>
+		<TH WIDTH=50%>
+			<P>Domain</P>
+		</TH>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Admissions_clerk 
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>patient_mgmt_domain 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Ward_scheduler 
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>facility_mgmt_domain 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Registered_nurse 
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>care_provider_domain 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Facilities_specialist</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>facility_mgmt_domain 
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">There is a subject-role mapping as
+shown in the following table:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE WIDTH=100% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR VALIGN=TOP>
+		<TH WIDTH=50%>
+			<P>Subject</P>
+		</TH>
+		<TH WIDTH=50%>
+			<P>Role</P>
+		</TH>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Admission_proc</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>admissions_clerk 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Discharge_proc 
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>admissions_clerk 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Transfer_proc</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P STYLE="margin-bottom: 0in">ward_scheduler,</P>
+			<P>facilities_specialist 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>lab_orders_proc</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>registered_nurse</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">There is a subject-domain mapping as
+shown in the following table:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE WIDTH=100% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR VALIGN=TOP>
+		<TH WIDTH=50%>
+			<P>Subject</P>
+		</TH>
+		<TH WIDTH=50%>
+			<P>Role</P>
+		</TH>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Admission_proc</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>patient_mgmt_domain 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Discharge_proc 
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>patient_mgmt_domain 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>Transfer_proc</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>facility_mgmt_domain 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P>lab_orders_proc</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P>care_provider_domain 
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Finally, there is a domain access
+matrix that governs the access to types of data in the various
+domains:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE WIDTH=100% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=64*>
+	<COL WIDTH=64*>
+	<COL WIDTH=64*>
+	<COL WIDTH=64*>
+	<TR VALIGN=TOP>
+		<TH WIDTH=25%>
+			<P>Domain\Object Type</P>
+		</TH>
+		<TH WIDTH=25%>
+			<P>Patient Registration Type</P>
+		</TH>
+		<TH WIDTH=25%>
+			<P>Patient Location Type</P>
+		</TH>
+		<TH WIDTH=25%>
+			<P>Patient Clinical Type</P>
+		</TH>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=25%>
+			<P>Patient_mgmt_domain</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER>C, U, D,V 
+			</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER> D, V</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=25%>
+			<P>Facility_mgmt_domain</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER><BR>
+			</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER>C,U,V</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=25%>
+			<P>Care_provider_domain</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER>V</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER>V</P>
+		</TD>
+		<TD WIDTH=25%>
+			<P ALIGN=CENTER>C, U, V</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Access Mode Codes: C &ndash; Create , U
+&ndash; Update, D &ndash; Delete , V &ndash; View</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=3><I><B>5.3	Security
+Requirements Arising from FERPA</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This example of a FERPA policy is
+extracted from the web site of Western Michigan University.  Under
+FERPA, a university must define &ldquo;student directory information&rdquo;
+and certain other information.  Students are allowed under FERPA to
+restrict the release of their directory information.  (Another
+university allows two levels of control: (1) stating to a requester
+that the information on the student can not be released, and (2)
+stating to a requester that there is no information available on any
+such student.)</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Western Michigan University defines
+student directory information as follows:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">     Name 
+</P>
+<P STYLE="margin-bottom: 0in">     Address 
+</P>
+<P STYLE="margin-bottom: 0in">     Telephone number 
+</P>
+<P STYLE="margin-bottom: 0in">     Email Address 
+</P>
+<P STYLE="margin-bottom: 0in">     Date and place of birth 
+</P>
+<P STYLE="margin-bottom: 0in">     Curriculum and major field of
+study 
+</P>
+<P STYLE="margin-bottom: 0in">     Dates of attendance 
+</P>
+<P STYLE="margin-bottom: 0in">     Enrollment status (full/part time)
+</P>
+<P STYLE="margin-bottom: 0in">     Degrees/Awards received 
+</P>
+<P STYLE="margin-bottom: 0in">     Most recent previous educational
+agency or institution attended by the student 
+</P>
+<P STYLE="margin-bottom: 0in">     Participation in officially
+recognized activities and sports 
+</P>
+<P STYLE="margin-bottom: 0in">     Weight/Height of members of
+athletic teams 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Under Western Michigan University&rsquo;s
+policies, grades and grade point averages can never be released
+outside the University without the written consent of the student. 
+Other educational records include &ldquo;admissions, personal,
+academic, and financial files, academic, cooperative education, and
+placement records.&rdquo;  There are rules for access to these
+records.  According to the policies, &ldquo;Educational records do
+not include the records of instructional, administrative, and
+educational personnel, which are the sole possession of the maker and
+are not accessible or revealed to any individual except a temporary
+substitute; records of the law enforcement unit;</P>
+<P STYLE="margin-bottom: 0in">student health records; employment
+records; or alumni records. Health records, however, may be reviewed
+by physicians of the students' choosing.&rdquo; 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">&ldquo;Student's may not inspect and
+review the following, as outlined in the Act: financial information
+submitted by their parents, confidential letters and recommendations
+associated with admissions, employment, or job placement, or honors
+to which they have waived their rights of inspection and review; or
+educational containing information about more than one student, in
+which case the institution will permit access only to that part of
+the record which pertains to the inquiring student. The institution
+is not required to permit students to inspect and review confidential
+letters and recommendations placed in their files prior to January 1,
+1975, provided those letters were collected under established
+policies of confidentiality and were used only for the purposes for
+which they were collected.&rdquo;</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">As can be seen from these polcies,
+FERPA creates rules for access to a variety of records, including
+rules for disclosure and for review and correction of claimed errors.
+ Certain records are controlled according to rules selected by the
+student, others can not be disclosed to the student.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Some of these records are appropriate
+for databases, and others are more likely to be maintained as paper
+documents.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><B>6.	
+Security Environment</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The security environment for GNUe
+consists of a number of participating components:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>6.1
+	The operating system</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Possible assumptions for the operating
+system environment include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><I>6.1.1 	Linux/BSD</I></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><I>Security as currently supported and
+planned:</I></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Currently, this consists of the
+familiar user&nbsp;group&nbsp;world, read&nbsp;write&nbsp;execute
+permission set.  Access control lists can be simulated in this type
+of environment with some difficulty. 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">A project is ongoing to provide support
+in Linux kernel 2.5 (development version of kernel release 2.6) for
+loadable kernel modules that can implement a variety of security
+improvements and security&nbsp;hardened versions now offered as
+kernel patches.  The Loadable Kernel Module effort has developed
+&quot;kernel hooks&quot; that can be used by a wide range of modules,
+and includes a &ldquo;stacker&rdquo; that enables multiple modules to
+be used..  The loadable modules will come with the system, just as
+modules for various devices are currently supplied.  A user can
+install a module using the &quot;insmod&quot; command and the system
+will then enforce the security policy it provides (subject, of course
+to the appropriate configuration of the security policy.   The
+modules offer options that both increase and reduce security.  For
+example, there is a module that eliminates the security that is
+already provided in the kernel to support the needs of some real&nbsp;time
+critical users who can't afford the time it takes for the existing,
+built&nbsp;in access control.  
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><I>Security hardened or enhanced
+versions of Linux</I></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">There are a variety of projects or
+proposals for enhancing the security of Linux. These include
+security&nbsp;hardened distributions (or modifications to
+distributions) and projects for enhancement of Linux security.
+Security Enhanced Linux (SE&nbsp;Linux) is one of the most important
+new concepts for improvement of Linux security (and indeed for
+advancement of operating system security in general). Rule Set Based
+Access Control (RSBAC) is another enhancement that has a research
+basis comparable to that of SE&nbsp;Linux. There are other proposals
+and offerings also available.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">SE&nbsp;Linux is a concept posted on
+the NSA web site.  It includes all the additions as a kernel patch
+currently being incorporated into the Loadable Kernel Module version.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">SE&nbsp;Linux combines RBAC with other
+security methods known as Type Enforcement and (optionally)
+Multi&nbsp;Level Security sensitivity labels. All three security
+methods are used in conjunction with a set of user&nbsp;defined
+policies. The RBAC and Type Enforcement create a large number of
+categorizations including object classes, domains, types, and roles.
+For example, object classes include processes, files, directories,
+character device, block device, socket, and numerous other system
+elements. Within each object class there may be a number of types.
+For example, there may be a type associated with a specific operating
+system function, such as creation of the system log. User&nbsp;defined
+policies could even extend types to specific user functions, such as
+approving expense vouchers. Users and processes are also assigned
+roles, such as ordinary user, system administrator, purchasing agent,
+financial auditor, and other organization&nbsp;related categories. 
+Sensitivity labels can be optionally used to identify data according
+to categories of consequences resulting from unauthorized disclosure,
+alteration, destruction, or denial&nbsp;of&nbsp;use.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">In SE&nbsp;Linux, all accesses and
+transitions among objects of various types and users of various roles
+are governed by permissions defined by policy rules and enforced by a
+reference monitor that is part of the operating system kernel. The
+permissions are much more fine&nbsp;grained than in current Linux
+systems. For example, existing Linux systems define permissions of
+read, write, and execute but SE&nbsp;Linux permissions may also
+include create, get attributes, set attributes, create hard link,
+lock/unlock, mount, unmount, and others.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">RSBAC offers support for a variety of
+&quot;rule sets&quot; each of which supports a different kind of
+security policy. In RSBAC, the rule sets can also be combined. The
+policies supported by current RSBAC rule sets include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Security
+sensitivity labels under the Bell&nbsp;LaPadula Security Model</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Functional
+Control, a form of RBAC focused on security administration</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Security
+Information Modification &nbsp; an RBAC&nbsp;type policy that allows
+only security administrators to modify security information</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	A privacy
+model focused on satisfying the needs of the European Community
+privacy requirements</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Malware
+Scan &nbsp; scanning files for malware (such as viruses) on execution</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.51in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	File Flags &nbsp;
+expanding the scope of permissions and limiting their setting to
+security administrators</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Role
+Compatibility &nbsp; another form of RBAC capable of handling many
+more roles, including user roles</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Authorization
+Enforcement &nbsp; a policy focused on controlling changes in process
+ownership</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Access
+Control Lists &nbsp; that define subjects authorized to access each
+object, and their  permissions </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Note that the improvements to the Linux
+kernel identified in plans for version 2.6 include Access Control
+Lists, identified separately from the Loadable Kernel Module effort.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I>6.1.2
+	Windows</I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The assumption here would be for
+whatever security is provided under the then&nbsp;current and
+previous releases of Windows.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I>6.1.3
+	Macintosh</I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Because the Macintosh OS&nbsp;X is
+based on BSD, security for GNUe should assume that it is running on
+the Darwin capability, which is based on BSD. Security on the
+Macintosh would then be either the same as in 5.1.1 or would include
+any enhancements provided by Darwin.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>6.2
+	The Database Management System</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">GNUe is intended to be capable of
+running on a variety of database management systems (DBMSs). Each
+DBMS has different security capabilities and features. The following
+sections provide examples of the security capabilities and features
+of various DBMSs.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I>6.2.1
+	Postgresql</I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Postgresql provides security by
+authenticating users and granting users and groups access to the
+objects of table, view, and &quot;sequence&quot; covering the
+privileges of select, insert, update, delete (rows), define rules,
+and all. The documentation suggests that access can be limited to
+specific columns by defining a view that contains only the allowable
+columns and granting access to that view. Currently views are
+read&nbsp;only.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">User authentication can be done on an
+individual host or over a network. The DBMS supports Kerberos as one
+means of user authentication.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="text-indent: -0.01in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><I>6.2.2 	MySQL</I></FONT></P>
+<P STYLE="margin-bottom: 0in">TBD</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I>6.2.3
+	SAPdb&nbsp; SQL</I></FONT></P>
+<P STYLE="margin-bottom: 0in">TBD</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I>6.2.4
+	Others</I></FONT></P>
+<P STYLE="margin-bottom: 0in">TBD</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>6.3
+	The Middleware</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The GNUe middleware is based on
+XML-RPC. The XML-RPC security functions will influence the security
+capability in areas, such as interconnection of distributed systems,
+for which the middleware provides important services.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>6.4
+	The GNUe system functions and architectures</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This will depend ont the functionality
+provided by GNUe. See Section 6 for relevant discussion.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>6.5	Physical
+protections and manual/paperwork procedures</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">An enterprise is assumed to have
+appropriate physical protections as part of its security policies and
+to enforce appropriate common practices such as password discipline.
+Depending on the capabilities of the operating system, DBMS,
+middleware, and other security&nbsp;relevant components of the
+enterprises GNUe configuration, certain security policies will need
+to be enforced by paperwork or other manual procedures.  For example,
+instead of having some transactions approved on&nbsp;line, the
+enterprise could have the transactions approved in a paperwork system
+and then entered on&nbsp;line after approval.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><B>7.	Implications
+for GNUe</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>7.1
+	Pass&nbsp;through functionality</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">GNUe may need to provide functions that
+essentially provide the user with direct access to operating system
+or DBMS security functions. These could include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Login
+screens</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Security
+administration</FONT></P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Security
+policy setup</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Some of these functions are already
+provided in GNUe.  Some may need to be modified, for example to
+facilitate a role-based login or role change under SE-Linux or
+another RBAC supporting operating system or DBMS.  It may be
+appropriate to provide &ldquo;security adapters&rdquo; for different
+operating systems to facilitate access to these functions.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>7.2
+	Locations in GNUe where access can be controlled or security
+enforced</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The places in GNUe where access can be
+controlled or security can be otherwise enforced include:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Files/directories
+containing definition data used in the processing. These particularly
+include: </FONT>
+</P>
+<P STYLE="margin-bottom: 0in">	(1)	GNUe form definitions (gfd), 
+</P>
+<P STYLE="margin-bottom: 0in">	(2)	GNUe report definitions (grd)</P>
+<P STYLE="margin-bottom: 0in">	(3)	GNUe process definitions (gpd),
+and 
+</P>
+<P STYLE="margin-bottom: 0in">	(4)	Possibly GNUe class definitions
+(gcd).</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Files/directories
+containing modules and packages of code. Some modules will be
+generally required for a wide variety of functions. Others may be
+specific to a certain business process. While modules must be at
+least executable by users who need to perform the functions they
+implement, users should be denied any access to modules they do not
+need for their business  functions.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Operating
+system files/directories containing database tables and metadata.
+This applies only if  the DBMS uses regular operating system files
+for its tables. Some DBMSs (such as Oracle) use an operating system
+file to define a storage region that they manage internally for
+storage of database tables. With such DBMSs, it will be necessary for
+the user to depend on the security features of the DBMS to control
+access.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Database
+tables and items, using the features provided by the DBMS.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	User
+logins and other functions directly controlled by the operating
+system.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Audit logs
+written to secure areas by GNUe processing functions.  These logs
+could be generated by trigger functions or could be provided as a
+feature similar to the existing debug logging functions.  Audit
+logging can be used as an alternative to access control in some
+situations.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><FONT FACE="WP TypographicSymbols">!</FONT>	Data
+contained in individual files rather than maintained under database
+management systems.  For example, a flat file, an XML file, or a
+database implemented as a Dbase (dbf) file could be used for
+providing certain forms of protection.  </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>7.3	Virtually
+combined data structures with separate access to components</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This aspect especially involves gfd's
+where parts of the form are read/write for some users and read&nbsp;only
+for others, or define actions (such as approvals) that only certain
+users are allowed to perform. One approach for enforcing control
+would be to split the form into read/write areas, read&nbsp;only
+areas, and action areas each defined by a partial gfd. Implementation
+of the full form would require two or more of the partial gfd's.
+Users would be allowed access to the appropriate version (read/write,
+read&nbsp;only, and/or action) of the partial gfd as determined by
+rules enforced by the operating system. 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Such an approach could be implemented
+by providing &ldquo;include&rdquo; capability in gfd files.  The
+actual gfd's accessed by various users would be created by mixing and
+matching various versions of the partial gfd's having capability to
+view various parts of the database and to perform various actions. 
+It may also help to provide capability in Navigator gpd files to
+provide an entry but grey it out.  This would allow the Navigator
+menus to be common across all users but to actually provide only
+those functions appropriate to a particular user.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>7.4	Actions
+that include security calls</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">In some cases, actions will involve
+security calls to the operating system. For example, suppose the
+policies require that after approval of a transaction only certain
+kinds of accesses can be made to the transaction. Then approval of
+the transaction will require either that the access permisions on the
+file containing the transaction data be changed from pre&nbsp;approval
+access to post&nbsp;approval access, or that the transaction data be
+moved from a file allowing pre&nbsp;approval access to another file
+allowing only post&nbsp;approval access. The former case involves
+security calls to the operating system to change the relevant
+permissions. The latter case may involve security calls to allow the
+movement of the data to take place.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Such an approach could be implemented
+by supporting the security calls in trigger functions.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>7.5
+	Security for Appserver</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Appserver is the GNUe tool that manages
+multi-tier architectures.  Appserver is intended to provide a
+consistent interface to the user client regardless of where or how in
+a system any particular item of data is actually stored.  Appserver
+security is made challenging because of the complexity of mapping
+data items from the user side of appserver to the database side. 
+Having the operating system or database system provide security
+requires that the mapping be traced and the various data items
+appropriately protected.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">In certain cases, there are potential
+security requirements that can not be met by either a particular
+operating system or a particular database system.  Appserver can be
+provided with its own internal security functions.  Such functions
+are likely to have a lower level of security assurance than functions
+provided by an operating system, although it may be possible to
+improve the quality of protection by using very simple approaches and
+providing as much protection as possible using the operating system.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The main point here is that the
+security features of Appserver must be approached very carefully to
+avoid precluding their use by enterprises having demanding
+requirements for security.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><B>8.	Examples
+of approaches to supporting security policies in GNUe</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>8.1	Static
+RBAC focused on transactions</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">This policy involves roles that are
+static, i.e., each person has a limited number of roles that do not
+change.  It is also focused on transactions, i.e., the access control
+is by specific screens or reports associated with the transaction..</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">One way of implementing such a policy
+would be by operating system access controls placed on the gfd and
+grd files associated with the transactions, together with providing a
+set of gpd files, one for each role, capable only of initiating the
+activities allowable for the role.  The system would need to be
+configured so a user could not substitute a tampered copy of a gfd,
+grd, or gpd file by somehow redirecting the system to use the
+tampered copy.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">If the transactions involve some
+critical individual database tables, access control could also be
+placed on those tables using the access control facilities provided
+by the database system.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>8,2
+	Subject records viewable only by specified providers</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Examples of this would include patient
+records accessible only by providers to that patient, student records
+accessible only by personnel of the department in which the student
+is enrolled, or customer financial records accessible only by
+personnel of the office at which the customer has an account.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">One relatively secure way to support
+this kind of policy would be to place the record of each patient,
+student, or customer in a separate operating system file, such as a
+flat file, an XML file, or a Dbase dbf file.  Access control could
+then be provided by the operating system, and the files could be
+easily moved if the status of the patient, student, or customer
+changed.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Another approach would be to create a
+set of database tables having access limited to the providers,
+department, or office providing service, and to move the records to
+those tables.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>8.3	Access
+control on database fields</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">An example of this policy would be one
+that restricts the users allowed to access price information.  If
+only a few screens contain price infomation, the same strategy
+discussed above in Section 8.1 could be used.  If numerous screens
+contain price information the challenge becomes more difficult.  Some
+database systems allow access control by field.  If one of these is
+being used, the facility that supports that access control could
+support the policy.  If such a database is not being used, it will be
+necessary to use access control facilities provided by GNUe.  The
+GNUe facilities provide less assurance than an operating system or
+database system, and the user must take that lower assurance into
+account in evaluating the risk of disclosong database field
+information to unauthorized personnel.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>8.4
+More examples TBD</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>8.n
+	Legal trustworthiness requirements</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The example of a legal trustworthiness
+requirement to be discussed here is the Province of Quebec accounting
+auditability statute. Depending on the requirements imposed by the
+Quebec authorities in enforcing their law, there may be several ways
+to satisfy the Quebec accounting auditability statute. One way is to
+use some combination of the following steps:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>1. 	Provide the accounting functions (such as Copy and
+Reverse and division of transaction status into categories of In
+progress, In instance of approval, and Posted) as described in the
+General Ledger Theory of Operation.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>2. 	Divide the accounting database into two parts, a
+Posted database and a Non&nbsp;posted database. Make the Posted
+database read&nbsp;only, except for writing by a privileged process.
+Merge the two databases in a view for purposes of display and
+reporting.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>3. 	Periodically write the Posted database to
+non&nbsp;alterable CD&nbsp;Recordable media, and provide  facilities
+for display and report&nbsp;generation from the recorded database.
+This could be done at the end of each accounting period. From an
+information security viewpoint, this effectively keeps the records
+added to the database since the last CD&nbsp;R writing in the state
+of In instance of approval, because it is feasible for a sufficient
+number of people having a sufficient combination of privileges on the
+computer system to modify the database until it is written to CD&nbsp;R.
+Modification of the unrecorded database would be feasible even with
+the most advanced security systems currently envisioned in the
+security research community (i.e., those based on the concepts of
+SE&nbsp;Linux).</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">A second way could be accomplished by
+the following steps:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>1. 	Provide marking and access control at the record
+level using features of the DBMS and the GNUe Client. Relevant
+features of the DBMS will need to be determined and relevant features
+of the GNUe client will need to be designed and implemented.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>2. 	Periodically write the posted records to CD&nbsp;R
+media as discussed above.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>8.n+1
+	Critical Infrastructure Protection requirements</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Enterprises that are required to
+satisfy Critical Infrastructure Protection requirements will need to
+take the following steps:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3>1.
+	Create comprehensive security policies and develop an overall
+security architecture.</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>2. 	Create and implement a specific protection plan
+tailored to the relevant tradeoffs for each type of data managed in
+the system.</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>3. 	Acquire and use a security&nbsp;hardened operating
+system at the leading edge of security capability. An example of such
+an operating system would be one based on the concepts of SE&nbsp;Linux.</FONT></P>
+<P STYLE="margin-left: 0.5in; text-indent: -0.5in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3>4. 	Acquire and use the most advanced encryption
+capabilities available to the enterprise for all  communications
+outside the perimeter controlled by the enterprise's security
+architecture. For most  applications outside specialized government
+systems, this capability will be the Advanced Encryption System (AES)
+that resulted from an international competition conducted by NIST.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>8.n+2
+	RBAC of higher complexity</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">The ability of a GNUe configuration to
+support a given level of RBAC will depend on the capabilities of the
+various elements of the security environment. This will in turn
+determine the kinds of organizational security policies that the GNUe
+configuration can support. If an organization desires to implement
+policies beyond the capabilities of its GNUe configuration, the
+remaining capabilities will need to be supported by manual and
+paperwork procedures such as checking for the necessary signatures on
+paper documents before the associated transactions are entered into
+GNUe.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 0.17in"><FONT SIZE=3><I><B>9.
+	Specific guidelines</B></I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">TBD<B>	</B></P>
+<P ALIGN=CENTER STYLE="text-indent: -1in; margin-bottom: 0in; line-height: 0.17in; page-break-before: always">
+<FONT SIZE=3><B>Appendix A</B></FONT></P>
+<P STYLE="text-indent: -1in; margin-bottom: 0in; line-height: 0.17in">
+<BR>
+</P>
+<P ALIGN=CENTER STYLE="text-indent: -1in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><B>Extract from Internet Request for Comments (RFC) 3114
+</B></FONT>
+</P>
+<P ALIGN=CENTER STYLE="text-indent: -1in; margin-bottom: 0in; line-height: 0.17in">
+<FONT SIZE=3><B>Descriptions of Sensitivity Labels Used by Three
+Major Corporations.  </B></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Network Working Group                  
+                      W. Nicolls</P>
+<P STYLE="margin-bottom: 0in">Request for Comments: 3114             
+              Forsythe Solutions</P>
+<P STYLE="margin-bottom: 0in">Category: Informational                
+                        May 2002</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">RFC 3114       Implementing Company
+Classification Policy       May 2002</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">2. Developed Examples</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">2.1 Classification Policies</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   The following describes the
+information classification policies in</P>
+<P STYLE="margin-bottom: 0in">   effect at 3 companies.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">2.1.1 Amoco Corporation</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   The description for the Amoco
+information classification policy was</P>
+<P STYLE="margin-bottom: 0in">   taken from the Amoco Computer
+Security Guidelines.  Amoco classifies</P>
+<P STYLE="margin-bottom: 0in">   its information assets based on
+confidentiality and integrity and</P>
+<P STYLE="margin-bottom: 0in">   defines 3 hierarchical
+classifications for each.  The confidentiality</P>
+<P STYLE="margin-bottom: 0in">   and integrity polices are
+independent, so either or both may be</P>
+<P STYLE="margin-bottom: 0in">   applied to the information.  Amoco
+also defines an availability</P>
+<P STYLE="margin-bottom: 0in">   classification for time critical
+information.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   HIGHLY CONFIDENTIAL - Information
+whose unauthorized disclosure will</P>
+<P STYLE="margin-bottom: 0in">   cause the company severe financial,
+legal or reputation damage.</P>
+<P STYLE="margin-bottom: 0in">   Examples: Certain acquisitions, bid
+economics, negotiation</P>
+<P STYLE="margin-bottom: 0in">   strategies.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   CONFIDENTIAL - Information whose
+unauthorized disclosure may cause</P>
+<P STYLE="margin-bottom: 0in">   the company financial, legal, or
+reputation damage.  Examples:</P>
+<P STYLE="margin-bottom: 0in">   Employee Personnel &amp; Payroll
+Files, some interpreted Exploration</P>
+<P STYLE="margin-bottom: 0in">   Data.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   GENERAL - Information that, because
+of its personal, technical, or</P>
+<P STYLE="margin-bottom: 0in">   business sensitivity is restricted
+for use within the company.</P>
+<P STYLE="margin-bottom: 0in">   Unless otherwise classified, all
+information within Amoco is in this</P>
+<P STYLE="margin-bottom: 0in">   category.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   MAXIMUM - Information whose
+unauthorized modification and destruction</P>
+<P STYLE="margin-bottom: 0in">   will cause the company severe
+financial, legal, or reputation damage.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   MEDIUM - Information whose
+unauthorized modification and destruction</P>
+<P STYLE="margin-bottom: 0in">   may cause the company financial,
+legal, or reputation damage.</P>
+<P STYLE="margin-bottom: 0in">   Examples: Electronic Funds,
+Transfer, Payroll, and Commercial Checks.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   MINIMUM - Although an error in this
+data would be of minimal</P>
+<P STYLE="margin-bottom: 0in">   consequence, this is still important
+company information and</P>
+<P STYLE="margin-bottom: 0in">   therefore will require some minimal
+controls to ensure a minimal</P>
+<P STYLE="margin-bottom: 0in">   level of assurance that the
+integrity of the data is maintained.</P>
+<P STYLE="margin-bottom: 0in">   This applies to all data that is not
+placed in one of the above</P>
+<P STYLE="margin-bottom: 0in">   classifications.  Examples: Lease
+Production Data, Expense Data,</P>
+<P STYLE="margin-bottom: 0in">   Financial Data, and Exploration
+Data.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   CRITICAL - It is important to assess
+the availability requirements of</P>
+<P STYLE="margin-bottom: 0in">   data, applications and systems.  A
+business decision will be required</P>
+<P STYLE="margin-bottom: 0in">   to determine the length of
+unavailability that can be tolerated prior</P>
+<P STYLE="margin-bottom: 0in">   to expending additional resources to
+ensure the information</P>
+<P STYLE="margin-bottom: 0in">   availability that is required. 
+Information should be labeled</P>
+<P STYLE="margin-bottom: 0in">   &quot;CRITICAL&quot; if it is
+determined that special procedures should be used</P>
+<P STYLE="margin-bottom: 0in">   to ensure its availability.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">2.1.2 Caterpillar, Inc.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   The description for the Caterpillar
+information classification policy</P>
+<P STYLE="margin-bottom: 0in">   is taken from the Caterpillar
+Information Protection Guidelines.</P>
+<P STYLE="margin-bottom: 0in">   Caterpillar classifies its
+information assets based on</P>
+<P STYLE="margin-bottom: 0in">   confidentiality and defines 4
+hierarchical classifications.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   Caterpillar Confidential Red -
+Provides a significant competitive</P>
+<P STYLE="margin-bottom: 0in">   advantage.  Disclosure would cause
+severe damage to operations.</P>
+<P STYLE="margin-bottom: 0in">   Relates to or describes a long-term
+strategy or critical business</P>
+<P STYLE="margin-bottom: 0in">   plans.  Disclosure would cause
+regulatory or contractual liability.</P>
+<P STYLE="margin-bottom: 0in">   Disclosure would cause severe damage
+to our reputation or the public</P>
+<P STYLE="margin-bottom: 0in">   image.  Disclosure would cause a
+severe loss of market share or the</P>
+<P STYLE="margin-bottom: 0in">   ability to be first to market. 
+Disclosure would cause a loss of an</P>
+<P STYLE="margin-bottom: 0in">   important customer, shareholder, or
+business partner.  Disclosure</P>
+<P STYLE="margin-bottom: 0in">   would cause a long-term or severe
+drop in stock value.  Strong</P>
+<P STYLE="margin-bottom: 0in">   likelihood somebody is seeking to
+acquire this information.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   Caterpillar Confidential Yellow -
+Provides a competitive advantage.</P>
+<P STYLE="margin-bottom: 0in">   Disclosure could cause moderate
+damage to the company or an</P>
+<P STYLE="margin-bottom: 0in">   individual.  Relates to or describes
+an important part of the</P>
+<P STYLE="margin-bottom: 0in">   operational direction of the company
+over time.  Important technical</P>
+<P STYLE="margin-bottom: 0in">   or financial aspects of a product
+line or a business unit.</P>
+<P STYLE="margin-bottom: 0in">   Disclosure could cause a loss of
+Customer or Shareholder confidence.</P>
+<P STYLE="margin-bottom: 0in">   Disclosure could cause a temporary
+drop in stock value.  A likelihood</P>
+<P STYLE="margin-bottom: 0in">   that somebody could seek to acquire
+this information.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   Caterpillar Confidential Green -
+Might provide a business advantage</P>
+<P STYLE="margin-bottom: 0in">   over those who do not have access to
+the same information.  Might be</P>
+<P STYLE="margin-bottom: 0in">   useful to a competitor.  Not easily
+identifiable by inspection of a</P>
+<P STYLE="margin-bottom: 0in">   product.  Not generally known
+outside the company or available from</P>
+<P STYLE="margin-bottom: 0in">   public sources.  Generally available
+internally.  Little competitive</P>
+<P STYLE="margin-bottom: 0in">   interest.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   Caterpillar Public - Would not
+provide a business or competitive</P>
+<P STYLE="margin-bottom: 0in">   advantage.  Routinely made available
+to interested members of the</P>
+<P STYLE="margin-bottom: 0in">   General Public.  Little or no
+competitive interest.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">2.1.3 Whirlpool Corporation</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   The description for the Whirlpool
+information classification policy</P>
+<P STYLE="margin-bottom: 0in">   is taken from the Whirlpool
+Information Protection Policy.  Whirlpool</P>
+<P STYLE="margin-bottom: 0in">   classifies its information assets
+based on confidentiality and</P>
+<P STYLE="margin-bottom: 0in">   defines 3 hierarchical
+classifications.  The policy states that:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   &quot;All information generated by
+or for Whirlpool, in whatever form,</P>
+<P STYLE="margin-bottom: 0in">   written, verbal, or electronic, is
+to be treated as WHIRLPOOL</P>
+<P STYLE="margin-bottom: 0in">   INTERNAL or WHIRLPOOL CONFIDENTIAL. 
+Classification of information in</P>
+<P STYLE="margin-bottom: 0in">   either category depends on its
+value, the impact of unauthorized</P>
+<P STYLE="margin-bottom: 0in">   disclosure, legal requirements, and
+the manner in which it needs to</P>
+<P STYLE="margin-bottom: 0in">   be used by the company.  Some
+WHIRLPOOL INTERNAL information may be</P>
+<P STYLE="margin-bottom: 0in">   authorized for public release.&quot;</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   WHIRLPOOL CONFIDENTIAL - A subset of
+Whirlpool Internal information,</P>
+<P STYLE="margin-bottom: 0in">   the unauthorized disclosure or
+compromise of which would likely have</P>
+<P STYLE="margin-bottom: 0in">   an adverse impact on the company's
+competitive position, tarnish its</P>
+<P STYLE="margin-bottom: 0in">   reputation, or embarrass an
+individual.  Examples: Customer,</P>
+<P STYLE="margin-bottom: 0in">   financial, pricing, or personnel
+data; merger/acquisition, product,</P>
+<P STYLE="margin-bottom: 0in">   or marketing plans; new product
+designs, proprietary processes and</P>
+<P STYLE="margin-bottom: 0in">   systems.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   WHIRLPOOL INTERNAL - All forms of
+proprietary information originated</P>
+<P STYLE="margin-bottom: 0in">   or owned by Whirlpool, or entrusted
+to it by others.  Examples:</P>
+<P STYLE="margin-bottom: 0in">   Organization charts, policies,
+procedures, phone directories, some</P>
+<P STYLE="margin-bottom: 0in">   types of training materials.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   WHIRLPOOL PUBLIC - Information
+officially released by Whirlpool for</P>
+<P STYLE="margin-bottom: 0in">   widespread public disclosure. 
+Example: Press releases, public</P>
+<P STYLE="margin-bottom: 0in">   marketing materials, employment
+advertising, annual reports, product</P>
+<P STYLE="margin-bottom: 0in">   brochures, the public web site, etc.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   The policy also states that privacy
+markings are allowable.</P>
+<P STYLE="margin-bottom: 0in">   Specifically:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   For WHIRLPOOL INTERNAL, additional
+markings or caveats are optional</P>
+<P STYLE="margin-bottom: 0in">   at the discretion of the information
+owner.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">   For WHIRLPOOL CONFIDENTIAL, add
+additional marking or caveats as</P>
+<P STYLE="margin-bottom: 0in">   necessary to comply with regulatory
+or heightened security</P>
+<P STYLE="margin-bottom: 0in">   requirements.  Examples: MAKE NO
+COPIES, THIRD PARTY CONFIDENTIAL,</P>
+<P STYLE="margin-bottom: 0in">   ATTORNEY-CLIENT PRIVILEGED DOCUMENT,
+DISTRIBUTION LIMITED TO ____,</P>
+<P STYLE="margin-bottom: 0in">   COVERED BY A NON-ANALYSIS AGREEMENT.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; page-break-before: always"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">B References</P>
+<P STYLE="margin-bottom: 0in">TBD</P>
+<P STYLE="margin-bottom: 0in">C Appendix</P>
+<P STYLE="margin-bottom: 0in">GNU Free Documentation License</P>
+<P STYLE="margin-bottom: 0in">TBD 
+</P>
+<DIV TYPE=FOOTER>
+	<P STYLE="margin-top: 0.5in; margin-bottom: 0in"><BR>
+	</P>
+</DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,18 @@
+<h1>Technical Notes</h1>
+
+<p>A mirror of the Technical Notes kept in CVS. 
+Primarily of interest to developers of the GNUe 
+tools and packages themselves, although some may be 
+of interest to people developing packages or 
+applications of their own using the GNUe Tools.</p>
+
+<p>
+<img src="../e_ball.png"><a href="appserver/index.html">Application 
+   Server</a><br />
+<img src="../e_ball.png"><a href="common/index.html">Common</a><br />
+<img src="../e_ball.png"><a href="designer/index.html">Designer</a><br />
+<img src="../e_ball.png"><a href="forms/index.html">Forms</a><br />
+<img src="../e_ball.png"><a href="integrator/index.html">Integrator</a><br />
+<img src="../e_ball.png"><a href="navigator/index.html">Navigator</a><br />
+<img src="../e_ball.png"><a href="reports/index.html">Reports</a>
+</p>

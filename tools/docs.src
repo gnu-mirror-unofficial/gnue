@@ -1,0 +1,81 @@
+<h1>Tools Documentation</h1>
+
+<h3>GNUe Application Server</h3>
+
+    <p><b>GNUE Application Server: White Paper</b>
+    (<a href="../tools/docs/whitepaper.html">HTML</a>) 
+    (<a href="../tools/docs/whitepaper.ps">Postscript</a>) 
+    (<a href="../tools/docs/whitepaper.pdf">PDF</a>) 
+    (<a href="../tools/docs/whitepaper.txt">Text</a>)
+    <br />
+    Whitepaper discussing the Purpose, Features and Implementation 
+    of the GNUe AppServer
+    </p>
+
+    <p><b>GNUE Application Server: Application Programmer's Interface</b>
+    (<a href="../tools/docs/api.html">HTML</a>) 
+    (<a href="../tools/docs/api.ps">Postscript</a>) 
+    (<a href="../tools/docs/api.pdf">PDF</a>) 
+    (<a href="../tools/docs/api.dvi">dvi</a>) 
+    (<a href="../tools/docs/api.txt">Text</a>)
+    <br />
+    Technical details of the GNUe AppServer APIs
+    </p>
+   
+<h3>GNUe Forms</h3>
+
+    <p><b>GNUE Forms: Technical Reference</b> 
+    (<A HREF="../tools/docs/forms/Developers-Guide.html">HTML</a>) 
+    (<a href="../tools/docs/forms/Developers-Guide.ps">Postscript</a>) 
+    (<a href="../tools/docs/forms/Developers-Guide.txt">Text</a>) 
+    (<a href="../tools/docs/forms/Developers-Guide.pdf">PDF</a>)
+    <br />
+    Design documentation for the GNUE Forms user interface system.
+    This is the most current document and one that application 
+    designers want.
+    </p> 
+
+<h3>GNUe Reports</h3>
+
+    <b>GNUE Reports: Proposal</b>  
+    (<A HREF="../tools/docs/reporter/index.html">HTML</a>) 
+    (<a href="../tools/docs/reporter.ps">Postscript</a>) 
+    (<a href="../tools/docs/reporter.rtf">RTF</a>) 
+    (<a href="../tools/docs/reporter.pdf">PDF</a>)
+    <br />
+    Reporting server specification proposal.
+    <p> 
+
+<h3>GNUe Common</h3>
+
+    <p><b>GNUe Common: Technical Reference</b> 
+    (<A HREF="../tools/docs/common/Developers-Guide.html">HTML</a>) 
+    (<a href="../tools/docs/common/Developers-Guide.ps">Postscript</a>) 
+    (<a href="../tools/docs/common/Developers-Guide.txt">Text</a>) 
+    (<a href="../tools/docs/common/Developers-Guide.pdf">PDF</a>)
+    <br />
+    Design documentation for the GNUE Common library.
+    Useful for those interested in using the Common library 
+    with your own application tools to provide features such 
+    as database abstraction and RPC abstraction.
+    </p> 
+
+<h3>GNUe Integrator</h3>
+
+    <b>GNUe: Integrator Proposal</b> 
+    (<A HREF="../tools/docs/Integrator/index.html">HTML</a>) 
+    <br />
+    Proposal for Data Integration.
+    </p>
+
+    <p><b>GNUe Integrator: DB 2 XML DTD</b> 
+    (<A HREF="../tools/docs/Integrator/db2xml.dtd">DTD</a>) 
+    <br />
+    Proposal for DB 2 XML DTD.
+    </p>
+
+    <p><b>GNUe Integrator: Scripting Engine Rules</b> 
+    (<A HREF="../tools/docs/Integrator/ruleEngineCommands.html">HTML</a>) 
+    <br />
+    Proposal for rules scripting engine commands.
+    </p>

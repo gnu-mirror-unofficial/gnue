@@ -1,0 +1,40 @@
+<h1>GNUe Community</h1>
+
+<p>
+<img src="../e_ball.png"><a href="involve.html">Get Involved!</a> - 
+how to get involved in the many aspects of the GNUe project.<br />
+
+<img src="../e_ball.png"><a href="mail.html">Mailing Lists</a> - 
+details of the several GNUe mailing lists.<br />
+
+<img src="../e_ball.png"><a href="irc.html">IRC</a> (Internet Relay Chat) - where the GNUe developers hang out.<br />
+
+<img src="../e_ball.png"><a href="kc.html">Kernel Cousins</a> - 
+weekly summary of traffic on the mailing lists and IRC.<br />
+
+<img src="../e_ball.png"><a href="sponsors.jtml">Sponsors</a> - 
+organisations that have contributed resources to the project.<br />
+
+<img src="../e_ball.png"><a href="contrib.html">Contributors</a> - 
+people who have contributed to the development of GNUe Enterprise.<br />
+
+<img src="../e_ball.png"><a href="history.html">History</a> - 
+a brief outline of how we got here.<br />
+
+<img src="../e_ball.png"><a href="cvs.html">CVS</a> - 
+- ways to access the GNU Enterprise source code.<br />
+
+<img src="../e_ball.png"><a href="dcl.html">Project Managment</a> - 
+our own DCL server for internal management of the GNUe project.<br />
+
+<img src="../e_ball.png"><a href="bugs.html">Bug Tracking</a> - 
+how to report and track bugs.<br />
+
+<img src="../e_ball.png"><a href="docs.html">Community Documentation</a> - 
+Documentation on the GNUe tools and packages aimed at developers, including 
+a growing collection of installation HOW-TOs.<br />
+
+<img src="../e_ball.png"><a href="../tech/tech.html">Technical Notes</a> - 
+A mirror of the technical notes kept in CVS.<br />
+
+</p>

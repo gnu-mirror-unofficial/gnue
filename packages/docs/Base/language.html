@@ -1,0 +1,473 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>		Language Module
+	</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="GNU Enterprise - Base Package Proposal"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Organization Module"
+HREF="org.html"><LINK
+REL="NEXT"
+TITLE="Units Module"
+HREF="units.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>GNU Enterprise - Base Package Proposal</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="org.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="units.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LANGUAGE">Chapter 7. 		Language Module
+	</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN302">7.1. Requirements</H1
+><P
+>			This chapter is $Revision: 1.1 $ $Date: 2003/01/05 00:00:29 $ . 
+		</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN305">7.1.1. Business Requirements</H2
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Maintain ISO 639 language information and source information. Source of this information is 
+						<A
+HREF="http://www.loc.gov/standards/iso639-2/"
+TARGET="_top"
+>						<I
+CLASS="CITETITLE"
+>http://www.loc.gov/standards/iso639-2/</I
+>
+						</A
+>.
+					</P
+></LI
+><LI
+><P
+>						Maintain information for the User Interface (UI) such as Label, Tooltip and Help Text that will be stored in the database. The label is a description or name of the data that can be used by forms and reports as heading for the field data.  Tooltip is optionally displayed when the users cursor moves over a field and tooltip support is on.  Help Text is a window of text that is displayed at the request of the user for more information about a field.
+					</P
+></LI
+><LI
+><P
+>						There will be two help tables in the db. One "standard" (called sys_help) is provided by the module writer and in the other "individual" (called user_help) the user can fill in when he wants different help information. When updating a module via a system update, only the standard table gets overwritten. 
+					</P
+></LI
+></OL
+><P
+>				There will be a tool that helps importing default data into the db, including helpt text. Since now those things are handeled like normal data, it can be the same tool we use for importing standard data like countrycodes etc. 
+			</P
+><P
+>				There are several arguments for storing help information in the database and not in ascii files: 
+				<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>							We can make a form for that, and the user can easily change the data 
+						</P
+></LI
+><LI
+><P
+>							The data from that tables can be used in 2-tier mode, too 
+						</P
+></LI
+><LI
+><P
+>							Access to db data is probably faster than access to ascii files (especially when we have big ascii files we have to search through to find the correct label). 
+						</P
+></LI
+><LI
+><P
+>							We make use of the db's advanced caching mechanisms 
+						</P
+></LI
+><LI
+><P
+>							It is easy to simply backup a database and have all variable data of gnue saved 
+						</P
+></LI
+><LI
+><P
+>							We don't have to invent just another file format with just another parser 
+						</P
+></LI
+><LI
+><P
+>							We can use the standard geas security system to decide which user can change help text and which user can't 
+						</P
+></LI
+><LI
+><P
+>							We could even have different labels/help texts for different companies by making the "individual" table company dependent if we want 
+						</P
+></LI
+><LI
+><P
+>							We can use the standard geas security system to decide which user can change help text and which user can't * we could even have different labels/help texts for different companies by making the "individual" table company dependent if we want 
+
+                    	</P
+></LI
+></OL
+>
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN337">7.1.2. Future Requirements</H2
+><P
+>				The following items will be implemented in future version of this module. They may be implemented in the base module or be added via an industry specific add on. 
+			</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						none 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN343">7.1.3. Business Objects</H2
+><P
+>				The following Business Objects are defined and maintained by this module. 
+			</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						language 
+					</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>						sys_help - the system defined help data.  This data is never removed or deleted.  If it needs to be change then additional data is added to the 'user_help' class.
+					</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>						user_help - for overridding the system defined help data. 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN353">7.1.4. External Business Object References</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						none 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN358">7.1.5. Forms</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						Add, modify, and delete languages.
+					</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>						Add or modify help information. 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN365">7.1.6. Reports</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						None 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN370">7.1.7. Business Rules</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						none 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN375">7.1.8. Business Object Definition</H2
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>					
+# language.gcd
+#                  
+# Copyright (C) 2001 Free Software Foundation, Inc.
+#
+# This file is part of GNU Enterprise.
+#
+# GNU Enterprise is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+# 
+# GNU Enterprise is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Enterprise; see the file COPYING.  If not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307 USA.
+#
+# This file originally written by Neil Tiffin (neilt@gnue.org).
+#
+# $Revision: 1.1 $ $Date: 2003/01/05 00:00:29 $ $Author: psu_gnue $
+#
+
+# ===========================================================================
+# language - language dependent stuff goes here.
+# ===========================================================================
+
+module language {
+
+  # -------------------------------------------------------------------------
+  # definition of languages.
+  # -------------------------------------------------------------------------
+  class language
+  {
+    char     code&#60;8&#62;;       # en = ISO for english
+    char     dialect&#60;8&#62;;    # us = ISO for united states
+    char     desc_en&#60;25&#62;;   # english description of language (required)
+    char     desc_fr&#60;25&#62;;   # french language description of language
+    char     desc_ot&#60;25&#62;;    # other language description of language
+  };
+  
+  # -------------------------------------------------------------------------
+  # default system language dependent data for use by forms and reports
+  # to assist the user.
+  # -------------------------------------------------------------------------
+  class help
+  {
+    language::language * language;
+    
+    char  code&#60;8&#62;;            # code that matches language::language.code
+    char  dialect&#60;8&#62;;         # dialect that matches language::language.dialect
+    
+    char  name&#60;255&#62;;          # fully qualified module class field name.
+                              #   TODO define/document format.
+    
+                              # other layers of help may be defined by
+                              #   extending this class.
+                              # base help has these fields = null
+    char  company&#60;15&#62;;        # place holder until decided how it works in geas.
+    char  usr_group&#60;15&#62;;     # if empty this change applies to all groups.
+    char  usr&#60;15&#62;;           # if empty this change applies to all users.
+
+                              # Help data
+    char  help_text&#60;2000&#62;;    # full help text if the user clicks on help.
+    char  help_keywords&#60;100&#62;; # keywords to help for searches.
+    text  tool_tip;           # short help when the user's mouse passes over
+                              #   the field.
+    text  label;              # default label for this data, used for
+                              #   both reports and forms.
+    text  long_label;
+    text  short_label;
+    text  default_text;       # default text data for new fields.
+  };
+};
+ 
+				</PRE
+>
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN379">7.1.9. Default Data</H2
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>&#38;languagedata;
+				</PRE
+>
+			</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="org.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="units.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Organization Module</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Units Module</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

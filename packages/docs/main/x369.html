@@ -1,0 +1,1001 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>			GNUe Class Files 
+		</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.74b"><LINK
+REL="HOME"
+TITLE="GNU Enterprise - Module Guide Proposal"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="		GNUe Business Objects 
+	"
+HREF="businessobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="		GNUe Business Objects 
+	"
+HREF="businessobjects.html"><LINK
+REL="NEXT"
+TITLE="Appendixes"
+HREF="appendixes.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>GNU Enterprise - Module Guide Proposal</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="businessobjects.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 2. GNUe Business Objects</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="appendixes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN369"
+>2.2. GNUe Class Files</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="MODULESCLASSES"
+>2.2.1. MODULES and CLASSES</A
+></H2
+><P
+>				A business object is defined using classes. Each class belongs to a module. If "MODULE module_name" is not specified then the class belongs to the "global" module. (e.g classes outside of a formal MODULE specification are assumed to be in the "MODULE global".) The basic format for this definition is: 
+			</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;  MODULE module_name
+  {
+    CLASS class_name
+    {
+      # class body goes here.
+    };
+  };
+
+Where:
+    module_name - the name of the module (or name space).
+    class_name - the name of the class (or business object).&#13;</PRE
+><P
+>				To reference a class in a different module or from a different class in the same module you must use the fully qualified name syntax: 
+			</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    module_name::class_name&#13;</PRE
+><P
+>	In each class GEAS automatically includes a unique 128 bit object
+identifier called objectid, which is stored as a char&#60;32&#62;.  So in the
+previous example, the first field is module_name::class_name.objectid.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="EXTEND"
+>2.2.2. EXTEND</A
+></H2
+><P
+>A class may be extended by using the EXTEND keyword.  EXTEND allows a
+module to add to the definition of an existing class.  The syntax is
+exactly like a class definition:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>    EXTEND fully_qualified_class_name
+    {
+
+    };</PRE
+><P
+>For example an existing class item might be defined in the base module as:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    MODULE base
+    {
+      CLASS item
+      {
+        char   description&#60;35&#62;;
+      };
+    };&#13;</PRE
+><P
+>And in the supply chain module we might want to add stock information
+ot it.  So we would define:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;  EXTEND base::item
+  {
+    int   quantity_on_hand;
+  };
+    </PRE
+><P
+>Note that the extend defintion exists outside of any module definition even if it is defined inside a module definition.  This produces the same results as if it had been originally defined as:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    MODULE base
+    {
+      CLASS item {
+        char   description&#60;35&#62;;
+        int   quantity_on_hand;
+      };
+    };&#13;</PRE
+><P
+>This should not be confused with inheritance which produces two tables when processed by geas.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FIELDS"
+>2.2.3. Fields</A
+></H2
+><P
+>	Within a class fields and methods may be defined. A field is
+defined with the following format: </P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;Syntax:
+    type  field_name&#60;size&#62; = default_value NOT NULL;&#13;</PRE
+><P
+>Where:</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>		field_name - is the field name.
+	</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>		type - is one of INT, INT16, INT32, INT64, TEXT, FLOAT, DATE, TIME, DATETIME or CHAR.
+	</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>		size - is the length for TEXT and CHAR fields.
+	</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>		default_value - is a value assigned with a new object is
+created.  This is optional.  If no default_value then dont include the equal sign.
+	</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>		NOT NULL - specifies that the field can not be written if the
+value is null. (not implemented yet)
+	</P
+></LI
+></UL
+><P
+>Example:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    MODULE example
+    {
+      CLASS first
+      {
+        CHAR    street1&#60;25&#62;;
+        CHAR    street2&#60;25&#62;;
+        CHAR    city&#60;15&#62;;
+        CHAR    county&#60;15&#62;;
+        CHAR    state_code&#60;8&#62;;
+        CHAR    country_code&#60;8&#62;;
+        CHAR    postal_code&#60;10&#62;;
+        TEXT    my_notes;
+        FLOAT   latitude;
+        FLOAT   longitude;
+        INT     some_int32_number;
+        INT16   some_small_number;
+        INT32   same_as_int;
+        INT64   some_large_number;
+        BOOLEAN a_boolean;
+        BOOL    another_boolean;
+        DATE    today;
+        TIME    now;
+      };
+    };&#13;</PRE
+><P
+>	Note: TEXT and CHAR fields should not be confused with SQL field
+types. They are GEAS field types and are mapped to the best type
+depending on the back end database. (For PostgreSQL they are both VARCHAR).</P
+><P
+>	Note: Field names may not start with "sys_". These field names are
+reserved for use by GEAS.  For example, GEAS will automatically insert
+the fields sys_id, sys_cre_user, sys_cre_time, sys_mod_user, and sys_mod_time
+for object uuid, user name that created object, date/time object created,
+user name that last modified object, and date/time object last modified respectively.</P
+><P
+>	TEXT - fields do not have a size attribute. They take up the amount
+of space actually required. That may be 1000 in one record and 100 in
+the next record for the same field. TEXT fields can not be searched. </P
+><P
+>	CHAR - fields have a maximum size attribute and default to a length
+of 1 if not specified. Any trailing space (ASCII 32) characters are
+removed. </P
+><P
+>	INT - Integer number currently implemented in 32 bits. </P
+><P
+>	INT16 - Integer number currently implemented in 16 bits. </P
+><P
+>	INT32 - Integer number currently implemented in 32 bits. </P
+><P
+>	INT64 - Integer number currently implemented in 64 bits. </P
+><P
+>	DATE - Date formatted for the underlying SQL database.</P
+><P
+>	TIME - Time formatted for the underlying SQL database.</P
+><P
+>	BOOL - Boolean 1 or 0.  Implemented as SQL boolean value in PostGreSQL and char&#60;1&#62; is MySQL.</P
+><P
+>	BOOLEAN - Alias for BOOL.</P
+><P
+>	DATETIME- Is formatted for both date and time as provided for in the SQL database.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="TYPECOMPLEX"
+>2.2.4. TYPE (Complex Fields)</A
+></H2
+><P
+>	The TYPE syntax allows the creation of complex types.  Complex types
+can be used in CLASS definitions as shorthand.  The syntax essentially
+the same as CLASS and is:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;Syntax:
+
+    TYPE type_name
+    {
+
+    };
+
+Example:
+
+    TYPE money
+    {
+        int  amount;
+        char currency&#60;3&#62;;
+    };
+
+This allows the following to work:
+
+    CLASS item
+    {
+        money   cost;
+        char    desc&#60;25&#62;;
+    };&#13;</PRE
+><P
+>	This creates the fields item::cost.amount and item::cost.currency.
+And is roughly the same as doing:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    CLASS item
+    {
+      int     cost_amount;
+      char    cost_currency&#60;25&#62;;
+      char    desc&#60;25&#62;;
+    };
+&#13;</PRE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="TYPEDEF"
+>2.2.5. TYPE (Typedef) (NOT IMPLEMENTED YET)</A
+></H2
+><P
+>	The TYPE syntax also allows the specification of general types. The
+syntax is:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;Syntax:
+    TYPE new_type = base_type&#60;size&#62;;  (NOT IMPLEMENTED YET)
+
+Where:
+    new_type - is the name of the new type.
+    
+    base_type - is a previously existing type.
+    
+    size - is the size of the type if necessary.
+    
+Example:
+
+    TYPE product_code = char&#60;25&#62;;&#13;</PRE
+><P
+>	    This defines a new type called product_code that can be used in class
+    definitions.&#13;</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    MODULE inventory
+    {
+      TYPE product_code = char&#60;25&#62;;
+      TYPE product_class = char&#60;8&#62;;
+    
+      CLASS product
+      {
+        inventory::product_code  product_id;
+        inventory::product_class class;
+        char                     description&#60;100&#62;;
+      };
+    
+      CLASS product_classification
+      {
+        inventory::product_class class;
+        char                     description&#60;20&#62;;
+      };
+    };&#13;</PRE
+><P
+>	In this example product.class is defined as a char&#60;8&#62; and product.product_id
+is defined as a char&#60;15&#62;;</P
+><P
+>	As you can see using TYPE you only have to define the size of a field once and
+dont have to worry about a mistake in another definition causing a related field
+to be a different size.  </P
+><P
+>	To reference types from another module use the fully qualified name. For example:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>    inventory::product_code</PRE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="COMMENT"
+>2.2.6. Comments</A
+></H2
+><P
+>	Comments start with the "#"
+character and continue to the end of the line. </P
+><P
+>	For example:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>    char   phone_code&#60;4&#62;;    # for validating phone country code</PRE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="INCLUDE"
+>2.2.7. Include</A
+></H2
+><P
+>	The include statement is used to reference classes defined outside of the current file.
+The include path is relative to the current file.  If the file has already been
+included the scanner will not include it a second time.</P
+><P
+>For example:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>    include "../../../base/location/classes/address.gcd"</PRE
+><P
+>You may not have more than one file with the same name.  Paths do not make files unique
+to GEAS.
+Therefore you may not have the following:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>    include "../../../base/location/classes/address.gcd"
+    include "../../../supply-chain/vendor/classes/address.gcd"</PRE
+><P
+>	The second file will never ever get processed.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="ORDERBY"
+>2.2.8. ORDER BY</A
+></H2
+><P
+>Classes can have an 'order by' section, that causes all queries to be
+sorted on a given field. (er, should have been multiple fields - call that
+a TODO)</P
+><P
+>	Syntax:&#13;</P
+><PRE
+CLASS="PROGRAMLISTING"
+>   ORDER BY <FONT
+COLOR="RED"
+> [DESC];&#13;</FONT
+></PRE
+><P
+>	Examples:&#13;</P
+><PRE
+CLASS="PROGRAMLISTING"
+>class hello
+{
+    int32 field;
+    ORDER BY field;
+};
+
+class there
+{
+    int32 field;
+    ORDER BY field DESC;
+};&#13;</PRE
+><P
+>(with the query API - ie, the classes defined in query.idl - the 'DESC'
+option reverses the sort order.)		</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="LOOKUP"
+>2.2.9. LOOKUP</A
+></H2
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.png"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Use of LOOKUP, REFERENCE, and LIST</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>	We are not really happy with the LOOKUP, REFERENCE and LIST keywords. They make it possible to link tables together with a field that is not the primary key, even with a field that is not guaranteed to have an unique value.</P
+><P
+>	What we would rather like it if geas made it possible to define any field of an object explicitely as the primary key of the table, and that all references would use _that_ field for the foreign key. Only if no field was explicitely defined as primary key, geas would create the implicite objectid.  But that's way ahead.</P
+><P
+>	Meanwhile we expect that the usage of the LOOKUP, REFERENCE and LIST syntax will be depreciated.</P
+><P
+>	Apart from that, we will in most cases use the objectid as the primary key; we have discussed that in detail some time ago and widely agreed on not having user-visible primary keys.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>	The lookup type is used to lookup a field from another class. A LOOKUP
+can be defined where a field is defined in the class definition.</P
+><PRE
+CLASS="PROGRAMLISTING"
+>Syntax:
+
+    LOOKUP new_fld_name : src_class(src_fld).src_data = comp_field;
+
+Where:
+    new_fld_name - is the new field name for reference in the class. It
+         does not result in a table column in the database.
+    
+    src_class - is the name of the source class used to find the lookup
+         data.  If this class is in a different module then is requires
+         a fully qualified name.
+    
+    src_data - is the data that is copied into the new_fld_name.
+    
+    comp_field - is the field from the current class that is matched.
+    
+Therefore:
+       if src_class.src_fld equal comp_field then
+           src_class.src_data is copied into new_fld_name</PRE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="REFERENCE"
+>2.2.10. REFERENCE</A
+></H2
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.png"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Use of LOOKUP, REFERENCE, and LIST</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>	We are not really happy with the LOOKUP, REFERENCE and LIST keywords. They make it possible to link tables together with a field that is not the primary key, even with a field that is not guaranteed to have an unique value.</P
+><P
+>	What we would rather like it if geas made it possible to define any field of an object explicitely as the primary key of the table, and that all references would use _that_ field for the foreign key. Only if no field was explicitely defined as primary key, geas would create the implicite objectid.  But that's way ahead.</P
+><P
+>	Meanwhile we expect that the usage of the LOOKUP, REFERENCE and LIST syntax will be depreciated.</P
+><P
+>	Apart from that, we will in most cases use the objectid as the primary key; we have discussed that in detail some time ago and widely agreed on not having user-visible primary keys.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>	The explicit reference type is used to get a complete instance of a class object. A
+REFERENCE can be defined where a field is in the class definition.  Its
+syntax is nearly the same as LOOKUP.</P
+><PRE
+CLASS="PROGRAMLISTING"
+>    REFERENCE new_fld_name : src_class(src_field) = comp_field;&#13;</PRE
+><P
+>	Where:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    new_fld_name - is the new field name for reference in the class. It
+         does not result in a table column in the database.
+    
+    src_class - is the fully qualified name of the source class used to 
+         find the lookup data.
+         
+    src_field - is the field in the src_class used for comparison.
+    
+    comp_field - is the field from the current class that is matched.&#13;</PRE
+><P
+>	Therefore:</P
+><P
+>	The new_fld_name is a reference to an object instance where src_fld and
+    comp_field match.</P
+><P
+>	In the following example, order2 represents an explicit REFERENCE and order1 represents an implicit REFERENCE.  Each field references the specific instance of the order:master object from the order::detail object.  In the case of the implicit REFERENCE (order1) the reference is make by using the objectid of order::master.  In the case of the explicit REFERENCE (order2) the field order_number is used to relate the objects. </P
+><PRE
+CLASS="PROGRAMLISTING"
+>MODULE order
+{
+  class master
+  {
+    int     order_number;
+    char    stuff&#60;20&#62;;
+    int     more_stuff;
+    char    the_last_stuff&#60;20&#62;; 
+  };
+
+class detail
+  {
+    int       order_number;
+    REFERENCE        order2 : order::master(order_number) = this.order_number;
+    order::master [] order1;
+    int       detail_stuff;
+    char      last_detail_stuff;
+  };
+};&#13;</PRE
+><P
+>	REFERENCE is used to implement many to one relationships.
+	A short hand way to create a REFERENCE is to use the following syntax:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    src_module::src_class *new_fld_name;
+    </PRE
+><P
+>This is a shortcut for:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    REFERENCE new_fld_name : src_module::src_class(id) = other_new_fld_name;
+    </PRE
+><P
+>Where id and other_new_fld_name are fields that are used and maintained
+automatically by geas.</P
+><P
+>	To make this work in theory, you're supposed to programmatically use
+container.setReference(fieldname,object) and
+container.getReference(fieldname) from the client code and let GEAS handle
+the reference automatically.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="LIST"
+>2.2.11. LIST</A
+></H2
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.png"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Use of LOOKUP, REFERENCE, and LIST</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>	We are not really happy with the LOOKUP, REFERENCE and LIST keywords. They make it possible to link tables together with a field that is not the primary key, even with a field that is not guaranteed to have an unique value.</P
+><P
+>	What we would rather like it if geas made it possible to define any field of an object explicitely as the primary key of the table, and that all references would use _that_ field for the foreign key. Only if no field was explicitely defined as primary key, geas would create the implicite objectid.  But that's way ahead.</P
+><P
+>	Meanwhile we expect that the usage of the LOOKUP, REFERENCE and LIST syntax will be depreciated.</P
+><P
+>	Apart from that, we will in most cases use the objectid as the primary key; we have discussed that in detail some time ago and widely agreed on not having user-visible primary keys.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>	The LIST type is used to get multiple instances of a class object. A
+LIST can be defined where a field is defined in the class definition.  Its
+syntax is nearly the same as LOOKUP.</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    LIST new_fld_name : src_class(src_field) = comp_field;
+
+Where:
+    new_fld_name - is the new field name for reference in the class. It
+         does not result in a table column in the database.
+    
+    src_class - is the name of the source class used to find the lookup
+         data.  If this class is in a different module then is requires
+         a fully qualified name.
+    
+    src_field - is the field in the src_class used for comparison.
+
+    comp_field - is the field from the current class that is matched.
+
+Therefore:
+    The new_fld_name is a reference to an object instance where src_fld and
+    comp_field match.&#13;</PRE
+><P
+>	List is typically used to create one to many relationships (master-detail).
+Many to many relationships require an intermediate class. A short hand way to create a LIST is to use the following syntax:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>	
+    src_class [] new_fld_name;&#13;</PRE
+><P
+>This is a shortcut for:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    LIST new_fld_name : src_module::src_class(id) = other_new_fld_name;
+    </PRE
+><P
+>Where id and other_new_fld_name are fields that are used and maintained
+automatically by geas.</P
+><P
+>	To make this work in theory, you're supposed to programmatically use
+container.setReference(fieldname,object) and
+container.getReference(fieldname) from the client code and let GEAS handle
+the reference automatically.</P
+><P
+>	In the following example, detail1 represents an explicit LIST and detail2 represents an implicit LIST.  Each field references the specific instances of the order:detail objects from the order::master object.  In the case of the implicit LIST reference (detail2) the reference is make by using the objectid's of order::detail.  In the case of the explicit LIST reference (detail1) the field order_number is used to relate the objects. </P
+><PRE
+CLASS="PROGRAMLISTING"
+>MODULE order
+{
+  class master
+  {
+    int               order_number;
+    LIST              detail1 : order::detail(order_number) = this.order_number;
+    order::detail  [] detail2;
+  }; 
+
+class detail
+  {
+    int       order_number;
+    int       detail_stuff;
+    char      last_detail_stuff;
+  };
+};&#13;</PRE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="METHOD"
+>2.2.12. METHOD</A
+></H2
+><P
+>	Methods allow a call to C or Python code.  A method can be defined
+where a field is defined in the class definition.  Its syntax is:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    return_type method_name(arg_type arg_name);
+    </PRE
+><P
+>	Where:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    return_type - the type (CHAR, INT, FLOAT) of the returned value, 
+        if any.  The only type currently working is CHAR.
+    method_name - the method name.
+    arg_type - the type of the argument.  See caveat below.
+    arg_name - the argument name.
+    </PRE
+><P
+>	Caveat - the only type passed to C or Python is string type.  So your
+method code will have to do conversions as necessary.&#13;</P
+><P
+>Example:&#13;</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    class test
+    {
+      char callme( int a , int b );
+    };&#13;</PRE
+><P
+>	Python Example</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    import string
+
+    def test_callme(obj,a,b,server):
+        print "callme called"
+        print "this.name = " + obj.getField("name")
+        return obj.getField("name")
+&#13;</PRE
+><P
+>	C Example:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    #include &#60;glib.h&#62;
+    #include &#60;gmodule.h&#62;
+    #include &#60;stdio.h&#62;
+    #include "../../../src/geas.h"
+    #include "../../../src/exceptions.h"
+
+    G_MODULE_EXPORT char *
+    test_callme( GEAS_DataObject obj , GEAS_Arguments *args ,
+                 GEAS_Connection server , CORBA_Environment *ev )
+    {
+       /* concatenate arguments using g_strdup_printf */
+       CORBA_char *retval;
+       char *tmp = g_strdup_printf( "%s:%s" , args-&#62;_buffer[0] , args-&#62;_buffer[1] );
+
+       retval = CORBA_string_dup( tmp ); // must use CORBA_string_dup for return vlaues
+       g_free( tmp ); 
+
+       return( retval );
+    }&#13;</PRE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="INHERITANCE"
+>2.2.13. Inheritance</A
+></H2
+><P
+>	Classes can inherit from parent classes.  The syntax is:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    CLASS class_name : parent1_class, parent2_class
+    {
+
+    };&#13;</PRE
+><P
+>CLASS example:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    CLASS item
+    {
+      char  desc&#60;25&#62;;
+    };
+    
+    CLASS stock_item
+    {
+      int quantity_on_hand;
+    };
+    
+    CLASS sales_item : item, stock_item
+    {
+      float  price;
+    };&#13;</PRE
+><P
+>	TYPE example</P
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;    TYPE item
+    {
+      char  desc&#60;25&#62;;
+    };
+    
+    TYPE stock_item
+    {
+      int quantity_on_hand;
+    };
+    
+    TYPE sales_item : item, stock_item
+    {
+      float  price;
+    };&#13;</PRE
+><P
+>	Where:</P
+><PRE
+CLASS="PROGRAMLISTING"
+>    item - is a parent of sales_item.
+    
+    stock_item - is a parent of sales_item.</PRE
+><P
+>	Inheritance works for both CLASS or TYPE, but you can not mix them.</P
+><P
+>	The field sales_item.desc is the description inherited from class item and
+sales_item.quantity_on_hand is inherited from class stock_item.  Of
+course you can still refer directly to the parent class as item.desc or
+stock_item.quantity_on_hand.</P
+><P
+>	If a field name is used more than once in parent and child classes then
+geas will die a slow and terrible death. (Hopefully this will be fixed
+soon.)</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="businessobjects.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="appendixes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>GNUe Business Objects</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="businessobjects.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Appendixes</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

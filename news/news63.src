@@ -1,0 +1,40 @@
+<h3>Object Database provides Persistence for Python</h3>
+<p>11th February 2002</p>
+<p>FYI, version 1.0 final release of Standalone ZODB is out.</p>
+
+<p>
+The intention is to provide generic presistence services for 
+Python applications. From the announcement:
+</p>
+
+<p>
+"I'm please to announce the release of StandaloneZODB, 
+the Python object persistency system also known as the 
+Z Object Database. ZODB is the object-oriented database 
+underlying Zope; the StandaloneZODB project's goal is to 
+provide those same facilities to non-Zope related Python 
+applications."
+</p>
+
+<h5>Features:</h5>
+<p>
+"The StandaloneZODB release includes the following components:
+</p>
+
+<ul>
+<li>Core ZODB, including the persistence machinery</li>
+<li>Standard storages such as FileStorage</li>
+<li>Supporting modules such as ExtensionClass</li>
+<li>The persistent BTrees modules</li>
+<li>ZEO</li>
+<li>Experimental Berkeley storages"</li>
+</ul>
+
+<p>
+<a href="http://lists.zope.org/pipermail/zope-announce/2002-February/000696.html">http://lists.zope.org/pipermail/zope-announce/2002-February/000696.html</a>
+</p>
+
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

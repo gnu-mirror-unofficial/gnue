@@ -1,0 +1,25 @@
+<h1>Bayonne / GNU Comm</h1>
+
+<p>Bayonne, the telecommunications application server of the 
+GNU Enterprise
+project, offers a free, scalable, 
+media-independent software environment
+for the development
+and deployment of telephony solutions for use with
+current as well as next-generation telephone networks.</p>
+
+<p>This will allow GNU Enterprise customers to directly 
+integrate GNU
+Enterprise applications and data to telephony
+devices. There is work being
+done to provide a <a href="bayonneforms.html">forms client</a>  
+for Bayonne, so applications can be
+used over normal 
+telephone lines. Bayonne offers many services independent
+of GNUe as well, including voice mail solutions and PBX 
+type solutions.</p>
+
+<h3>Status</h3>
+
+<$ status ( "bayonne" ) > 
+

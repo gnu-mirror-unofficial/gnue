@@ -1,0 +1,11 @@
+<h1>New Debian packages - now in sid!</h1>
+
+<p>6th November 2002</p><p>Thanks to Jeff Bailey, we now have Debian packages in sid (the Debian unstable distribution).</p>
+<hr>
+
+<p>These packages are based on CVS rather than the recent 0.4.0 release, and hence are in effect a "0.4.1-alpha". As with all CVS versions of software, there may be more bugs in than an official release. You can obtain the packages by apt-getting them from your favourite local 
+Debian <a href="http://www.debian.org/mirror/list">mirror</a>.</p>
+
+<hr>
+<p><a href="old.html">Return</a> to news archive</p>
+

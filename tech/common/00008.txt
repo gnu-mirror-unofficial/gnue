@@ -1,0 +1,121 @@
+Title: Overview of gnue.common.events
+Created: 07-OCT-2002
+Status: Current
+
+
+There are three components to the GNUe event model:
+
+
+EventController
+---------------
+Every application instance needs an EventController.  This is, for lack
+of a better word, the event multiplexor.  It receives an event request
+and sends it out to all the listeners.
+
+
+EventAware
+----------
+Any object that can either send or receive an event should subclass 
+EventAware. EventAware needs to be passed the "EventController" instance. 
+The EventAware class serves basically as a proxy between the EventController
+and your object. EventAware exposes two methods: 
+
+
+   * registerEventListeners(events)
+
+     This method takes a dictionary containing, as its keys, all of the 
+     "Events" (Case-sensitive!!!) that this object responds to.  The
+     "value" of the dictionaries are pointers to methods that are called.
+
+     For example, suppose you have the following class:
+
+       class DonutFactory(EventAware):
+
+         # Call me when we're low on donuts
+         def outOfDonuts(self, event):
+           print "Yo, Charlie! We need more donuts"
+
+         # Call me when we can go home
+         def closingTime(self, event):
+           print "Time to go home..."
+
+
+     And you want to listen in for the 'DonutLowWarning' and 'ClosingTime'
+     events.  Your __init__ would look something like:
+
+         # Initialize our DonutFactory class
+         def __init__(self, eventController):
+           EventAware.__init__(self, eventController)
+
+           self.registerEventListeners (
+              { 'DonutLowWarning': outOfDonuts,
+                'ClosingTime': closingTime } )
+
+
+     Now, whenever any EventAware object within your application dispatches
+     the "DonutLowWarning" event, your outOfDonuts() method will be called. 
+     Note that event methods should accept a single argument, which will be
+     an Event() object. 
+   
+
+   * dispatchEvent(event)
+   
+     This method takes an Event() instance and passes it to the 
+     EventController for propogation throughout the event model. 
+     
+     For example, take our donut factory class.  When fresh donuts are 
+     available, it might dispatch the 'FreshDonutsReady': 
+
+           self.dispatchEvent (Event('FreshDonutsReady'))
+
+     An object dispatching a particular event does not need to be registered
+     to receive that event in order to dispatch it.  In other words,
+     DonutFactory doesn't care what happens when the FreshDonutsReady event
+     is raised.
+
+
+Event
+-----
+An event is the actual event object passed back and forth between the event
+listeners.
+
+Any parameters passed to the Event's __init__ are added as attributes of the
+event. The first attribute, however, should always be the case-sensitive
+event name.  For example:
+
+   Event('MyEvent', color='Blue', x=1, y=2)
+
+Would create an event called MyEvent, with the following properties:
+
+   Event.x = 1
+   Event.y = 2
+   Event.color = 'Blue'1
+
+
+An event has the following methods/attributes:
+
+   Event.__result__     If the event is a 2-way event (i.e., a return value
+   Event.setResult()    is expected by the object issuing dispatchEvent,
+   Event.getResult()    then the listener capable of returning the value
+                        should set this or call Event.setResult(value).
+
+
+   Event.__error__      If the dispatcher supports the concept of "errors",
+   Event.__errortext__  a listener can set this value to 1 if an error
+   Event.setError()     occurred. Calling of other listeners stops once
+                        Event.__error__ is set.  If an error text message
+                        needs to be returned, __errortext__ can also be set
+                        to a string value.
+
+                        Event.__error__ is set to true when Event.setError()
+                        is called.  Event.setError takes an optional string
+                        parameter that __errortext__ is set to.
+
+
+   Event.__dropped__    If no further processing should happen to this event,
+   Event.drop()         then the event listener can call Event.drop(), which
+                        will set Event.__dropped__ to true.
+
+                        If Event.__error__ is set, Event.__dropped__ has no
+                        meaning as a drop is implied.
+

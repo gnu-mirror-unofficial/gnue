@@ -1,0 +1,273 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (WinNT; U) [Netscape]">
+   <title>Integrator hub</title>
+</head>
+<body>
+
+<h1>
+Proposal : Integrator HUB</h1>
+Draft Owner: Ajitesh Das
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ajitesh_das@yahoo.com
+<h2>
+Overview</h2>
+This document explains, integrator hub, a data/content&nbsp; utility. In
+the environment of enterprise systems, it is
+<br>necessary to exchange data/content amoug hetrogenious data sources
+and sinks either in batch mode or in realtime mode.
+<br>In real world scenario, these integration becomes nightmare due to
+the differences&nbsp; of data descriptions or schemas of
+<br>hetrogenious data sources and sinks.The integration hub, resides in
+the middle of the exchanging parties, transcodes content
+<br>from souce schema to destination schema. It also provides a hub-and-spoke
+middle-tier to eliminate peer to peer transcoding
+<br>redundencies.
+<h2>
+Definations</h2>
+The integrator hub consists of seven major components. These are as follows.
+<h3>
+InputTranscodeFactory</h3>
+This is a factory module, produces input transcoding object instances.
+Depending on the input schema type, this factory looks up
+<br>the registered transcoding object and instanciate for transcoding the
+input schema.
+<br>&nbsp;
+<h3>
+InputTranscoder</h3>
+This is an abstruct component. This helps an application developer to build
+a custom InputTranscoder for transcoding his
+<br>custom input schema into internal data format. This also defines the
+XML schema generator utility routins for internal data
+<br>representation.
+<br>&nbsp;
+<h3>
+Rule Engine</h3>
+This component identifies the transcoding rules for input contents from
+source to destination.It provides a python shell&nbsp; based
+<br>API to application developer for generating custom transcoding rule.
+<br>&nbsp;
+<h3>
+OutputTranscodeFactory</h3>
+This is also a factory module, produces output transcoding instances. Depending
+on the output schema type, this factory looks up
+<br>for the registered transcoding object and instanciate for transcoding
+the output schema.
+<br>&nbsp;
+<h3>
+OutputTranscoder</h3>
+This is also an abstract component. This helps an application developer
+to develop a custom OutputTranscoder for transcoding
+<br>the content from internal data format, which is XML schema based format,
+to custom output schema format. This also defines couple
+<br>of XML schema routines to manipulate the content, represented in XML
+schema format.
+<br>&nbsp;
+<h3>
+RegisterAndConfigurator</h3>
+This provides an application developer to register his custom InputTranscoder
+and OutputTranscoder. It also allows the user to
+<br>configure the integrator hub for trancoding utility.
+<br>&nbsp;
+<h3>
+ContentChannelManager</h3>
+This component manages the input to output data channels.It is also responsible
+for translating data using registered custom
+<br>translating rules.(See rule engine ) It uses Input and Output Transcoder
+to parse and regenerate translated output data.
+<br>&nbsp;
+<h2>
+Data Flow And Transformation</h2>
+The following figure shows the data transformation:
+<br><img SRC="dataflow.JPG" height=1024 width=1280>
+<h2>
+System Architecture</h2>
+The system, integrator hub tool, achitecture is as follows:
+<br><img SRC="component.JPG" height=1024 width=1280>
+<h2>
+Component Functionality</h2>
+
+<h3>
+InputTranscoderFactory:</h3>
+
+<blockquote>
+<ol>
+<li>
+Register custom InputTranscoder schema</li>
+
+<li>
+Instanciate (Singleton ) InputTranscoder obj</li>
+</ol>
+</blockquote>
+
+<h3>
+InputTranscoder:</h3>
+
+<blockquote>
+<ol>
+<li>
+Provide mapping rules : Input Schema -> XML Schema (Internal format)</li>
+</ol>
+&nbsp;&nbsp;&nbsp; For eg : a relation algebra to xml schema notation
+<br>&nbsp;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Lets assume a table EMP = Employee(name, age, Address )
+<br>&nbsp;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+will be translated to
+<p>&nbsp;&lt;xsd:schema xmlns:xsd="http://www.w3.org/2000/08/XMLSchema">
+<br>&nbsp;&nbsp;&nbsp; &lt;xsd:annotation>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:documentation>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Relation Algebra to
+XML schema Translation example.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright 2000 Ajitesh
+Das.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/xsd:documentation>
+<br>&nbsp;&nbsp;&nbsp; &lt;/xsd:annotation>
+<p>&nbsp;&nbsp; &lt;xsd:element name="Employee" type="EmployeeType"/>
+<br>&nbsp;&nbsp; &lt;xsd:complexType name="EmployeeType">
+<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:sequence>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:element name="name" type="xsd:string"/>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:element name="age" type="xsd:integer"/>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:element ref="address" default="null"
+type= "xsd:string"/>
+<br>&nbsp;&nbsp;&nbsp; &lt;/xsd:sequence>
+<br>&nbsp;&lt;/xsd:complextype></blockquote>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;/xsd:schema>
+<h3>
+Rule Engine:</h3>
+
+<ol>
+<li>
+Register transcoding scheme ( as a python script )</li>
+
+<li>
+Invoke on XML internal schema</li>
+</ol>
+
+<p><br>&nbsp;&nbsp; For eg the script :
+<br>&nbsp;&nbsp; class XMLTranscoderRule:
+<br>&nbsp;
+<br>&nbsp;&nbsp;&nbsp; ::::::::::::::::::::::::::::::::::
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; def setInputElement(self,'<font color="#660000">name</font><font color="#000000">'</font>):
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+self.element = eleName
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; def setOutputElement(self,
+seqName )
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+#.......
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+self.seqName [0] = seqName [0] # "FirstName"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+self.seqName [1] = seqName [1] # "LastName"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; def apply(self):
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# split first name and last name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+self.seqData[0] = first part of name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+self.seqData[0] = last part of name
+<br>&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This will change the XML
+schema from above to :
+<br>&nbsp;
+<blockquote>&nbsp;&lt;xsd:schema xmlns:xsd="http://www.w3.org/2000/08/XMLSchema">
+<br>&nbsp;&nbsp;&nbsp; &lt;xsd:annotation>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:documentation>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Relation Algebra to
+XML schema Translation example.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright 2000 Ajitesh
+Das.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/xsd:documentation>
+<br>&nbsp;&nbsp;&nbsp; &lt;/xsd:annotation>
+<p>&nbsp;&nbsp; &lt;xsd:element name="Employee" type="EmployeeType"/>
+<br>&nbsp;&nbsp; &lt;xsd:complexType name="EmployeeType">
+<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:sequence>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#660000">&lt;xsd:element
+name="FirstName" type="xsd:string"/></font>
+<br><font color="#660000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:element
+name="LastName" type="xsd:string"/></font>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:element name="age" type="xsd:integer"/>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xsd:element ref="address" default="null"
+type= "xsd:string"/>
+<br>&nbsp;&nbsp;&nbsp; &lt;/xsd:sequence>
+<br>&nbsp;&lt;/xsd:complextype></blockquote>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;/xsd:schema>
+<br>&nbsp;
+<h3>
+OutputTranscoderFactory:</h3>
+
+<blockquote>
+<ol>
+<li>
+Register custom OutputTranscoder schema</li>
+
+<li>
+Instanciate (Singleton ) OutputTranscoder obj</li>
+</ol>
+</blockquote>
+
+<h3>
+OutputTranscoder:</h3>
+
+<blockquote>
+<ol>
+<li>
+Provide mapping rules : XML Schema (Internal format)&nbsp; -> Input Schema</li>
+</ol>
+&nbsp;&nbsp;&nbsp; For eg :&nbsp; xml schema notation to a relation algebra
+<br>&nbsp;&nbsp; The above schema : translate :
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EMP =
+Employee(FirstName, LastName, age, address ) relational table
+<br>&nbsp;</blockquote>
+
+<h3>
+RegisterAndConfigurator</h3>
+
+<blockquote>
+<ol>
+<li>
+Provide persistant registration of custom schema</li>
+
+<li>
+Provides utility configuration</li>
+</ol>
+</blockquote>
+
+<h3>
+ContentChannelManager</h3>
+
+<blockquote>
+<ol>
+<li>
+Read Data</li>
+
+<li>
+Lookup for InputTranscoder</li>
+
+<li>
+Translate Schema -> XML</li>
+
+<li>
+Apply Rule set</li>
+
+<li>
+Translate XML -> Schema (output)</li>
+</ol>
+</blockquote>
+
+<h2>
+Class Diagrams</h2>
+TBD.................
+<br>&nbsp;
+<br>&nbsp;
+<h3>
+Event Diagrams</h3>
+TBD.............
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;
+</body>
+</html>

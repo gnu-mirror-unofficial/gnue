@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--
+
+  This file was automatically created by generate-feature-plan.py
+
+  DO NOT HAND-EDIT THIS FILE... YOUR CHANGES WILL BE LOST
+
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>GNUe-Forms feature plan</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+&nbsp;
+<table width="100%" cellpadding="5">
+<tr>
+<td valign="top" width="180">
+<div class="navmenus">
+<center>
+</center>
+<br />
+<table width="100%" >
+<tr bgcolor="#af9ca1">
+<td><i><b>GNUe Tools Feature Plans</b> </i></td>
+</tr>
+<tr bgcolor="#ced6bc">
+<td>
+<ul>
+<li><a href="appserver.html">GNUe Appserver</a></li>
+<li><a href="common.html">GNUe Common</a></li>
+<li><a href="designer.html">GNUe Designer</a></li>
+<li><a href="forms.html">GNUe Forms</a></li>
+<li><a href="reports.html">GNUe Reports</a></li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td valign="top">
+
+
+<center><h1>GNUe Forms feature plan</h1></center>
+
+
+<p>
+If you cannot finish a feature in time, please consider moving it to the
+next release section.</p>
+
+<table width="100%" border=0>
+<tbody>
+<tr><td colspan="2"><h1>0.5.x Releases</h1></tr></td>
+<tr><td bgcolor="blue"><div align=center><b>&nbsp;Goals&nbsp;</b></div></td><td bgcolor="#eeeeff"><p>The focus during the 0.5.x series of GNUe Forms releases
+will concentrate on stabilizing the GNUe Forms Definition
+and expanding the support of User Interfaces.</p></tr></td>
+<tr><td bgcolor="red"><div align=center><b>&nbsp;Todo&nbsp;</b></div></td><td bgcolor="#ffeeee"><p>All outstanding critical bugs in dcl, if any</p>  <h2>Documentation</h2>
+    <ul><li>
+Complete first draft of "GNUe Forms: An Introduction for Users"</li>
+    </ul>
+  <h2>User Interface</h2>
+    <ul><li>
+Switch to GNUe Common menu system after it's completion(*)</li>
+<li>
+Finish support for interactive Input Masks</li>
+<li>
+Create container objects (boxes or groups??)</li>
+    </ul>
+  <h2>WX Driver</h2>
+    <ul><li>
+Notebook tab focus issue DCL Ticket 158</li>
+<li>
+Attempt to find better way to deal with fonts in wx driver</li>
+    </ul>
+  <h2>Win32 Driver</h2>
+    <ul><li>
+Start on Win32 Driver</li>
+    </ul>
+</tr></td>
+<tr><td bgcolor="yellow"><div align=center><b>&nbsp;In progress&nbsp;</b></div></td><td bgcolor="#ffffee">  <h2>Internals</h2>
+    <ul><li>
+Implement a UI Manager to better deal with UIDriver internals</li>
+<li>
+Clean up UIDrivers to better handle multiple forms</li>
+    </ul>
+  <h2>Developer API</h2>
+    <ul><li>
+Implement Dialog support</li>
+    </ul>
+  <h2>Documentation</h2>
+    <ul><li>
+Complete first draft of "GNUe Forms: A Developer's Introduction"</li>
+    </ul>
+  <h2>User Interface</h2>
+    <ul><li>
+Bring Checkbox support up to speed</li>
+<li>
+Finish support for scrollbars in forms to drive next/prev record</li>
+    </ul>
+  <h2>Curses Driver</h2>
+    <ul><li>
+Complete Curses UI driver</li>
+    </ul>
+  <h2>GTK2 Driver</h2>
+    <ul><li>
+Complete GTK2 Driver</li>
+    </ul>
+</tr></td>
+<tr><td bgcolor="green"><div align=center><b>&nbsp;Finished&nbsp;</b></div></td><td bgcolor="#eeffee">  <h2>Internals</h2>
+    <ul><li>
+Separate logic from layout in the GFD file.</li>
+<li>
+Introduce a &lt;logic&gt; section containing &lt;block&gt;s and &lt;field&gt;s</li>
+<li>
+Simplify the &lt;entry&gt; tag to simply be tied to a &lt;field&gt;
+and to contain layout logic (basically, a positioning placeholder)</li>
+<li>
+Separate layout logic from the main XML specification and implement
+with namespaces.</li>
+<li>
+Write a converter for old-style GFD files</li>
+    </ul>
+</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+
+
+<tr><td colspan="2"><h1>0.6.x Releases</h1></tr></td>
+<tr><td bgcolor="blue"><div align=center><b>&nbsp;Goals&nbsp;</b></div></td><td bgcolor="#eeeeff"><p>The focus during the 0.6.x series of GNUe Forms releases
+will concentrate on cleanup, documentation, and fixing broken
+or partially implemented features. No new feature will to
+introduced beyond those available in the final 0.5.x release.</p></tr></td>
+<tr><td bgcolor="red"><div align=center><b>&nbsp;Todo&nbsp;</b></div></td><td bgcolor="#ffeeee"><p>All outstanding critical bugs in dcl, if any</p>  <h2>Internals</h2>
+    <ul><li>
+Code Cleanup:</li>
+<li>
+Usage Audit
+Profile
+Remove obsolete code
+Internal code comments</li>
+    </ul>
+  <h2>User Interface</h2>
+    <ul><li>
+Switch to GNUe Common menu system after it's completion(*)</li>
+    </ul>
+</tr></td>
+<tr><td bgcolor="yellow"><div align=center><b>&nbsp;In progress&nbsp;</b></div></td><td bgcolor="#ffffee"></tr></td>
+<tr><td bgcolor="green"><div align=center><b>&nbsp;Finished&nbsp;</b></div></td><td bgcolor="#eeffee"></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+
+
+<tr><td colspan="2"><h1>0.7.x Releases</h1></tr></td>
+<tr><td bgcolor="blue"><div align=center><b>&nbsp;Goals&nbsp;</b></div></td><td bgcolor="#eeeeff"><p>Focus on enhancing the UI system.</p></tr></td>
+<tr><td bgcolor="red"><div align=center><b>&nbsp;Todo&nbsp;</b></div></td><td bgcolor="#ffeeee"><p>All outstanding critical bugs in dcl, if any</p>  <h2>User Interface</h2>
+    <ul><li>
+Grid View Mode</li>
+<li>
+More run-time widget control</li>
+<li>
+Popup search dialog support</li>
+<li>
+The box tag with a width or height of 1 should draw a line</li>
+    </ul>
+  <h2>User Interface Drivers</h2>
+    <ul><li>
+Implement a QT UIDriver</li>
+<li>
+Implement native win32 API UIDriver</li>
+    </ul>
+  <h2>GNUe Appserver Support</h2>
+    <ul><li>
+Tighter integration with GNUe Appserver</li>
+    </ul>
+</tr></td>
+<tr><td bgcolor="yellow"><div align=center><b>&nbsp;In progress&nbsp;</b></div></td><td bgcolor="#ffffee"></tr></td>
+<tr><td bgcolor="green"><div align=center><b>&nbsp;Finished&nbsp;</b></div></td><td bgcolor="#eeffee"></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+
+
+<tr><td colspan="2"><h1>0.8.x Releases</h1></tr></td>
+<tr><td bgcolor="blue"><div align=center><b>&nbsp;Goals&nbsp;</b></div></td><td bgcolor="#eeeeff"><p>Focus on adding requested features.</p></tr></td>
+<tr><td bgcolor="red"><div align=center><b>&nbsp;Todo&nbsp;</b></div></td><td bgcolor="#ffeeee"><p>All outstanding critical bugs in dcl, if any</p>  <h2>User Interface</h2>
+    <ul><li>
+Find within loaded data(*)</li>
+<li>
+Dynamic Sorting of loaded data(*)</li>
+    </ul>
+  <h2>User Interface Drivers</h2>
+    <ul><li>
+Implement html UIDriver</li>
+<li>
+Implement bayonne UIDriver (phone interface)</li>
+    </ul>
+</tr></td>
+<tr><td bgcolor="yellow"><div align=center><b>&nbsp;In progress&nbsp;</b></div></td><td bgcolor="#ffffee"></tr></td>
+<tr><td bgcolor="green"><div align=center><b>&nbsp;Finished&nbsp;</b></div></td><td bgcolor="#eeffee"></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+
+
+<tr><td colspan="2"><h1>0.9.x Releases</h1></tr></td>
+<tr><td bgcolor="blue"><div align=center><b>&nbsp;Goals&nbsp;</b></div></td><td bgcolor="#eeeeff"><p>Preperation for 1.0.0 release. Concentrate on cleanup,
+documentation, and fixing broken or partially implemented
+features. No new feature will to introduced beyond those
+available in the 0.9.0 release.</p></tr></td>
+<tr><td bgcolor="red"><div align=center><b>&nbsp;Todo&nbsp;</b></div></td><td bgcolor="#ffeeee"><p>All outstanding critical bugs in dcl, if any</p>  <h2>Internal</h2>
+    <ul><li>
+Remove all 'dneighbo'-specific code breakers</li>
+    </ul>
+</tr></td>
+<tr><td bgcolor="yellow"><div align=center><b>&nbsp;In progress&nbsp;</b></div></td><td bgcolor="#ffffee"></tr></td>
+<tr><td bgcolor="green"><div align=center><b>&nbsp;Finished&nbsp;</b></div></td><td bgcolor="#eeffee"></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+
+
+<tr><td colspan="2"><h1>1.0.x Releases</h1></tr></td>
+<tr><td bgcolor="blue"><div align=center><b>&nbsp;Goals&nbsp;</b></div></td><td bgcolor="#eeeeff"><p>Milestone release. Maintenance only.</p></tr></td>
+<tr><td bgcolor="red"><div align=center><b>&nbsp;Todo&nbsp;</b></div></td><td bgcolor="#ffeeee"><p>All outstanding critical bugs in dcl, if any</p></tr></td>
+<tr><td bgcolor="yellow"><div align=center><b>&nbsp;In progress&nbsp;</b></div></td><td bgcolor="#ffffee"></tr></td>
+<tr><td bgcolor="green"><div align=center><b>&nbsp;Finished&nbsp;</b></div></td><td bgcolor="#eeffee"></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+
+
+
+</table>
+
+(*) : Will require additional support in GNUe Common
+<hr width="75%" size="5" align="center" noshade="noshade" />
+</body>
+</html>

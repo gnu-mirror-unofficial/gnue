@@ -1,0 +1,100 @@
+<h1>Manufacturing</h1>
+
+<p>Manufacturing forms a key part of the Supply Chain Management process. The
+basic cycle is that customer orders and forecasted demand are combined to
+form a Master Production Schedule. Material Requirements Planning (MRP) uses
+the Master Production Schedule and Bill of Materials to create requirements
+for parts at all levels -- purchased parts, assemblies and final products. To
+fulfill this demand, MRP sends purchase requisitions to Purchasing based on
+the lead times in Inventory and creates work orders for the fabrication of
+assemblies. GNU Enterprise Manufacturing supports different styles of
+manufacturing - engineer-to-order, repetitive and process.</p>
+
+<ul>
+	<li><a href="#bill_of_materials">Bill of Materials</a></li>
+	<li><a href="#capacity_requirements_planning">Capacity Requirements Planning</a></li>
+	<li><a href="#engineering">Engineering</a></li>
+	<li><a href="#master_production_scheduling">Master Production Scheduling</a></li>
+	<li><a href="#material_requirements_planning">Material Requirements Planning</a></li>
+	<li><a href="#work_in_process">Work in Process</a></li>
+	<li><a href="#repetitive_manufacturing">Repetitive Manufacturing</a></li>
+	<li><a href="#process_manufacturing">Process Manufacturing</a></li>
+	<li><a href="#service">Service</a></li>
+	<li><a href="#quality">Quality</a></li>
+</ul>
+
+<h3><a name="bill_of_materials">BILL OF MATERIALS</a></h3>
+<p>A Bill of Materials (BOM) describes how to make an Inventory item. That
+includes both the materials and the operations which are necessary to build
+the item. The operations include both the resources required and the time
+for setup, produce and clean up. For ease of use, GNU Enterprise
+Manufacturing allows Bills of Materials to be constructed using 'drag and
+drop' technology. It also provides 'WHERE USED' queries for Inventory item
+numbers.</p>
+
+<h3><a name="capacity_requirements_planning">CAPACITY REQUIREMENTS PLANNING</a></h3>
+<p>A manufacturing facility has only so much capacity to produce goods.
+Capacity Requirements Planning (CRP) reviews the detailed production
+schedules proposed by MRP. Based on the operations information in Bill of
+Materials, it locates periods where the schedule exceeds the capacity of the
+manufacturing facility. Users use an iterative approach to find a solution
+which fits both MRP and CRP.</p>
+
+<h3><a name="engineering">ENGINEERING</a></h3>
+<p>Both Engineering and Bill of Materials work on the BOM tables. Bill of
+Materials --  emphasis is on production. Engineering's emphasis is on
+development. Engineering creates new BOMs and modifies existing BOMs via
+Engineering Change Orders which usually have an effective date.</p>
+
+<h3><a name="master_production_scheduling">MASTER PRODUCTION SCHEDULING</a></h3>
+<p>The Master Product Schedule represents the company's high-level decisions
+about what is to be produced. It is based on customer orders and forecasted
+demand over a planning interval (often several months). The Master
+Production Schedule is used to drive the rest of the Manufacturing package.
+It is a small table but a very important one.</p>
+
+<h3><a name="material_requirements_planning">MATERIAL REQUIREMENTS PLANNING</a></h3>
+<p>Material Requirements Planning (MRP) uses the Master Production Schedule and
+Bills of Materials to create requirements for parts at all levels ?
+purchased parts, assemblies and final products. To fulfill this demand, MRP
+sends purchase requisitions to Purchasing based on the lead times in
+Inventory and creates work orders to Work in Process for the fabrication of
+assemblies.</p>
+
+<h3><a name="work_in_process">WORK IN PROCESS</a></h3>
+<p>Work in Process (or MRP) issues Work Orders to make a specified number of an
+item, collects actual time (as opposed to standard time contained on the
+Bill of Materials) and reports the progress of the Work Order through its
+various steps. If there are variances in material or labor, Cost Management
+reports it so errors can be corrected and realistic standards maintained.</p>
+
+<h3><a name="repetitive_manufacturing">REPETITIVE MANUFACTURING</a></h3>
+<p>In some types of manufacturing, the runs are very long so the setup time is
+not relevant. An assembly line is an example of this type of repetitive
+manufacturing. The Repetitive Manufacturing sub-system adapts the basic
+Manufacturing package to this specialized environment.</p>
+
+<h3><a name="process_manufacturing">PROCESS MANUFACTURING</a></h3>
+<p>Process Manufacturing deals with continuous rather than discrete processes.
+An oil refinery is an example of process manufacturing. The Process
+Manufacturing sub-system adapts the basic Manufacturing package to this
+specialized environment.</p>
+
+<h3><a name="service">SERVICE</a></h3>
+<p>After you sell a product to a customer, you usually must service it. GNU
+Enterprise Service
+supports you in this by scheduling both on-site and depot service,
+monitoring service delivery, managing warranties and handling service
+contracts.</p>
+
+<h3><a name="quality">QUALITY</a></h3>
+<p>Delivering a quality product gives your company a critical competitive edge.
+GNU Enterprise Quality helps you define quality standards, manages the
+physical testing of items, issues Quality Alerts if the standards are not
+adhered to. With GNU Enterprise Quality, you are a long step forward towards
+ISO 9000 certification.</p>
+
+<h3>Status</h3>
+
+<$ status ( "manuf" ) > 
+

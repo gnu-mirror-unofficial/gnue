@@ -1,0 +1,746 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Location Module</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="GNU Enterprise - Base Package Proposal"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Person Module"
+HREF="person.html"><LINK
+REL="NEXT"
+TITLE="Organization Module"
+HREF="org.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>GNU Enterprise - Base Package Proposal</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="person.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="org.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LOCATION">Chapter 5. Location Module</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN196">5.1. Requirements</H1
+><P
+>			This chapter is $Revision: 1.1 $ $Date: 2003/01/05 00:00:29 $. 
+		</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN199">5.1.1. Business Requirements</H2
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Maintain address information. 
+					</P
+></LI
+><LI
+><P
+>						Maintain a list of valid ISO country codes.
+					</P
+></LI
+><LI
+><P
+>						Maintain a list of valid localized state (United States) or region codes. 
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN208">5.1.2. Future Requirements</H2
+><P
+>				The following items will be implemented in future version of this module. They may be implemented in the base module or be added via an industry specific add on. 
+			</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						None 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN214">5.1.3. Business Objects</H2
+><P
+>				The following Business Objects are defined and maintained by this module. 
+			</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						location::address - TYPE only.
+					</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>						location::region - Define available regions.
+					</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>						location::country - Define available countries.
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN224">5.1.4. Forms</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						Add, change, delete, inquire regions.
+					</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>						Add, change, delete, inquire countries.
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN231">5.1.5. Reports</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						None 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN236">5.1.6. Business Rules</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						none 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN241">5.1.7. Business Object Definition</H2
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>					
+# $RCSfile: location.html,v $ - physical address type
+#                  
+# Copyright (C) 2001 Free Software Foundation, Inc.
+#
+# This file is part of GNU Enterprise.
+#
+# GNU Enterprise is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+# 
+# GNU Enterprise is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Enterprise; see the file COPYING.  If not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307 USA.
+#
+# This file originally written by Neil Tiffin (neilt@gnue.org).
+#
+# $Revision: 1.1 $ $Date: 2003/01/05 00:00:29 $ $Author: psu_gnue $
+#
+
+module location
+{
+  class post_code
+  {
+    char   zip_code&#60;5&#62;;
+    char   city&#60;15&#62;;
+    char   state&#60;2&#62;;
+    float  latitude;
+    float  longitude;
+    
+    UNIQUE INDEX(zip_code);
+  };
+
+  class region
+  {
+    char  country&#60;8&#62;;
+    char  code&#60;8&#62;;   # state/region abbrev
+    char  descr&#60;35&#62;;  # long state/region name
+  };
+
+  class country
+  {
+    char   phone_code&#60;4&#62;;    # for validating phone country code
+    char   code&#60;8&#62;;          # for validating address country abbreviation
+    char   description&#60;35&#62;;  # the long country name
+    location::region []regions;        # regions or states within country
+    char   city_format&#60;35&#62;;  # formatting template for the city/postal code
+                             # address line
+    
+    UNIQUE INDEX(code);
+  };
+
+  # -------------------------------------------------------------------------
+  # address - definition of physical addresses.
+  # -------------------------------------------------------------------------
+  type address
+  {
+    char    descr&#60;35&#62;;              # of this address (work, home, business etc.)
+    char    street1&#60;35&#62;;
+    char    street2&#60;35&#62;;
+    char    street3&#60;35&#62;;
+    char    city&#60;35&#62;;
+    location::region  *region;      # state in the US
+    location::country *country;
+    char    postal&#60;17&#62;;
+    
+    # get the place as city, state, zip per local requirements
+    # text get_place();
+  };
+
+};
+
+
+ 
+				</PRE
+>
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN245">5.1.8. Default Data Definition</H2
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>					
+--
+-- ISO country and telephone codes
+--
+-- This is a special file format that is converted by the
+-- GEAS sql loader into valid sql
+--
+-- $Id: location.html,v 1.1 2003/01/05 00:00:29 psu_gnue Exp $
+--
+
+INSERT INTO location__country (GEAS-SYS, description, phone_code, code) VALUES
+  (GEAS-SYS, 'Afghanistan',     '',     'AF');
+  (GEAS-SYS, 'Albania',         '355',  'AL');
+  (GEAS-SYS, 'Algeria',         '213',  'AG');
+  (GEAS-SYS, 'American Samoa',  '684',  '');
+  (GEAS-SYS, 'Andorra',         '376',  'AN');
+  (GEAS-SYS, 'Angola',          '244',  'AO');
+  (GEAS-SYS, 'Anguilla',        '1',    'AV');
+  (GEAS-SYS, 'Antarctica',      '672',  'AY');
+  (GEAS-SYS, 'Antigua Barbuda', '1',    'AC');
+  (GEAS-SYS, 'Argentina',       '54',   'AR');
+  (GEAS-SYS, 'Armenia',         '374',  'AM');
+  (GEAS-SYS, 'Aruba',           '297',  'AA');
+  (GEAS-SYS, 'Ashmore and Cartier Islands', '',     'AT');
+  (GEAS-SYS, 'Ascension Island', '247',   '');
+  (GEAS-SYS, 'Australia',       '61',   'AS');
+  (GEAS-SYS, 'Austria',        '43',    'AU');
+  (GEAS-SYS, 'Azerbaijan',     '994',   'AJ');
+  (GEAS-SYS, 'Bahamas',        '1',     'BF');
+  (GEAS-SYS, 'Bahrain',        '973',   'BA');
+  (GEAS-SYS, 'Bangladesh',     '880',   'BG');
+  (GEAS-SYS, 'Barbados',       '1',     'BB');
+  (GEAS-SYS, 'Belarus',        '375',   'BO');
+  (GEAS-SYS, 'Belgium',        '32',    'BE');
+  (GEAS-SYS, 'Belize',         '501',   'BH');
+  (GEAS-SYS, 'Benin',          '229',   'BN');
+  (GEAS-SYS, 'Bermuda',        '441',   'BD');
+  (GEAS-SYS, 'Bhutan',         '975',   'BT');
+  (GEAS-SYS, 'Bolivia',        '591',   'BL');
+  (GEAS-SYS, 'Bosnia Herzegovina', '387',   'BK');
+  (GEAS-SYS, 'Botswana',       '267',   'BC');
+  (GEAS-SYS, 'Brazil',         '55',    'BR');
+  (GEAS-SYS, 'British Indian Ocean Territory', '',      'IO');
+  (GEAS-SYS, 'British Virgin Islands',  '1',     'VI');
+  (GEAS-SYS, 'Brunei',         '673',   'BX');
+  (GEAS-SYS, 'Bulgaria',       '359',   'BU');
+  (GEAS-SYS, 'Burkina Faso',   '226',   'UV');
+  (GEAS-SYS, 'Burundi',        '257',   'BY');
+  (GEAS-SYS, 'Cambodia',       '855',   'CB');
+  (GEAS-SYS, 'Cameroon',       '237',   'CM');
+  (GEAS-SYS, 'Canada',         '1',     'CA');
+  (GEAS-SYS, 'Cape Verde Islands', '238',   'CV');
+  (GEAS-SYS, 'Cayman Islands', '1',     'CJ');
+  (GEAS-SYS, 'Central African Republic', '236',   'CT');
+  (GEAS-SYS, 'Chad Republic',  '235',   'CD');
+  (GEAS-SYS, 'Chatham Island', '64',    '');
+  (GEAS-SYS, 'Chile',          '56',    'CI');
+  (GEAS-SYS, 'China',          '86',    'CH');
+  (GEAS-SYS, 'Christmas Island', '672',   'KT');
+  (GEAS-SYS, 'Cocos (Keeling) Islands',  '672',   'CK');
+  (GEAS-SYS, 'Colombia',       '57',    'CO');
+  (GEAS-SYS, 'Comoros',        '269',   'CN');
+  (GEAS-SYS, 'Congo',          '242',   'CF');
+  (GEAS-SYS, 'Cook Islands',   '682',   'CW');
+  (GEAS-SYS, 'Coral Sea Islands', '',      'CR');
+  (GEAS-SYS, 'Costa Rica',     '506',   'CS');
+  (GEAS-SYS, 'Cote D'Ivoire',  '',      'IV');
+  (GEAS-SYS, 'Croatia',        '385',   'HR');
+  (GEAS-SYS, 'Cuba',           '53',    'CU');
+  (GEAS-SYS, 'Cyprus',         '357',   'CY');
+  (GEAS-SYS, 'Czech Republic', '42',    'EZ');
+  (GEAS-SYS, 'Denmark',        '45',    'DA');
+  (GEAS-SYS, 'Diego Garcia',   '246',   '');
+  (GEAS-SYS, 'Djibouti',       '253',   'DJ');
+  (GEAS-SYS, 'Dominica',       '1',     'DO');
+  (GEAS-SYS, 'Dominican Republic', '1',     'DR');
+  (GEAS-SYS, 'Ecuador',        '593',   'EC');
+  (GEAS-SYS, 'Egypt',          '20',    'EG');
+  (GEAS-SYS, 'El Salvador',    '503',   'ES');
+  (GEAS-SYS, 'Equatorial Guinea', '240',   'EK');
+  (GEAS-SYS, 'Eritrea',        '291',   'ER');
+  (GEAS-SYS, 'Estonia',        '372',   'EN');
+  (GEAS-SYS, 'Ethiopia',       '251',   'ET');
+  (GEAS-SYS, 'Europa Island',  '',      'EU');
+  (GEAS-SYS, 'Faeroe Islands', '298',   'FO');
+  (GEAS-SYS, 'Falkland Islands',  '500',   'FK');
+  (GEAS-SYS, 'Fiji',           '679',   'FJ');
+  (GEAS-SYS, 'Finland',        '358',   'FI');
+  (GEAS-SYS, 'France',         '33',    'FR');
+  (GEAS-SYS, 'French Antilles', '596',   '');
+  (GEAS-SYS, 'French Southern and Antarctic Lands', '',      'FS');
+  (GEAS-SYS, 'French Guiana',  '594',   'FG');
+  (GEAS-SYS, 'French Polynesia', '689',   'FP');
+  (GEAS-SYS, 'Gabon',          '241',   'GB');
+  (GEAS-SYS, 'Gaza Strip',     '',      'GZ');
+  (GEAS-SYS, 'Gambia',         '220',   'GA');
+  (GEAS-SYS, 'Georgia',        '995',   'GG');
+  (GEAS-SYS, 'Germany',        '49',    'GM');
+  (GEAS-SYS, 'Ghana',          '233',   'GH');
+  (GEAS-SYS, 'Gibraltar',      '350',   'GI');
+  (GEAS-SYS, 'Glorioso Islands', '',      'GO');
+  (GEAS-SYS, 'Greece',         '30',    'GR');
+  (GEAS-SYS, 'Greenland',      '299',   'GL');
+  (GEAS-SYS, 'Grenada',        '1',     'GJ');
+  (GEAS-SYS, 'Guadeloupe',     '590',   'GP');
+  (GEAS-SYS, 'Guam',           '671',   '');
+  (GEAS-SYS, 'Guatemala',      '502',   'GT');
+  (GEAS-SYS, 'Guinea',         '224',   'GV');
+  (GEAS-SYS, 'Guinea-Bissau',  '245',   'PU');
+  (GEAS-SYS, 'Guyana',         '592',   'GY');
+  (GEAS-SYS, 'Haiti',          '509',   'HA');
+  (GEAS-SYS, 'Heard and McDonald Islands', '',      'HM');
+  (GEAS-SYS, 'Honduras',       '504',   'HO');
+  (GEAS-SYS, 'Hong Kong',      '852',   'HK');
+  (GEAS-SYS, 'Hungary',        '36',    'HU');
+  (GEAS-SYS, 'Iceland',        '354',   'IC');
+  (GEAS-SYS, 'India',          '91',    'IN');
+  (GEAS-SYS, 'Indonesia',      '62',    'ID');
+  (GEAS-SYS, 'Iran',           '98',    'IR');
+  (GEAS-SYS, 'Iraq',           '964',   'IZ');
+  (GEAS-SYS, 'Ireland',        '353',   'EI');
+  (GEAS-SYS, 'Isle of Man',    '',      'IM');
+  (GEAS-SYS, 'Israel',         '972',   'IS');
+  (GEAS-SYS, 'Italy',          '39',    'IT');
+  (GEAS-SYS, 'Ivory Coast',    '225',   '');
+  (GEAS-SYS, 'Jamaica',        '1',     'JM');
+  (GEAS-SYS, 'Jan Mayen',      '',      'JN');
+  (GEAS-SYS, 'Japan',          '81',    'JA');
+  (GEAS-SYS, 'Jersey',         '',      'JE');
+  (GEAS-SYS, 'Jordan',         '962',   'JO');
+  (GEAS-SYS, 'Juan de Nova Island', '',      'JU');
+  (GEAS-SYS, 'Kazakhstan',     '7',     'KZ');
+  (GEAS-SYS, 'Kenya',          '254',   'KE');
+  (GEAS-SYS, 'Kingman Reef',   '',      'KQ');
+  (GEAS-SYS, 'Kiribati',       '686',   '');
+  (GEAS-SYS, 'Korea Democratic Peoples Republic of', '850',   'KN');
+  (GEAS-SYS, 'Korea Republic of',  '82',    'KS');
+  (GEAS-SYS, 'Kuwait',         '965',   'KU');
+  (GEAS-SYS, 'Kyrgyzstan',     '7',     'KG');
+  (GEAS-SYS, 'Laos',           '856',   'LA');
+  (GEAS-SYS, 'Latvia',         '371',   'LG');
+  (GEAS-SYS, 'Lebanon',        '961',   'LE');
+  (GEAS-SYS, 'Lesotho',        '266',   'LT');
+  (GEAS-SYS, 'Liberia',        '231',   'LI');
+  (GEAS-SYS, 'Libya',          '218',   'LY');
+  (GEAS-SYS, 'Liechtenstein',  '4175',  'LS');
+  (GEAS-SYS, 'Lithuania',      '370',   'LH');
+  (GEAS-SYS, 'Luxembourg',     '352',   'LU');
+  (GEAS-SYS, 'Macao',          '853',   'MC');
+  (GEAS-SYS, 'Macedonia',      '389',   'MK');
+  (GEAS-SYS, 'Madagascar',     '261',   'MA');
+  (GEAS-SYS, 'Malawi',         '265',   'MI');
+  (GEAS-SYS, 'Malaysia',       '60',    'MY');
+  (GEAS-SYS, 'Maldives',       '960',   'MV');
+  (GEAS-SYS, 'Mali',           '223',   'ML');
+  (GEAS-SYS, 'Malta',          '356',   'MT');
+  (GEAS-SYS, 'Marshall Islands', '692',   '');
+  (GEAS-SYS, 'Martinique',     '596',   'MB');
+  (GEAS-SYS, 'Mauritania',     '222',   'MR');
+  (GEAS-SYS, 'Mauritius',      '230',   'MP');
+  (GEAS-SYS, 'Mayotte Islands', '2696',  'MF');
+  (GEAS-SYS, 'Mexico',         '52',    'MX');
+  (GEAS-SYS, 'Micronesia',     '691',   '');
+  (GEAS-SYS, 'Moldova',        '373',   'MD');
+  (GEAS-SYS, 'Monaco',         '377',   'MN');
+  (GEAS-SYS, 'Mongolia',       '976',   'MG');
+  (GEAS-SYS, 'Montenegro',     '',      'MW');
+  (GEAS-SYS, 'Montserrat',     '1',     'MH');
+  (GEAS-SYS, 'Morocco',        '212',   'MO');
+  (GEAS-SYS, 'Mozambique',     '258',   'MZ');
+  (GEAS-SYS, 'Myanmar',        '95',    '');
+  (GEAS-SYS, 'Namibia',        '264',   'WA');
+  (GEAS-SYS, 'Nauru',          '674',   'NR');
+  (GEAS-SYS, 'Nepal',          '977',   'NP');
+  (GEAS-SYS, 'Netherlands',    '31',    'NL');
+  (GEAS-SYS, 'Netherlands Antilles', '599',   'NT');
+  (GEAS-SYS, 'New Caledonia',  '687',   'NC');
+  (GEAS-SYS, 'New Zealand',    '64',    'NZ');
+  (GEAS-SYS, 'Nicaragua',      '505',   'NU');
+  (GEAS-SYS, 'Niger',          '227',   'NG');
+  (GEAS-SYS, 'Nigeria',        '234',   'NI');
+  (GEAS-SYS, 'Niue',           '683',   'NE');
+  (GEAS-SYS, 'Norfolk Island', '672',   'NF');
+  (GEAS-SYS, 'Norway',         '47',    'NO');
+  (GEAS-SYS, 'Oman',           '968',   'MU');
+  (GEAS-SYS, 'Pakistan',       '92',    'PK');
+  (GEAS-SYS, 'Palau',          '680',   '');
+  (GEAS-SYS, 'Panama',         '507',   'PM');
+  (GEAS-SYS, 'Papua New Guinea', '675',   'PP');
+  (GEAS-SYS, 'Paracel Islands', '',      'PF');
+  (GEAS-SYS, 'Paraguay',       '595',   'PA');
+  (GEAS-SYS, 'Peru',           '51',    'PE');
+  (GEAS-SYS, 'Philippines',    '63',    'RP');
+  (GEAS-SYS, 'Pitcairn Islands', '',      'PC');
+  (GEAS-SYS, 'Poland',         '48',    'PL');
+  (GEAS-SYS, 'Portugal',       '351',   'PO');
+  (GEAS-SYS, 'Qatar',          '974',   'QA');
+  (GEAS-SYS, 'Reunion',        '262',   'RE');
+  (GEAS-SYS, 'Romania',        '40',    'RO');
+  (GEAS-SYS, 'Russia',         '7',     'RU');
+  (GEAS-SYS, 'Rwanda',         '250',   'RW');
+  (GEAS-SYS, 'Saipan',         '670',    '');
+  (GEAS-SYS, 'San Marino',     '378',   'SM');
+  (GEAS-SYS, 'Sao Tome and Principe', '239',   'TP');
+  (GEAS-SYS, 'Saudi Arabia',   '966',   'SA');
+  (GEAS-SYS, 'Senegal',        '221',   'SG');
+  (GEAS-SYS, 'Seychelles',     '248',   'SE');
+  (GEAS-SYS, 'Sierra Leone',   '232',   'SL');
+  (GEAS-SYS, 'Singapore',      '65',    'SN');
+  (GEAS-SYS, 'Slovak Republic',  '42',    'LO');
+  (GEAS-SYS, 'Slovenia',       '386',   'SI');
+  (GEAS-SYS, 'Solomon Islands', '677',   'BP');
+  (GEAS-SYS, 'Somalia',        '252',   'SO');
+  (GEAS-SYS, 'South Africa',   '27',    'SF');
+  (GEAS-SYS, 'South Georgia and South Sandwich Islands', '',      'SX');
+  (GEAS-SYS, 'Spain',          '34',    'SP');
+  (GEAS-SYS, 'Spratly Islands', '',      'PG');
+  (GEAS-SYS, 'Sri Lanka',      '94',    'CE');
+  (GEAS-SYS, 'St. Helena',     '290',   'SH');
+  (GEAS-SYS, 'St. Kitts and Nevis', '1',     'SC');
+  (GEAS-SYS, 'St. Lucia',      '1',     'ST');
+  (GEAS-SYS, 'St. Pierre and Miquelon', '508',   'SB');
+  (GEAS-SYS, 'St. Vincent and the Grenadines', '1',     'VC');
+  (GEAS-SYS, 'Sudan',          '',      'SU');
+  (GEAS-SYS, 'Svalbard',       '',      'SV');
+  (GEAS-SYS, 'Suriname',       '597',   'NS');
+  (GEAS-SYS, 'Swaziland',      '268',   'WZ');
+  (GEAS-SYS, 'Sweden',         '46',    'SW');
+  (GEAS-SYS, 'Switzerland',    '41',    'SZ');
+  (GEAS-SYS, 'Syria',          '963',   'SY');
+  (GEAS-SYS, 'Taiwan',         '886',   'TW');
+  (GEAS-SYS, 'Tajikistan',     '7',     'TI');
+  (GEAS-SYS, 'Tanzania',       '255',   'TZ');
+  (GEAS-SYS, 'Thailand',       '66',    'TH');
+  (GEAS-SYS, 'Togo',           '228',   'TO');
+  (GEAS-SYS, 'Tokelau',        '',      'TL');
+  (GEAS-SYS, 'Tonga Islands',  '676',   '');
+  (GEAS-SYS, 'Trinidad and Tobago', '1',     'TD');
+  (GEAS-SYS, 'Tromelin Island',  '',      'TD');
+  (GEAS-SYS, 'Tunisia',        '216',   'TS');
+  (GEAS-SYS, 'Turkey',         '90',    'TU');
+  (GEAS-SYS, 'Turkmenistan',   '7',     'TX');
+  (GEAS-SYS, 'Turks and Caicos Islands', '1',     'TK');
+  (GEAS-SYS, 'Tuvalu',         '688',   'TV');
+  (GEAS-SYS, 'Uganda',         '256',   'UG');
+  (GEAS-SYS, 'Ukraine',        '380',   'UA');
+  (GEAS-SYS, 'United Arab Emirates', '971',   'TC');
+  (GEAS-SYS, 'United Kingdom', '44',    'UK');
+  (GEAS-SYS, 'United States',  '1',     'US');
+  (GEAS-SYS, 'Uruguay',        '598',   'UY');
+  (GEAS-SYS, 'Uzbekistan',     '7',     'UZ');
+  (GEAS-SYS, 'Vanuatu',        '678',   'NH');
+  (GEAS-SYS, 'Vatican City',   '',      'VT');
+  (GEAS-SYS, 'Venezuela',      '58',    'VE');
+  (GEAS-SYS, 'Vietnam',        '84',    'VM');
+  (GEAS-SYS, 'Wallis and Futuna', '681',   'WF');
+  (GEAS-SYS, 'West Bank',      '',      'WE');
+  (GEAS-SYS, 'Western Sahara', '',      'WI');
+  (GEAS-SYS, 'Western Samoa',  '685',   'WS');
+  (GEAS-SYS, 'Yemen',          '967',   '');
+  (GEAS-SYS, 'Yugoslavia',     '967',   '');
+  (GEAS-SYS, 'Zaire',          '243',   'CG');
+  (GEAS-SYS, 'Zambia',         '260',   'ZA');
+  (GEAS-SYS, 'Zimbabwe',       '263',   'ZI');
+ 
+				</PRE
+>
+			</P
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>					
+--
+-- United States and Canada region (state) codes
+--
+-- This is a special file format that is converted by the
+-- GEAS sql loader into valid sql
+--
+-- $Id: location.html,v 1.1 2003/01/05 00:00:29 psu_gnue Exp $
+--
+
+INSERT INTO location__region (GEAS-SYS, "descr", code, country) VALUES
+  (GEAS-SYS, 'Alabama',          'AL',  'US');
+  (GEAS-SYS, 'Alaska',           'AK',  'US');
+  (GEAS-SYS, 'American Samoa',   'AS',  'US');
+  (GEAS-SYS, 'Arizona',          'AZ',  'US');
+  (GEAS-SYS, 'Arkansas',         'AR',  'US');
+  (GEAS-SYS, 'California',       'CA',  'US');
+  (GEAS-SYS, 'Colorado',         'CO',  'US');
+  (GEAS-SYS, 'Connecticut',      'CT',  'US');
+  (GEAS-SYS, 'Delaware',         'DE',  'US');
+  (GEAS-SYS, 'District of Columbia', 'DC',  'US');
+  (GEAS-SYS, 'Federated States of Micronesia', 'FM',  'US');
+  (GEAS-SYS, 'Florida',          'FL',  'US');
+  (GEAS-SYS, 'Georgia',          'GA',  'US');
+  (GEAS-SYS, 'Guam',             'GU',  'US');
+  (GEAS-SYS, 'Hawaii',           'HI',  'US');
+  (GEAS-SYS, 'Idaho',            'ID',  'US');
+  (GEAS-SYS, 'Illinois',         'IL',  'US');
+  (GEAS-SYS, 'Indiana',          'IN',  'US');
+  (GEAS-SYS, 'Iowa',             'IA',  'US');
+  (GEAS-SYS, 'Kansas',           'KS',  'US');
+  (GEAS-SYS, 'Kentucky',         'KY',  'US');
+  (GEAS-SYS, 'Louisiana',        'LA',  'US');
+  (GEAS-SYS, 'Maine',            'ME',  'US');
+  (GEAS-SYS, 'Marshall Islands', 'MH',  'US');
+  (GEAS-SYS, 'Maryland',         'MD',  'US');
+  (GEAS-SYS, 'Massachusetts',    'MA',  'US');
+  (GEAS-SYS, 'Michigan',         'MI',  'US');
+  (GEAS-SYS, 'Minnesota',        'MN',  'US');
+  (GEAS-SYS, 'Mississippi',      'MS',  'US');
+  (GEAS-SYS, 'Missouri',         'MO',  'US');
+  (GEAS-SYS, 'Montana',          'MT',  'US');
+  (GEAS-SYS, 'Nebraska',         'NE',  'US');
+  (GEAS-SYS, 'Nevada',           'NV',  'US');
+  (GEAS-SYS, 'New Hampshire',    'NH',  'US');
+  (GEAS-SYS, 'New Jersey',       'NJ',  'US');
+  (GEAS-SYS, 'New Mexico',       'NM',  'US');
+  (GEAS-SYS, 'New York',         'NY',  'US');
+  (GEAS-SYS, 'North Carolina',   'NC',  'US');
+  (GEAS-SYS, 'North Dakota',     'ND',  'US');
+  (GEAS-SYS, 'Northern Mariana Islands', 'MP',  'US');
+  (GEAS-SYS, 'Ohio',             'OH',  'US');
+  (GEAS-SYS, 'Oklahoma',         'OK',  'US');
+  (GEAS-SYS, 'Oregon',           'OR',  'US');
+  (GEAS-SYS, 'Palau',            'PW',  'US');
+  (GEAS-SYS, 'Pennsylvania',     'PA',  'US');
+  (GEAS-SYS, 'Puerto Rico',      'PR',  'US');
+  (GEAS-SYS, 'Rhode Island',     'RI',  'US');
+  (GEAS-SYS, 'South Carolina',   'SC',  'US');
+  (GEAS-SYS, 'South Dakota',     'SD',  'US');
+  (GEAS-SYS, 'Tennessee',        'TN',  'US');
+  (GEAS-SYS, 'Texas',            'TX',  'US');
+  (GEAS-SYS, 'US Minor Outlying Islands', 'UM',  'US');
+  (GEAS-SYS, 'US Virgin Islands', 'VI',  'US');
+  (GEAS-SYS, 'Utah',             'UT',  'US');
+  (GEAS-SYS, 'Vermont',          'VT',  'US');
+  (GEAS-SYS, 'Virginia',         'VA',  'US');
+  (GEAS-SYS, 'Washington',       'WA',  'US');
+  (GEAS-SYS, 'West Virginia',    'WV',  'US');
+  (GEAS-SYS, 'Wisconsin',        'WI',  'US');
+  (GEAS-SYS, 'Wyoming',          'WY',  'US');
+  (GEAS-SYS, 'Alberta',          'AB',  'CA');
+  (GEAS-SYS, 'British Columbia', 'BC',  'CA');
+  (GEAS-SYS, 'Manitoba',         'MB',  'CA');
+  (GEAS-SYS, 'New Brunswick',    'NB',  'CA');
+  (GEAS-SYS, 'Newfoundland',     'NF',  'CA');
+  (GEAS-SYS, 'Northwest Territories', 'NT',  'CA');
+  (GEAS-SYS, 'Nova Scotia',      'NS',  'CA');
+  (GEAS-SYS, 'Ontario',          'ON',  'CA');
+  (GEAS-SYS, 'Prince Edward Island', 'PE',  'CA');
+  (GEAS-SYS, 'Quebec',           'PQ',  'CA');
+  (GEAS-SYS, 'Saskatchewan',     'SK',  'CA');
+  (GEAS-SYS, 'Yukon Territory',  'YT',  'CA');
+  (GEAS-SYS, 'Armed Forces Europe, the Middle East and Canada', 'AE',  'US');
+  (GEAS-SYS, 'Armed Forces Pacific', 'AP',  'US');
+  (GEAS-SYS, 'Armed Forces',     'AA', 'US');
+ 
+				</PRE
+>
+			</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="person.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="org.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Person Module</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Organization Module</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Theory of operation </TITLE>
+<META NAME="description" CONTENT="Theory of operation ">
+<META NAME="keywords" CONTENT="accounting_package">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="accounting_package.css">
+
+<LINK REL="next" HREF="node12.html">
+<LINK REL="previous" HREF="node10.html">
+<LINK REL="up" HREF="node10.html">
+<LINK REL="next" HREF="node12.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html285"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html281"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html275"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html283"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html286"
+  HREF="node12.html">GL Module Functions</A>
+<B> Up:</B> <A NAME="tex2html282"
+  HREF="node10.html">General Ledger Module</A>
+<B> Previous:</B> <A NAME="tex2html276"
+  HREF="node10.html">General Ledger Module</A>
+ &nbsp <B>  <A NAME="tex2html284"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00410000000000000000">
+Theory of operation </A>
+</H1>
+
+<P>
+The General Ledger serves as a repository of Journal transactions of all sources.
+
+<P>
+These transactions come from specialized journals and from the General Journal. 
+
+<P>
+&gt;From these transactions, financial statements of all sorts are drawn up.
+
+<P>
+The main functions of the module are : 
+
+<P>
+
+<UL>
+<LI>Design Financial Statement 
+</LI>
+<LI>Maintain Chart of accounts 
+</LI>
+<LI>Add, Update, Reverse, Copy Journal Entries 
+</LI>
+<LI>Produce Financial Statements 
+</LI>
+</UL>
+GL Module uses double entry bookkeeping. 
+
+<P>
+By definition, debit amounts are positive and credit amounts are negative.
+
+<P>
+A journal entry balances when the algebraic sum of all its amounts is zero.
+
+<P>
+The General Ledger balances when the algebraic sum of all the journal entries
+is zero. 
+
+<P>
+The trial balance is a complete list of account positive and negative balances. 
+
+<P>
+Once a journal entry is posted to the GL, it is impossible to alter it. 
+
+<P>
+A journal entry goes through 3 stages : 
+
+<P>
+
+<UL>
+<LI>In progress 
+</LI>
+<LI>In instance of approval 
+</LI>
+<LI>Posted. 
+</LI>
+</UL>
+A journal entry in progress does not necessarily balance. It is under construction,
+can be put aside and completed later on. A journal entry In Instance of approval
+balances but can still be alter. A Posted journal entry cannot be alter whatsoever.
+
+<BR>
+The general Ledger Module can be used as a stand alone bookkeeping tool.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html285"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html281"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html275"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html283"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html286"
+  HREF="node12.html">GL Module Functions</A>
+<B> Up:</B> <A NAME="tex2html282"
+  HREF="node10.html">General Ledger Module</A>
+<B> Previous:</B> <A NAME="tex2html276"
+  HREF="node10.html">General Ledger Module</A>
+ &nbsp <B>  <A NAME="tex2html284"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Derek Neighbors
+2001-03-19
+</ADDRESS>
+</BODY>
+</HTML>

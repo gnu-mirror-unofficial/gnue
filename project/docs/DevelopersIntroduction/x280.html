@@ -1,0 +1,233 @@
+<HTML
+><HEAD
+><TITLE
+>    Tools
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="GNU Enterprise - Developers Introduction"
+HREF="developerintro.html"><LINK
+REL="UP"
+TITLE="An Introduction for Developers"
+HREF="c31.html"><LINK
+REL="PREVIOUS"
+TITLE="    Architecture
+  "
+HREF="x258.html"><LINK
+REL="NEXT"
+TITLE="Appendixes"
+HREF="appendixes.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>GNU Enterprise - Developers Introduction</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x258.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>An Introduction for Developers</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="appendixes.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN280"
+>Tools</A
+></H1
+><P
+>GNU Enterprise will provide several tools that provide a powerful 
+application development framework.
+  </P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN283"
+>GNUe Forms</A
+></H2
+><P
+>  GnuE Forms actually consists of two separate programs.  A designer
+  which generates user interface definition files and a 
+  client which displays screens and accepts input from the user.
+	</P
+><P
+>The GnuE Forms painter provides developers with a system 
+that allows rapid development of data entry screens.  A 
+developer simply chooses the objects and fields of interest
+and arranges the interface widgets to their liking.  The 
+system then generates a XML based interface definition file
+that is used by the clients.
+	</P
+><P
+>The GNUe Forms client reads the interface definition file
+produced by the designer and generates a data entry screen based 
+upon its contents. 
+	</P
+><P
+>Since the interface definition file is simple XML text it is very portable.
+Clients can be written for any number of display and data entry technologies
+and all utilize the same interface definition file.  Thus building a 
+single screen via the desinger instantly makes it available to all 
+clients.
+	</P
+><P
+>In addition programs can be written to communicate directly with a 
+client using its XML interface definition language.  This allows 
+programmers to bypass limitations of the screen designer while
+retaining the robust, standardized front end clients.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN290"
+>GNUe Reports</A
+></H2
+><P
+>GNUe Reports shares many features with GNUe Forms.  It is comprised
+of a report designer and a client that generates the requested output.
+Report definition files are also XML based.  And programs can communicate
+directly with the XML reports definition language much like they can
+with GNUe Forms.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN293"
+>GEDI (GNU Enterprise Data Interface)</A
+></H2
+><P
+>Data abstraction layer.  Allows single API to all data sources.  So the client has one set of calls it uses, but can access different vendors databases or even CVS or XML files.  Similar to Borland's Database Engine or other data abstraction tiers.  It will encompass much more than that and a proposal is forth coming.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN296"
+>EWOK (Enterprise Wide Office Kommunication</A
+></H2
+><P
+>Integration for faxing, telephony and other such communcations with in GNUe.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN299"
+>GEAS (GNU Enterprise Administration System)</A
+></H2
+><P
+>Security administration and over GNUe administration functionality.  More to come with proposal.
+	</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x258.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="developerintro.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="appendixes.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Architecture</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c31.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Appendixes</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

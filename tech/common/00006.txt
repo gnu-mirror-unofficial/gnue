@@ -1,0 +1,35 @@
+Title: Trigger Extension for datasources
+Status: Current
+Created: 2002-09-04
+
+Introduction
+------------
+
+A GDatasource object as defined in GDatasource.py is providing the following
+functions in its trigger namespace:
+
+- createResultSet(conditions={}, readOnly=0)    load a new resultset into the
+                                                datasource
+
+- simpleQuery(maskDict)                         load a new resultset into the
+                                                datasource and return that 
+						result as an dictionary object
+
+
+The following functions are provided in the global trigger namespace too:
+
+- delete()                                      delete the current record
+
+- call(name,params)      ***ALPHA***            call a function "name" on the
+                                                current record. This function
+                                                just works in connection with
+                                                appserver as an db backend.
+
+
+Examples
+--------    
+1. get the name of a state out of a zip code
+
+<trigger>
+statezip_datasource.simpleQuery({"zip":"2342"})
+</trigger>

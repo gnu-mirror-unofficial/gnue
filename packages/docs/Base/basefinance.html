@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Base Finance Module</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="GNU Enterprise - Base Package Proposal"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Parameter Module"
+HREF="parameter.html"><LINK
+REL="NEXT"
+TITLE="Person Module"
+HREF="person.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>GNU Enterprise - Base Package Proposal</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="parameter.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="person.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="BASEFINANCE">Chapter 3. Base Finance Module</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN94">3.1. Requirements</H1
+><P
+>			This chapter is $Revision: 1.1 $ $Date: 2003/01/05 00:00:27 $. 
+		</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN97">3.1.1. Business Requirements</H2
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						This module defines the allowable transactions that can be generated from the sub-systems feeding the
+						accounting system.
+					</P
+></LI
+><LI
+><P
+>						There should be some automated tools to set this data up and assure consistency throughout the GNUe system.
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN104">3.1.2. Future Requirements</H2
+><P
+>				The following items will be implemented in future version of this module. They may be implemented in the base module or be added via an industry specific add on. 
+			</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						None
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN110">3.1.3. Forms</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						System Administrators should be able to add, delete, list and modify entries.  Others should only be able to look at entries.
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN115">3.1.4. Reports</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						None
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN120">3.1.5. Business Rules</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						None
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN125">3.1.6. Business Object Definition</H2
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>					
+# base_acct.gcd - base accounting transaction definitions.
+#                  
+# Copyright (C) 2001 Free Software Foundation, Inc.
+#
+# This file is part of GNU Enterprise.
+#
+# GNU Enterprise is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+# 
+# GNU Enterprise is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Enterprise; see the file COPYING.  If not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307 USA.
+#
+# This file originally written by Neil Tiffin (neilt@gnue.org).
+#
+# $Revision: 1.1 $ $Date: 2003/01/05 00:00:27 $ $Author: psu_gnue $
+#
+
+include "../../../base/currency/classes/currency.gcd"
+
+module base_acct
+{
+  # -------------------------------------------------------------------------
+  # transaction definition for transactions that can be generated from
+  # the various subsystems.
+  # -------------------------------------------------------------------------
+  class trans_def
+  {
+    char    name&#60;25&#62;      not null;  # long name
+    char    abbrv&#60;8&#62;      not null;  # abbreviation used in place of code
+                                     # for lookup by the subsystems.
+    int16   code          not null;  # code using in transaction file to save
+                                     # space
+    char    account&#60;15&#62;   not null;  # General Ledger account number
+    char    debit_credit  not null;  # C = credit, D = debit
+    boolean active = true not null;  # is this transaction code usable
+  };
+  
+  # -------------------------------------------------------------------------
+  # standard transaction data for all subsystems.
+  # -------------------------------------------------------------------------
+  type trans
+  {
+    int             code;         # the transaction code from base_acct::trans
+    date            date;         # the transaction date
+    char            account&#60;10&#62;;  # the general ledger account number
+    boolean         exported;     # has this transaction been exported from sub-system
+    currency::money amount;       # value of this transaction
+    char            debit_credit; # is this a debit or credit transaction
+    char            who&#60;15&#62;;      # login name creating this transaction
+    char            extra1&#60;15&#62;;   # defined by the subsystem
+    char            extra2&#60;15&#62;;   # defined by the subsystem
+  };
+};
+ 
+				</PRE
+>
+			</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN129">3.1.7. Default Data</H2
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>					
+--
+-- This is a special file format that is converted by the
+-- GEAS sql loader into valid sql
+--
+-- $Id: basefinance.html,v 1.1 2003/01/05 00:00:27 psu_gnue Exp $
+--
+-- typically the account number will be added based on the implementation.
+--
+
+INSERT INTO "base_acct__trans_def" (GEAS-SYS, code, account, debit_credit, name, active, abbrv) VALUES
+  (GEAS-SYS, 01, '000000', 'D', 'Customer Invoice Transaction', 'T', 'CIT');
+  (GEAS-SYS, 02, '000000', 'D', 'Customer Invoice Adj Transaction', 'T', 'CIA');
+  (GEAS-SYS, 03, '000000', 'C', 'Customer Credit Transaction', 'T', 'CCT');
+  (GEAS-SYS, 04, '000000', 'C', 'Customer Payment Transaction', 'T', 'CPT');
+  (GEAS-SYS, 05, '000000', 'C', 'Customer Payment Adj Transaction', 'T', 'CPAT');
+
+ 
+				</PRE
+>
+			</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="parameter.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="person.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Parameter Module</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Person Module</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

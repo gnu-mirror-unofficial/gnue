@@ -1,0 +1,128 @@
+Title:   Overview of DataObjects/DataSources
+Status:  Current
+
+A DataSource corresponds to the datasource tag in client files (GFD and
+GRD for forms and reports, respectively). The DataSource object acts as
+a implementation buffer between vendor-specific DataObjects and vendor-
+neutral datasource tags (explained further in the DataObject discussion).
+In other words, a vendor-specific DataObject will be bound to the 
+DataSource after the DataSource is initialized.
+
+A DataObject is the highest level object in the Database Driver hierarchy. 
+It basically maintains state information such as the database connection,
+parent/child relationships, etc. It contains/generates ResultSets, but not 
+actual data.  The client app will ask its DataObject for a ResultSet
+using supplied conditions.  
+
+Note that the implementation of DataObject is vendor-specific as well 
+as DataSource-type dependent; e.g., there will be a PostgreSQL 
+DataObject for "Object" type datasources (base tables, etc) and a 
+separate PostgreSQL DataObject for "Raw SQL Queries" or for 
+"XML-Queries" (once implemented).  The DataObject *interface*, however,
+remains constant across the various implementations. It is because of 
+the number of implementations of DataObjects that a separate DataSource
+had to be created.
+
+A ResultSet is a traversable set of RecordSets.  It has no GFD equivalent, 
+although most of GFBlock's functionality may consist of calls to 
+DataSets. It contains methods to load records, go to next/prev/first/last 
+records, deleting/insert records, etc.
+
+A RecordSet is a set of the fields contained in a record.  A RecordSet 
+knows the current state of itself and all its fields. 
+
+A ResultSet holds RecordSets.
+
+A DataObject may hold several ResultSets (i.e., detail resultsets 
+in a master/detail relationship). A master RecordSet contains 
+a reference to its detail ResultSets. 
+
+To commit all changes, you would first .post() all ResultSets (recursively)
+and then do a transactional .commit(). This method allows for multiple
+detail sets to be maintained at once.
+
+***********
+DataSource: 
+  initialize()
+    Called to initialize the datasource. Binds the 
+    DataSource to a DataObject.
+
+  getDataObject()
+    Returns the bound DataObject
+
+  referenceField(field)
+    Used by the client app to notify that a certain field is being 
+    referenced.  This will ensure that the DataObject includes this
+    field in its query.
+
+
+***********
+DataObject:
+  createResultSet(conditions={}, readOnly=0): 
+    Creates and returns a resultset satisfying "conditions". conditions
+    can either be a dictionary/hash of fieldname:value AND pairs, or, for
+    more complex conditions, a GConditions object.
+
+
+  addDetailDataObject(dataObject, handler=None): 
+    Add a detail data object.  This dataobject will create a new resultset 
+    everything this dataobject changes (new record, etc).  The optional 
+    handler will be called after the detail dataobject is notified.  The 
+    client application may with to add a handler to know when the detail
+    has been requeried.  handler is a method that takes two arguments: 
+    the master ResultSet and the detail ResultSet 
+
+  getLoginFields()
+  connect()
+
+
+
+***********
+ResultSet: 
+  
+  isFirstRecord() : Returns 1=At first record, 0=not at first record or no records loaded
+  getRecordNumber()   : returns -1=No records in memory, #=Current record # (0-based)
+  getRecord()   : return a specified record w/o changing 
+                  current record (returns None if invalid #) (0-based)
+  setRecord()   : move to record #, returns 1=New record loaded, 0=invalid # (0-based)
+  nextRecord()	: returns 1=New record loaded, 0=No more records
+  prevRecord()  : returns 1=New record loaded, 0=At first record
+  firstRecord() : returns 1=at first record, 0=No records loaded
+  lastRecord()  : returns 1=at last record, 0=No records loaded
+  deleteRecord(): Marks the current record for deletion
+  insertRecord(): Inserts a blank record after the current record
+  isPending()   : Returns 1=DataSource has uncommitted changes 
+
+  post()        : Post changes to the database
+
+  current       : Link to current record (RecordSet)
+
+
+
+***********
+RecordSet:
+  isPending()  : Returns 1=Record has uncommitted changes
+  isDeleted()  : Returns 1=Record is pending a deletion
+  isModified() : Returns 1=Record is pending an update
+  isInserted() : Returns 1=Record is pending an insertion
+  isEmpty()    : Returns 1=Record is is an empty record
+  getField(f)         : Returns current value of "field"
+  setField(f)         : Sets current value of "field"
+  isFieldModified(f)  : Returns 1=Field has been modified
+  addDetailResultSet(): Sets the dataSet associated with this master record
+
+
+
+****************
+Typical layout
+
+DataObject contains link to ResultSet 
+ResultSet contains link to RecordSet
+
+On startup the DataSource asks the GConnection manager for a handle to a dataObject
+the end result is that the DataSource is bound to a specifc database driver
+
+From then on all access to the DataObject is hidden by wrapper functions in the
+DataSource
+
+

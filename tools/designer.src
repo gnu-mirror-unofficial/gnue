@@ -1,0 +1,17 @@
+<h1>Designer</h1>
+
+<p>GNU Enterprise Designer is the Integrated Development Environment (IDE)
+for GNU Enterprise. It builds forms, reports, classes and 
+other aspects of GNUe in a single environment. It brings 
+Rapid Application Development to the GNU Enterprise 
+Environment. Like other pieces of GNU Enterprise it is
+cross platform.</p>
+
+<h3>Status</h3>
+
+<$ status ( "designer" ) >
+
+<h3>Screenshots</h3>
+
+<p>Screenshots of Designer are
+<a href="../gallery/designer.html">available</a>.</p> 

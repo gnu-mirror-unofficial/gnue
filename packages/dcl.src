@@ -1,0 +1,14 @@
+<h1>DCL (Double Chocco Latte)</h1>
+
+<p>Double Choco Latte is a package that provides basic project 
+management capabilities, time tracking on tasks, call tracking, 
+email notifications, online documents, statistical reports, a 
+report engine, and more features are either working or being 
+developed/planned. </p>
+
+<p>DCL was merged with the overall GNUe Project in March 2002.</p>
+
+<h3>Status</h3>
+
+<$ status ( "dcl" ) > 
+

@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>General Ledger Module</TITLE>
+<META NAME="description" CONTENT="General Ledger Module">
+<META NAME="keywords" CONTENT="accounting_package">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="accounting_package.css">
+
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="accounting_package.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html222"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html218"
+  HREF="accounting_package.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html212"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html220"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html223"
+  HREF="node11.html">Theory of operation</A>
+<B> Up:</B> <A NAME="tex2html219"
+  HREF="accounting_package.html">Accounting Package</A>
+<B> Previous:</B> <A NAME="tex2html213"
+  HREF="node9.html">Naming Conventions</A>
+ &nbsp <B>  <A NAME="tex2html221"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00400000000000000000">
+General Ledger Module</A>
+</H1>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html224"
+  HREF="node11.html">Theory of operation </A>
+<LI><A NAME="tex2html225"
+  HREF="node12.html">GL Module Functions </A>
+<UL>
+<LI><A NAME="tex2html226"
+  HREF="node13.html">Maintain Chart of accounts </A>
+<UL>
+<LI><A NAME="tex2html227"
+  HREF="node14.html">Theory of operation</A>
+<LI><A NAME="tex2html228"
+  HREF="node15.html">Account Segmentation</A>
+</UL>
+<LI><A NAME="tex2html229"
+  HREF="node16.html">Design Financial Statement </A>
+<LI><A NAME="tex2html230"
+  HREF="node17.html">Add, Update, Reverse, Copy Journal Entries </A>
+<LI><A NAME="tex2html231"
+  HREF="node18.html">Print Financial Statements </A>
+</UL>
+<LI><A NAME="tex2html232"
+  HREF="node19.html">GL Module Tables </A>
+<UL>
+<LI><A NAME="tex2html233"
+  HREF="node20.html">System Parameters </A>
+<UL>
+<LI><A NAME="tex2html234"
+  HREF="node21.html">Theory of operation</A>
+<LI><A NAME="tex2html235"
+  HREF="node22.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html236"
+  HREF="node23.html">Accounting Package Parameters</A>
+<UL>
+<LI><A NAME="tex2html237"
+  HREF="node24.html">Theory of operation</A>
+<LI><A NAME="tex2html238"
+  HREF="node25.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html239"
+  HREF="node26.html">General Ledger Parameters</A>
+<UL>
+<LI><A NAME="tex2html240"
+  HREF="node27.html">Theory of operation</A>
+<LI><A NAME="tex2html241"
+  HREF="node28.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html242"
+  HREF="node29.html">General Ledger Table</A>
+<UL>
+<LI><A NAME="tex2html243"
+  HREF="node30.html">Theory of operation</A>
+<LI><A NAME="tex2html244"
+  HREF="node31.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html245"
+  HREF="node32.html">General Ledger Periodic Summary Table</A>
+<UL>
+<LI><A NAME="tex2html246"
+  HREF="node33.html">Theory of operation</A>
+<LI><A NAME="tex2html247"
+  HREF="node34.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html248"
+  HREF="node35.html">Calendar Table </A>
+<UL>
+<LI><A NAME="tex2html249"
+  HREF="node36.html">Theory of operation</A>
+<LI><A NAME="tex2html250"
+  HREF="node37.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html251"
+  HREF="node38.html">Journal Entry Header table </A>
+<UL>
+<LI><A NAME="tex2html252"
+  HREF="node39.html">Theory of operation</A>
+<LI><A NAME="tex2html253"
+  HREF="node40.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html254"
+  HREF="node41.html">Journal Entry Detail table </A>
+<UL>
+<LI><A NAME="tex2html255"
+  HREF="node42.html">Theory of operation</A>
+<LI><A NAME="tex2html256"
+  HREF="node43.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html257"
+  HREF="node44.html">Activity Ledger Table</A>
+<UL>
+<LI><A NAME="tex2html258"
+  HREF="node45.html">Theory of operation</A>
+<LI><A NAME="tex2html259"
+  HREF="node46.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html260"
+  HREF="node47.html">Activity Summary Ledger Table</A>
+<UL>
+<LI><A NAME="tex2html261"
+  HREF="node48.html">Theory of operation</A>
+<LI><A NAME="tex2html262"
+  HREF="node49.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html263"
+  HREF="node50.html">Project Ledger Table</A>
+<UL>
+<LI><A NAME="tex2html264"
+  HREF="node51.html">Theory of operation</A>
+<LI><A NAME="tex2html265"
+  HREF="node52.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html266"
+  HREF="node53.html">Project Summary Ledger Table</A>
+<UL>
+<LI><A NAME="tex2html267"
+  HREF="node54.html">Theory of operation</A>
+<LI><A NAME="tex2html268"
+  HREF="node55.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html269"
+  HREF="node56.html">Unit Of Measure Table</A>
+<UL>
+<LI><A NAME="tex2html270"
+  HREF="node57.html">Theory of operation</A>
+<LI><A NAME="tex2html271"
+  HREF="node58.html">Definition</A>
+</UL>
+<LI><A NAME="tex2html272"
+  HREF="node59.html">Financial Statements table : Statement title definition (FS) </A>
+<LI><A NAME="tex2html273"
+  HREF="node60.html">Financial Statement Line table : Line definition (FS2) </A>
+<LI><A NAME="tex2html274"
+  HREF="node61.html">Financial Statement Account table : Account definition (FS3)</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Derek Neighbors
+2001-03-19
+</ADDRESS>
+</BODY>
+</HTML>

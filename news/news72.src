@@ -1,0 +1,91 @@
+<h3>GNU Bayonne 0.7.6 released with Aculab support</h3>
+<p>13th March 2002</p>
+<h5>GNU Bayonne announces support for Aculab Hardware under GNU/Linux</h5>
+
+<br />
+
+<br />
+
+Dave Sugar, a GNU package maintainer, announced support for Aculab hardware under GNU Bayonne as part of release 0.7.6 released earlier today.  Aculab digital span card support will further broaden GNU Bayonne as a platform of choice for delivering high end enterprise and carrier class voice telephony application services using free software platforms such GNU/Linux.
+
+<br />
+
+<br />
+
+A working implementation of Aculab support was provided primarily by a project contributor, David Kerry.  This further demonstrates how Free Software can make rapid advances thru the shared resources of many people working in open collaboration around the world.  This demonstrates just one of the ways Free Software licensing can bring both real innovation and multiply the value of existing applications.
+
+<br />
+
+</p>
+<hr>
+<p><br />
+
+In addition to supporting Aculab hardware, a number of important improvements have been made in GNU Bayonne support for Intel/Dialogic digital span cards. Additional enhancements have also been introduced in the GNU Bayonne scripting language to simplify application development.  These changes should enable rapid development of new and innovative telephony services under GNU/Linux.
+
+<br />
+
+<br />
+
+GNU Bayonne also supports analog telephony hardware such as made by companies like Voicetronix hardware, and inexpensive CAPI cards, enabling small office and individual use telephony applications to be created cost effectively.
+
+<br />
+
+ <br />
+
+GNU Bayonne and all related non-hardware specific software needed for building and running it may be found at the GNU ftp site (http://www.gnu.org/gnu).  Individual drivers and telephony hardware related libraries are provided directly from the respective vendors.  All information about GNU Bayonne may be found at http://www.gnu.org/software/bayonne.
+
+<br />
+
+ <br />
+
+GNU Bayonne is Free Software and a standard package in the GNU project and is also part of the broader GNU and free Telephony effort that is directed under GNUCOMM (http://www.gnu.org/projects/gnucomm).  GNU Bayonne is also used as a part of GNU Enterprise (http://www.gnue.org).  No so called "Intellectual Property" was destroyed in the creation of GNU Bayonne or this announcement...
+
+<br />
+
+<br />
+
+About the Free Software Foundation:
+
+<br />
+
+<br />
+
+The Free Software Foundation, founded in 1985, is dedicated to promoting computer users' right to use, study, copy, modify, and redistribute computer programs.  The FSF promotes the development and use of free (as in freedom) software---particularly the GNU operating system (used widely today in its GNU/Linux variant)--- and free documentation.  The FSF also helps to spread awareness of the ethical and political issues of freedom in the use of software.  Their web site, located at http://www.gnu.org, is an important source of information about GNU/Linux.  They are headquartered in Boston, MA, USA
+
+<br />
+
+<br />
+
+About GNUCOMM, the GNU Telephony Project:
+
+<br />
+
+<br />
+
+GNUCOMM, a subsystem of GNU, provides free software solutions to common telecommunications problems.  GNUCOMM will free users of voicemail, PBX, and call-center applications from reliance on the proprietary software that currently dominates such telephony equipment.  The system aims to be scalable and configurable enough to allow end-users to develop their own telecommunications systems with little or no special knowledge of GNUCOMM's internals.  GNUCOMM will support both VoIP and PSTN interfaces, as well as interfaces to existing phone systems.  GNUCOMM will scale from individual user installations to carrier-class sites.  The website of GNUCOMM is located at http://www.gnu.org/software/gnucomm/gnucomm.html.
+
+<br />
+
+<br />
+
+About GNU Enterprise:
+
+<br />
+
+<br />
+
+GNUe aims to provide a suite of tools and applications for solving the specific needs of the enterprise.  GNUe will handle the needs of any size business, including applications for human resources, accounting, customer relationship management, project management, supply chain and e-commerce.  GNUe is a free software project developed by volunteer software developers worldwide.  The website of GNU Enterprise is http://www.gnu.org/projects/gnue/.
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+</p>
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

@@ -1,0 +1,6 @@
+<h1>Debian package for Reports now in sid</h1>
+
+<p>29th November 2002</p><p>Now it's reached version 0.1.0, GNUe Reports has been packaged for Debian and added to sid, the Debian unstable distribution. You can get it from your favourite local Debian <a href="http://www.debian.org/mirror/list">mirror</a>. Thanks again to Jeff Bailey for his work on this. Bugs with the package should be reported via the normal Debian <a href="http://www.debian.org/Bugs/">bug tracking</a> system.</p>
+<hr>
+<p><a href="old.html">Return</a> to news archive</p>
+

@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Definition</TITLE>
+<META NAME="description" CONTENT="Definition">
+<META NAME="keywords" CONTENT="accounting_package">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="accounting_package.css">
+
+<LINK REL="previous" HREF="node42.html">
+<LINK REL="up" HREF="node41.html">
+<LINK REL="next" HREF="node44.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html713"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html709"
+  HREF="node41.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html705"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html711"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html714"
+  HREF="node44.html">Activity Ledger Table</A>
+<B> Up:</B> <A NAME="tex2html710"
+  HREF="node41.html">Journal Entry Detail table</A>
+<B> Previous:</B> <A NAME="tex2html706"
+  HREF="node42.html">Theory of operation</A>
+ &nbsp <B>  <A NAME="tex2html712"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00438200000000000000">
+Definition</A>
+</H3>
+
+<P>
+<BR>
+<BR>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">Table</TD>
+<TD ALIGN="CENTER">Field Name</TD>
+<TD ALIGN="CENTER">Descriptive Name</TD>
+<TD ALIGN="CENTER">Field Type</TD>
+<TD ALIGN="CENTER">Theory of operation</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">je2_id</TD>
+<TD ALIGN="CENTER">Journal Entry detail identification</TD>
+<TD ALIGN="CENTER">numeric</TD>
+<TD ALIGN="CENTER">Aserial number assigne by the systm, not visible o the user.</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">je_id</TD>
+<TD ALIGN="CENTER">Journal Entry header identification</TD>
+<TD ALIGN="CENTER">numeric</TD>
+<TD ALIGN="CENTER">JE2.je_id = JE.je_id</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">gl_id</TD>
+<TD ALIGN="CENTER">General ledger account identification</TD>
+<TD ALIGN="CENTER">numeric</TD>
+<TD ALIGN="CENTER">JE2.gl_id = GL.gl_id</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">activity_id</TD>
+<TD ALIGN="CENTER">Activity ledger Account Identification</TD>
+<TD ALIGN="CENTER">numeric</TD>
+<TD ALIGN="CENTER">JE2.activity_id = ACT.activity_id</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">project_id</TD>
+<TD ALIGN="CENTER">Project Ledger Account Identification</TD>
+<TD ALIGN="CENTER">numeric</TD>
+<TD ALIGN="CENTER">JE2.project_id = PRO.project_id</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">je_amnt</TD>
+<TD ALIGN="CENTER">Journal Entry Amount</TD>
+<TD ALIGN="CENTER">currency</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">je_qty</TD>
+<TD ALIGN="CENTER">Journal Entry Quantity</TD>
+<TD ALIGN="CENTER">numeric</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">je_descript</TD>
+<TD ALIGN="CENTER">Journal Entry Description</TD>
+<TD ALIGN="CENTER">alpha 100</TD>
+<TD ALIGN="CENTER">Explanation and/or references to support documents</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">JE2</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<DIV ALIGN="CENTER"></DIV>
+<BR>
+<BR>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html713"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html709"
+  HREF="node41.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html705"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html711"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html714"
+  HREF="node44.html">Activity Ledger Table</A>
+<B> Up:</B> <A NAME="tex2html710"
+  HREF="node41.html">Journal Entry Detail table</A>
+<B> Previous:</B> <A NAME="tex2html706"
+  HREF="node42.html">Theory of operation</A>
+ &nbsp <B>  <A NAME="tex2html712"
+  HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Derek Neighbors
+2001-03-19
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,21 @@
+
+GNUe Forms Tech Notes Index
+
+
+==============================================================================
+Current Tech Notes
+==============================================================================
+
+File        Title
+----------  ------------------------------------------------------------------
+00000.txt   GNUe Forms Tech Note Specification
+00001.txt   Explanation of form's internal event model
+00002.txt   Internal form events
+00003.txt   Trigger Extension for GFEntry and GFForm
+----------  ------------------------------------------------------------------
+
+
+
+--------
+This file automatically created by
+common/utils/create-technote-index.py

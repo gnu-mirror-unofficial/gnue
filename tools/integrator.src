@@ -1,0 +1,9 @@
+<h1>Integrator</h1>
+
+<p>GNUe Integrator is a tool enabling easy transfer of data
+between databases or other systems, using XML.</p>
+
+<h3>Status</h3>
+
+<$ status ( "integrator" ) > 
+

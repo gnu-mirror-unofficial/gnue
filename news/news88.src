@@ -1,0 +1,146 @@
+<h3>Project Info: New Releases of All GNUe Tools Available</h3>
+  
+<p>3rd June 2002</p>
+  
+ 
+<p>The GNU Enterprise team is proud to announce a major release 
+of it's enterprise application development suite. This release 
+includes:</p>
+
+<ul>
+<li>GNUe Forms 0.3.0</li>
+<li>GNUe Designer 0.3.0</li>
+<li>GNUe Common 0.3.0</li>
+<li>GNUe Reports 0.0.1</li>
+<li>GNUe Application Server 0.0.1</li>
+</ul>
+
+<hr>
+
+<p>GNUe-Forms is a platform and UI-independent forms system. It 
+reads an XML-based forms definition and creates GUIs for Win32, 
+GTK, and, soon, Curses and HTML. It has a fully data-aware widget 
+set and can be used in both 2-tier and n-tier environments.</p>
+
+<p>GNUe-Designer is the IDE for the GNUe tools. It allows you to 
+visually layout your forms in a RAD-style environment. Designer 
+has a builtin forms client, so you can quickly test your forms 
+while still in Designer. Designer also has support for form 
+creation wizards... answer a few questions, attach your form to 
+one or more database tables, select the fields to include, and, 
+voila, a basic form is created.</p>
+
+<p>GNUe-Reports is a platform and output-independent reporting 
+system. It reads an XML-based report definition and generates 
+arbitrary XML output that can further be translated into any 
+format for which there is an adapter. GNUe Reports currently 
+has outputs for Text, HTML, and CSV -- with PDF, Postscript, 
+and Gnumeric/Excel formats in the works. Reports can output 
+directly to a file, as an email attachment, to a printer, or 
+to a HylaFax server.</p>
+
+<p>GNUe Application Server is the data and business rules server 
+for the GNU Enterprise project. It will provide an object- 
+oriented backend to forms and reports. In an n-tier environment, 
+GEAS holds all business rules/logic and provides object-to- 
+relational access to various database backends. This release 
+is primarily a proof-of-concept release that illustrates the 
+use of GNUe-Common's database backends and RPC abstraction tools.</p> 
+
+<p>GNUe-Common is the basis for the GNUe tools, such as Forms, 
+Reports, Application Server, and Designer. It implements a 
+database-abstraction layer that provides support for most
+major databases. A builtin XML-to-Object parser and 
+Object-to-XML marshaller are used by Forms, Reports, and 
+Designer to save and read Forms/Report definitions to and 
+from an XML file. It also defines and implements an RPC 
+abstraction layer that will allow server processes to define 
+their public methods once and have them available to CORBA, 
+XML-RPC, SOAP, and DCOM clients.</p>
+
+<p>All of these releases are targeted at developers. The five 
+products are available in source form from our website at 
+<a href="http://www.gnuenterprise.org/downloads/current.php">http://www.gnuenterprise.org/downloads/current.php</a>.</p>
+
+<p>We also have Windows installers for GNUe-Designer and GNUe-Forms 
+that include all the basic dependencies -- you only have to download 
+a single setup.exe! The Installers include support for PostgreSQL, 
+MySQL, and ODBC. These installers are available in the same locations 
+listed above.</p>
+
+<p>GNUe-Forms 0.3.0, Designer 0.3.0, and Common 0.3.0 have been tested 
+and are known to run on:</p>
+<ul>
+<li>GNU/Linux (RedHat 6.x/7.x, Debian 2.x, Slackware 8.0, ...)</li>
+<li>Windows 95/98/2000/XP/NT</li>
+<li>Solaris 8.0</li>
+<li>FreeBSD 4.x</li>
+</ul>
+
+<p>The introductory releases of GNUe Reports and GNUe Application Server 
+are known to work on:</p>
+<ul>
+<li>GNU/Linux (RedHat 6.x/7.x, Debian 2.x, Slackware 8.0, ...)</li>
+<li>FreeBSD 4.x</li>
+<li>Windows 95/98/2000/XP/NT</li>
+</ul>
+
+<p>Changes to GNUe-Forms 0.3.0:</p>
+<ul>
+<li>Modularization of UI drivers</li>
+<li>Moved trigger logic into Common; addition of new triggers</li>
+(pre-insert, pre-update, pre-delete, pre-commit)</li>
+<li>Added a virtual key mapping system</li>
+<li>Moved Field Display/Keystroke logic out of the UI drivers</li>
+<li>Implemented clipboard support</li>
+<li>Added Go To First Record / Go To Last Record support</li>
+<li>Began translations using Common's new GetText support</li>
+<li>Field values are now typecasted in accordance with the new DataObject changes in Common</li>
+<li>Improved the forms event model; allow two-way messages</li>
+<li>Lots of bug fixes</li>
+</ul>
+
+<p>Changes to GNUe-Designer 0.3.0:</p>
+<ul>
+<li>Drag and drop field creation</li>
+<li>Added a creation toolbar</li>
+<li>Greatly enhanced mouse support (cross-hair selectors, ...)</li>
+<li>Added in-place label editing (by double-clicking on a label)</li>
+<li>Better wizard support (new master/detail wizards)</li>
+<li>Integrated database schema support</li>
+<li>Modularization of code / removed dependencies on Forms</li>
+</ul>
+
+<p>Changes to GNUe-Common 0.3.0:</p>
+<ul>
+<li>Formal trigger subsystem added</li>
+<li>Implemented a new runtime configuration system which makes the 
+gnue.conf file optional</li>
+<li>First working implementation of a GNUe RPC driver (XMLRPC)</li>
+<li>GNU Gettext i18n support added, with initial translations
+(de, en, en_GB, en_US, hu_HU, lt, lt_LT, ru, uk)</li>
+<li>Added database schema introspection support for SAP-DB, MySQL, 
+Interbase/Firebird, and DB2 database drivers</li>
+<li>Updated PostgreSQL code to support PostgreSQL 7.2 oddities</li>
+<li>DataObjects are now properly typecasted</li>
+<li>Added XML Namespace support to our XML Parser</li>
+<li>Removed dependency on PyXML</li>
+<li>Native support for Python's internal stepping debugger</li>
+<li>Changes required for first releases of Reports and App Server</li>
+<li>Misc bug fixes and lots of performance enhancements</li>
+</ul>
+
+<p>Changes to GNUe-Reports 0.0.1:</p>
+<ul>
+<li>Initial release</li>
+</ul>
+
+<p>Changes to GNUe Application Server 0.0.1:</p>
+<ul>
+<li>Initial release</li>
+</ul>
+
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

@@ -1,0 +1,59 @@
+<h1>Status</h1>
+
+<h3>GNUe Tools</h3>
+
+<h5><a href="../tools/forms.html">Forms</a></h5>
+<$ status ( "forms" ) >
+
+<h5><a href="../tools/designer.html">Designer</a></h5>
+<$ status ( "designer" ) >
+
+<h5><a href="../tools/reports.html">Reports</a></h5>
+<$ status ( "reports" ) >
+
+<h5><a href="../tools/appserver.html">Application Server</a></h5>
+<$ status ( "appserver" ) >
+
+<h5><a href="../tools/common.html">GNUe Common</a> (GNU-RPC)</h5>
+<$ status ( "common" ) >
+
+<h5><a href="../tools/integrator.html">Integrator</a></h5>
+<$ status ( "integrator" ) >
+
+<h5><a href="../tools/navigator.html">Navigator</a></h5>
+<$ status ( "navigator" ) >
+
+<h5><a href="../tools/bayonne.html">Bayonne</a></h5>
+<$ status ( "bayonne" ) >
+
+<h5><a href="../tools/docstore.html">Document Store</a></h5>
+<$ status ( "docstore" ) >
+
+<h3>GNUe Packages</h3>
+
+<h5><a href="../packages/financials.html">Financials</a></h5>
+<$ status ( "financials" ) >
+
+<h5><a href="../packages/crm.html">Customer Relations</a></h5>
+<$ status ( "crm" ) >
+
+<h5><a href="../packages/forecast.html">Forecasting</a></h5>
+<$ status ( "forecast" ) >
+
+<h5><a href="../packages/hr.html">Human Resources</a></h5>
+<$ status ( "hr" ) >
+
+<h5><a href="../packages/manuf.html">Manufacturing</a></h5>
+<$ status ( "manuf" ) >
+
+<h5><a href="../packages/prjmgt.html">Project Management</a></h5>
+<$ status ( "prjmgt" ) >
+
+<h5><a href="../packages/sales.html">Sales</a></h5>
+<$ status ( "sales" ) >
+
+<h5><a href="../packages/scm.html">Supply Chain</a></h5>
+<$ status ( "scm" ) >
+
+<h5><a href="../packages/dcl.html">DCL (Double Chocco Latte)</a></h5>
+<$ status ( "dcl" ) >

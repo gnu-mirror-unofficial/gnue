@@ -1,0 +1,21 @@
+<h3>GNU Enterprise Application Server 0.0.6 released</h3>
+<p>25th August 2001</p>
+<p>We are proud to announce the release 0.0.6 of the GNU Enterprise Application Server (GEAS).<br>
+
+GEAS, one of the foundations of the GNUe project, provides a means for managing and deploying multi-tier business applications. Its architecture encourages reusability and easy maintenance by presenting data as objects and business logic as methods to clients written in several popular programming languages.<br>
+
+Release 0.0.6 is not ready for production use - as you could guess from the version number. The main reason for this release is that we have changed gcd syntax since 0.0.5. So if you want to develop GNUe Class Definitions (gcd's), we recommend that you update to 0.0.6.<br>
+
+You can download GEAS 0.0.6 from <a href="http://www.gnuenterprise.org/downloads/previous.php">here</a>.<br>
+
+Please send problem and bug reports to gnue-geas@lists.gnue.org<br><p>
+
+
+
+Thanks,<br>
+
+the GEAS team</p>
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

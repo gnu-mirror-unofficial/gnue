@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>GNUe-Reports feature plan</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+&nbsp;
+<table width="100%" cellpadding="5">
+<tr>
+<td valign="top" width="180">
+<div class="navmenus">
+<center>
+</center>
+<br />
+<table width="100%" >
+<tr bgcolor="#af9ca1">
+<td><i><b>GNUe Tools Feature Plans</b> </i></td>
+</tr>
+<tr bgcolor="#ced6bc">
+<td>
+<ul>
+<li><a href="appserver.html">GNUe Appserver</a></li>
+<li><a href="common.html">GNUe Common</a></li>
+<li><a href="designer.html">GNUe Designer</a></li>
+<li><a href="forms.html">GNUe Forms</a></li>
+<li><a href="reports.html">GNUe Reports</a></li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td valign="top">
+
+
+<!-- Header -->
+
+
+<center><h1>GNUe-Reports feature plan</h1></center>
+
+
+<p>
+If you cannot finish a feature in time, please consider moving it to the
+next release section</a>.</p>
+
+
+<!-- #################################### -->
+<!-- #################################### -->
+<!-- ############   0.1.x    ############ -->
+<!-- #################################### -->
+<!-- #################################### -->
+
+<h2>0.1.x releases</hs>
+<table width="100%" border=0>
+<tbody>
+
+
+<!-- ####    Goals    #### -->
+
+<tr><td bgcolor=blue><div align=center>GOALS</div></td><td bgcolor="#eeeeff">
+The focus during the 0.1.x series of GNUe Reports releases will concentrate
+implementing a Developer's API (including Trigger support) and defining the underlying XML markup.
+</td></tr>
+
+
+<!-- ####    TODO    #### -->
+
+<tr><td bgcolor=red><div align=center>TODO</div></td><td bgcolor="#feeee">
+
+<ul><li>All <a href="https://www.gnuenterprise.org/dcl/">outstanding
+critical bugs</a> in dcl, if any</li></ul>
+
+
+<!--       Internals       -->
+
+<h2>Internals</h2>
+
+<ul><li><strong>Code Cleanup</strong>:
+  <ul>
+    <li>Usage Audit</li>
+    <li>Profile</li>
+    <li>Remove obsolete code</li>
+  </ul>
+</li></ul>
+
+<!--     Documentation     -->
+
+<h2>Documentation</h2>
+<ul><li>First draft of Developer's Guide</li></ul>
+
+<!--          API          -->
+
+<h2>Developer API</h2>
+<ul><li><strong>Trigger Support</strong>:
+  <ul>
+    <li>Record-level triggers (On-NewRecord)</li>
+  </ul>
+</li></ul>
+
+<!--     User Interface    -->
+
+<h2>User Interface</h2>
+<ul><li>Populate data-bound parameters with their defaults</li></ul>
+
+<!--  Filters & Destinations -->
+
+<!-- <h2>Destinations and Filter Support<h2>
+<ul><li>??</li></ul>  -->
+
+<!--  MailMerge Documents  -->
+
+<!-- <h2>GNUe:Reports:MailMerge Documents</h2>
+<ul><li>??</li></ul>
+</td></tr>  -->
+
+
+<!-- ####    IN-PROGRESS    #### -->
+
+<tr><td bgcolor=yellow><div align=center>In Progress<br>(works mostly)</div></td><td bgcolor="#ffffee">
+
+<!--     User Interface    -->
+
+<h2>User Interface</h2>
+<ul><li>Support for prompting users for parameters</li>
+<li>Batch mode (--batch) to suppress any input from user</li></ul>
+
+
+<!-- ####    COMPLETED    #### -->
+
+</td></tr>
+<tr><td bgcolor=green><div align=center>Finished</div></td><td bgcolor="#eeffee">
+
+<!--     User Interface    -->
+
+<h2>User Interface</h2>
+<ul><li>Support for prompting users for username/passwords</li></ul>
+
+<!--          API          -->
+
+<h2>Developer API</h2>
+<ul><li>Trigger Support</strong>:
+  <ul>
+    <li>Report-level triggers (Pre-Section, Post-Section)</li>
+  </ul>
+</li></ul>
+
+</td>
+</tr>
+</table>
+
+
+<!-- #################################### -->
+<!-- #################################### -->
+<!-- ############   0.2.x    ############ -->
+<!-- #################################### -->
+<!-- #################################### -->
+
+<h2>0.2.x releases</hs>
+<table width="100%" border=0>
+<tbody>
+
+<!-- ####    GOALS    #### -->
+
+<tr><td bgcolor=blue><div align=center>GOALS</div></td><td bgcolor="#eeeeff">
+With 0.2.x we intend to focus on defining our standard document layout.
+</td></tr>
+<tr><td bgcolor=red><div align=center>TODO</div></td><td bgcolor="#ffeeee">
+
+
+<!-- ####    TODO    #### -->
+
+<ul>
+<li>All <a href="http://www.gnuenterprise.org/dcl/">outstanding
+critical bugs</a> in dcl, if any</li>
+</ul>
+
+<!--          API          -->
+
+
+<h2>Developer API</h2>
+<ul><li><strong>Formula Support</strong>:
+  <ul>
+    <li>Support for &lt;formula&gt; tags</li>
+  </ul>
+</li></ul>
+
+<!--  Filters & Destinations -->
+
+<h2>Destinations and Filter Support<h2>
+<ul><li>Email Destination Driver for SMTP</li>
+<li>Printer Destination Driver for Win32 Print System</li></ul>
+
+
+<!--   Standard Documents  -->
+
+<h2>GNUe:Reports:Standard Documents</h2>
+<ul><li>Define the "Standard"-type XML Markup</li>
+<li>Create "Standard" filters for
+  <ul>
+    <li>Postscript/PDF</li>
+    <li>Plain Text</li>
+    <li>XHTML</li>
+    <li>Docbook</li>
+    <li>Rich Text Format</li>
+    <li>Comma-Separated/Tab-Separated files</li>
+  </ul>
+</ul>
+
+
+</td></tr>
+
+
+<!-- ####    IN-PROGRESS    #### -->
+
+
+<tr><td bgcolor=yellow><div align=center>In Progress<br>(works mostly)</div></td><td bgcolor="#ffffee">
+</td></tr>
+
+
+<!-- ####    COMPLETED    #### -->
+
+<tr><td bgcolor=green><div align=center>Finished</div></td><td bgcolor="#eeffee">
+</td></tr>
+
+
+</table>
+
+
+<!-- #################################### -->
+<!-- #################################### -->
+<!-- ############   0.3.x    ############ -->
+<!-- #################################### -->
+<!-- #################################### -->
+
+<h2>0.3.x releases</hs>
+<table width="100%" border=0>
+<tbody>
+
+<!-- ####    GOALS    #### -->
+
+<tr><td bgcolor=blue><div align=center>GOALS</div></td><td bgcolor="#eeeeff"></td></tr>
+
+
+<!-- ####    TODO    #### -->
+
+<tr><td bgcolor=red><div align=center>TODO</div></td><td bgcolor="#ffeeee">
+
+<ul>
+<li>All <a href="http://www.gnuenterprise.org/dcl/">outstanding
+critical bugs</a> in dcl, if any</li>
+</ul>
+
+</td></tr>
+
+
+<!-- ####    IN-PROGRESS    #### -->
+
+
+<tr><td bgcolor=yellow><div align=center>In Progress<br>(works mostly)</div></td><td bgcolor="#ffffee">
+</td></tr>
+
+
+<!-- ####    COMPLETED    #### -->
+
+
+<tr><td bgcolor=green><div align=center>Finished</div></td><td bgcolor="#eeffee">
+</td></tr>
+
+</table>
+<hr width="75%" size="5" align="center" noshade="noshade" />
+</body>
+</html>
+
+

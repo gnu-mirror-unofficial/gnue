@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.21">
+ <TITLE>GNUe-SuSE-mini-HOWTO</TITLE>
+</HEAD>
+<BODY>
+<H1>GNUe-SuSE-mini-HOWTO</H1>
+
+<H2>Arjen Runsink </H2>v0.02, 17 October 2002
+<HR>
+<EM>This mini HOWTO describes how to get the GNUenterprise packages
+ release 0.4.0 to work with the SuSE distribution version 8.0 and
+ PostgreSQL or MySQL. </EM>
+<HR>
+<P>
+<H2><A NAME="toc1">1.</A> <A HREF="GNUe-SuSE-HOWTO.html#s1">Introduction</A></H2>
+
+<UL>
+<LI><A NAME="toc1.1">1.1</A> <A HREF="GNUe-SuSE-HOWTO.html#ss1.1">Status of this document</A>
+</UL>
+<P>
+<H2><A NAME="toc2">2.</A> <A HREF="GNUe-SuSE-HOWTO.html#s2">Getting the raw materials</A></H2>
+
+<UL>
+<LI><A NAME="toc2.1">2.1</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.1">The GNUe Packages</A>
+<LI><A NAME="toc2.2">2.2</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.2">egenix-mx-base (mxDateTime)</A>
+<LI><A NAME="toc2.3">2.3</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.3">wxPythonSrc</A>
+<LI><A NAME="toc2.4">2.4</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.4">PySablot</A>
+<LI><A NAME="toc2.5">2.5</A> <A HREF="GNUe-SuSE-HOWTO.html#ss2.5">SuSE packages</A>
+</UL>
+<P>
+<H2><A NAME="toc3">3.</A> <A HREF="GNUe-SuSE-HOWTO.html#s3">Compiling and installing</A></H2>
+
+<UL>
+<LI><A NAME="toc3.1">3.1</A> <A HREF="GNUe-SuSE-HOWTO.html#ss3.1">egenix-mx-base</A>
+<LI><A NAME="toc3.2">3.2</A> <A HREF="GNUe-SuSE-HOWTO.html#ss3.2">wxPythonSrc</A>
+<LI><A NAME="toc3.3">3.3</A> <A HREF="GNUe-SuSE-HOWTO.html#ss3.3">PySablot</A>
+<LI><A NAME="toc3.4">3.4</A> <A HREF="GNUe-SuSE-HOWTO.html#ss3.4">The GNUe packages</A>
+</UL>
+<P>
+<H2><A NAME="toc4">4.</A> <A HREF="GNUe-SuSE-HOWTO.html#s4">Configuring GNUe</A></H2>
+
+
+<HR>
+<H2><A NAME="s1">1.</A> <A HREF="#toc1">Introduction</A></H2>
+
+<P>While working with different projects and managing a few I found
+I had much need to dig deeper into databases and all the possibilities
+that come with them. Certainly to be able to use them for day to
+day work easy development tools wich create a good user interface
+are necessary. I found 
+<A HREF="http://www.gnue.org">GNUenterprise</A> and saw possibilities that met my demands.
+But installing the then current release on my machine with SuSE 7.3
+was unsuccesfull. This was completely related to the fact that I
+was unable to get a working python wxGTK xPython combo. Now with
+SuSE 8.0 and the current release of GNUe (0.4.0) I thought to give
+it another try and document what I did in this HOWTO.</P>
+<P>This HOWTO does not describe how to setup either MySQL or PostgreSQL.
+They come with excellent documentation.</P>
+<H2><A NAME="ss1.1">1.1</A> <A HREF="#toc1.1">Status of this document</A>
+</H2>
+
+<P>This is the first version. I don't know if I am ready with it.
+Maybe things don't work in the end. If you have something I might
+add, or a correction send me an email: arjen(*a*t*)zeilers.net</P>
+<P>$Id: GNUe-SuSE-HOWTO.lyx,v 1.2 2002/10/17 17:07:25 arjen
+Exp arjen $</P>
+<H2><A NAME="s2">2.</A> <A HREF="#toc2">Getting the raw materials</A></H2>
+
+<P>To start of let's get all that is needed.</P>
+<H2><A NAME="ss2.1">2.1</A> <A HREF="#toc2.1">The GNUe Packages</A>
+</H2>
+
+<P>The GNUe packages are quite they can be downloaded from 
+<A HREF="http://www.gnue.org">www.gnue.org</A>. See
+the download section. </P>
+<P>GNUe-Common-0.4.0.tar.gz</P>
+<P>GNUe-Designer-0.4.0.tar.gz</P>
+<P>GNUe-Forms-0.4.0.tar.gz</P>
+<P>GNUe-Navigator-0.0.1.tar.gz</P>
+<P>GNUe-Reports-0.0.2.tar.gz</P>
+<P>and maybe also the samples and GEAS</P>
+<P>Samples-0.4.0.tar.gz</P>
+<P>GNUe-AppServer-0.0.2.tar.gz</P>
+<H2><A NAME="ss2.2">2.2</A> <A HREF="#toc2.2">egenix-mx-base (mxDateTime)</A>
+</H2>
+
+<P>Egenix-mx-base provides, amongst some other stuff, the mxDateTime
+which could not be found anymore, the INSTALL that comes with GNUe
+mentions it, and that it possibly could be provided with python 2.1+.
+Well SuSE 8.0 comes with python 2.2 but no mxDateTime.</P>
+<P>You can get the package at 
+<A HREF="http://www.lemburg.com/python/mxExtensions.html">http://www.lemburg.com/python/mxExtensions.html</A></P>
+<P>The file I used was egenix-mx-base-2.0.4.tar.gz</P>
+<H2><A NAME="ss2.3">2.3</A> <A HREF="#toc2.3">wxPythonSrc</A>
+</H2>
+
+<P>I used the wxPythonSrc that can be found on 
+<A HREF="http://wxPython.org/">http://wxPython.org/</A></P>
+<P>There is a link to sourceforge there and make sure you get a
+file named like wxPythonSrc-x.x.x.tar.gz because this one contains
+it's own version of wxGTK which it will build nicely with. I used
+wxPythonSrc-2.3.3.1.tar.gz</P>
+<H2><A NAME="ss2.4">2.4</A> <A HREF="#toc2.4">PySablot</A>
+</H2>
+
+<P>PySablot is necessary for GNUe-Reports. You can get it at 
+<A HREF="http://sourceforge.net/projects/pysablot/">http://sourceforge.net/projects/pysablot/</A></P>
+<P>By the time I got there the most recent package was just one:
+PySablot-0.1.tar.gz</P>
+<H2><A NAME="ss2.5">2.5</A> <A HREF="#toc2.5">SuSE packages</A>
+</H2>
+
+<P>This is the easy part. You can use Yast to get and install some
+necessary packages that come with the SuSE distribution. These packages
+provide amongst others python and tools to compile and install the
+packages that do not come with SuSE.</P>
+<P>As root do:</P>
+<P>
+<PRE>
+yast -i flex yacc make gcc gpp cpp checkinstall \ 
+        m4 binutils autoconf automake glib-devel \
+        glibc-devel gtk-devel python python-devel \ 
+        postgresql-python sablot sablot-devel pyxml
+</PRE>
+</P>
+<P>This list may not be complete. Perhaps not all dependencies for
+these packages are listed, but that is OK, yast will resolve them
+automatically. If I forgot something, a compile will stop and complain
+about it. Usually it can not find a library or executable.</P>
+<P>You can easily check what rpm it is provided by using pin: </P>
+<P>
+<PRE>
+pin &lt;filename&gt;
+</PRE>
+</P>
+<P>Pin is a great tool to see what package contains a certain file
+or keyword or to get a list for a certain rpm. Install it with:</P>
+<P>
+<PRE>
+yast -i pin
+</PRE>
+</P>
+<P>To make sure that all the packages we just installed are the
+most current ones run the online update. </P>
+<P>
+<PRE>
+yast online_update
+</PRE>
+</P>
+<P>You may think that some packages are not necessary, maybe so,
+let me know, this saves disk clutter.</P>
+<H2><A NAME="s3">3.</A> <A HREF="#toc3">Compiling and installing</A></H2>
+
+<P>Everything should be done as a normal user, except where mentioned
+otherwise.</P>
+<P>First setup the build directories</P>
+<P>
+<PRE>
+mkdir -p ~/BUILD/GNUe
+cd ~/BUILD/GNUe 
+</PRE>
+</P>
+<H2><A NAME="ss3.1">3.1</A> <A HREF="#toc3.1">egenix-mx-base</A>
+</H2>
+
+<P>In ~/BUILD/GNUe do:</P>
+<P>
+<PRE>
+tar -xvzf ~/DOWNLOADS/GNUe/egenix-mx-base-2.0.4.tar.gz
+cd egenix-mx-base-2.0.4
+python setup.py build
+su -c &quot;python setup.py install&quot;
+</PRE>
+</P>
+<P>su asks for the <EM>root</EM> password, type it in and the lot is installed
+as root</P>
+<H2><A NAME="ss3.2">3.2</A> <A HREF="#toc3.2">wxPythonSrc</A>
+</H2>
+
+<P>I chose to install wxPython with it's own wxGTK version that
+came with it. SuSE does come with its own version of wxGTK which
+you could compile wxPython against. In that case you need wxPython
+with the same version as wxGTK (2.2.9). Be sure to read README.1s.txt
+from wxPython on how to proceed in that case.</P>
+<P>in ~BUILD/GNUe do:</P>
+<P>
+<PRE>
+tar -xvzf ~/DOWNLOADS/GNUe/wxPythonSrc-2.3.3.1.tar.gz
+cd wxPythonGTK-2.3.3.1   # or whatever the top-level dir is
+mkdir build
+cd build
+export WXPREF=/usr/lib/wxPython
+../configure --with-gtk \
+             --prefix=$WXPREF \
+             --enable-rpath=$WXPREF/lib \
+             --enable-optimise \
+             --enable-debug_flag \
+             --with-libjpeg=builtin \
+             --with-libpng=builtin \
+             --with-libtiff=builtin \
+             --with-zlib=builtin
+</PRE>
+</P>
+<P>This is almost the same as you can find in README.1st.txt, but
+with one alteration, I removed the option --with-opengl. My only
+motivation is that it says so in the regular GNUe docs :-) and it
+won't break anything if you already have wxGTK because this one is
+only used by wxPython.</P>
+<P>
+<PRE>
+make
+cd ../locale
+make allmo
+cd ../build
+su -c checkinstall
+</PRE>
+</P>
+<P>Again su asks for the <EM>root</EM> password. Normally instead of su -c
+checkinstall one would use make install. Checkinstall does a make
+install and generates an rpm. It asks a few details and then creates
+and installs the rpm and also saves it in /usr/src/packages/RPMS/i386.</P>
+<P>I use checkinstall because it is easy to make an unofficial rpm
+so the installed files can be easily removed or installed on another
+host without needing the source tree to do a make uninstall. And
+very few packages provide a make uninstall. This reduces clutter
+immensely.s and GNUe-Navigator</P>
+<P>Configuring GNUe</P>
+<P>Checkinstall asks a few questions. First if it should generate
+some default documentation. Just say yes. As a description I gave
+<EM>wxGTK for wxPython.</EM></P>
+<P>Normally checkinstall is run in the base dir of the package and
+guesses some info that is needed to build the rpm from the name of
+the directory, but since this is not the case now we also have to
+alter some other stuff. Using the number keys to choose each option
+change the following:</P>
+<P>
+<UL>
+<LI>name: wxGTKforwxPython</LI>
+<LI>version: 2.3.3.1</LI>
+<LI>source: wxPythonSrc-2.3.3.1</LI>
+<LI>provides: wxGTKforwxPython</LI>
+</UL>
+</P>
+<P>After that, just press return to continue and that is it.</P>
+<P>Now for wxPython itself:</P>
+<P>
+<PRE>
+cd ../wxPython
+python setup.py build IN_CVS_TREE=1\
+       WX_CONFIG=$WXPREF/bin/wx-config \
+       BUILD_GLCANVAS=0 BUILD_XRC=1
+su -c &quot;python setup.py install IN_CVS_TREE=1\
+       WX_CONFIG=$WXPREF/bin/wx-config \
+       BUILD_GLCANVAS=0 BUILD_XRC=1&quot;
+</PRE>
+</P>
+<P>Afaik you can not use checkinstall (yet) to install wxPython.
+The installation is done using distutils which comes with the current
+Python versions. There should be a way to de-install it using those
+tools, but at the moment I have no idea. Read the manuals.</P>
+<H2><A NAME="ss3.3">3.3</A> <A HREF="#toc3.3">PySablot</A>
+</H2>
+
+<P>I had a hard time figuring this one out. Seems that it includes
+sablot.h and that one was build in some peculiar way. I think it
+was statically linked to some libs from expat or carries it's own
+version of the expat libs. But here are the tricks.</P>
+<P>As root do the following:</P>
+<P>
+<PRE>
+ln -s /usr/lib/libexpat.a /usr/lib/libxmlparse.a
+ln -s /usr/lib/libexpat.a /usr/lib/libxmltok.a
+ln -s /usr/lib/libc.a /usr/lib/libiconv.a
+</PRE>
+</P>
+<P>Now as a normal user untar the archive while you are in ~BUILD/GNUe:</P>
+<P>
+<PRE>
+tar -xvzf ~/DOWNLOADS/GNUe/PySablot-0.1.tar.gz
+cd PySablot-0.1
+python setup.py build
+su -c 'python setup.py install'
+</PRE>
+</P>
+<P>And that's it.</P>
+<H2><A NAME="ss3.4">3.4</A> <A HREF="#toc3.4">The GNUe packages</A>
+</H2>
+
+<P>All the packages depend on Common so install that one first.</P>
+<P>
+<PRE>
+cd ~/BUILD/GNUe
+tar -xvzf ~/DOWNLOADS/GNUe/GNUe-Common-0.4.0.tar.gz
+cd GNUe-Common-0.4.0
+</PRE>
+</P>
+<P>Usually GNUe installs itself in /usr/local/gnue and the binaries
+go into /usr/local/bin, but with SuSE these kind of packages are
+traditionally installed in /opt. I think this is one way of keeping
+everything orderly on disk, but tastes differ and the source and
+everything else, except for the license, is yours to change so what
+is keeping you anyway.</P>
+<P>So edit setup.cfg.in and change the relevant lines in the section
+[install] as follows:</P>
+<P>
+<PRE>
+# Where to install GNUe's application files...
+prefix = /opt/gnue
+# Where to install GNUe executable symlinks...
+exec_prefix = /opt/gnue/bin
+</PRE>
+</P>
+<P>Why edit setup.cfg.in instead of setup.cfg? Well the last is
+overwritten by the first during the build phase.</P>
+<P>
+<PRE>
+python setup.py build
+su -c &quot;python setup.py install&quot;
+</PRE>
+</P>
+<P>And ignore the warning about the fact that the modules were not
+installed in a path that is in Python's module search path.</P>
+<P>Repeat these steps for the modules GNUe-Designer, GNUe-Forms,
+GNUe-AppServer and GNUe-Navigator</P>
+<H2><A NAME="s4">4.</A> <A HREF="#toc4">Configuring GNUe</A></H2>
+
+<P>GNUe provides a few sample config files which can be used to
+set it up for your system. These are located in etc in your gnue
+directory.</P>
+<P>
+<PRE>
+su                        # and enter the root password
+cd /opt/gnue/etc
+cp sample.connections.conf connections.conf
+cp sample.gnue.conf gnue.conf
+cp sample.report-filters.conf report-filters.conf
+</PRE>
+</P>
+<P>Now we need to edit some of the files.</P>
+<P>First change site.conf till it looks somewhat like this.</P>
+<P>
+<PRE>
+common_python_path = '/opt/gnue/lib/python'
+common_etc = '/opt/gnue/etc'
+common_images = '/opt/gnue/share/images'
+form_images = common_images
+form_etc = common_etc
+designer_images = common_images
+designer_etc = common_etc
+</PRE>
+</P>
+<P>The most important fact is that the paths need to be changed
+because I installed in /opt/gnue.</P>
+<P>Next connections.conf needs to be setup so it can connect to
+your database. There are some examples in that file, alter one to
+suit your needs and comment out the rest. Mine looks like this:</P>
+<P>
+<PRE>
+[test]
+comment = Test Database
+provider = postgresql
+host = localhost
+dbname = test
+</PRE>
+</P>
+<P>After this I could run the designer and connect to the database
+and create my first form using the wizard.</P>
+<P>
+<PRE>
+</PRE>
+</P>
+
+</BODY>
+</HTML>

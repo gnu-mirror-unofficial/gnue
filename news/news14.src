@@ -1,0 +1,85 @@
+<h3>New releases of GNUe Forms and GNUe Common</h3>
+<p>26th June 2001</p>
+<p>The GNU Enterprise team is proud to announce the release of the GNUe-Forms 0.0.8 and GNUe-Common 0.0.2<p>
+
+
+
+GNUe-Forms is an XML-based forms system. It will read XML files to create GUIs for Win32, GTK+, and Curses. It is fully data-aware and can be used in n-tier environments with GNU Enterprise Application Server (GEAS) or in 2-tier environments.<p>
+
+
+
+GNUe-Common provides a set of images and classes that GNUe-Forms, GNUe-Reports, and GNUe-Designer are dependent upon.  <p>
+
+
+
+Click Read More below for more information on the releases as well as information on upcomming releases.<p>
+
+</p>
+<hr>
+<p>GNUe-Forms is an XML-based forms system. It will read XML files to create GUIs for Win32, GTK+, and Curses. It is fully data-aware and can be used in n-tier environments with GNU Enterprise Application Server (GEAS) or in 2-tier environments.<p>
+
+
+
+o Migration of more features to the GNUe-Common package<br>
+
+o   Enhanced logging, parser, global connection configuration,<br>
+
+o   DB2 support, etc<br>
+
+o Forms can now launch other forms<br>
+
+o Import system to allow for gfd libraries <br>
+
+o Notebook tab support<br>
+
+o Updated documentation<br>
+
+o Numerous other enhancements and bug fixes<br>
+
+<p>
+
+GNUe-Common provides a set of images and classes that GNUe-Forms, GNUe-Reports, and GNUe-Designer are dependent upon. Some of the changes in this release include 
+
+<P>
+
+o Start of conversion to DB-SIG2 std <br>
+
+o Enhanced debug system <br>
+
+o New base application class (GClientApp) <br>
+
+o    Provides numerous std features to apps based upon it <br>
+
+o Support for global connection defintion files<br>
+
+o New configuration system (GConfig) added<br> 
+
+o Numerous DB system enhancements and DB2 driver added <br>
+
+o xml system supports importing from other files <br>
+
+o Numerous bug fixes <br>
+
+<br>
+
+Both of these releases are targeted at developers willing to install from source code, no rpms or exes have been made available.  Setup support for the windows platform in GNUe Forms is also currently broken.  However a 0.0.9 release will be available shortly which will add support for windows as well as clean up a few known issues in the code.  We're basically wrapping things up for a stable 0.1.0 release to follow soon after 0.0.9. 
+
+You can get tarballs of the code from our 
+
+<a href="http://www.gnuenterprise.org/download/download.php">
+
+Download</a> area.
+
+<p>
+
+In other news GNUe Designer pre-0.0.1 is now in cvs and is coming along quite nicely.  We're hoping to get it out the door in the near future.  You can checkout our screenshots section to see it in action.
+
+
+
+
+
+</p>
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

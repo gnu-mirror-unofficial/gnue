@@ -1,0 +1,52 @@
+<h1>GNUe Project</h1>
+
+<p>This section of the website includes information and 
+resources relating to the GNU Enterprise project as a whole</p>
+
+<p>
+<img src="../e_ball.png"><a href="what.html">Home Page</a> - 
+What is GNU Enterprise? and Recent News.<br />
+
+<img src="../e_ball.png"><a href="../news/old.html">News Archive</a> - All past news items.<br />
+
+<img src="../e_ball.png"><a href="media.html">Media Resources</a> - information 
+for journalists or anyone else who needs a quick 
+overview of the GNU Enterprise project.<br />
+
+<img src="../e_ball.png"><a href="http://www.gnuenterprise.org/downloads/downloads.php">Downloads</a> - GNUe and related software<br />
+
+<img src="../e_ball.png"><a href="docs-all.html">Documentation
+Index</a> - a single index page for all the GNUe Documentation.<br />
+
+<img src="../e_ball.png"><a href="status.html">Current Status</a> - 
+a single page with the current status of all GNUe Tools and 
+Packages.<br />
+
+<img src="../e_ball.png"><a href="../feature-plans/feature-plans.html">Feature Plans</a> - 
+planned features for future versions of the GNUe Tools.<br />
+
+<img src="../e_ball.png"><a href="require.html">Requirements</a> - 
+what you need to run GNU Enterprise.<br />
+
+<img src="../e_ball.png"><a href="glossary.html">Glossary</a> of terms - 
+some project terminology explained.<br />
+
+<img src="../e_ball.png"><a href="../faq/faq.html">FAQs</a> - 
+Frequently Asked Questions, including the official GNUe FAQ.<br />
+
+<img src="../e_ball.png"><a href="../gallery/screenshots.html">Screenshots</a>- 
+what some of the GNUe Tools look like in action.<br />
+
+<img src="../e_ball.png"><a href="../brochures/brochures.html">Brochures</a> - 
+current publicity material/leaflets for GNUe.<br />
+
+<img src="../e_ball.png"><a href="contact.html">Contact Us</a> - 
+e-mail and postal addresses for GNU Enterprise.<br />
+
+<img src="../e_ball.png"><a href="help.html">Help GNUe</a> - 
+including our linuxfund.org drive.<br />
+
+<img src="../e_ball.png"><a href="docs.html">Project Documentation</a>- 
+Documentation relating to the GNUe Project as a whole.
+
+</p>

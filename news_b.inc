@@ -1,0 +1,18 @@
+<h3>Pre-releases for 0.5.0 and form convertor</h3>
+
+<p>17th December 2002</p>
+<p>
+Pre-releases for Forms (0.5.0), Designer (0.5.0) and Common (0.4.4) are
+now available for testing 
+<a href="http://www.gnuenterprise.org/downloads/prereleases.php">on 
+the website</a>. As discussed 
+<a href="http://mail.gnu.org/pipermail/gnue/2002-November/003414.html">on 
+the mailing lists</a>, the big change for 0.5.0 will be the new format 
+for the .gfd (GNUe Form Definition) files, to split the layout and 
+logic. So, as well as the normal pre-release checking, please can people 
+try out the Form format convertor routine (which should do most of the 
+conversion from old to new format for you) and 
+<a href="../community/bugs.html">let us know</a>
+of any problems.
+</p>
+

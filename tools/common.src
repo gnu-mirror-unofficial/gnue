@@ -1,0 +1,64 @@
+<h1>GNUe Common</h1>
+
+<p>GNU Enterprise Common is a common library of routines that
+GNUe Forms, GNUe Designer, GNUe Reports and 
+GNUe Application Server use to provide various shared 
+functions:</p>
+
+<ul>
+   <li>Database Abstraction - to support 
+       multiple different database back-ends.</li>
+   <li>A Client-Server application framework - to allow
+       different parts of the GNUe framwork to 
+       operate on different physical machines.</li>
+   <li>RPC abstraction - to support 
+       multiple different Remote Procedure Call 
+       methods.</li>
+   <li>Object-to-XML and XML-to-Object library - 
+       a common XML parser.</li>
+</ul>
+
+<p>It is also, under the name GNU-RPC, a proposed 
+standard RPC module for use by any GNU project, or any 
+other project, that needs database and RPC abstraction.</p>
+
+<h3>Supported Databases</h3>
+
+<p>Database back-end servers which are currently supported
+include:</p>
+
+<ul>
+   <li>Free database servers:</li>
+      <ul>
+         <li><a href="http://www.sapdb.org">SAP-DB</a></li>
+         <li><a href="http://www.postgresql.org/">Postgresql</a></li>
+         <li><a href="http://www.mysql.com">MySQL</a></li>
+         <li><a href="http://sourceforge.net/projects/firebird/">Firebird</a></li>
+      </ul>
+   <li>Non-free database servers:</li>
+      <ul>
+         <li>Oracle</li>
+         <li>DB2</li>
+         <li>Interbase</li>
+      </ul>
+   <li>Generic database servers:</li>
+      <ul>
+         <li>ODBC (Open DataBase Connectivity)</li>
+      </ul>
+</ul>
+
+<h3>Supported RPCs</h3>
+
+<p>Remote Protocol Communication standards that are 
+intended to be supported include:</p>
+
+<ul>
+   <li>CORBA</li>
+   <li>XML-RPC</li>
+   <li>SOAP</li>
+</ul>
+
+<h3>Status</h3>
+
+<$ status ( "common" ) > 
+

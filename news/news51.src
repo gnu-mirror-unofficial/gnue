@@ -1,0 +1,581 @@
+<h3>MEMO TO GNUe SALES CONSULTANTS</h3>
+<p>2nd January 2002</p>
+<p>In lieu of Microsoft's recent debacles in thier lead sales force managers sending out disparaging memo's on how to "fight" GNU/Linux, psu has put together such a campaign mail for GNUe to combat proprietary ERP vendors.
+
+
+
+It is listed below:</p>
+<hr>
+<p><p>
+
+At one time, Oracle used to make a feature of "Top Ten Questions" for 
+
+prospective buyers to ask salesman of whoever they perceived as their 
+
+biggest competitor at the time. I wondered what a GNU Enterprise 
+
+equivalent might look like...
+
+<p>
+
+To be fair, I recognise many of the GNUe answers are aspirational 
+
+rather than as of time of writing (1st January 2002). However, as I 
+
+understand it, this is where we are aiming for. Comments/corrections/
+
+feedback welcome.
+
+<p>
+
+<h2>Top Ten Questions to ask your proprietary ERP salesman</h2>
+
+<p>
+
+<b>1. I'm paying how much and I'm not allowed to know how it works?</b>
+
+<p>
+
+Proprietary ERP vendors are unusual amongst proprietary software 
+
+vendors, in that they often allow you some access to some technical 
+
+documentation about the software (e.g. database schemas). However, 
+
+this information may be limited, and may be subject to non-disclosure 
+
+agreements and impractical constraints (e.g. required to keep paper 
+
+technical reference manuals under lock and key).
+
+<p>
+
+With GNU Enterprise, all the source code is freely available to you 
+
+under the GNU Public License (GPL). You can see what the system does, 
+
+and how it does it. You can use GNU Enterprise as a basis for writing 
+
+your own packages. You can either keep these for yourself, or share 
+
+them with others under the GPL.
+
+<p>
+
+You can, if required, prove system integrity to your Auditors by 
+
+examining the source code for backdoors and trojans, and compile it 
+
+from source. If you get your GNU Enterprise executables from a 
+
+reputable source (e.g. the GNU Enterprise website), this shouldn't be 
+
+a problem, but some highly secure organisations might require this 
+
+level of assurance.
+
+<p>
+
+Also, all the documentation for the system is available under the 
+
+GPL Documentation License. You can use GNU Enterprise documentation as 
+
+the basis for your own internal manuals, or put it on your intranet or 
+
+extranet, all without needing anyone's permission or paying any 
+
+additional fees.
+
+<p>
+
+<b>2. Am I too small for your package?</b>
+
+<p>
+
+Most proprietary ERP vendors target their offerings at large 
+
+enterprises. You might think that this is because only large 
+
+enterprises can truly benefit from ERP. The reality is that SMEs 
+
+(small to medium enterprises) can benefit just as much from a fully 
+
+integrated ERP system as their bigger brethren. The reason proprietary 
+
+ERP vendors target large enterprises is because they are the only ones
+
+who can afford proprietary ERP vendors.
+
+<p>
+
+Some ERP vendors are now targeting SMEs with service offerings, 
+
+where you access the software over the internet for a monthly fee. 
+
+This is similar in principle to the ASP (Application Service Provider) 
+
+service that they offer as an option to larger enterprises. However, 
+
+this means that you do not control the hardware, or your business-
+
+critical data.
+
+<p>
+
+GNU Enterprise is fully scalable in both directions. It is possible 
+
+for an SME to run GNU Enterprise on a single, normal desktop PC, 
+
+giving them the benefits of full, integrated, ERP. As the business 
+
+grows, so can the system, with the addition of further hardware 
+
+and network connectivity - but still the same software. 
+
+<p>
+
+As larger business look towards closer supply chain integration with 
+
+their small and medium sized business partners, being able to support 
+
+the e-business standards your biggest customer uses could become a 
+
+critical business advantage.
+
+<p>
+
+<b>3. What happens if my level of activity increases?</b>
+
+<p>
+
+Many proprietary ERP vendors have moved away from user-based licensing,
+
+in order to better fit the reality of web-based self-service, where 
+
+the number of users can be indeterminate. However, you will still be 
+
+licensed for the software on some sort of activity basis - number 
+
+of transactions or size of server(s) are common ones.
+
+<p>
+
+With GNU Enterprise, if your business doubles in size, it still won't 
+
+be cost-free. You will probably need more or new hardware, connectivity
+
+and maybe some extra consultancy to get everything working together. 
+
+But the software license still costs the same (i.e. nothing) - after 
+
+all, it hasn't changed.
+
+<p>
+
+<b>4. What standards do you support, and how are they licensed?</b>
+
+<p>
+
+Proprietary ERP vendors have started to take standards more seriously 
+
+over the past few years, mainly due to customer demand. Some 
+
+proprietary ERP systems now support multiple databases. Most 
+
+proprietary ERP systems are starting to support standards like XML for 
+
+information interchange.
+
+<p>
+
+GNU Enterprise has been designed from the start to support standards,
+
+both current and future. Standards that are currently supported 
+
+include { $$$ }
+
+<p>
+
+GNU Enterprise also supports a wide range of databases, including free 
+
+software ones such as Postgresql and MySQL, "open source" ones such as 
+
+SAP-DB, and fully proprietary ones such as Oracle.
+
+<p>
+
+GNU Enterprise has also made a conscious decision to avoid depending on 
+
+standards which are proprietary, such as Java (owned by Sun). You can 
+
+use proprietary standards with GNU Enterprise if you want to, but there 
+
+will always be a non-proprietary equivalent.
+
+<p>
+
+<b>5. How does this work with the stuff I already have?</b>
+
+<p>
+
+Proprietary ERP vendors encourage you to see their system as an 
+
+"all or nothing" proposition. Some of them even charge license fees 
+
+as a single cost for all modules, regardless of which ones you intend 
+
+using, in an attempt to lock you in to the product. They may even use 
+
+the term "free" to describe this. It would be more accurate to 
+
+describe this as a sunk cost in license fees for proprietary 
+
+software.
+
+<p>
+
+GNU Enterprise is a much more heterogeneous business solution. As with 
+
+any ERP package, you will get the full benefits of end-to-end 
+
+integration in the easiest way by implementing as much of it as is 
+
+relevant to your enterprise. However, because of its commitment to 
+
+standards, you should find it much easier to integrate one part of GNU 
+
+Enterprise with other business systems. For example, you might want to
+
+integrate GNU Supply Chain Management and CRM with your existing 
+
+proprietary finance package doing Accounts Receivable and General 
+
+Ledger.
+
+<p>
+
+In addition, GNU Enterprise includes GNUe Integrator, a tool 
+
+specifically designed to transfer data from and to the GNUe 
+
+environment. Unlike some other ERP vendor's interfaces, this works 
+
+using flexible XML definitions rather than pre-defined flat file 
+
+formats, and can work in real time as well as in batch.
+
+<p>
+
+<b>6. What level of support will I get?</b>
+
+<p>
+
+Proprietary ERP vendors offer a limited range of support options. 
+
+These are usually geared towards larger enterprises, and priced 
+
+accordingly. You can usually only get your support from one source, 
+
+either the system supplier or their designated reseller (who may be 
+
+acting as first-line support for the system supplier). Poor support 
+
+is one of the most common criticisms enterprises have of their ERP 
+
+vendor. Although your vendor may offer "guaranteed" support response 
+
+speeds, you may find that it is difficult to enforce these without 
+
+jeopardising your overall relationship with them.
+
+<p>
+
+With GNU Enterprise, you can run without a support contract altogether
+
+if you want to. You have access to the source code, and may have the 
+
+in-house skills to resolve any problems you run into. If bug fixes 
+
+are made to the official release, you can download them and apply them
+
+yourself. You can also choose not to apply bug fixes that are not 
+
+relevant to you if you prefer.
+
+<p>
+
+However, most organisations will probably feel more comfortable paying 
+
+for a support package from a consultancy firm. You may want your 
+
+consultants to provide you with a wide range of services, including 
+
+hardware and networking support, as well as GNU Enterprise applications
+
+support. You may need 24/7/365 access to a large, multi-skilled, 
+
+support team, and be prepared to pay accordingly. Or you may just need 
+
+a friendly voice at the end of a phone line or internet address on an 
+
+occasional basis. You pay for the level of support you need.
+
+<p>
+
+If your GNU Enterprise support is not up to scratch, get rid of them 
+
+and find another one.
+
+<p>
+
+<b>7. What happens if I want to customise the package?</b>
+
+<p>
+
+Proprietary ERP vendors are unusual amongst proprietary software 
+
+vendors, in that they often positively encourage you to customise the 
+
+application - usually by paying them to write a customisation for you. 
+
+Of course, you will never be aware if they have already written an 
+
+identical or similar package for another customer - it will always be 
+
+charged to you as if they had had to write it from scratch. You are 
+
+also then dependant on the vendor to check that the customisation 
+
+is compatible with any future upgrades.
+
+<p>
+
+To be fair, several vendors have now discovered some of the problems 
+
+involved in supporting customisations. Their response has been to 
+
+try to convince you to do without customisation altogether, and mould 
+
+your business processes to their software. It may well be, especially 
+
+if your organisation hasn't used an ERP package before, that your 
+
+business processes could do with an extensive review, and this should 
+
+be encouraged. But let's be clear - they want you to adopt different 
+
+business practices not because they are "best practice," but because 
+
+they fit their software.
+
+<p>
+
+GNU Enterprise offers an alternative way of providing customised 
+
+functionality, via the use of Templates. Templates are ways of 
+
+customising a module or modules, for example for a particular 
+
+industry. Templates can add or remove fields from the database, 
+
+add extra business rules to objects, or even add whole business 
+
+processes. But all in a way that is standardised, and which will 
+
+survive any future upgrades. You can apply existing templates, or 
+
+write your own, or modify those that other have written.
+
+<p>
+
+Templates also provide a way of providing internationalisation. With 
+
+a development team spread across different continents, GNU 
+
+Enterprise has been designed from the start as an internationally
+
+aware product. It is not a U.S.-centric (or any other centric) product, 
+
+where specific functionality for other countries has been bolted on 
+
+afterwards. 
+
+<p>
+
+Of course, if you want to customise GNU Enterprise by editing and 
+
+recompiling the source code, you can do so. For extensive 
+
+customisations, this may be the only way. However, you should look at 
+
+using templates first.
+
+<p>
+
+<b>8. What happens if you go bust?</b>
+
+<p>
+
+Proprietary ERP vendors often have elaborate "escrow" arrangements, 
+
+which allow you access to the source code if they go out of business 
+
+or if other key "trigger" events happen. 
+
+<p>
+
+With GNU Enterprise, you have the source code up front. If your GNU 
+
+Enterprise consultancy firm goes out of business, find another one, or 
+
+get the skills in-house to manage the product.
+
+<p>
+
+<b>9. What happens if you get taken over? </b>
+
+<p>
+
+It is not uncommon for proprietary ERP vendors to acquire other ERP 
+
+vendors. Sometimes this will be to "cherry-pick" bits of the 
+
+'intellectual property' of the target. Often, the real asset they are 
+
+buying is the customer base of the other vendor, who will find their 
+
+old system becoming unsupported, with varying degrees of pressure to 
+
+move onto the vendor's main package.
+
+<p>
+
+GNU Enterprise is not 'owned' by anyone. The copyright is held by the 
+
+Free Software Foundation, but this is just to allow them to uphold 
+
+the freedoms of all users under the GPL. If, hypothetically, every GNU
+
+Enterprise consultancy firm went out of business, and everyone else 
+
+stopped using it, you still have everything you need (including the 
+
+source code) to continue supporting yourself.
+
+<p>
+
+<b>10. What happens if we don't get on?</b>
+
+<p>
+
+Proprietary ERP vendors don't always sell their product direct. Your 
+
+salesman may be working for a "partner" of the ERP vendor. That 
+
+partner may have monopoly rights to your geographical area, or market 
+
+sector. If your relationship with the vendor or reseller breaks down, 
+
+you may have no choice but to ditch the system and move to another 
+
+vendor.
+
+<p>
+
+With GNU Enterprise, you are always in control. Subject to contract, 
+
+you can walk away from your current GNU Enterprise consultant or 
+
+consultancy firm, and either find another one, or get the skills 
+
+in-house to manage the product. What's more, your GNU Enterprise 
+
+consultant knows this as well. GNU Enterprise consultants stay in 
+
+business by providing a professional service to their customers, not 
+
+by (ab)using their monopoly power over your investment in "their" 
+
+system.
+
+<p>
+
+<b>11. How often must I upgrade?</b>
+
+<p>
+
+Proprietary ERP vendors will often insist that you upgrade the 
+
+system on a regular basis. This may even be written into the contract. 
+
+Some ERP clients have been subject to several mandatory upgrades 
+
+over just a few years, from terminal ("green screen") products, to 
+
+client-server PC-based products then on again to web-based products, 
+
+with extra hardware costs each step of the way. Although upgrades may 
+
+be "free" (i.e. there is no additional license fee cost), there may be 
+
+additional consultancy costs in doing the upgrade. There will certainly
+
+be internal costs and disruption. You may also have to re-train a 
+
+large number of end-users.
+
+<p>
+
+With GNU Enterprise, there are no mandatory upgrades. Both the core 
+
+GNU Enterprise developers and your GNU Enterprise consultants (if any) 
+
+would encourage you to update on a regular basis, and your GNU
+
+Enterprise consultants might make upgrade assistance part of your 
+
+overall support arrangements with them. However, you are at liberty to 
+
+ignore this advice. You are the only one who can make the decision 
+
+about what is best for your enterprise, including balancing all the 
+
+internal and external costs.
+
+<p>
+
+Note that GNU Enterprise supports both two-tier (client-server) and 
+
+n-tier (client-applications server-database serve) architectures. 
+
+You can use the same application - even the same form - on different 
+
+types of client in the same installation. So you could have a mixture 
+
+of graphical PC-based users, web-based HTML users and old character 
+
+terminals all at the same time. (The only constraints are those of the 
+
+underlying hardware, e.g. you cannot display graphics on a character-
+
+based device.) This flexibility removes a lot of the costs associated 
+
+with upgrades that also involve changes in architecture.
+
+<p>
+
+Also note that the license fee cost for an upgrade of GNU Enterprise 
+
+is the same as for the original software, i.e. free.
+
+<p>
+
+That's actually 11 questions, but then you always get more than you 
+
+expect with free software  [;-)] 
+
+</p>
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

@@ -1,0 +1,92 @@
+Title: Menu Support in triggers
+Status: Current
+
+
+GMenu Extends GObj
+
+GMenu objects does not form a menu tree
+
+all menu items are linked to NAMED triggers
+
+An app defines a default GMenu with a set of NAMED triggers
+
+a .gfd like file could overwrite the std trigger with a custom onw
+
+I _think_ we'd need to be able to find menu entries so that <menu> tags
+can somehow place themselves in an existing structure like this
+find File.Save and put me after it
+
+the entire default system menu and form customizations would be exposed to 
+the trigger system so that we could do menu.file.save.disable =True
+
+If a GMenu is of type dynamic the trigger will be used to 
+manipulate the submenu selections prior to displaying.
+
+The default menu system for a gnue app would be stored in a file
+in the gnue/etc area so that it could be customized by the site
+
+GMenu
+  name           - The name of the menu object
+  event          - The comma seperated list of events that this menu item should fire
+                 - they will be executed in the order listed
+  trigger        - the name of trigger this menu item should fire upon selection
+                 - if the event is type fireTRIGGER
+  type           - normal = a std menu entry
+                 - seperator = visible seperator
+                 - dynamic = the named trigger will be used populate the menu structure at runtime 
+  label          - the displayed text on the menu (& before the char that defs the alt-hotkey)
+  enabled        - is this item active
+  location       - string containing a . seperated list of object to nest into (file.save)
+  leader         - name of menu item this one follows 
+
+---Toolbars---
+
+Toolbars link directly to menu items and can only simulate the user
+selecting the menu item.  It's basically a graphical symlink to a menu item
+
+If a menu item is disabled the toolbar item is automatically disabled as well
+
+---Events/bindings---
+
+
+1. GFInstance (or GFForm, etc) keeps track of application-level event slots
+   and their methods.
+     self._appEvents = {
+        'APPSAVE': self._save,
+        'APPEXIT': self._exit,
+        ... }
+
+2. GFInstance has a generic event catcher for these app-level events
+     def appEvent(self, event):
+       if self._appEvents.has_key(event.type[6:]):
+         self._appEvents[event.type[6:]](event)
+
+3. GFInstance adds the events in self._appEvents to its incommingEvents map.
+     for key in self._appEvents.keys():
+       self.incommingEvents['action%s' % key] = self.appEvent
+   This establishes the default behavior
+
+4. Any <menu event="APPSAVE"> tags are loaded.  If any overload an existing
+   event, then
+      instance._appEvent[event] = triggerName
+
+5. 2 new events are introduced... disableEVENT and enableEVENT.
+   Anytime a trigger wants to disable an event (grey it out),
+   it generates this event (however a trigger would do that :)
+
+6. GFInstance listens for this event, as does the toolbar and the
+   menu bar.  The menu bar and toolbar grey the items out.  GFInstance
+   keeps track of any disabled events (via a flag-type dict:
+
+     def appEvent(self, event):
+      if self._disabledEvents.has_key('APPSAVE'): return
+      .. previous code...
+
+   This takes care of actually dismissing the event however it was generated.
+
+7. Menu selections, Hotkeys, and Toolbar buttons all generate a
+   'requestAPPSAVE' (or whatever), which is caught and either passed on
+   or dismissed by GFInstance.appEvent().
+
+
+

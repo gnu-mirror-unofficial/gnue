@@ -1,0 +1,62 @@
+Title:   Explanation of form's internal event model
+Status:  Current
+Created: 2002-07-17
+
+This is an abridged/edited transcript from #gnuenterprise.  It needs to be 
+restructured into an actual technote. 
+
+-----------------------------------------
+<jamest> StyXman: issues with events?
+<StyXman> jamest: uh, yes, I'm still lost
+<StyXman> I see that only a gfinstance can dispatch events
+<jamest> what are you trying to do?
+<StyXman> jamest: I want to put behaviour on {gf,ui}scrollbar
+<StyXman> so, I want to make the uisb send a n event that the gfsb is listening to
+<jamest> have you happened to look at UIButton in the wx driver?
+<jamest> it maps a wx event to a GF event
+<StyXman> but it uses self._eventHandler instead of dispatchEvent. I was told to use the latter...
+<StyXman> (ok, not told, just suggested...)
+<jamest> huh
+<StyXman> but my first implementation was to use _eventHandler...
+<jamest> that looks wrong
+<StyXman> and what does event.eventHandler has? I mean, @ _createWidget time...
+<StyXman> is not clear to me that a uisb function is called.
+<jamest> add the _setDefaultEventHandlers(newWidget, event.eventHandler, event.initialize) seen in the button creation to the scrollbar creation
+<jamest> wait
+<jamest> ok, the confusion comes from some of this being wxpython "events" and some of this being gnue "events"
+<StyXman> jamest: did you see my question about event.eventHandler?
+<jamest> in the button code you've got EVT_BUTTON() which sets the function to call when the user generates a wx button click
+<StyXman> I realized that...
+<jamest> then the next line containing the (event.eventHandler) is pushing the mouse and UI event handlers onto the wx event processing stack
+<jamest> we used to have every widget contain the duplicate code for this IIRC
+<jamest> the reason we're passing that event.eventHandler in is that those classes (mouse and UI event) dont register as event aware
+<StyXman> jamest: so, I set up a uihandler, def'ing a uisb's method and calling EVT_WE
+<StyXman> and also set a handler (event.eventHandler; btw, I hate that 'event' name)
+<StyXman> with _setDefault...
+<StyXman> but what value does event.eventHandler have?
+<StyXman> again, is not clear to me that it will be a uisb's method
+<StyXman> I mean, how do I tell that ceratin gfsb's method should be called?
+<jamest> that's mapped in the GFInstance
+<jamest> all events are processed thru there as sort of a clearing house
+<StyXman> aha, so if I register my uisb to listen to certain event, gfinstance will take care of that.
+<jamest> so you'd setup a funciton in there that did the approprate calls to the lower level gfobjects
+<jamest> it also does the focusing
+<jamest> you'll notice a lot of events are named requestFOO
+<jamest> because the UI is a slave to the GF tree
+<jamest> it can make requests from the GF tree but it's not allowed to update it's own contents w/o getting events back from the GF tree
+<jamest> it's not allowed to change focus with events from the GF tree
+<jamest> it's a complete mindless slave to the GF tree humbly requesting that something be done then waiting until it's told to do something
+<jamest> er, wait, that's not it
+<StyXman> "it's a complete mindless slave to..."
+<jamest> it was so that we had a single code base that handled things like max length, input masks, uppercase conversion, etc, etc
+<jamest> i didn't want to see each UI implement things in their own fashion
+<StyXman> would you say that I should 'build' a new event, like requestSCROLL?
+<StyXman> jamest: and is not registerEventListeners too much hardcoded?
+<StyXman> no, it is not. I misinterpreted...
+<jamest> oh yes, new events would probably be required
+<StyXman> and hack (i'll say 'hardcode') gfinstance
+<jamest> event name are hardcoded in gfinstance yes
+<StyXman> I mean, I would spect that the ui objet to register new events.
+<jamest> if we allow UI plug-ins in the future we'll need some way to register them
+<jamest> but everything so far is pretty much std behaviour so I'm not too worried about the hard coding
+-----------------------------------------

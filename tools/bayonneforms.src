@@ -1,0 +1,13 @@
+<h1>GNUe Forms (Bayonne client)</h1>
+
+<p>The aim of the Bayonne Forms client is to 
+interface with <a href="bayonne.html">Bayonne</a>, 
+the GNU telephony project, to provide a means for 
+users to access standard GNUe Forms Definitions (.gfds) 
+via the phone, either using touch-tones or voice 
+prompts. This allowing anyone with a phone to access 
+and update data in your GNUe Applications.</p>
+
+<h3>Status</h3>
+
+<$ status ( "bayonneforms" ) > 

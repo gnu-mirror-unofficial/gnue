@@ -1,0 +1,48 @@
+Title: GNUe Client startup sequence
+Status: Current 
+
+Client [GClientApp()] created and run [.run()]
+  |
+  +-- GClientApp parses command line arguments and handles debugging, 
+  |   profiling, help, and versioning.
+  |
+  +-- Login Handler [LoginHandler()] setup by UI
+  |
+  +-- Connections Manager created [GConnections()]
+  |     |
+  |     +-- Reads the Connections Definition File.
+  |     |
+  |     +-- Stores a reference to the Login Handler for future use.
+  |
+  +-- Object File is loaded [GParser.loadXMLObject()]
+  |     |
+  |     +-- Root Object created and returned.
+  |     |
+  |     +-- In root object, Connections Manager is set.
+  |          |
+  |          +-- Data Sources [GDataSource()] ask connections manager for 
+  |              a dbdriver [GDataObject()] based on their type and 
+  |              connection name.
+  |      
+  +-- All objects are initialized from the top down.
+  |     |
+  |     +-- For each Data Source, Client App asks Connection Manager for 
+  |         a data connection for the Data Source's dbdriver.
+  |           |
+  |           +-- If no data connection exists, Connection Manager...
+  |                 |
+  |                 +-- ... asks the Data Source to ask the GDataObject
+  |                 |   what needs to be input from the user to login
+  |                 |   to the database (usually, user/pass)
+  |                 |
+  |                 +-- ... sends a message to the Login Handler asking
+  |                 |   for the required fields.
+  |                 |     |
+  |                 |     +-- Login Handler prompts the user for fields
+  |                 |
+  |                 +-- ... tells the Data Object to attempt a login
+  |                 |
+  |                 +-- ... gets the data connection from the Data Object
+  |                     and saves it for future data sources.
+
+

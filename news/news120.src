@@ -1,0 +1,114 @@
+<h1>New 0.4.2 releases for Forms, Designer, Common</h1>
+
+<p>3rd December 2002</p><p>
+The GNU Enterprise team is proud to announce a new release of
+it's enterprise application development suite.  This release
+includes:</p>
+
+<ul>
+<li>GNUe Forms 0.4.2</li>
+<li>GNUe Designer 0.4.2</li>
+<li>GNUe Common 0.4.2</li>
+</ul>
+
+<p>This is the next point release of the 0.4.x stable branch.</p>
+<hr>
+
+<p>GNUe-Forms is a platform and UI-independent forms system. It
+reads an XML-based forms definition and creates GUIs for Win32,
+GTK, Curses (text) and, soon, HTML. It has a fully data-aware
+widget set and can be used in both 2-tier and n-tier environments.</p>
+
+<p>GNUe-Designer is the IDE for the GNUe tools. It allows you to
+visually layout your forms in a RAD-style environment. Designer
+has a builtin forms client, so you can quickly test your forms
+while still in Designer.  Designer also has support for form 
+creation wizards... answer a few questions, attach your form
+to one or more database tables, select the fields to include,
+and, voila, a basic form is created.</p>
+
+<p>GNUe-Common is the basis for the GNUe tools, such as Forms,
+Reports, Application Server, and Designer.  It implements a
+database-abstraction layer that provides support for most major
+databases. A builtin XML-to-Object parser and Object-to-XML
+marshaller are used by Forms, Reports, and Designer to save
+and read Forms/Report definitions to and from an XML file.
+It also defines and implements an RPC abstraction layer that
+will allow server processes to define their public methods once
+and have them available to CORBA, XML-RPC, SOAP, and DCOM
+clients.</p>
+
+<p>All of these releases are targeted at developers. They are 
+available in source form from our website at
+<a href="http://www.gnuenterprise.org/downloads/current.php">
+http://www.gnuenterprise.org/downloads/current.php</a>.</p>
+
+<p>The tools have been tested and are known to run on:</p>
+
+<ul>
+<li>GNU/Linux (RedHat 6.x/7.x/8.x, Debian 2.x/3.x, 
+    Slackware 8.0, ...)</li>
+<li>Windows 95/98/2000/XP/NT</li>
+<li>Solaris 8.0</li>
+<li>FreeBSD 4.x</li>
+</ul>
+
+<p>The main aims of this point release are to do some final tidying-up 
+before the big push for the 0.5.0 releases. This includes bringing 
+into the main code base many of the useful changes that our friends 
+at Via Libre working on Project Papo have written.</p>
+
+<p>Note that, at the moment, this release is available in source code 
+form only (*.tar.gz and *.zip). We will look at getting Microsoft Windows 
+.exe and Debian GNU/Linux package versions over the next few weeks, although 
+given the progress that 0.5.0 is making in CVS, this may overtake it...
+So our current recommendations would be:</p>
+
+<ul>
+<li>For Debian GNU/Linux and Microsoft Windows users who want an automatic 
+install: 0.4.1</li>
+<li>For other platforms, or for Debian and Windows users who are happy to 
+install from source: 0.4.2</li>
+</ul>
+
+<p>CVS HEAD (what will be 0.5.0) is currently not recommended, even 
+for testing purposes, as there is still some breakage/refactoring to 
+resolve, but it should be back into a state where willing testers 
+can usefully use it soon.</p>
+
+<p>The changes since 0.4.1 include:</p>
+
+<h5>Forms</h5>
+
+<ul>
+<li>Backported various fixes from CVS HEAD (the proto-0.5.0)</li>
+<li>Reimplemented sloppyQuery tag</li>
+<li>Updates to get curses mostly working; lots of menubar work</li>
+<li>Implemented isSaved(), isEmpty(), lastRecord(), 
+    firstRecord(), executeQuery(), commit(), rollback() based 
+    upon diff sent by Papo team</li>
+</ul>
+
+<h5>Designer</h5>
+
+<ul>
+<li>Backported various fixes from CVS HEAD (the proto-0.5.0)</li>
+<li>Applied patches for various report wizards, including 
+    label and Mail Merge wizards</li>
+</ul>
+
+<h5>Common</h5>
+
+<ul>
+<li>Backported various fixes from CVS HEAD (the proto-0.5.0)</li>
+<li>Fix for custom authenticator support</li>
+<li>Updates to get curses mostly working</li>
+<li>Added in papo's null and not null conditionals</li>
+<li>Fixes to configuration loading added support for
+    a global [default] section to config files</li>
+<li>Fix for buggy mysqldb drivers &lt; version 0.9.2a2</li>
+</ul>
+</p>
+
+<hr>
+<p><a href="old.html">Return</a> to news archive</p>

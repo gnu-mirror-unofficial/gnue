@@ -1,0 +1,18 @@
+<h1>Project Management</h1>
+
+<p>The GNU Enterprise project uses its own project/task 
+management software, Double Chocco Latte (DCL), for 
+internal project use.</p>
+
+<p>You can view tickets and work orders online at 
+<a href="https://www.gnuenterprise.org/dclgw/">
+https://www.gnuenterprise.org/dclgw/</a>. Log in using user: guest 
+password : guest. In the near future, we will let people create 
+accounts online. Until then, if you wish to have an account, please 
+e-mail <a href="mailto:info@gnue.org">info@gnue.org</a> to request 
+one.</p>
+
+<p>If you just want to report a bug or request a feature 
+without having an account, there are also 
+<a href="../community/bugs.html">e-mail</a> gateways to 
+DCL.</p>

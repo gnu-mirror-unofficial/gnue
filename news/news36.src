@@ -1,0 +1,24 @@
+<h3>KC GNUe & Updates</h3>
+<p>13th November 2001</p>
+<p>There is another KC GNUe out located <A href="http://kt.zork.net/GNUe/gnue20011110_2.html">here</a>.
+
+<p>
+
+The GNUe Team has been preparing for a new release of GNUe Forms, GNUe Designer and GNUe Common that will bring about lots of new goodies and a 0.1.0 release!!!!  There has been much toil and testing going on, but the good news for those with windows client is the hold back has been the preparation of a one click install on windows a la 'setup.exe' that will install the whole ball of wax including dependencies.  Of course the team is looking for someone willing to maintain this beast once its released.  Any takers email <a href="mailto:info@gnue.org">info@gnue.org</a>.
+
+<p>
+
+GNUe Reports and GComm within GNUe Common have also been receiving some attention as of late, we are looking to formalize a 'reporting standard' for GNUe Reports so if you have an opinion on reporting I suggest you speak up. :)  For those not knowing GComm will be an abstraction to RPC.  It is common to see abstractions from databases, we see value in abstraction in RPC, so one can use XML-RPC, CORBA, SOAP, DCOM you name it and not have to rearchitect the world.
+
+<p>
+
+The last tidbit I would like to throw out is that work with <a href="http://dcl.sourceforge.net">DCL</a> is still going nicely.  Many of the mods necessary for contact management w/in GNUe have been made to the DCL tree and we continue to progress in that area.
+
+
+
+-Derek</p>
+
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

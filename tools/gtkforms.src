@@ -1,0 +1,14 @@
+<h1>GNUe Forms (Native GTK2 client)</h1>
+
+<p>The Native GTK2 Forms client accesses the 
+GTK2 GUI (Graphical User Interface) directly 
+rather than via the wxGTK/wxpython toolkit.</p>
+
+<p>This client is fairly mature, as it re-uses 
+most of the code from the reference (wxpython) 
+version, with a few patches to use the GTK2 
+toolkit rather than wxpython.</p>
+
+<h3>Status</h3>
+
+<$ status ( "gtkforms" ) > 

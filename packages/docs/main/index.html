@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>GNU Enterprise - Module Guide Proposal</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.74b"><LINK
+REL="NEXT"
+TITLE="GNUe Module Proposal"
+HREF="modules.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="GNUEMODULEGUIDE"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="GNUEMODULEGUIDE"
+>GNU Enterprise - Module Guide Proposal</A
+></H1
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN6"
+>Reinhard Müller</A
+></H3
+><DIV
+CLASS="AFFILIATION"
+><SPAN
+CLASS="ORGNAME"
+>GNU: Enterprise Core Development Team<BR></SPAN
+></DIV
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN15"
+>Neil Tiffin</A
+></H3
+><DIV
+CLASS="AFFILIATION"
+><SPAN
+CLASS="ORGNAME"
+>GNU: Enterprise Core Development Team<BR></SPAN
+></DIV
+><H4
+CLASS="EDITEDBY"
+>Edited by</H4
+><H3
+CLASS="EDITOR"
+>Derek Neighbors</H3
+><P
+CLASS="COPYRIGHT"
+>Copyright &copy; 2000 by Free Software Foundation</P
+><DIV
+CLASS="LEGALNOTICE"
+><A
+NAME="AEN36"
+></A
+><P
+></P
+><P
+>    Copyright (c) 2000 Free Software Foundation
+  </P
+><P
+>    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.1 or 
+    any later version published by the Free Software Foundation; with no 
+    Invariant Sections, with no Front-Cover Texts and with no Back-Cover 
+    Texts.  A copy of the license is included in the section entitled 
+    "GNU Free Documentation License".
+  </P
+><P
+></P
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>1. <A
+HREF="modules.html"
+>GNUe Module Proposal</A
+></DT
+><DD
+><DL
+><DT
+>1.1. <A
+HREF="modules.html#AEN41"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+>1.1.1. <A
+HREF="modules.html#AEN44"
+>What is this document intended for?</A
+></DT
+><DT
+>1.1.2. <A
+HREF="modules.html#AEN49"
+>General Structure of GNUe Modules</A
+></DT
+></DL
+></DD
+><DT
+>1.2. <A
+HREF="x69.html"
+>Table Design</A
+></DT
+><DD
+><DL
+><DT
+>1.2.1. <A
+HREF="x69.html#AEN73"
+>Naming Conventions</A
+></DT
+><DT
+>1.2.2. <A
+HREF="x69.html#AEN102"
+>Package Names</A
+></DT
+><DT
+>1.2.3. <A
+HREF="x69.html#AEN134"
+>Data Modeling Rules</A
+></DT
+><DT
+>1.2.4. <A
+HREF="x69.html#AEN268"
+>Data Types</A
+></DT
+><DT
+>1.2.5. <A
+HREF="x69.html#AEN288"
+>Storing Redundant Data</A
+></DT
+></DL
+></DD
+><DT
+>1.3. <A
+HREF="x294.html"
+>Form Design</A
+></DT
+><DT
+>1.4. <A
+HREF="x297.html"
+>Report Design</A
+></DT
+></DL
+></DD
+><DT
+>2. <A
+HREF="businessobjects.html"
+>GNUe Business Objects</A
+></DT
+><DD
+><DL
+><DT
+>2.1. <A
+HREF="businessobjects.html#AEN302"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+>2.1.1. <A
+HREF="businessobjects.html#BUSINESSOBJECT"
+>Business Objects</A
+></DT
+><DT
+>2.1.2. <A
+HREF="businessobjects.html#NAMINGCONVENTIONS"
+>Naming Conventions</A
+></DT
+><DT
+>2.1.3. <A
+HREF="businessobjects.html#CODINGCONVENTIONS"
+>Coding Conventions</A
+></DT
+></DL
+></DD
+><DT
+>2.2. <A
+HREF="x369.html"
+>GNUe Class Files</A
+></DT
+><DD
+><DL
+><DT
+>2.2.1. <A
+HREF="x369.html#MODULESCLASSES"
+>MODULES and CLASSES</A
+></DT
+><DT
+>2.2.2. <A
+HREF="x369.html#EXTEND"
+>EXTEND</A
+></DT
+><DT
+>2.2.3. <A
+HREF="x369.html#FIELDS"
+>Fields</A
+></DT
+><DT
+>2.2.4. <A
+HREF="x369.html#TYPECOMPLEX"
+>TYPE (Complex Fields)</A
+></DT
+><DT
+>2.2.5. <A
+HREF="x369.html#TYPEDEF"
+>TYPE (Typedef) (NOT IMPLEMENTED YET)</A
+></DT
+><DT
+>2.2.6. <A
+HREF="x369.html#COMMENT"
+>Comments</A
+></DT
+><DT
+>2.2.7. <A
+HREF="x369.html#INCLUDE"
+>Include</A
+></DT
+><DT
+>2.2.8. <A
+HREF="x369.html#ORDERBY"
+>ORDER BY</A
+></DT
+><DT
+>2.2.9. <A
+HREF="x369.html#LOOKUP"
+>LOOKUP</A
+></DT
+><DT
+>2.2.10. <A
+HREF="x369.html#REFERENCE"
+>REFERENCE</A
+></DT
+><DT
+>2.2.11. <A
+HREF="x369.html#LIST"
+>LIST</A
+></DT
+><DT
+>2.2.12. <A
+HREF="x369.html#METHOD"
+>METHOD</A
+></DT
+><DT
+>2.2.13. <A
+HREF="x369.html#INHERITANCE"
+>Inheritance</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>I. <A
+HREF="appendixes.html"
+>Appendixes</A
+></DT
+><DD
+><DL
+><DT
+>A. <A
+HREF="a536.html"
+>GNU General Public License</A
+></DT
+><DT
+>B. <A
+HREF="a539.html"
+>GNU Free Documentation License</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>1-1. <A
+HREF="modules.html#AEN53"
+>Module Structure</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="modules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>GNUe Module Proposal</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

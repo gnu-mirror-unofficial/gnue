@@ -1,0 +1,159 @@
+<h3>New Releases of Forms, Designer, and Common (0.1.1)</h3>
+<p>25th January 2002</p>
+<p><p>The GNU Enterprise team is proud to announce the release of
+
+GNUe-Forms 0.1.1, GNUe-Designer 0.1.1, and GNUe-Common 0.1.1.
+
+The 0.1.1 series of releases are primarily maintenance releases.</p>
+
+
+
+  
+
+ </p>
+<hr>
+<p><p>GNUe-Forms is a platform and UI-independent forms system. It
+
+reads an XML-based forms definition and creates GUIs for Win32,
+
+GTK, and, soon, Curses and HTML. It has a fully data-aware
+
+widget set and can be used in both 2-tier and n-tier environments.</p>
+
+
+
+
+
+<p>GNUe-Designer is the IDE for the GNUe tools. It allows you to
+
+visually layout your forms in a RAD-style environment. Designer
+
+has a builtin forms client, so you can quickly test your forms
+
+while still in Designer.  Designer also now has support for
+
+form creation wizards... answer a few questions, attach your
+
+form to a table, select the fields to include, and, voila, a
+
+basic form is created.</p>
+
+
+
+
+
+<p>GNUe-Common is the basis for the GNUe tools, such as Forms,
+
+Reports, and Designer.  It implements a database-abstraction
+
+layer that provides support for most major databases. A builtin
+
+XML-to-Object parser and Object-to-XML marshaller are used by
+
+Forms, Reports, and Designer to save and read Forms/Report
+
+definitions to and from an XML file. Work has begun on an
+
+RPC-abstraction layer that will allow server processes to
+
+define their public methods once and have them available to
+
+CORBA, XML-RPC, SOAP, and DCOM clients.</p>
+
+
+
+
+
+<p>All of these releases are targeted at developers. The three
+
+products are available in source form from our website at
+
+<a href="http://www.gnuenterprise.org/downloads/">http://www.gnuenterprise.org/downloads/</a></p>
+
+
+
+<p>We also have Windows installers that include all the basic
+
+dependencies -- you only have to download a single setup.exe!
+
+The Installers include support for PostgreSQL, MySQL, and ODBC.</p>
+
+
+
+
+
+<p>GNUe-Forms 0.1.1, Designer 0.1.1, and Common 0.1.1 have
+
+been tested and are known to run on:</p>
+
+
+
+<ul><li>GNU/Linux (RedHat 6.x/7.x, Debian 2.x, Slackware 8.0, ...)</li>
+
+<li>Windows 95/98/2000/XP/NT</li>
+
+<li>Solaris 8.0</li>
+
+<li>FreeBSD 4.x</li></ul>
+
+
+
+
+
+<p><b>Changes to GNUe-Designer 0.1.1:</b></p>
+
+<ul><li>Added a Data Source Editor with table introspection support
+
+  and drag-and-drop field creation.</li>
+
+<li>Added a code editor based on Scintilla complete with Syntax-
+
+  Highlighting (which is disabled by default)</li>
+
+<li>Cleanup of Tool frames (Object Navigator is now in a separate frame)</li>
+
+<li>Addition of "Open Recent..." support (Most-Recently-Used support)</li>
+
+<li>Start of a Developer's Guide to introduce GNUe Forms concepts</li>
+
+<li>Many bug fixes and performance enhancements</li></ul>
+
+
+
+
+
+<p><b>Changes to GNUe-Forms 0.1.1:</b></p>
+
+<ul><li>Logs of bug fixes</li></ul>
+
+
+
+
+
+<p><b>Changes to GNUe-Common 0.1.1:</b></p>
+
+<ul><li>Database driver performance enhancements</li>
+
+<li>Misc bug fixes and enhancements</li></ul>
+
+
+
+
+
+<p>In other news, GNUe-Reports is coming along nicely in CVS.
+
+Expect to see a release "Real Soon."  A new tool, GNUe
+
+Navigator, has been added to the CVS tree. This provides a
+
+top-level menuing interface for GNUe client tools. Expect
+
+to see a release of GNUe Navigator by the next series of
+
+releases.</p>
+
+</p>
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

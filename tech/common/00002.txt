@@ -1,0 +1,133 @@
+Title: Overview of i18n support in GNUe tools
+Status: Current
+
+i18n:=internationalization
+
+
+This readme should describe all ideas about i18n in GNUe.
+Please feel free to put your ideas or comments here or modify this text in
+any way you think it would be better - English language is not my native
+and you'll find even some gramar mistakes here.
+
+
+i18n in this project takes care of following fields:
+ 1. All messages, labels and etc. - is possible to take all the strings out of
+    source into separate file, then translate it and import back into program.
+    Prefered font is unicode, encoding - UTF-8, but while wxPython does not 
+    support unicode, 8bit encoding will be used.
+
+
+    For .py files this can be achieved via pygettext, xpot (po-utils), 
+    xgettext or any other program that can create .po files containing
+    translatable strings.
+    (see http://www.python.org/doc/current/lib/node206.html for details)
+    Main idea: to mark string for translation in special way:
+      if we have one string to translate and other not to:
+
+          sstring1="translatable string"
+	  sstring2="non-translatable string"
+
+	we change them into:
+
+	  sstring1=_("translatable string")
+	  sstring2="non-translatable string"
+
+    That's how it works:
+      let's say we have file GBaseApp.py with translatable strings already
+      marked for translation - _('translatable string').
+      We run
+
+        xpot -d -o GBaseApp.po GBaseApp.py
+
+      result is GBaseApp.po file. In this file are only translatable stings
+      and place for their translation. Then someone does translate these
+      strings and returns us GBaseApp.po file with translations.
+      We run
+
+        msgfmt -o GBaseApp.mo GBaseApp.po
+
+      result is GBaseApp.mo file that is prepared for import into project.
+    All .mo files are stored in some translation directory, that has
+    structure:
+
+      $LC_ALL/LC_MESSAGES/files.mo
+
+    where $LC_ALL is your shell variable - something like en_US (you can 
+    look at it running echo $LC_ALL).
+    In Linux default directory for this is /usr/share/locale. For GNUe, at 
+    least for now, directory /gnue/common/translations is chosen.
+    Some example .po files are in translations folder.
+
+
+    .gfd files: user probably will have to create different .gfd files for
+    different languages himself, some automated translation may be added later.
+    Also it is possible to write .gfd files in any language (stuff like labels
+    and etc.) either in unicode or one-byte font - the only requirement would
+    be to define file encoding in XML header, like:
+      <?xml version="1.0" encoding="utf-8"?>
+    or
+      <?xml version="1.0" encoding="iso8859-13"?>
+
+
+    Using wx UI driver, it's possible to work with 8bit (one-byte; non-unicode)
+    fonts - gettext takes care of labels, status bar messages, user can input
+    text, save it to database, read from there and see it nicely. It is not
+    possible to enter/edit/save/view unicode text, unless xterm (from what 
+    forms client is started) is unicode, then it is possible only to view 
+    unicode text.
+
+    Using gtk2 UI driver, it's possible to work with unicode fonts - user can
+    input text (in unicode, not in some one-byte font), save it to database,
+    read from there and see it nicely. However, gettext translations for labels
+    and etc. breaks it (sometimes they are not displayed, sometimes it's only
+    half of them). If client is started from non-unicode xterm, it's only 
+    possible to read unicode characters.
+
+    Note that 'Hack for dn encoding' parameter in gnue.conf has also influence
+    on data - with iso8859-13 xterm, wx user interface and utf-8 db encoding,
+    it was not possible to write some chars correctly, as well as chars written
+    previously with iso8859-13 db encoding were not displayed correctly.
+    Also, with iso8859-13 db encoding (iso8859-13 xterm, wx user interface)
+    chars previously written with utf-8 db encoding were not displayed
+    correctly.
+
+
+ 2. User data - everything that user stores/works with final decision should
+    depend on user, but both one-byte encodings (like iso8859-13) and unicode
+    (encoded as utf-8) should be available.
+
+    For data that's entered as 8bit encoded data. This was checked with 
+    postgresql database, with adapter psycopg, with iso8859-13 encoding, wx
+    user interface driver and it worked fine.
+    Settings in gnue.conf were:
+
+      # hack for db encoding
+      Encoding = iso8859-13
+
+      # Font encoding to be used in forms
+      formFontEncoding = iso8859-13
+
+    For data that's entered as unicode data. This was checked with postgresql
+    database, with adapter psycopg, with gtk2 uiser interface driver and it 
+    worked fine.
+
+
+ 3. Regional settings - this is time\date, money and etc. format and other
+    country specific data.
+
+    NOTE: maybe it would be better (at least for now - to make things a bit
+    simplier) put into gnue.conf something like:
+      country=US
+    or
+      country=DE
+    and to load settings according to it.
+    Later it will be possible to take that data from operating system (?),
+    but for now i think this solution will go just fine.
+
+Used files:
+  *  all .py files that have some strings for final user.
+  *  all files in gnue/common/translations.
+  *  gnue/common/utils/create-po.sh - script to create gnue.po file from all
+     .py files.
+
+---END---

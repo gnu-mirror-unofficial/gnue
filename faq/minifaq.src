@@ -1,0 +1,66 @@
+<h1>GNUe Mini FAQ</h1>
+
+<h3>1. What is GNU Enterprise?</h3>
+
+<p>GNU Enterprise is a set of integrated business 
+applications and tools to support accounting, supply 
+chain, human resources, sales, manufacturing, and other
+business processes. A more complete FAQ may be found at 
+<a href="../faq.html">http://www.gnuenterprise.org/faq.html</a>.</p>
+
+<h3>2. How do I get help with GNUe?</h3>
+
+<p>First read the documentation. It can be found at 
+<a href="../project/docs-all.html">http://www.gnuenterprise.org/project/docs-all.html</a>.
+Once you are familiar with
+the documentation you should review the mail list archives 
+which can be found at 
+<a href="../community/mail.html">http://www.gnuenterprise.org/community/mail.html</a>.
+If the mail lists and documents do not answer your questions feel free to 
+send mail to the mail list. You may also ask you question on 
+the IRC chat channel, details of which can be found at 
+<a href="../community/irc.html">http://www.gnuenterprise.org/community/irc.html</a>.
+</p>
+
+<h3>3. How do I report suggestions, errors or omission in this FAQ?</h3>
+
+<p>All suggestions, errors, omission or other comments regarding
+the GNUe FAQ should be emailed to <a href="mailto:info@gnue.org">info@gnue.org</a>.</p>
+
+<h3>4. Where is the real FAQ?</h3>
+
+<p>The real FAQ may be found at 
+<a href="../faq.html">http://www.gnuenterprise.org/faq.html</a>.</p>
+
+<h3>5. Is GNUe Usable now?</h3>
+
+<p>The short answer is yes.  Forms works in 2-tier mode 
+directly with an SQL database for custom applications.  
+Prepackaged applications are still in the development stage.  
+Multi-tier server is still in development.</p>
+
+<h3>6. What is Free Software?</h3>
+
+<p>The GNUe project fully supports the concept of free software. 
+See <a href="http://www.gnu.org/philosophy/free-sw.html">http://www.gnu.org/philosophy/free-sw.html</a>.
+
+<h3>7. Why is GNUe GPL and what does that mean?</h3>
+
+<p>GNUe is released under the GPL license. For an example, 
+please see the GPL license at 
+<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>. 
+The actual license 
+covering GNUe is included in all GNUe distributions.
+
+<p>For a description of why GPL and why free software see 
+<a href="http://www.gnu.org/philosophy/why-free.html">http://www.gnu.org/philosophy/why-free.html</a>.</p>
+
+<h3>8. How do I help the GNUe effort?</h3>
+
+<p>Become familiar with the GNUe system then email <a href="mailto:info@gnue.org">info@gnue.org</a>. 
+There is always something that needs to be done. We need all types
+of talent. So please don't be bashful.</p>
+
+<p>To contribute to GNUe you will also have to sign a Free Software
+Foundation copyright assignment.  More information can be obtained 
+by sending email with your area of interest to <a href="mailto:info@gnue.org">info@gnue.org</a>.</p>

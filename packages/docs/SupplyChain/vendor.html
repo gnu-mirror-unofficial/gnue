@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Vendor Module</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="		GNU Enterprise - Supply Chain Package Proposal 
+	"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Receiving Module"
+HREF="receiving.html"><LINK
+REL="NEXT"
+TITLE="Capital Equipment Module"
+HREF="equipment.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>GNU Enterprise - Supply Chain Package Proposal</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="receiving.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="equipment.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="VENDOR">Chapter 7. Vendor Module</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN417">7.1. Requirements</H1
+><P
+>			This chapter is $Revision: 1.1 $ $Date: 2003/01/05 00:00:30 $. 
+		</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN420">7.1.1. Business Requirements</H2
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Maintain Vendor Information (name address, status etc). 
+					</P
+></LI
+><LI
+><P
+>						Vendor status information maintained with separate form for control and approval purposes. 
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN427">7.1.2. Future Requirements</H2
+><P
+>				The following items will be implemented in future version of this module. They may be implemented in the base module or be added via an industry specific add on. 
+			</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						none 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN433">7.1.3. Business Objects</H2
+><P
+>				The following Business Objects are defined and maintained by this module.
+			</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						Vendor 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN439">7.1.4. External Business Object References</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						none 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN444">7.1.5. Forms</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						Vendor Maintenance (Add, remove, update vendor information except status) 
+					</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>						Vendor Status Maintenance (Set vendor status active or don't use) 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN451">7.1.6. Reports</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						Vendor Master List sorted by purchasing volume year to date 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN456">7.1.7. Business Rules</H2
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>						none 
+					</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN461">7.1.8. Business Object Definition</H2
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>					
+# vendor.gcd
+#                   
+# Copyright (C) 2001 Free Software Foundation, Inc.
+#
+# This file is part of GNU Enterprise.
+#
+# GNU Enterprise is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+# 
+# GNU Enterprise is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Enterprise; see the file COPYING.  If not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307 USA.
+#
+# This file originally written by Neil Tiffin (neilt@gnue.org).
+#
+# $Revision: 1.1 $ $Date: 2003/01/05 00:00:30 $ $Author: psu_gnue $
+#
+
+include "../../../base/org/classes/org.gcd"
+include "../../../base/currency/classes/currency.gcd"
+
+module vendor
+{
+  # -------------------------------------------------------------------------
+  # vendor status i.e. approved, dont use, special purchase only
+  # -------------------------------------------------------------------------
+  class status
+  {
+    char         code&#60;8&#62;;
+    char         description&#60;25&#62;;
+    
+    INDEX (code);
+  };
+    
+    
+  # -------------------------------------------------------------------------
+  # type of vendor.  service, raw material, labor.
+  # -------------------------------------------------------------------------
+  class v_type
+  {
+    char       code&#60;8&#62;;            # vendor type
+    char       description&#60;25&#62;;
+        
+    INDEX (code);
+  };
+    
+    
+  # -------------------------------------------------------------------------
+  # vendor specific information
+  # -------------------------------------------------------------------------
+  class vendor : org::organization
+  {
+    text            ven_notes;    # notes specific to vendors
+    
+    vendor::status *status;   # Approved, dont use etc.
+    vendor::v_type   *v_type;     # Service, manufacturer, office supplies etc.
+    
+    char            std_terms; # TODO should be pointer
+    
+    currency::money year_0;  # this year to date
+    currency::money year_1;  # last year
+    currency::money year_2;  # year before
+    
+    date            last_receipt;
+  };
+
+};
+ 
+				</PRE
+>
+			</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="receiving.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="equipment.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Receiving Module</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Capital Equipment Module</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

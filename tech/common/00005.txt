@@ -1,0 +1,203 @@
+Title: Writing a Custom Login/Authentication Handler
+Status: Current
+Revised: 18-SEP-2002
+
+
+Introduction
+------------
+
+By default, GNUe clients look at a database connection, determine what
+fields it needs in order to login (e.g., username and password), and then
+asks its platform/interface dependent login handler to prompt the user for
+this information. Once returned, the client connects to the database using
+this information.
+
+If needed, you can intercept a client's normal login handler to add your
+own behavior.
+
+
+Why?
+----
+Sometimes it is not enough to prompt for the "database" login.  Perhaps
+you want finer control over logins, or simply need to authenticate against
+something besides the database.
+
+You might want to authenticate against an NIS source, LDAP, or some custom
+source.  Maybe you have many users and want to authenticate against rows in
+a database table and have the actual database login name/password be a
+common one that no one knows; i.e., while users Jason and James might log
+in using "jason" and "james", they might both connect to the database as
+"commonuser".  Since you may not trust James, you only want him to know
+that he is logging in as "james" and never know that he is being connected
+as "commonuser".
+
+
+
+What do I do?
+-------------
+
+First, a little explanation of how logins work:
+
+1. A client needs to initialize a connection to a database, so it passes
+   GNUe-Common a description of the database and asks for it to connect.
+
+2. GNUe-Common looks at the database description, determines what values
+   are needed to connect (usually, username and password).
+
+3. GNUe-Common creates an instance of (or uses an existing instance of)
+   gnue.common.GLoginHander.LoginHandler, or if the client provides a
+   more advanced login handler (e.g., GNUe Form's graphical handler), an
+   instance of this.
+
+4. GNUe-Common calls LoginHandler.getLogin(), passing it basic information
+   about the needed connection and a list of values that login handler
+   should provide (i.e., '_username' & '_password').
+
+5. GNUe-Common uses the results of the call to LoginHandler.getLogin() to
+   create a connection to the database.
+
+
+Now, if needed, you can create an Authenticator class that basically
+intervenes in between steps #3-4 above and provide your own functionality.
+
+If all goes well, your login handler will be used the next time you log in.
+
+Some notes:
+
+  1) GNUe-Common will expect to see to two objects in your handler's
+     namespace:   LoginHandler   (from the import statement) and
+                  MyLoginHandler (your customized login class)
+
+     For this reason, do NOT change the import statement to read:
+       from gnue.common import GLoginHandler
+     and then change the class' parent to be GLoginHandler.LoginHandler.
+     If you do, your customized handler will probably not work the way
+     you expect.
+
+  2) Almost the only restriction placed on getLogin's functionality is
+     that it must return a hash containing at least the values requested
+     when getLogin was called, using the value id's supplied. Your code,
+     in theory, can do whatever it needs in order to return these values.
+
+     HOWEVER: Even though it is possible, it is NOT recommended that you
+     try to write your code to prompt for the values.  It is HIGHLY
+     recommended that you return values in the getLoginFields method so
+     LoginHandler.getLogin can prompt for input.  The LoginHandler will
+     know how to handle the current user's environment (i.e., should it
+     display a GTK login box, generate HTML for a login box, not display
+     a box at all, but prompt using good ol' fashioned text prompts?)
+     It is quite extensible.  If you need to prompt for more fields than
+     simply Username and Password, then simply add a definition to your
+     requiredFields tuple and let the LoginHandler's getLogin prompt for 
+     you.
+
+
+There are three steps to adding a custom authenticator:
+
+1. Create (or copy) a Python file that implements an Authenticator.
+   An Authenticator contains a class called Authenticator, which has
+   two methods, getRequiredFields() and login().  See the example below
+   for details on what's expected from these two methods.
+
+2. Place this file in either your Python search path, or in a
+   path specified by ImportPath (in the [common] section of gnue.conf)
+
+3. In your connections.conf file, add a custom_auth parameter that
+   is the name of the file (without the path or .py extension):
+
+     [myconn]
+     adapter = psycopg
+     host = localhost
+     dbname = mydb
+     custom_auth = MyPostgresAuthenticator
+
+
+Creating a custom authenticator
+===============================
+A slightly more complicated example.  You have a table in one of your databases
+called "users", that has a user and password field.
+
+Your users will connect to the database using the username and password:
+dbUser  and dbPassword.
+
+You, however, want them to use their own username and password to be
+authenticated, but after getting authenticated, the database only cares
+about the real "dbUser" and "dbPassword".
+
+File: MyPostgresAuthenticator.py
+===============================================================================
+import psycopg
+from gnue.common.GConnections import LoginError
+
+class Authenticator:
+  #
+  # getLoginFields is passed an list consisting of:
+  #   Fields to Input:
+  #      Attribute Name, Label/Description, Is Password?
+  #
+  #   This list is a list of the values the dbdriver
+  #   expects to get back in order to login.
+  #
+  #   It should return a similarly formatted list that
+  #   tells the LoginHandler what values need to be
+  #   prompted for. (Typically, _username and _password)
+  #   If nothing should be prompted (e.g., you have a
+  #   certificate) then return () (an empty list).
+  #
+  def getLoginFields(self, dbRequiredFields):
+    return dbRequiredFields
+
+  #
+  # Authenticate the user givem the values prompted for.
+  # If the information is incorrect, then raise
+  # gnue.common.GConnections.LoginError
+  #
+  # It should return a dictionary of {Attribute Name: Value}
+  #
+  def login(self, loginData):
+    conn = psycopg.connect(user="theValidator",
+                 password="hotmomma",
+                 dbname="logins",
+                 host="localhost"')
+    cursor = conn.cursor()
+    results = cursor.execute (
+        'select 1 from users where username=%s and password=%s',
+        (loginData['_username'],
+         loginData['_password']) )
+    if not results.fetchone():
+      raise LoginError
+    else:
+      loginData['_username'] = 'dbLogin'
+      loginData['_password'] = 'dbPassword'
+===============================================================================
+
+Note: there are no hard and fast rules about what can go into the
+connections.conf file.  If your authenticator needs more information
+stored in connections.conf, it is fine to do so.
+
+However, to avoid namespace collisions, you should probably prefix
+any custom connection.conf entries with common prefix. For example,
+if you are writing an NIS adapter, you should prefix entries in
+connections.conf like:
+
+  auth_nis_domain = MYDOMAIN
+
+instead of something like:
+
+  domain = MYDOMAIN
+
+More examples:
+
+  auth_ldap_*
+  auth_pg_*
+  auth_mysql_*
+  auth_kerberos_*
+  auth_custom_*
+
+
+If you have written a customized login handler using backends not currently
+in our samples file (i.e., against NIS, Kerberos, LDAP, etc) and would like
+to donate your example for others to learn from, please email it to:
+
+       info@gnue.org
+

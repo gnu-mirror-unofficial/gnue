@@ -1,0 +1,15 @@
+<h3>DCL & GNUe Merger Showing Fruit</h3>
+<p>14th March 2002</p>
+<p>The good news is that the merger of GNUe and DCL is already bearing fruit.  There are several new users of both products because of the announcement, as well as some new development blood. :)  Some work has been started to bring GNUe Forms Front-Ends to DCL.
+
+<p>
+
+<A href="http://www.gnuenterprise.org/modules.php?op=modload&name=NS-My_eGallery&file=index&do=showpic&pid=32">Here</a> is an example of a front end for the account maintenance of the DCL 20020215 release.  With GNUe Designer it took about 15 minutes (or less) to make this form and have it functional remotely via ssh.
+
+<p>
+
+During the next week I will try to pound out as many front end screens as possible and get into cvs for public consumption, but wanted to let it be known that already good things are coming out of the uniting of our teams!</p>
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

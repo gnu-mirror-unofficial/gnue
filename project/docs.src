@@ -1,0 +1,29 @@
+<h1>Project Documentation</h1>
+
+    <b>GNU Enterprise: An Introduction for Developers</b> 
+    (<A HREF="../project/docs/DevelopersIntroduction/developerintro.html">HTML</a>) 
+    (<a href="../project/docs/DevelopersIntroduction.ps">Postscript</a>) 
+    (<a href="../project/docs/DevelopersIntroduction.rtf">RTF</a>) 
+    (<a href="../project/docs/DevelopersIntroduction.pdf">PDF</a>)
+    <br />
+    An overview of the GNU Enterprise project from a developers view.
+    </p>
+
+    <p><b>What is Quality?</b> 
+    (<A HREF="../project/docs/quality.html">HTML</a>) 
+    (<A HREF="../project/docs/quality.ps">Postscript</a>) 
+    (<A HREF="../project/docs/quality.pdf">PDF</a>)
+    <br />
+    An introduction into what quality management should be.
+    </p>
+
+    <p><b>GNUe Security Framework</b> 
+    (<A HREF="../project/docs/security.html">HTML</a>) 
+    (<A HREF="../project/docs/security.ps">Postscript</a>) 
+    (<A HREF="../project/docs/security.pdf">PDF</a>)
+    (<A HREF="../project/docs/security.txt">Text</a>)
+    (<A HREF="../project/docs/security.rtf">RTF</a>)
+    <br />
+    A draft proposal for a security framework for GNU Enterprise
+    </p>
+

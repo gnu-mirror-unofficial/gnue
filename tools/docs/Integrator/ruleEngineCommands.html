@@ -1,0 +1,243 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Ajitesh Das">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (WinNT; U) [Netscape]">
+   <title>Rule Engine Commands</title>
+</head>
+<body>
+
+<h1>
+<font face="Arial,Helvetica">Design Document #1</font></h1>
+
+<h2>
+<font face="Arial,Helvetica">Rule Engine for Integrator</font></h2>
+<font face="Arial,Helvetica">created by Ajitesh Das[ajitesh@gnue.org]</font>
+<h4>
+<font face="Arial,Helvetica">Introduction</font></h4>
+<font face="Arial,Helvetica">This document explains the command set used
+for writing custom rules in rule engine. It describes the rule commands,
+their default values and error conditions/definations for each commands.</font>
+<br>&nbsp;
+<h4>
+<font face="Arial,Helvetica">Integrator Architecture</font></h4>
+<font face="Arial,Helvetica">The following diagram describes the rule engine
+architecture as a whole.</font>
+<br><img SRC="ruleEngi.jpg" height=1024 width=1280>
+<h4>
+<font face="Arial,Helvetica">Integrator Specific phython command set</font></h4>
+<font face="Arial,Helvetica">This section describes the *new* commands
+set for intgrator functionality.</font>
+<ul>
+<li>
+<font face="Arial,Helvetica">begin</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This commands demarks the begining of integrator
+rule set. Internally this initializes the rule engine, embeded with standard
+python engine. The usage of this command is mandatory otherwise, usage
+of any *custom*/*new* integrator commands emits error as UNINITIALIZED_RULE_ENGINE.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Usage:&nbsp;&nbsp;&nbsp; > begin</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">end</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This command demarks the end of integrator
+rule set. Internally this command issues a cleaning initiative and drop
+of all temporary tables/files used internally for rule computations. This
+usage is mandatory otherwise,usage of any "begin" command emits error as
+UNCLOSED_RULE_ENGINE.</font></li>
+
+<li>
+<font face="Arial,Helvetica">If the python engine, the container for custom
+rule engine, is exited, the system automatically clean up the temporary
+file as described above.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Usage :&nbsp; > end</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">errorno</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This commands displays the last error condition,
+experienced in the current rule execution. This is with the similar idea
+of UNIX error variable,errorno.&nbsp; Whenever the rule engine experiences
+an error condition, this variable is set. The latest error always overwrites
+the previous error if any.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Usage : >errorno</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">describe &lt;errorno></font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This command describes briefly about the error,
+its possible cause and possible way to rectify this error.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Usage : > describe UNINITIALIZED_RULE_ENGINE</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">load &lt;file_path_name></font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This commands loads the input data file. Internally
+this file is parsed with input schema converter and converted into internal
+XML data format. In case of errors, this command emits following error:</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">UNKNOWN_FILE_RULE_ENGINE -: if file_path_name
+is invalid</font></li>
+
+<li>
+<font face="Arial,Helvetica">UNKNOWN_DATA_FORMAT_RULE_ENGINE -: if data
+from input file does not match with the input schema convertor.</font></li>
+
+<li>
+<font face="Arial,Helvetica">PARSE_ERROR_RULE_ENGINE -: data parsing error.</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Usage: > load&nbsp; /mnt/myserver/rdbms/oracle/hr/export/employee.dat</font></li>
+
+<li>
+<font face="Arial,Helvetica">In future release, we need to modify this
+command to execute SQL statements so that it can load the results data
+directly from the data source.</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">spit &lt;output stream></font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This command uses for debugging purpose. This
+command spits out the internal XML data {before/after rule transformation}
+on the output stream. By default, it spits out on the standard output i.e
+STDOUT. If error, this emits the following : OUTPUT_STREAM_ERROR_RULE_ENGINE.
+Internally the xml data is stored as DOM tree.</font></li>
+
+<li>
+<font face="Arial,Helvetica">Usage: > spit myStream</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">dump &lt;output stream > | &lt;output file
+name></font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This command dumps the processed data directly
+into output stream or into the datafile given as an argument. Internally
+it uses the output schema converter to convert data from internal XML format
+to the target data format. If error, it emits the followings :</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">OUTPUT_STREAM_ERROR_RULE_ENGINE : if there
+is an error in output stream</font></li>
+
+<li>
+<font face="Arial,Helvetica">OUTPUT_FILE_ERROR_RULE_ENGINE: if there is
+an error in output file</font></li>
+
+<li>
+<font face="Arial,Helvetica">OUTPUT_GENERATE_ERROR_RULE_ENGINE : if there
+is an error while generating target schema data from xml internal data.</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Usage : > dump STDOUT</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">run</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This commands executes the custom rules on
+internal XML data and transforms into *processed* xml data. Since the xml
+data internally represents as a DOM tree. This commands actually modify
+the initial tree structure and regenerate a new processed tree. If error,
+it emits the following :</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">PROCESSING_ERROR_RULE_ENGINE: if there is
+an error internally while processing.</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Usage : > run</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">rule&nbsp; [ add| sub| mul|div|mod&nbsp;&nbsp;
+a, b ,c ]&nbsp; [ concat a,a1,a2,.......,an] [ split a[],a,b] [ replace
+a,b,c]</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">This command describes each custom rules.All
+a,b,c,a1,......,an, a[] are qualified variables. That means, the values
+are associated with <i><u>the name of element (XML).</u></i> The basic
+assumpsion is the element name is Unique in the DOM tree.</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">add/sub/mul/div/mod a,b,c&nbsp; => a = b op
+c where op = +,-,*,/,% and a,b,c = real numbers</font></li>
+
+<li>
+<font face="Arial,Helvetica">concat a,a1,a2,.....,an => a .= ai.a(i-1)&nbsp;
+where i = 1....(n-1)</font></li>
+
+<li>
+<font face="Arial,Helvetica">split a[], a,b => split a with b (for each
+occurence of b in a ) and store them to a[]</font></li>
+
+<li>
+<font face="Arial,Helvetica">replace a,b,c => replace the substring b with
+c in a</font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">If&nbsp; error, this command emits the following:</font></li>
+
+<ul>
+<li>
+<font face="Arial,Helvetica">ARITHMATIC_ERROR_RULE_ENGINE</font></li>
+
+<li>
+<font face="Arial,Helvetica"></font></li>
+</ul>
+
+<li>
+<font face="Arial,Helvetica">Usage : > rule add V(TOTAL), V(RUM), V(GIN)&nbsp;&nbsp;&nbsp;
+{ adding rum and gin price to total }</font></li>
+</ul>
+</ul>
+
+<h4>
+<font face="Arial,Helvetica">Example scripts</font></h4>
+<font face="Arial,Helvetica">TBD</font>
+</body>
+</html>
+
+<!-- This document saved from http://goats.gnue.org/~ajitesh/ruleEngineCommands.html -->

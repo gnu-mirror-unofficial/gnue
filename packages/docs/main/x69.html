@@ -1,0 +1,1002 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Table Design</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.74b"><LINK
+REL="HOME"
+TITLE="GNU Enterprise - Module Guide Proposal"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GNUe Module Proposal"
+HREF="modules.html"><LINK
+REL="PREVIOUS"
+TITLE="GNUe Module Proposal"
+HREF="modules.html"><LINK
+REL="NEXT"
+TITLE="Form Design"
+HREF="x294.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>GNU Enterprise - Module Guide Proposal</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="modules.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 1. GNUe Module Proposal</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x294.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN69"
+>1.2. Table Design</A
+></H1
+><P
+>In GNUe, all the installed modules will store their data in one
+database. The following conventions should be considered when table
+definitions are designed.
+  </P
+><P
+>You should note that most of the GNUe design will be accomplished by
+the design of business objects.  This section really refers to GEAS and
+how GEAS handles the back end databases.  For designing business
+objects see the next chapter.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN73"
+>1.2.1. Naming Conventions</A
+></H2
+><P
+>Every GNUe module can add new tables as well as add new columns to
+existing tables. So it has to be made sure that not two modules use the
+same name for two different tables, and that not two modules use the
+same column name in a table for two different purposes.
+    </P
+><P
+>Another purpose for naming conventions is to make it easy for users to
+recognize intuitively the meaning of the different columns and tables.
+    </P
+><P
+>I would suggest the following naming conventions for tables that are
+newly created by the module:
+    </P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>Every table name consists of a module-name, an underline symbol, and a
+meaningful class name. The module-name is the same for all new tables a
+module defines.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>The module-name should be 3 characters or longer, where big
+and widely-used modules should have shorter names and small and
+seldom used modules can have longer names.
+      </P
+><P
+>To ensure uniqueness of module prefixes, they should be coordinated by
+some central authority at least for standard and extended modules.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Modules that belong together somehow should show their relationship by
+using prefixes with the first some letters being the same.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>The meaningful name should conventionally be singular rather than plural.
+      </P
+></LI
+></UL
+><P
+>The naming conventions for columns would be:
+  </P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>Columns of a table belonging to the module should have a simple column
+name. The module-prefix need not be used for such columns.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Columns a module adds to a table belonging to another module must be
+prefixed by the module-prefix. This is the same prefix that is used for
+table names.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Column names should be understandable (consider the rules for naming
+variables in the Gnu Coding Standards).
+Columns of different tables with the same meaning should have the same
+name.
+      </P
+></LI
+></UL
+><P
+>The following examples should make things clearer:
+  </P
+><P
+>One of the base modules could be a customer management module, used in
+the G/L as well as for sales order processing or for CRM. This module
+would probably choose cus as it's module-prefix.
+  </P
+><P
+>So, according to the above conventions, the customer table would be
+named cus_customer, and the name of the customer would be
+cus_customer.name.
+  </P
+><P
+>Another widely used module would be the sales order processing module,
+maybe choosing the prefix sop. The sales order table would be
+named sop_order and could be easily distinguished from the
+purchase order tables pop_order of the purchase order processing
+module pop. The terms of payment for this order would be saved in
+a column named sop_order.payment.
+  </P
+><P
+>If the designer of the sales order processing module would choose to
+extend the customer table to store the default terms of payment for a
+given customer, the resulting column would be named
+cus_customer.sop_payment. Thus, this column can be easily
+identified as being a ``cuckoo's egg''.
+  </P
+><P
+>Another module, the famous local car dealer's ``favorite car module''
+would not add any table at all, but only extend the cus_customer
+table by the column cus_customer.favcar_favorite.
+    </P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN102"
+>1.2.2. Package Names</A
+></H2
+><P
+>Eventually packages will be used to select parts of GNUe for
+distribution and use.  Currently packages names are only used in the
+cvs heirachy to group modules. 
+    </P
+><P
+>It should also be noted that the base level of granularity for the
+GNUe system is modules. Any module can be installed individually.  
+	</P
+><P
+>The following package names should be used:
+	</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>	supply_chain - Supply chain, distribution, purchasing, inventory.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	base - Common to all modules.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	sales - Traditional sales and order entry.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	e_comm - Electronic commerce, EDI, and web sales.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	crm - Customer relations management.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	mfg - Manufacturing.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	fin - Finance and accounting. (recent change)
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	hr - Human Relations.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	prj - Project Management.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	budget - Budget Management.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	r_d - Research and Development.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	facilities - Facilities Management.
+		</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>	eng - Engineering
+		</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN134"
+>1.2.3. Data Modeling Rules</A
+></H2
+><P
+>Understanding the data model is a very basic thing for understanding a
+module. In order to make the data model more understandable for others,
+some general guidelines should be agreed upon and followed.
+  </P
+><P
+>(Remark: I know that none of the following topics is new or
+revolutionary, but that rather all of them have somehow been implemented
+yet. The point would be that we would use these structure
+consistently.)
+  </P
+><P
+>I would divide the tables of a data model into the following classes:
+    </P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN139"
+>1.2.3.1. Base Tables</A
+></H3
+><P
+>These tables are typically common or used with many modules. The base
+tables are created from base business objects which are currently found in the
+base package in cvs.
+      </P
+><P
+>Examples include:
+      </P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>item - only the base item fields, as the modules may also have a sales_item and a stock_item.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>units of measure
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>currency
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>people
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>locations
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>etc
+      </P
+></LI
+></UL
+><P
+>These tables contain rather static information. No usual
+transaction should result in any change in such a table.</P
+><P
+>Most of the information stored in these tables is entered directly by
+the user.</P
+><P
+>These tables are typically introduced by some modules and occasionally
+extended by some columns in other modules. In some cases the business objects are not tables at all, but are used as generic definitions that are included in other business objects.  See Chapter 2 inheritance and EXTEND keywords.
+      </P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN159"
+>1.2.3.2. Auxiliary Tables</A
+></H3
+><P
+>&#13;Auxiliary tables are those tables giving meaning to codes, which can range
+from just expanding a shortcut into some longer text to providing
+information about how to process transactions depending on the code.
+     </P
+><P
+>   
+Some examples:
+     </P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>expanding territory codes to their full, human-understandable meaning,
+e.g. E12a to Northern Europe.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>expanding a warehouse code into the full address of the warehouse.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>providing taxation information per item tax code.
+      </P
+></LI
+></UL
+><P
+>Auxiliary tables are probably the most static tables of the whole
+system. They are maintained only by the user. No change in a table of
+this type may be done auto magically by the system.</P
+><P
+>Some proprietary systems use a single table for all
+code-to-meaning-expansions, providing a column in this table telling
+what type of code is expanded. We don't do this in GNUe, because it may
+come that for some code we will need additional columns. Very many
+tables have started as code/meaning-tables and have grown. Instead, GNUe
+uses a separate table for each type of code.</P
+><P
+>Something very related to auxiliary tables are matrix tables. They
+store static, user-provided information depending on two or more codes
+and/or base table ID's.</P
+><P
+>Examples for matrix tables are</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>accounting information per item accounting code and customer accounting
+code
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>special prices per item and customer
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>discount per customer and item discount code
+@end itemize
+      </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN181"
+>1.2.3.3. Document Tables</A
+></H3
+><P
+>These tables store the business documents. There is typically some
+master/detail-relationship in these tables; sometimes a rather complex
+one.
+     </P
+><P
+>Some modules include more than one document type (each of them
+consisting of several tables).</P
+><P
+>Examples include:</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>GNUe Inventory would provide some document for shifting goods from one
+storeroom to another and for changing stock without using sales/purchase
+order processing.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>GNUe Sales would possibly follow the line: offer -&#62; sales order -&#62; bill
+of material -&#62; invoice
+      </P
+></LI
+></UL
+><P
+>Document tables are filled by the user through the corresponding
+business object.</P
+><P
+>Some documents result in a transaction (e.g. a bill of material does, an
+offer does not). These transaction should take place as soon as the
+document is entered or generated, even if it is not printed out
+immediately. The record of the generated transaction log entry should be
+addressable out of the document table, so that the transaction log entry
+can be deleted when the document is reversed. Transaction logs are
+discussed in Transaction Log Tables.
+      </P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN193"
+>1.2.3.4. Batch Tables</A
+></H3
+><P
+>Batch tables should be a convenient way for other modules and/or
+external systems and/or the user to feed a GNUe module with data.</P
+><P
+>Batch tables are flat tables without master/detail relationships. There
+are document batch tables and transaction batch tables.</P
+><P
+>Document batch tables can be used to easily generate documents without
+dealing with the complex table structure of the document.</P
+><P
+>Transaction batch tables are the only way to generate transactions
+without going the direct way through the business object.</P
+><P
+>Examples include:</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>sales order batch table, from which sales orders can be generated
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>G/L batch table, which could be a way for the user to enter data into
+the G/L module without having booked it immediately. Data would of
+course be checked while entered.
+      </P
+></LI
+></UL
+><P
+>&#13;Every batch table has an assigned business object which is able to
+process a given batch number. For supporting external systems, batch
+processing should be doable even from command line.</P
+><P
+>Batch tables typically consist of few columns that must be filled
+in and more columns that may be filled in, but can also be left
+empty, so that the system will take standard values.</P
+><P
+>Using batch tables is an additional possibility to feed data into GNUe
+modules, complementing the business objects. However, batch tables have
+some advantages:</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>Document batch tables make it easily possible to feed a number of items
+to be processed and let the business object decide which items can be
+combined into one document.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Batch tables can be persistent. Processing of batch tables can be
+delayed by the user, e.g. to
+      </P
+></LI
+></UL
+><A
+NAME="AEN213"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>print the batch and let the boss sign it before it is processed
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>wait until the batch is big enough to be worth while being processed
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>save time during the day and process it in the night.
+      </P
+></LI
+></UL
+></BLOCKQUOTE
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>Batch tables can even be used by systems that don't speak CORBA.
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>You can transfer data in batch tables from one GNUe installation to another without having problems with data integrity.
+      </P
+></LI
+></UL
+><P
+>By convention, batch table names end in _batch.
+
+      </P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN227"
+>1.2.3.5. Transaction Log Tables</A
+></H3
+><P
+>These tables store all information on all the transactions concerning a
+certain base table. Every base table has a transaction log table
+assigned.</P
+><P
+>Transaction log tables are flat (have no master/detail-relationship).</P
+><P
+>Examples include:</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>stock log stores all transactions where any item's stock has changed
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>customer log stores all bills, credits and payments
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>account log of course stores all transactions on a given account
+      </P
+></LI
+></UL
+><P
+>Records of such a table are neither created nor modified manually by a
+user, but maintained automatically by the corresponding business
+objects; mostly generated out of batch tables or document tables.</P
+><P
+>Transaction log tables usually have many secondary keys as they serve as
+the base for many reports.</P
+><P
+>Transaction log tables are by convention named after the corresponding
+base table suffixed by ``_log''.
+      </P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN242"
+>1.2.3.6. Balance Tables</A
+></H3
+><P
+>These tables contain information about balances regarding certain dates.</P
+><P
+>A master/detail-relationship in the base table can be reflected in a
+master/detail-relationship in the corresponding balance table.</P
+><P
+>Examples:</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>item balance stores actual stock, reserved stock and available stock for
+every item per end of each month
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>stock balance stores the same per storeroom
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>customer balance stores what the customer owes per end of each month
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>account balance simply stores the balance of each account per end of
+each month
+      </P
+></LI
+></UL
+><P
+>These tables contain 100% redundant information and are never
+changed by the user. These tables are updated by the system every time a
+entry in the transaction log table is created, modified or deleted.</P
+><P
+>The only reason to have these tables is for performance reasons.</P
+><P
+>For each balance table, the period of creating balances should be
+configurable by the user.</P
+><P
+>If GNUe has no bugs, the figures in the balance table must at every
+moment be identical to the sum of all entries of the transaction log
+before the given point in time. Due to this, there will be business
+objects for every balance table that</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+STYLE="list-style-type: disc"
+><P
+>check whether the sums are still correct and
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>correct the balances according to the transaction log or maybe even
+      </P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>generate an entry in the transaction log to make it fit the balance.
+      </P
+></LI
+></UL
+><P
+>By convention, balance tables are named like the corresponding base
+tables and suffixed by _bal.
+      </P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN268"
+>1.2.4. Data Types</A
+></H2
+><P
+>Using the same data types for the same purpose consistently makes it easy
+for the modules to communicate with each other, and for the maintainers
+to learn into another module.</P
+><P
+>Use of the following data types would be recommended:
+
+    </P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN272"
+>1.2.4.1. Primary Keys</A
+></H3
+><P
+>Primary Keys of a table should never be user-visible and may not have
+any other meaning than to provide a unique identification of a specific
+row.</P
+><P
+>All tables will have a user-visible, meaningful key, which may consist
+of one or more columns, and which will not be the primary key.</P
+><P
+>Batch tables, as they may be filled by the user or by external systems,
+should provide the possibility to choose between filling in the primary
+key or the user-visible key.</P
+><P
+>All other tables must reference the primary key to make all
+user-visible data changeable.</P
+><P
+>For the generation of primary keys, we will not use auto increment
+features of the database, as different database back ends implement
+that very differently or maybe even not at all. We will rather use
+64-bit-integer values for primary keys and have seed tables, where
+the last used value per table is stored.
+There are very strong plans about implementing this in GEDI and
+have the business layer see ``virtual auto increment fields'', so
+a module writer doesn't have to know about this at all. (I wonder,
+why I write this here, anyway).
+      </P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN279"
+>1.2.4.2. Money</A
+></H3
+><P
+>Money is now defined as a base object in the currency module.  It
+is defined as a 64 bit integer with an implied decimal point.  So if
+the integer value was = 1234567 and the implied decimal point was 3,
+the actual amount of money representated will be 1234.567.  Also a
+currency must be defined for all money objects.  In a single currency
+system the default currency should make this transparent to the casual
+user.
+      </P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN282"
+>1.2.4.3. Quantity</A
+></H3
+><P
+>Quantity is now defined as a base object in the unit module. Like
+currency, a quantity is defined with a 64 bit integer, an implied
+decimal point and a unit of measure.  If the unit of measure is
+"each" then "each" must be defined in the unit object of the unit
+module.
+      </P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN285"
+>1.2.4.4. Codes</A
+></H3
+><P
+>Codes (that means the user-visible key to auxiliary tables) will be
+char&#60;8&#62; consistently, which will enable the user to make the codes
+meaningful and easy to remember.
+      </P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN288"
+>1.2.5. Storing Redundant Data</A
+></H2
+><P
+>Redundant data is stored in the database if and only if performance can
+be won, &#62;i.e. if a large (in most cases undetermined) count of database
+rows would have to be processed to come to the result.</P
+><P
+>Sums and balances are a typical case of redundant data which is stored
+in the database, e.g. grand total value of an invoice, or all balance
+tables.</P
+><P
+>Redundant data which can easily be calculated out of a known low number
+of database rows (in most cases one, or one result row of some joined
+tables) will not be stored in the database but will be provided by the
+middle tier business objects. Typical examples include total of an
+invoice item (which calculates from quantity x price - discount), or
+stock available when we have stock total and stock
+reserved.</P
+><P
+>For every redundant data stored in the database, the corresponding
+business object must have a method to check whether the redundant data
+is consistent and to adjust inconsistent data if desired.
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="modules.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x294.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>GNUe Module Proposal</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="modules.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Form Design</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

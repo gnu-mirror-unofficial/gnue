@@ -1,0 +1,71 @@
+<h3>CVS Nightly Snapshots Available</h3>
+<p>24th January 2002</p>
+<p>Nightly snapshots of the GNUe code base are now available via our
+
+website at:
+
+<p>
+
+<a href="http://www.gnuenterprise.org/downloads/snapshots/">http://www.gnuenterprise.org/downloads/snapshots/</a>
+
+<p>
+
+These are primarily useful for developers who wish to test the current 
+
+CVS base but cannot use the cvs tools (e.g., people behind a firewall).
+
+<p>
+
+These snapshots are made at approximately midnight (Central timezone)
+
+each night.  Snapshots are kept for 5 nights before being deleted.
+
+Snapshots are available in both Unix *.tar.gz and Win32 *.zip formats.
+
+<p>
+
+********************************************************************
+
+<p>
+
+NOTE: These are CVS snapshots and, as such, may or may not run as
+
+expected.
+
+<p>
+
+If you are looking for the latest released versions of the tools,
+
+visit <a href="http://www.gnuenterprise.org/">http://www.gnuenterprise.org</a> and click on the Downloads link.
+
+<p>
+
+********************************************************************
+
+<p>
+
+If you plan to follow GNUe development and are familiar with CVS, you
+
+are much better off using cvs. For information about accessing our
+
+CVS tree, see:
+
+<p>
+
+    <a href="../community/cvs.html">http://www.gnuenterprise.org/community/cvs.html</a>
+
+<p>
+
+Thanks, 
+
+<p>
+
+Jason Cater
+
+
+
+</p>
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

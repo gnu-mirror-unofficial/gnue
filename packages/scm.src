@@ -1,0 +1,61 @@
+<h1>Supply Chain Management</h1>
+
+<p>Supply Chain Management (SCM) optimizes the flow of information and
+materials from your customer's initial order through to delivery to their 
+front door. This process requires the coordinated efforts of your suppliers 
+plus workers in Order Entry, Inventory, Manufacturing, Shipping, Purchasing 
+and Billing. Even your Web Store can be involved. Your company's 
+competitiveness depends directly of how well you optimize your SCM business 
+process. With GNU Enterprise SCM, you will have a good head start.</p>
+
+<ul>
+  <li><a href="#order_entry">Order Entry</a></li>
+  <li><a href="#inventory">Inventory</a></li>
+  <li><a href="#manufacturing">Manufacturing</a></li>
+  <li><a href="#shipping">Shipping</a></li>
+  <li><a href="#purchasing">Purchasing</a></li>
+  <li><a href="#billing">Billing</a></li>
+</ul>
+
+<h3><a name="order_entry">ORDER ENTRY</a></h3>
+
+<p>Order Entry receives the order from the customer. This can be over the
+telephone or via e-commerce. From Order Entry, the order goes to Shipping or
+Manufacturing. When the order has been shipped, the order goes to Billing.</p>
+
+<h3><a name="inventory">INVENTORY</a></h3>
+<p>Inventory controls the company's goods and materials until they are used up
+or sold. Purchasing issues Purchase Orders to replenish stock. Receiving
+receives the physical goods and verifies their quantity and quality.
+Shipping and Manufacturing withdraw items from Inventory.</p>
+
+<h3><a name="manufacturing">MANUFACTURING</a></h3>
+
+<p>See <a href="manuf.html">here</a>.</p>
+
+<h3><a name="shipping">SHIPPING</a></h3>
+
+<p>Shipping receives orders directly from Order Entry if there is no
+manufacturing involved or from Manufacturing if there is. It's function is
+to assemble the goods and materials to satisfy the order, package them and
+select transportation to satisfy the customer's due date.</p>
+
+<h3><a name="purchasing">PURCHASING</a></h3>
+
+<p>Purchasing receives Purchase Requisitions for staff and from Manufacturing.
+It issues Purchase Orders to replenish stock and obtain other goods
+necessary for the company's operations. Receiving (which is part of
+Purchasing) receives the physical goods and verifies their quantity and
+quality. Purchasing's two main objectives are to obtain the best price for
+the goods required and to expedite the delivery of goods so that shipment to
+customers is not delayed.</p>
+
+<h3><a name="billing">BILLING</a></h3>
+<p>Billing receives orders which have been shipped and delivers an Invoice to
+the customer. This can be in the form of a printed document or a transaction
+sent through e-commerce.</p>
+
+<h3>Status</h3>
+
+<$ status ("scm") > 
+

@@ -1,0 +1,61 @@
+<h3>June 20th, 2001 Status Report</h3>
+<p>20th June 2001</p>
+<p>We are trying to make a better effort to disseminate GNUe information.  We are toying with trying to daily IRC recaps or at least a weekly this is where we are at as a news item.  This is the first stab at it, so please be patient and give feedback on what works and what doesnt.  The biggest news is that we have come to realization that we have enough hands in this thing now and enough items cooking that we need real roadmaps and some release schedules.  This should help keep people interested in status better informed as well.  </p>
+<hr>
+<p>The big question is does it compile.  The answer is yes it has for some time.  We just werent very good at making that known.  GNUe is being used in a few commerical and educational settings for smaller tasks.  Tool by tool breakdown goes as such:
+
+<p>
+
+<b>GEAS</b>- Much stabilization has occurred and a release happened early this week of v0.0.5 .  There will be some bug fixing and a few data type issues resolved in next few days and you will see a v0.1.0 release hopefully by end of next week.  At that point GEAS should be in mode that only way it will realistically grow in correct way is to start making applications like mad with it.  So most of the GEAS team will be focusing on that.  
+
+<p>
+
+<b>Forms</b>- Lots of new goodies here.  Since v0.0.7 a lot has been gutted and redone with datasources, tab support, multiple forms and a plethora of other items have been added.  We are WAY over due for a release.  Expect one very soon.  After that release will be some bug fixing and then we will tackle better binding GEAS.
+
+<p>
+
+<b>Reports</b>- Reports has been started and works.  It is very simplistic right now and only exports XML, no transformation is occurring it will be soon though.  We will release reports as soon as our installer is fixed for it, this should happen in next week or so.
+
+<p>
+
+<b>Designer</b>- Designer showed up out of no where and is just going 
+like the energizer bunny.  It edits forms and allows you to add widgets, 
+it also has a primitive trigger editor.  Eventually it will let you edit 
+properties etc.  Right now it is bundled within forms so will appear in 
+forms releases.  We are working on breaking into a separate product with 
+its own release cycle and version numbers.  If you are CVS brave this is 
+worth checking out. You can see screenshots 
+<a href="../gallery/designer.html>here</a>.
+
+<p>
+
+<b>Integrator</b>- Nothing new to report currently.  Still in design phases.
+
+<p>
+
+<b>Bayonne/GNUCOMM</b>- Currently we are working with Bayonne developers to integrate into GNUe applications before august.  Specifically we are looking at some CRM stuff that is telephony based that interacts with GNUe.  Good things will come of this I promise.
+
+<p>
+
+Now for the applications:
+
+<p>
+
+<b>gnue-config</b>- The base classes, forms, defaults etc for GNUe applications.  This has been waiting on some GEAS features and forms features to start implementation.  It has started to happen though.  When GEAS v0.1.0 releases then the GEAS team will work on solidifying this.  It will become the build blocks of the first modules. Some forms are already in CVS for this stuff as well as default load data.
+
+<p>
+
+<b>SupplyChain/Accounting</b>- We are developing full proposals for implementation.  We expect one or more rudimentary yet useful modules out by August of this year.
+
+<p>
+
+<b>Other</b>- We are working like mad to get organized, get the new site up, get ready for tradeshow and avoiding our real lives. : )
+
+<p>
+
+Hopefully this sheds some life and is helpful.  If you have questions please ask them here or direct to the list.  Thank you all for showing interest in GNUe.</p>
+
+<hr>
+<p><a href="old.html">Return</a> to GNUe News Archive</p>
+
+

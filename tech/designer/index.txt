@@ -1,0 +1,21 @@
+
+GNUe Designer Tech Notes Index
+
+
+==============================================================================
+Current Tech Notes
+==============================================================================
+
+File        Title
+----------  ------------------------------------------------------------------
+00000.txt   GNUe Designer Tech Note Specification
+00001.txt   Guidelines for Writing Templates and Wizards
+00002.txt   Form's "Pre-Positioning" Wizards and Templates
+00003.txt   Events in Designer
+----------  ------------------------------------------------------------------
+
+
+
+--------
+This file automatically created by
+common/utils/create-technote-index.py

@@ -1,0 +1,13 @@
+<h1>GNUe Forms (Curses/text-only client)</h1>
+
+<p>Not all Forms users will have access to the 
+latest computer hardware, or even a modern 
+GUI (Graphical User Interface) system. The 
+curses interface is designed to provide a way 
+of displaying usable versions of GNUe Forms 
+Definitions (.gfds) on character-only devices, 
+such as "green-screen" terminal display units.</p>
+
+<h3>Status</h3>
+
+<$ status ( "curses" ) > 

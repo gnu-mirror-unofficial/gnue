@@ -1,0 +1,14 @@
+Title: Events in Designer
+Status: Current
+Created: 07-OCT-2002
+
+
+ObjectModified
+ObjectDeleted
+ObjectCreated
+
+MakeDirty -- Called after a document has been modified
+MakeClean -- Called after a document has been saved
+
+BeginWizard -- Called whenever a wizard has been selected to run
+EndWizard -- Called whenever a wizard has finished running

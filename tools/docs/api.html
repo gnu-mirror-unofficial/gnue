@@ -1,0 +1,837 @@
+<html lang="en">
+<head>
+<title>The GNUe Appserver API</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="The GNUe Appserver API">
+<meta name=generator content="makeinfo 4.1">
+<link href="http://texinfo.org/" rel=generator-home>
+</head>
+<body>
+<h1>The GNUe Appserver API</h1>
+<h2><a name="TOC0"></a>The GNU Enterprise Application Server</h2>
+
+<p>Application Programmer's Interface
+
+<p>Edition 0.0.7, 2002-12-20
+
+<p>Copyright &copy; 2002 Free Software Foundation
+
+<p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.
+
+<p>A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+<p><hr>
+Node:<a name="Top">Top</a>,
+Next:<a rel=next href="#Data%20Types">Data Types</a>
+<br>
+
+<ul>
+<li><a href="#Data%20Types">Data Types</a>: 
+<li><a href="#API%20Functions">API Functions</a>: 
+<li><a href="#FDL">FDL</a>:  GNU Free Documentation License
+<li><a href="#Index">Index</a>: 
+</ul>
+
+<p><hr>
+Node:<a name="Data%20Types">Data Types</a>,
+Next:<a rel=next href="#API%20Functions">API Functions</a>,
+Previous:<a rel=previous href="#Top">Top</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>Data Types</h2>
+
+<p>In the API definition, we will make use of the following data type
+placeholders, which will have to be translated into appropriate data
+types for the various implemented RPC mechanisms:
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>void</b><i>
+</i></td>
+<td align="right">Data Type</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This is used as the result type for functions that actually don't return
+a result. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>boolean</b><i>
+</i></td>
+<td align="right">Data Type</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This is a boolean data type that can only hold TRUE or FALSE values. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>integer</b><i>
+</i></td>
+<td align="right">Data Type</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This is an integer data type which must be able to contain signed 32 bit
+values.  This restriction limits the maximum list size to more than
+2 billion objects. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>string</b><i>
+</i></td>
+<td align="right">Data Type</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This is a data type that must be able to hold variable lenght strings
+without length limitations. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>stringlist</b><i>
+</i></td>
+<td align="right">Data Type</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This is an one-dimensional array of elements of the type <code>string</code>. 
+Implementation may restrict the number of elements to 32767. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>stringtable</b><i>
+</i></td>
+<td align="right">Data Type</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This is a two-dimensional array of elements of the type <code>string</code>. 
+Implementation may restrict the numer of columns as well as the number
+of rows to 32767. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>session_id</b><i>
+</i></td>
+<td align="right">Data Type</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This is a 32 bit integer value identifying a session.  There is no
+special meaning one could read from the value. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>list_id</b><i>
+</i></td>
+<td align="right">Data Type</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This is a 32 bit integer value identifying a list.  There is no special
+meaning one could read from the value. 
+</td></tr>
+</table>
+
+<p><hr>
+Node:<a name="API%20Functions">API Functions</a>,
+Next:<a rel=next href="#FDL">FDL</a>,
+Previous:<a rel=previous href="#Data%20Types">Data Types</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>API Functions</h2>
+
+<p>All API functions can raise exceptions on failure.  All functions are
+atomic, in the sense that in case of an exception the function has no
+effect at all.  No error in a function call can cause a function to
+be "half-done".
+
+<p>The exact syntax of the API functions is dependant on the selected
+RPC interface and the language sitting on top of it.  However, we
+are describing the functions in a C-like syntax here, using the data
+type placeholders we defined above.
+
+<h3>Session Management</h3>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">session_id <b>open</b><i> (<var>auth_parameters</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Opens a connection to Appserver using the given parameters for
+authentication.  The number and type of the parameters still have to
+be decided.  The return value is a handle to the session that has to
+be passed to all subsequent function calls. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">void <b>close</b><i> (session_id <var>session</var>, boolean <var>commit</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Closes the connection identified by <var>session</var>.  If <var>commit</var> is
+TRUE, an uncommitted transaction of this session is implicitly
+committed; if <var>commit</var> is FALSE, it is implicitly rolled back. 
+After this call, <var>session</var> will no longer be a valid session
+identifier. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">void <b>commit</b><i> (session_id <var>session</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Commits the current transaction of <var>session</var>, making all changes
+permanent
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">void <b>rollback</b><i> (session_id <var>session</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Discards all changes done in <var>session</var> since the last <code>commit</code>
+or <code>rollback</code>. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">void <b>setcontext</b><i> (session_id <var>session</var>, string <var>context</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Sets the current module context for <var>session</var> to <var>context</var>.  The
+module context is used to expand all nonfully qualified references to
+classes, properties, and procedures into fully qualified references for
+all subsequent operations within <var>session</var>. 
+</td></tr>
+</table>
+
+<h3>Handling Lists Of Objects</h3>
+
+<p>These functions provide a means for getting data for a list of objects
+fulfilling certain conditions.
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">list_id <b>request</b><i> (session_id <var>session</var>, string <var>classname</var>, string <var>conditions</var>, stringlist <var>sort_order</var>, stringlist <var>properties</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Requests a list of objects of class <var>classname</var> matching the
+<var>conditions</var>.  Appserver prepares to send the values of the properties
+listed in <var>properties</var> on subsequent calls to <code>fetch</code>, where
+the order of the objects is determined by the properties listed in
+<var>sort_order</var>. 
+The properties in <var>sort_order</var> may, but need not appear in
+<var>properties</var>. 
+If <var>classname</var>, <var>conditions</var>, <var>sort_order</var>, or <var>properties</var>
+contain not fully referenced identifiers for classes or properties, they
+are expanded using <var>context</var> as the current module context.
+
+<p>This function only returns a list identifier.  No actual data is passed
+over the network when calling this function. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">integer <b>count</b><i> (session_id <var>session</var>, list_id <var>list</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Returns the number of objects contained in <var>list</var>, where <var>list</var>
+is the return value of a previous call to <code>request</code>
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">stringtable <b>fetch</b><i> (session_id <var>session</var>, list_id <var>list</var>, integer <var>start</var>, integer <var>count</var>, boolean <var>close</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Returns a 2-dimensional array of data with <var>count</var> rows, where column 0
+always holds the object_id of the object, and the remaining columns contain
+the values for the properties defined in the previous call to <code>request</code>. 
+Negative values for <var>start</var> indicate position from the end of the list. 
+Negative values for <var>count</var> are invalid.  Count may not be greater than
+32767.
+
+<p>If <var>close</var> is TRUE, then the list is "closed", all server-side memory
+allocated with the management of this list is freed and the id <var>list</var>
+may no longer be used in calls to <code>count</code> or <code>fetch</code>. However,
+object_ids and other data already received remains valid. 
+</td></tr>
+</table>
+
+<h3>Handling Specific Objects</h3>
+
+<p>These functions provide a means for reading, writing and deleting an object
+or a set of objects, as well as for calling a procedure for an object or
+a set of objects.  However, the object_ids for the objects to operate upon
+have to be determined before these functions can be used, for example by
+using the list handling functions described above.
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">stringtable <b>load</b><i> (session_id <var>session</var>, string <var>classname</var>, stringlist <var>object_ids</var>, stringlist <var>properties</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Returns a 2-dimensional array of data with a row for every entry in
+the <var>object_ids</var> list and a column for every entry in <var>properties</var>. 
+Unlike <code>fetch</code>, this function does <em>not</em> automatically return
+the object_ids in column 0. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">stringlist <b>store</b><i> (session_id <var>session</var>, string <var>classname</var>, stringlist <var>object_ids</var>, stringlist <var>properties</var>, stringtable <var>values</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Stores the data in <var>values</var> in the objects identified by <var>object_ids</var>. 
+Every row in <var>values</var> matches an entry in <var>object_ids</var>, while every
+column matches an entry in <var>properties</var>. 
+Empty object ids indicate that new objects with that data should be created. 
+Validation is performed before the actual storing is done. If validation
+of a single object fails, none of the objects are stored, but an exception
+is raised. 
+This function returns a list of all object ids of the stored objects.  This
+is important for the caller to know under which object ids the new objects
+have been stored and can be accessed from now on. 
+Note that after calling <code>store</code>, <code>commit</code> has to be called to make
+the changes persistent, while a call to <code>rollback</code> can undo the changes. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">void <b>remove</b><i> (session_id <var>session</var>, string <var>classname</var>, stringlist <var>object_ids</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Deletes the objects of class <var>classname</var> identified through
+<var>object_ids</var>. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">stringlist <b>call</b><i> (session_id <var>session</var>, stringlist <var>object_ids</var>, string <var>procedurename</var>, stringlist <var>parameters</var>)
+</i></td>
+<td align="right">Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+Calls the procedure <var>procedurename</var> for every object identified through
+the <var>object_ids</var> and passes the same <var>parameters</var> to every call. 
+The number of entries in <var>parameters</var> must match the parameter count
+of the procedure. 
+This function returns a list of strings that contains the results of the
+procedure calls for each object. 
+</td></tr>
+</table>
+
+<p><hr>
+Node:<a name="FDL">FDL</a>,
+Next:<a rel=next href="#Index">Index</a>,
+Previous:<a rel=previous href="#API%20Functions">API Functions</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>GNU Free Documentation License</h2>
+
+<div align="center">Version 1.1, March 2000</div>
+<br><pre>Copyright &copy; 2000 Free Software Foundation, Inc.
+59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+</pre>
+
+<ol type=1 start=0>
+</p><li>PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+written document <dfn>free</dfn> in the sense of freedom: to assure everyone
+the effective freedom to copy and redistribute it, with or without
+modifying it, either commercially or noncommercially.  Secondarily,
+this License preserves for the author and publisher a way to get
+credit for their work, while not being considered responsible for
+modifications made by others.
+
+<p>This License is a kind of "copyleft", which means that derivative
+works of the document must themselves be free in the same sense.  It
+complements the GNU General Public License, which is a copyleft
+license designed for free software.
+
+<p>We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free
+program should come with manuals providing the same freedoms that the
+software does.  But this License is not limited to software manuals;
+it can be used for any textual work, regardless of subject matter or
+whether it is published as a printed book.  We recommend this License
+principally for works whose purpose is instruction or reference.
+
+</p><li>APPLICABILITY AND DEFINITIONS
+
+<p>This License applies to any manual or other work that contains a
+notice placed by the copyright holder saying it can be distributed
+under the terms of this License.  The "Document", below, refers to any
+such manual or work.  Any member of the public is a licensee, and is
+addressed as "you".
+
+<p>A "Modified Version" of the Document means any work containing the
+Document or a portion of it, either copied verbatim, or with
+modifications and/or translated into another language.
+
+<p>A "Secondary Section" is a named appendix or a front-matter section of
+the Document that deals exclusively with the relationship of the
+publishers or authors of the Document to the Document's overall subject
+(or to related matters) and contains nothing that could fall directly
+within that overall subject.  (For example, if the Document is in part a
+textbook of mathematics, a Secondary Section may not explain any
+mathematics.)  The relationship could be a matter of historical
+connection with the subject or with related matters, or of legal,
+commercial, philosophical, ethical or political position regarding
+them.
+
+<p>The "Invariant Sections" are certain Secondary Sections whose titles
+are designated, as being those of Invariant Sections, in the notice
+that says that the Document is released under this License.
+
+<p>The "Cover Texts" are certain short passages of text that are listed,
+as Front-Cover Texts or Back-Cover Texts, in the notice that says that
+the Document is released under this License.
+
+<p>A "Transparent" copy of the Document means a machine-readable copy,
+represented in a format whose specification is available to the
+general public, whose contents can be viewed and edited directly and
+straightforwardly with generic text editors or (for images composed of
+pixels) generic paint programs or (for drawings) some widely available
+drawing editor, and that is suitable for input to text formatters or
+for automatic translation to a variety of formats suitable for input
+to text formatters.  A copy made in an otherwise Transparent file
+format whose markup has been designed to thwart or discourage
+subsequent modification by readers is not Transparent.  A copy that is
+not "Transparent" is called "Opaque".
+
+<p>Examples of suitable formats for Transparent copies include plain
+<small>ASCII</small> without markup, Texinfo input format, LaTeX input format,
+<small>SGML</small> or <small>XML</small> using a publicly available
+<small>DTD</small>, and standard-conforming simple <small>HTML</small> designed
+for human modification.  Opaque formats include PostScript,
+<small>PDF</small>, proprietary formats that can be read and edited only by
+proprietary word processors, <small>SGML</small> or <small>XML</small> for which
+the <small>DTD</small> and/or processing tools are not generally available,
+and the machine-generated <small>HTML</small> produced by some word
+processors for output purposes only.
+
+<p>The "Title Page" means, for a printed book, the title page itself,
+plus such following pages as are needed to hold, legibly, the material
+this License requires to appear in the title page.  For works in
+formats which do not have any title page as such, "Title Page" means
+the text near the most prominent appearance of the work's title,
+preceding the beginning of the body of the text.
+
+</p><li>VERBATIM COPYING
+
+<p>You may copy and distribute the Document in any medium, either
+commercially or noncommercially, provided that this License, the
+copyright notices, and the license notice saying this License applies
+to the Document are reproduced in all copies, and that you add no other
+conditions whatsoever to those of this License.  You may not use
+technical measures to obstruct or control the reading or further
+copying of the copies you make or distribute.  However, you may accept
+compensation in exchange for copies.  If you distribute a large enough
+number of copies you must also follow the conditions in section 3.
+
+<p>You may also lend copies, under the same conditions stated above, and
+you may publicly display copies.
+
+</p><li>COPYING IN QUANTITY
+
+<p>If you publish printed copies of the Document numbering more than 100,
+and the Document's license notice requires Cover Texts, you must enclose
+the copies in covers that carry, clearly and legibly, all these Cover
+Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
+the back cover.  Both covers must also clearly and legibly identify
+you as the publisher of these copies.  The front cover must present
+the full title with all words of the title equally prominent and
+visible.  You may add other material on the covers in addition. 
+Copying with changes limited to the covers, as long as they preserve
+the title of the Document and satisfy these conditions, can be treated
+as verbatim copying in other respects.
+
+<p>If the required texts for either cover are too voluminous to fit
+legibly, you should put the first ones listed (as many as fit
+reasonably) on the actual cover, and continue the rest onto adjacent
+pages.
+
+<p>If you publish or distribute Opaque copies of the Document numbering
+more than 100, you must either include a machine-readable Transparent
+copy along with each Opaque copy, or state in or with each Opaque copy
+a publicly-accessible computer-network location containing a complete
+Transparent copy of the Document, free of added material, which the
+general network-using public has access to download anonymously at no
+charge using public-standard network protocols.  If you use the latter
+option, you must take reasonably prudent steps, when you begin
+distribution of Opaque copies in quantity, to ensure that this
+Transparent copy will remain thus accessible at the stated location
+until at least one year after the last time you distribute an Opaque
+copy (directly or through your agents or retailers) of that edition to
+the public.
+
+<p>It is requested, but not required, that you contact the authors of the
+Document well before redistributing any large number of copies, to give
+them a chance to provide you with an updated version of the Document.
+
+</p><li>MODIFICATIONS
+
+<p>You may copy and distribute a Modified Version of the Document under
+the conditions of sections 2 and 3 above, provided that you release
+the Modified Version under precisely this License, with the Modified
+Version filling the role of the Document, thus licensing distribution
+and modification of the Modified Version to whoever possesses a copy
+of it.  In addition, you must do these things in the Modified Version:
+
+<ol type=A start=1>
+</p><li>Use in the Title Page (and on the covers, if any) a title distinct
+from that of the Document, and from those of previous versions
+(which should, if there were any, be listed in the History section
+of the Document).  You may use the same title as a previous version
+if the original publisher of that version gives permission.
+
+<li>List on the Title Page, as authors, one or more persons or entities
+responsible for authorship of the modifications in the Modified
+Version, together with at least five of the principal authors of the
+Document (all of its principal authors, if it has less than five).
+
+<li>State on the Title page the name of the publisher of the
+Modified Version, as the publisher.
+
+<li>Preserve all the copyright notices of the Document.
+
+<li>Add an appropriate copyright notice for your modifications
+adjacent to the other copyright notices.
+
+<li>Include, immediately after the copyright notices, a license notice
+giving the public permission to use the Modified Version under the
+terms of this License, in the form shown in the Addendum below.
+
+<li>Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document's license notice.
+
+<li>Include an unaltered copy of this License.
+
+<li>Preserve the section entitled "History", and its title, and add to
+it an item stating at least the title, year, new authors, and
+publisher of the Modified Version as given on the Title Page.  If
+there is no section entitled "History" in the Document, create one
+stating the title, year, authors, and publisher of the Document as
+given on its Title Page, then add an item describing the Modified
+Version as stated in the previous sentence.
+
+<li>Preserve the network location, if any, given in the Document for
+public access to a Transparent copy of the Document, and likewise
+the network locations given in the Document for previous versions
+it was based on.  These may be placed in the "History" section. 
+You may omit a network location for a work that was published at
+least four years before the Document itself, or if the original
+publisher of the version it refers to gives permission.
+
+<li>In any section entitled "Acknowledgments" or "Dedications",
+preserve the section's title, and preserve in the section all the
+substance and tone of each of the contributor acknowledgments
+and/or dedications given therein.
+
+<li>Preserve all the Invariant Sections of the Document,
+unaltered in their text and in their titles.  Section numbers
+or the equivalent are not considered part of the section titles.
+
+<li>Delete any section entitled "Endorsements".  Such a section
+may not be included in the Modified Version.
+
+<li>Do not retitle any existing section as "Endorsements"
+or to conflict in title with any Invariant Section.
+</ol>
+
+<p>If the Modified Version includes new front-matter sections or
+appendices that qualify as Secondary Sections and contain no material
+copied from the Document, you may at your option designate some or all
+of these sections as invariant.  To do this, add their titles to the
+list of Invariant Sections in the Modified Version's license notice. 
+These titles must be distinct from any other section titles.
+
+<p>You may add a section entitled "Endorsements", provided it contains
+nothing but endorsements of your Modified Version by various
+parties--for example, statements of peer review or that the text has
+been approved by an organization as the authoritative definition of a
+standard.
+
+<p>You may add a passage of up to five words as a Front-Cover Text, and a
+passage of up to 25 words as a Back-Cover Text, to the end of the list
+of Cover Texts in the Modified Version.  Only one passage of
+Front-Cover Text and one of Back-Cover Text may be added by (or
+through arrangements made by) any one entity.  If the Document already
+includes a cover text for the same cover, previously added by you or
+by arrangement made by the same entity you are acting on behalf of,
+you may not add another; but you may replace the old one, on explicit
+permission from the previous publisher that added the old one.
+
+<p>The author(s) and publisher(s) of the Document do not by this License
+give permission to use their names for publicity for or to assert or
+imply endorsement of any Modified Version.
+
+</p><li>COMBINING DOCUMENTS
+
+<p>You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified
+versions, provided that you include in the combination all of the
+Invariant Sections of all of the original documents, unmodified, and
+list them all as Invariant Sections of your combined work in its
+license notice.
+
+<p>The combined work need only contain one copy of this License, and
+multiple identical Invariant Sections may be replaced with a single
+copy.  If there are multiple Invariant Sections with the same name but
+different contents, make the title of each such section unique by
+adding at the end of it, in parentheses, the name of the original
+author or publisher of that section if known, or else a unique number. 
+Make the same adjustment to the section titles in the list of
+Invariant Sections in the license notice of the combined work.
+
+<p>In the combination, you must combine any sections entitled "History"
+in the various original documents, forming one section entitled
+"History"; likewise combine any sections entitled "Acknowledgments",
+and any sections entitled "Dedications".  You must delete all sections
+entitled "Endorsements."
+
+</p><li>COLLECTIONS OF DOCUMENTS
+
+<p>You may make a collection consisting of the Document and other documents
+released under this License, and replace the individual copies of this
+License in the various documents with a single copy that is included in
+the collection, provided that you follow the rules of this License for
+verbatim copying of each of the documents in all other respects.
+
+<p>You may extract a single document from such a collection, and distribute
+it individually under this License, provided you insert a copy of this
+License into the extracted document, and follow this License in all
+other respects regarding verbatim copying of that document.
+
+</p><li>AGGREGATION WITH INDEPENDENT WORKS
+
+<p>A compilation of the Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage or
+distribution medium, does not as a whole count as a Modified Version
+of the Document, provided no compilation copyright is claimed for the
+compilation.  Such a compilation is called an "aggregate", and this
+License does not apply to the other self-contained works thus compiled
+with the Document, on account of their being thus compiled, if they
+are not themselves derivative works of the Document.
+
+<p>If the Cover Text requirement of section 3 is applicable to these
+copies of the Document, then if the Document is less than one quarter
+of the entire aggregate, the Document's Cover Texts may be placed on
+covers that surround only the Document within the aggregate. 
+Otherwise they must appear on covers around the whole aggregate.
+
+</p><li>TRANSLATION
+
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4. 
+Replacing Invariant Sections with translations requires special
+permission from their copyright holders, but you may include
+translations of some or all Invariant Sections in addition to the
+original versions of these Invariant Sections.  You may include a
+translation of this License provided that you also include the
+original English version of this License.  In case of a disagreement
+between the translation and the original English version of this
+License, the original English version will prevail.
+
+</p><li>TERMINATION
+
+<p>You may not copy, modify, sublicense, or distribute the Document except
+as expressly provided for under this License.  Any other attempt to
+copy, modify, sublicense or distribute the Document is void, and will
+automatically terminate your rights under this License.  However,
+parties who have received copies, or rights, from you under this
+License will not have their licenses terminated so long as such
+parties remain in full compliance.
+
+</p><li>FUTURE REVISIONS OF THIS LICENSE
+
+<p>The Free Software Foundation may publish new, revised versions
+of the GNU Free Documentation License from time to time.  Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.  See
+<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+
+<p>Each version of the License is given a distinguishing version number. 
+If the Document specifies that a particular numbered version of this
+License "or any later version" applies to it, you have the option of
+following the terms and conditions either of that specified version or
+of any later version that has been published (not as a draft) by the
+Free Software Foundation.  If the Document does not specify a version
+number of this License, you may choose any version ever published (not
+as a draft) by the Free Software Foundation.
+</ol>
+
+<h3>ADDENDUM: How to use this License for your documents</h3>
+
+<p>To use this License in a document you have written, include a copy of
+the License in the document and put the following copyright and
+license notices just after the title page:
+
+<br><pre>  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.1
+  or any later version published by the Free Software Foundation;
+  with the Invariant Sections being <var>list their titles</var>, with the
+  Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts being <var>list</var>.
+  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
+</pre>
+
+<p>If you have no Invariant Sections, write "with no Invariant Sections"
+instead of saying which ones are invariant.  If you have no
+Front-Cover Texts, write "no Front-Cover Texts" instead of
+"Front-Cover Texts being <var>list</var>"; likewise for Back-Cover Texts.
+
+<p>If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of
+free software license, such as the GNU General Public License,
+to permit their use in free software.
+
+<p><hr>
+Node:<a name="Index">Index</a>,
+Next:<a rel=next href="#(null)">(null)</a>,
+Previous:<a rel=previous href="#FDL">FDL</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>Data Type and Function Index</h2>
+
+<ul compact>
+<li><code>boolean</code>: <a href="#Data%20Types">Data Types</a>
+<li><code>call</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>close</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>commit</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>count</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>fetch</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>integer</code>: <a href="#Data%20Types">Data Types</a>
+<li><code>list_id</code>: <a href="#Data%20Types">Data Types</a>
+<li><code>load</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>open</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>remove</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>request</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>rollback</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>session_id</code>: <a href="#Data%20Types">Data Types</a>
+<li><code>setcontext</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>store</code>: <a href="#API%20Functions">API Functions</a>
+<li><code>string</code>: <a href="#Data%20Types">Data Types</a>
+<li><code>stringlist</code>: <a href="#Data%20Types">Data Types</a>
+<li><code>stringtable</code>: <a href="#Data%20Types">Data Types</a>
+<li><code>void</code>: <a href="#Data%20Types">Data Types</a>
+</ul>
+
+
+</body></html>
+

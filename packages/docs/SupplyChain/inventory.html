@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Inventory Module</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="		GNU Enterprise - Supply Chain Package Proposal 
+	"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE=" Introduction "
+HREF="introduction.html"><LINK
+REL="NEXT"
+TITLE="Warehouse Module"
+HREF="warehouse.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>GNU Enterprise - Supply Chain Package Proposal</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="introduction.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="warehouse.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="INVENTORY">Chapter 2. Inventory Module</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN52">2.1. Requirements</H1
+><P
+>			This chapter is $Revision: 1.1 $ $Date: 2003/01/05 00:00:30 $. 
+		</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN55">2.1.1. Inventory Module Business Requirements</H2
+><P
+>			(TODO) This section has a lot of stuff that really should be in the warehouse module.
+			</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Each quantity can be designated with a definable status like good stock, reserved stock, waiting for quality approval, not-usable or etc. Each quanitity also has a definable storge location.
+					</P
+></LI
+><LI
+><P
+>						Provide capability to generate pick list from open sales orders. Pick list will have item names, quantity and warehouse locations and have a place to denote which items and quantity have actually been picked from inventory. 
+					</P
+></LI
+><LI
+><P
+>						Reconcile annual or ad hoc physical inventory counts (does not include cycle counting). Print count tags and reconcile inventory. 
+					</P
+></LI
+><LI
+><P
+>						Maintain standard cost of inventory items. 
+					</P
+></LI
+><LI
+><P
+>						Inventory transactions. Each inventory movement will create a log entry that keeps track of the source of the transaction, (i.e. vendor receipt, customer receipt, scrap, lost, inventory adjustment, etc.) date, time, login user, item code, and quantity. 
+					</P
+></LI
+><LI
+><P
+>						Maintain alternate part numbers. 
+					</P
+></LI
+><LI
+><P
+>						Annotate items with stock replenishment scheme as stock (default, manual reorder) or non-stock status (special order). The Demand Management Module may add additional rules to the replenishment scheme. 
+					</P
+></LI
+><LI
+><P
+>						Annotate items with resale status, product-resale, internal use, or service-resale. 
+					</P
+></LI
+><LI
+><P
+>						Annotate items with MSDS information. MSDS stands for Material Safety Data Sheet. The point here is not to duplicate the MSDS, but rather to reference the correct MSDS for the item. This information will be available for printing on pick lists, purchase orders etc. 
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN77">2.1.2. Future Requirements</H2
+><P
+>				The following items will be implemented in future version of this module. They may be implemented in the base module or be added via an industry specific add on. 
+			</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Cycle counting. Cycle counting is a method of issues a random count list on a daily, weekly or monthly basis with the item code and location (but now quantity), having the stock room staff count the number on hand. The computer then compares the number counted with the number expected and if they agree great. If not, then the item is counted again. If they still dont agree then the quantity is adjusted if approved by a supervisor. 
+					</P
+></LI
+><LI
+><P
+>						ABC analysis and reports. Divide inventory by cost and throughput such that high impact items can be focused on. 
+					</P
+></LI
+><LI
+><P
+>						Inventory performance analysis. 
+					</P
+></LI
+><LI
+><P
+>						Lot tracking. Track an incoming lot of material and maintain enough information to trace the lot through manufacturing, assembly and distribution. 
+					</P
+></LI
+><LI
+><P
+>						Serial number tracking. Inventory management that tracks individual items based on their serial numbers. 
+					</P
+></LI
+><LI
+><P
+>						Shelf-life management. This functionality will include management of items that have an expiration date and therefore need to be removed after the expiration date and also the ability to dispense the oldest items first. 
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN93">2.1.3. Business Objects</H2
+><P
+>				The following Business Objects are defined and maintained by this module. 
+			</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Item 
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN99">2.1.4. Forms</H2
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Enter results from physical count. 
+					</P
+></LI
+><LI
+><P
+>						Inventory Look-up. This forms will allow look-up of inventory by description, part number, type, or location. For the group of items found it will display part number, location, location status (if more than one is defined), and quantity. 
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN106">2.1.5. Reports</H2
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Inventory report. List of inventory items sorted in various ways. Contains item number, description, inventory types, quantity on-hand, location, cost, last receipt date, and last dispersement date. Sort by part number, description, or location. 
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN111">2.1.6. Business Rules</H2
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>						Standard Cost. Standard cost is set manually by someone. 
+					</P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN116">2.1.7. Business Object Definition</H2
+><P
+>				<PRE
+CLASS="PROGRAMLISTING"
+>					
+# $RCSfile: inventory.html,v $: Inventory item definition.
+#                  
+# Copyright (C) 2001 Free Software Foundation, Inc.
+#
+# This file is part of GNU Enterprise.
+#
+# GNU Enterprise is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+# 
+# GNU Enterprise is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Enterprise; see the file COPYING.  If not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+# 02111-1307 USA.
+#
+# This file originally written by Neil Tiffin (neilt@gnue.org).
+#
+# $Revision: 1.1 $ $Date: 2003/01/05 00:00:30 $ $Author: psu_gnue $
+#
+
+module inv
+{
+  # -------------------------------------------------------------------------
+  # type - Type of quantity
+  # -------------------------------------------------------------------------
+  class i_type
+  {
+    char name&#60;20&#62;;
+    char descr&#60;70&#62;;
+  };
+  
+  # -------------------------------------------------------------------------
+  # stock_quantity - Quantity tracked.
+  # -------------------------------------------------------------------------
+  class stock_quantity
+  {
+    unit::quantity   quantity; # various types of quantities
+    inv::i_type     *i_type;   # on-hand, scrap, on order etc.
+    whse::storage   *location; # in this one location.
+  };
+  
+  # -------------------------------------------------------------------------
+  # stock_item -
+  # -------------------------------------------------------------------------
+  class stock_item : base_item::item
+  {
+         
+    inv::stock_quantity   [] quantity;   # various types of quantities
+         
+    unit::quantity    weight;
+    unit::quantity    volume;
+    
+    char              msds_reference&#60;100&#62;;  # material data safety sheet reference
+    text              inventory_notes;      # inventory handling note
+    
+  };
+
+};
+ 
+				</PRE
+>
+			</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="introduction.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="warehouse.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Warehouse Module</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

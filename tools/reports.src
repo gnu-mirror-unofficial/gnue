@@ -1,0 +1,15 @@
+<h1>GNUe Reports</h1>
+
+<p>The ultimate goal of GNUe Reports is to take an XML-based
+report definition and generate an XML output stream conforming 
+to this report definition. The XML output can then be converted
+into whatever format is required by the client.<p>
+
+<h3>Status</h3>
+
+<$ status ( "reports" ) > 
+
+<h3>Samples</h3>
+
+<p>Some <a href="../gallery/reports.html">sample</a> report 
+files are available.</p>
