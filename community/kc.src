@@ -1,2 +1,2 @@
-<? include ( 'community/traffic.src' ) >
+<$ include ( 'community/traffic.src' ) >
 
