@@ -81,29 +81,29 @@ def filelist ( directory ):
 def status ( tool ):
    "Prints status of specified tool"
    s = { 
-      'forms' : '''Release 0.4.3 (December 2002) available for download. 
+      'forms' : '''Release 0.5.0 (April 2003) available for download. 
           Development work continues in CVS.''', 
       'curses' : '''Initial "proof-of-concept" support included in Release 
-          0.4.3 (December 2002). Official support likely in the 
+          0.5.0 (April 2003). Official support likely in the 
           0.5.0 release of Forms.''', 
-      'gtkforms' : '''Release 0.4.3 (December 2002) available for download. 
+      'gtkforms' : '''Release 0.5.0 (April 2003) available for download. 
           Development work continues in CVS.''',
       'phpforms' : '''Available in CVS. Not currently under active 
           development.''',
       'bayonneforms' : '''Not yet started.''', 
-      'designer' : '''Release 0.4.2 (December 2002) available for download. 
+      'designer' : '''Release 0.5.0 (April 2003) available for download. 
           Development work continues in CVS.''', 
-      'reports' : '''Release 0.1.0 (November 2002) available for download. 
+      'reports' : '''Release 0.1.1 (April 2003) available for download. 
           Development work continues in CVS.''',
-      'appserver' : '''Release 0.0.2 (September 2002) available for download. 
+      'appserver' : '''Release 0.0.3 (April 2003) available for download. 
           This is a very early 'proof of concept' release. 
           Development work continues in CVS.''', 
-      'common' : '''Release 0.4.3 (December 2002) available for download. 
+      'common' : '''Release 0.5.0 (April 2003) available for download. 
           Development work continues in CVS.''', 
       'integrator' : '''Work is now underway in CVS.''', 
-      'navigator' : '''Release 0.0.2 (November 2002) available for download. 
+      'navigator' : '''Release 0.0.4 (April 2003) available for download. 
           Development work continues in CVS.''', 
-      'bayonne' : '''Release 1.1 (November 2002) available on the 
+      'bayonne' : '''Release 1.2 (April 2003) available on the 
           <a href="http://www.gnu.org/software/bayonne">bayonne</a> website.''',
       'docstore' : '''<a href="http://green.zorcat.com/~nick/proj/document-store/gnue/spec/Document-Store/documentstorespec.html">
           Proposals</a> have been written. No work yet done on implementation.''', 
