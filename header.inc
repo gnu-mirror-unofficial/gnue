@@ -51,8 +51,8 @@
     <td width="180" height="25">&nbsp;</td>
     <td height="25" align="center">
     <!-- strapline -->
-       <!-- <a href="../news/news135.html" class="blacklink">0.5.1 -->
-Release 0.0.4 (Sept. 2003) available for download. This is a preview release, not ready for production use. Development continues in CVS.
+       <a href="../news/news135.html" class="blacklink">0.5.1 releases</a>
+available for download. 
     </td>
   </tr>
 </table>

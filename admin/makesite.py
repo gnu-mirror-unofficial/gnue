@@ -95,9 +95,9 @@ def status ( tool ):
           Development work continues in CVS.''', 
       'reports' : '''Release 0.1.2 (August 2003) available for download. 
           Development work continues in CVS.''',
-      'appserver' : '''Release 0.0.3 (April 2003) available for download. 
-          This is a very early 'proof of concept' release. 
-          Development work continues in CVS.''', 
+      'appserver' : '''Release 0.0.4 (September 2003) available for download. 
+          This is a preview release, not ready for production use. 
+          Development continues in CVS.''',
       'common' : '''Release 0.5.1 (August 2003) available for download. 
           Development work continues in CVS.''', 
       'integrator' : '''Work is now underway in CVS.''', 
