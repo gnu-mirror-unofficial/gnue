@@ -1,11 +1,19 @@
-<h3>Help GNUe to help you</h3>
+<h3>0.5.0 pre-releases ready for testing</h3>
 
-<p>22 February 2003</p>
-<p>The <a href="../project/help.html">Help GNUe</a> page has 
-now been updated with further details of ways to help GNUe 
-financially - some of which don't even cost you anything. 
-Check it out...</p>
-<p>(Of course, there are lots of other ways to 
-<a href="../community/involve.html">get involved</a> in GNUe 
-as well.)</p>
+<p>02 April 2003</p>
+<p>We are gearing up for a 0.5.0 release of Forms, 
+Common and Deigner in the next few days. As usual, we 
+have a series of (about daily)  pre-releases available for testing 
+<a
+href="http://www.gnuenterprise.org/downloads/prereleases.php">on 
+the website</a> as "0.4.99" releases, in an effort to squish 
+any last-minute bugs.</p>
+<p>If you are an existing GNUe user, it would be very helpful
+for us if you could download the pre-releases and check that 
+they work with any applications you have written using the GNUe
+tools. In particular, as previously advised, the 0.5.0 version 
+of the tools introduces a new, incompatible, *.gfd (GNUe 
+Forms Definition) format. There is a conversion tool that 
+automates much (but not all) of the conversion from old 
+to new fomat, and this also needs testing.</p>
 

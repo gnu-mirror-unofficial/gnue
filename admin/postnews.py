@@ -168,5 +168,9 @@ print 'News posted'
 print '-----------'
 print 'Article posted as news' + num + '.src'
 print 'Please update CVS as soon as possible to avoid conflicts'
+print ' ' 
+print 'cvs add ../news/news' + num + '.*'
+print 'cvs commit'
 
+os.chdir ( 'admin' )
 import makesite
