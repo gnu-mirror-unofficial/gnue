@@ -28,16 +28,23 @@ other free software projects.</p>
 </ul>
 
 <pre>
-[jamest@hobbes cvs]$ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue login
-  (Logging in to anoncvs@subversions.gnu.org)
-  CVS password: **Password is left blank
+  $ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue login
+    (Logging in to anoncvs@subversions.gnu.org)
+    CVS password: **Password is left blank
 
-[jamest@hobbes cvs]$ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue co gnue
+  $ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue co gnue-common
+  $ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue co gnue-appserver
+  $ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue co gnue-forms
+  $ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue co gnue-reports
+  $ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue co gnue-designer
+  $ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue co gnue-navigator
+  $ cvs -d :pserver:anoncvs@subversions.gnu.org:/cvsroot/gnue co gnue-integrator
+
 </pre>
 
 
 <ul>
-   <li>You now have a local copy of the repository.</li>
+   <li>You now have a local copy of the various repositories.</li>
 </ul>
 
 <p><i><b>**NOTE:  There is NO password for anoncvs.  
