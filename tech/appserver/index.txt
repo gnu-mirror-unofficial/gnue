@@ -9,6 +9,8 @@ Current Tech Notes
 File        Title
 ----------  ------------------------------------------------------------------
 00000.txt   GNUe Appserver Tech Note Specification
+00001.txt   The Python Language Interface
+00002.txt   The Class Repository
 ----------  ------------------------------------------------------------------
 
 

@@ -1,0 +1,59 @@
+Title:   The Class Repository
+Status:  Current 
+Created: 2003-09-17
+Revised: 2003-09-17
+
+The Class Repository holds all information about the structure of the business
+objects.
+
+To use the Class Repository, you need to "from gnue.appserver import classrep".
+
+Please regard all class repository object as read-only object. To change data
+in the class repository, access the underlying business objects.
+
+
+The Module Object
+=================
+
+The global variable "classrep.modules" holds a dictionary of all modules. Each
+module is represented by a module object, the key is the module name.
+
+All properties of the gnue_module business object (described in the API
+documentation) are also accessible as properties of the module Python object.
+Apart from that, the module Python object has a property "classes" that lists
+all classes defined by that module (in the form of a dictionary).
+
+
+The Class Object
+================
+
+A dictionary of classes originally defined by a specific module can be obtained
+from "module.classes". A dictionary of all classes is available in the global
+variable "classrep.classes". Both dictionaries use the fully qualified class
+name as key.
+
+All properties of the gnue_class business object (described in the API
+documentation) are also accessible as properties of the class Python object.
+
+Apart from that, the class Python object has these properties:
+
+* module: The module originally defining the class
+* fullName: The fully qualified name
+* table: The underlying database table
+* properties: A dictionary of all properties of the class, where the fully
+  qualified property name acts as the key
+
+
+The Property Object
+===================
+
+All properties of the gnue_property business object (described in the API
+documentation) are also accessible as properties of the corresponding Python
+object.
+
+Apart from that, the Python object of class "Property" has the following
+properties:
+
+* fullName: The fully qualified name
+* column: The underlying database column (or None if it is a calculated
+  property (not yet implemented))
