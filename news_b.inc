@@ -1,18 +1,13 @@
-<h3>Pre-releases for 0.5.0 and form convertor</h3>
+<h3>Web site changes</h3>
 
-<p>17th December 2002</p>
-<p>
-Pre-releases for Forms (0.5.0), Designer (0.5.0) and Common (0.4.4) are
-now available for testing 
-<a href="http://www.gnuenterprise.org/downloads/prereleases.php">on 
-the website</a>. As discussed 
-<a href="http://mail.gnu.org/pipermail/gnue/2002-November/003414.html">on 
-the mailing lists</a>, the big change for 0.5.0 will be the new format 
-for the .gfd (GNUe Form Definition) files, to split the layout and 
-logic. So, as well as the normal pre-release checking, please can people 
-try out the Form format convertor routine (which should do most of the 
-conversion from old to new format for you) and 
-<a href="../community/bugs.html">let us know</a>
-of any problems.
-</p>
+<p>05 February 2003</p>
+<p>The few visible recent changes to the website (plus 
+the occasional glitch) mask a lot more changes underneath. 
+The most significant change is that the site is now
+available, in the same format, at both
+<a href="http://www.gnu.org/software/gnue/project/what.html">
+www.gnu.org/software/gnue/</a> and
+<a href="http://www.gnuenterprise.org/project/what.html">
+www.gnuenterprise.org</a>.</p>
 
+<p><a href="../news/news129.html">More ...</a></p>

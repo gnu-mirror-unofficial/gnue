@@ -1,19 +1,11 @@
-<h3>GNUe Designer 0.4.3 for wxPython 2.4 users</h3>
+<h3>GNUe RPMs</h3>
 
-<p>03 February 2003</p>
-<p>Please note that all versions of GNUe Designer up to <b>and including</b> 
-0.4.2 and the 0.5.0 pre-releases are incompatible with the new 2.4 
-release of wxPython. In particular, Debian users should note that this is 
-now the default version in the unstable ("sid") distribution.</p>
-
-<p>The fixes have already applied to the CVS 
-version of GNUe - and hence it will also be included in 0.5.0 when it's 
-officially released. However, for the moment, we have done a bug-fix
-release in the stable ("0.4.x") branch, and released a 0.4.3 version 
-of GNUe Designer which includes the fixes.</p>
-
-<p>Unless you need to use GNUe Designer with wxPython 2.4, there is no 
-need to upgrade at the moment - you can safely wait for the 0.5.0 
-releases. Also, note that the problems with wxPython do not affect 
-GNUe Forms, so this remains at version 0.4.3.</p>
+<p>05 February 2003</p>
+<p>Available for download at 
+<a href ="http://home.attbi.com/~ejarvi/">home.attbi.com/~ejarvi/</a>
+are GNUe RPM packages of the last releases. They were built on 
+Redhat 8.0. Testing, results, feedback on other RPM based distros 
+appreciated.  (I'm unable to post to the mailing list due to spam 
+filtering, hence this message.)
+</p>
 
