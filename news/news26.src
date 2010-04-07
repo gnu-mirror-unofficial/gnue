@@ -1,7 +1,0 @@
-<h3>Gartner Warns Dont Over Spend on Application Servers</h3>
-<p>22nd August 2001</p>
-<p>There is a good <a href="http://www.nwfusion.com/news/2001/0821gartnerapp.html">article</a> over at <a href="http://www.nwfusion.com/">NetworkWorldFusion</a> that gives a recap of a recent <a href="http://www.gartner.com">Gartner</a> finding on middleware (application servers).  They explain how most Enterprises dont understand the technology and that they get lost in the buzzwords of J2EE and EJB and other items.  In that confusion vendors take advantage of them and end up spending a lot more money than they need to.  I found it VERY interesting that Gartner suggested seeing if you already have the technology before you buy it (though they allude specifically to Microsoft) or that you use FREE alternatives.  For those looking for free solutions, I will shamelessly plug our very own GNU Enterprise Application Server. </p>
-<hr>
-<p><a href="old.html">Return</a> to GNUe News Archive</p>
-
-

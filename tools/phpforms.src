@@ -1,8 +1,0 @@
-<h1>GNUe Forms (php client)</h1>
-
-<p>One of several attempts (along with Java and Javascript) 
-to provide an HTML-based Forms client for GNUe.</p>
-
-<h3>Status</h3>
-
-<$ status ( "phpforms" ) > 
